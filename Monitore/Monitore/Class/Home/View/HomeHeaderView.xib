@@ -18,51 +18,51 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GVm-dB-d6u">
-                    <rect key="frame" x="0.0" y="0.0" width="445" height="151.5"/>
+                    <rect key="frame" x="0.0" y="0.0" width="445" height="147.5"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jea-2f-BGo">
-                    <rect key="frame" x="0.0" y="159.5" width="445" height="151.5"/>
+                    <rect key="frame" x="0.0" y="163.5" width="445" height="147.5"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ViB-rr-hY4">
-                            <rect key="frame" x="50" y="30" width="89" height="89"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dy6-oj-K0n">
+                            <rect key="frame" x="178" y="29.5" width="89" height="89"/>
+                            <color key="backgroundColor" red="0.18056081239999999" green="0.4099377394" blue="0.6706656218" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <state key="normal" title="Button"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="slq-3z-wpS" userLabel="Button3">
+                            <rect key="frame" x="311.5" y="30" width="89" height="89"/>
+                            <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" title="Button"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ViB-rr-hY4" userLabel="Button1">
+                            <rect key="frame" x="44.5" y="30" width="89" height="89"/>
                             <color key="backgroundColor" red="0.5568627451" green="0.76470588240000004" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="ViB-rr-hY4" secondAttribute="height" multiplier="1:1" id="MEc-B3-Wd1"/>
                             </constraints>
                             <state key="normal" title="Button"/>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="slq-3z-wpS">
-                            <rect key="frame" x="306" y="30" width="89" height="89"/>
-                            <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            <state key="normal" title="Button"/>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dy6-oj-K0n">
-                            <rect key="frame" x="178" y="29.5" width="89" height="89"/>
-                            <color key="backgroundColor" red="0.18056081239999999" green="0.4099377394" blue="0.6706656218" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            <state key="normal" title="Button"/>
-                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="ViB-rr-hY4" firstAttribute="leading" secondItem="Jea-2f-BGo" secondAttribute="leading" constant="50" id="14o-sL-JUT"/>
                         <constraint firstItem="Dy6-oj-K0n" firstAttribute="height" secondItem="ViB-rr-hY4" secondAttribute="height" id="82x-3Q-8FS"/>
+                        <constraint firstItem="slq-3z-wpS" firstAttribute="centerX" secondItem="Jea-2f-BGo" secondAttribute="centerX" multiplier="1.6" id="DLB-0m-90R"/>
                         <constraint firstItem="slq-3z-wpS" firstAttribute="height" secondItem="ViB-rr-hY4" secondAttribute="height" id="S6c-6u-Q3O"/>
                         <constraint firstItem="Dy6-oj-K0n" firstAttribute="width" secondItem="ViB-rr-hY4" secondAttribute="width" id="WpZ-kf-XrO"/>
-                        <constraint firstItem="ViB-rr-hY4" firstAttribute="width" secondItem="Jea-2f-BGo" secondAttribute="width" multiplier="0.2" id="Y7N-j0-xTO"/>
                         <constraint firstItem="slq-3z-wpS" firstAttribute="width" secondItem="ViB-rr-hY4" secondAttribute="width" id="ZWP-1V-7u8"/>
                         <constraint firstItem="ViB-rr-hY4" firstAttribute="top" secondItem="Jea-2f-BGo" secondAttribute="top" constant="30" id="ZjH-Io-lgX"/>
                         <constraint firstItem="Dy6-oj-K0n" firstAttribute="centerX" secondItem="Jea-2f-BGo" secondAttribute="centerX" id="d8V-kK-noX"/>
+                        <constraint firstItem="ViB-rr-hY4" firstAttribute="centerY" secondItem="Jea-2f-BGo" secondAttribute="centerY" id="dCu-Zr-Fyv"/>
                         <constraint firstItem="Dy6-oj-K0n" firstAttribute="centerY" secondItem="ViB-rr-hY4" secondAttribute="centerY" id="fmN-xH-4jH"/>
+                        <constraint firstItem="ViB-rr-hY4" firstAttribute="centerX" secondItem="Jea-2f-BGo" secondAttribute="centerX" multiplier="0.4" id="llY-VN-FzB"/>
                         <constraint firstItem="slq-3z-wpS" firstAttribute="centerY" secondItem="ViB-rr-hY4" secondAttribute="centerY" id="nfm-1Z-nLZ"/>
-                        <constraint firstAttribute="trailing" secondItem="slq-3z-wpS" secondAttribute="trailing" constant="50" id="yiT-i2-BVE"/>
                     </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" red="0.94121348857879639" green="0.94502955675125122" blue="0.94902777671813965" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="Jea-2f-BGo" secondAttribute="bottom" id="8C2-qb-Sic"/>
-                <constraint firstItem="GVm-dB-d6u" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.5" constant="-4" id="Cya-BQ-OAf"/>
+                <constraint firstItem="GVm-dB-d6u" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.5" constant="-8" id="Cya-BQ-OAf"/>
                 <constraint firstAttribute="trailing" secondItem="GVm-dB-d6u" secondAttribute="trailing" id="Qbs-AJ-CAU"/>
                 <constraint firstAttribute="trailing" secondItem="Jea-2f-BGo" secondAttribute="trailing" id="SNM-Mq-jAv"/>
                 <constraint firstItem="GVm-dB-d6u" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="VQ7-RY-dZi"/>

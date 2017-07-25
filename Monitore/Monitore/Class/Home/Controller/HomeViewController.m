@@ -28,8 +28,8 @@ static NSString *HomeCollectionViewCellId = @"HomeCollectionViewCell";
     // Do any additional setup after loading the view.
 //    self.collectionView.contentInset=UIEdgeInsetsMake(-64, 0, 0, 0);//上移64
 
-    self.layouT.headerReferenceSize = CGSizeMake(SCREEN_WIDTH, SCREEN_WIDTH*0.2+160);
-    self.layouT.itemSize = CGSizeMake((SCREEN_WIDTH-6)/4.0, SCREEN_WIDTH/3.0);
+    self.layouT.headerReferenceSize = CGSizeMake(SCREEN_WIDTH, SCREEN_WIDTH/3.0*2+16);
+    self.layouT.itemSize = CGSizeMake((SCREEN_WIDTH-3)/4.0, SCREEN_WIDTH/3.0);
     [self.collectionView registerNib:[UINib nibWithNibName:@"HomeCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:HomeCollectionViewCellId];
     [self.collectionView registerNib:[UINib nibWithNibName:@"HomeHeaderView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:HomeHeaderViewId];
     
@@ -63,7 +63,7 @@ static NSString *HomeCollectionViewCellId = @"HomeCollectionViewCell";
 
 - (UIEdgeInsets)collectionView:
 (UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-    return UIEdgeInsetsMake(10, 0, 0, 0);
+    return UIEdgeInsetsMake(16, 0, 0, 0);
 }
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
     return 1;
