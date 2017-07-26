@@ -21,33 +21,6 @@
 		84F927CE1F25E8D400B76D79 /* MNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F927CD1F25E8D400B76D79 /* MNavigationController.m */; };
 		84F927DD1F27478800B76D79 /* NSArray+LjAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F927DC1F27478800B76D79 /* NSArray+LjAdd.m */; };
 		84F928481F2898FF00B76D79 /* CustomeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F928471F2898FF00B76D79 /* CustomeLabel.m */; };
-		84F928531F29630800B76D79 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84F928521F29630800B76D79 /* Main.storyboard */; };
-		84F928A31F29633600B76D79 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F928601F29633600B76D79 /* HomeViewController.m */; };
-		84F928A41F29633600B76D79 /* HomeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F928641F29633600B76D79 /* HomeCollectionViewCell.m */; };
-		84F928A51F29633600B76D79 /* HomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F928651F29633600B76D79 /* HomeCollectionViewCell.xib */; };
-		84F928A61F29633600B76D79 /* HomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F928671F29633600B76D79 /* HomeHeaderView.m */; };
-		84F928A71F29633600B76D79 /* HomeHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F928681F29633600B76D79 /* HomeHeaderView.xib */; };
-		84F928A81F29633600B76D79 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F9286C1F29633600B76D79 /* InfoViewController.m */; };
-		84F928A91F29633600B76D79 /* InfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F928701F29633600B76D79 /* InfoTableViewCell.m */; };
-		84F928AA1F29633600B76D79 /* InfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F928711F29633600B76D79 /* InfoTableViewCell.xib */; };
-		84F928AB1F29633600B76D79 /* PatrolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F928751F29633600B76D79 /* PatrolViewController.m */; };
-		84F928AC1F29633600B76D79 /* PatrolTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F928791F29633600B76D79 /* PatrolTableHeaderView.m */; };
-		84F928AD1F29633600B76D79 /* PatrolTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F9287A1F29633600B76D79 /* PatrolTableHeaderView.xib */; };
-		84F928AE1F29633600B76D79 /* PatrolTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F9287C1F29633600B76D79 /* PatrolTableViewCell.m */; };
-		84F928AF1F29633600B76D79 /* PatrolTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F9287D1F29633600B76D79 /* PatrolTableViewCell.xib */; };
-		84F928B01F29633600B76D79 /* PatrolHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F928811F29633600B76D79 /* PatrolHistoryViewController.m */; };
-		84F928B11F29633600B76D79 /* PersonalCenterVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F928831F29633600B76D79 /* PersonalCenterVc.m */; };
-		84F928B21F29633600B76D79 /* PersonalDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F928851F29633600B76D79 /* PersonalDataViewController.m */; };
-		84F928B31F29633600B76D79 /* PersonalCenterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F928891F29633600B76D79 /* PersonalCenterTableViewCell.m */; };
-		84F928B41F29633600B76D79 /* PersonalCenterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F9288A1F29633600B76D79 /* PersonalCenterTableViewCell.xib */; };
-		84F928B51F29633600B76D79 /* PersonalDataFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F9288C1F29633600B76D79 /* PersonalDataFooterView.m */; };
-		84F928B61F29633600B76D79 /* PersonalDataFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F9288D1F29633600B76D79 /* PersonalDataFooterView.xib */; };
-		84F928B71F29633600B76D79 /* PersonalDataHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F9288F1F29633600B76D79 /* PersonalDataHeaderView.m */; };
-		84F928B81F29633600B76D79 /* PersonalDataHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F928901F29633600B76D79 /* PersonalDataHeaderView.xib */; };
-		84F928B91F29633600B76D79 /* PersonalDataTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F928921F29633600B76D79 /* PersonalDataTableViewCell.m */; };
-		84F928BA1F29633600B76D79 /* PersonalDataTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F928931F29633600B76D79 /* PersonalDataTableViewCell.xib */; };
-		84F928BB1F29633600B76D79 /* PersonalPhotoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F928951F29633600B76D79 /* PersonalPhotoTableViewCell.m */; };
-		84F928BC1F29633600B76D79 /* PersonalPhotoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F928961F29633600B76D79 /* PersonalPhotoTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,49 +69,6 @@
 		84F927DC1F27478800B76D79 /* NSArray+LjAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+LjAdd.m"; sourceTree = "<group>"; };
 		84F928461F2898FE00B76D79 /* CustomeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomeLabel.h; sourceTree = "<group>"; };
 		84F928471F2898FF00B76D79 /* CustomeLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomeLabel.m; sourceTree = "<group>"; };
-		84F928521F29630800B76D79 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		84F9285F1F29633600B76D79 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
-		84F928601F29633600B76D79 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
-		84F928631F29633600B76D79 /* HomeCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeCollectionViewCell.h; sourceTree = "<group>"; };
-		84F928641F29633600B76D79 /* HomeCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeCollectionViewCell.m; sourceTree = "<group>"; };
-		84F928651F29633600B76D79 /* HomeCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeCollectionViewCell.xib; sourceTree = "<group>"; };
-		84F928661F29633600B76D79 /* HomeHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeHeaderView.h; sourceTree = "<group>"; };
-		84F928671F29633600B76D79 /* HomeHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeHeaderView.m; sourceTree = "<group>"; };
-		84F928681F29633600B76D79 /* HomeHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeHeaderView.xib; sourceTree = "<group>"; };
-		84F9286B1F29633600B76D79 /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
-		84F9286C1F29633600B76D79 /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
-		84F9286F1F29633600B76D79 /* InfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoTableViewCell.h; sourceTree = "<group>"; };
-		84F928701F29633600B76D79 /* InfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoTableViewCell.m; sourceTree = "<group>"; };
-		84F928711F29633600B76D79 /* InfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoTableViewCell.xib; sourceTree = "<group>"; };
-		84F928741F29633600B76D79 /* PatrolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatrolViewController.h; sourceTree = "<group>"; };
-		84F928751F29633600B76D79 /* PatrolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatrolViewController.m; sourceTree = "<group>"; };
-		84F928781F29633600B76D79 /* PatrolTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatrolTableHeaderView.h; sourceTree = "<group>"; };
-		84F928791F29633600B76D79 /* PatrolTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatrolTableHeaderView.m; sourceTree = "<group>"; };
-		84F9287A1F29633600B76D79 /* PatrolTableHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PatrolTableHeaderView.xib; sourceTree = "<group>"; };
-		84F9287B1F29633600B76D79 /* PatrolTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatrolTableViewCell.h; sourceTree = "<group>"; };
-		84F9287C1F29633600B76D79 /* PatrolTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatrolTableViewCell.m; sourceTree = "<group>"; };
-		84F9287D1F29633600B76D79 /* PatrolTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PatrolTableViewCell.xib; sourceTree = "<group>"; };
-		84F928801F29633600B76D79 /* PatrolHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatrolHistoryViewController.h; sourceTree = "<group>"; };
-		84F928811F29633600B76D79 /* PatrolHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatrolHistoryViewController.m; sourceTree = "<group>"; };
-		84F928821F29633600B76D79 /* PersonalCenterVc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalCenterVc.h; sourceTree = "<group>"; };
-		84F928831F29633600B76D79 /* PersonalCenterVc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalCenterVc.m; sourceTree = "<group>"; };
-		84F928841F29633600B76D79 /* PersonalDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalDataViewController.h; sourceTree = "<group>"; };
-		84F928851F29633600B76D79 /* PersonalDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalDataViewController.m; sourceTree = "<group>"; };
-		84F928881F29633600B76D79 /* PersonalCenterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalCenterTableViewCell.h; sourceTree = "<group>"; };
-		84F928891F29633600B76D79 /* PersonalCenterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalCenterTableViewCell.m; sourceTree = "<group>"; };
-		84F9288A1F29633600B76D79 /* PersonalCenterTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonalCenterTableViewCell.xib; sourceTree = "<group>"; };
-		84F9288B1F29633600B76D79 /* PersonalDataFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalDataFooterView.h; sourceTree = "<group>"; };
-		84F9288C1F29633600B76D79 /* PersonalDataFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalDataFooterView.m; sourceTree = "<group>"; };
-		84F9288D1F29633600B76D79 /* PersonalDataFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonalDataFooterView.xib; sourceTree = "<group>"; };
-		84F9288E1F29633600B76D79 /* PersonalDataHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalDataHeaderView.h; sourceTree = "<group>"; };
-		84F9288F1F29633600B76D79 /* PersonalDataHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalDataHeaderView.m; sourceTree = "<group>"; };
-		84F928901F29633600B76D79 /* PersonalDataHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonalDataHeaderView.xib; sourceTree = "<group>"; };
-		84F928911F29633600B76D79 /* PersonalDataTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalDataTableViewCell.h; sourceTree = "<group>"; };
-		84F928921F29633600B76D79 /* PersonalDataTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalDataTableViewCell.m; sourceTree = "<group>"; };
-		84F928931F29633600B76D79 /* PersonalDataTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonalDataTableViewCell.xib; sourceTree = "<group>"; };
-		84F928941F29633600B76D79 /* PersonalPhotoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalPhotoTableViewCell.h; sourceTree = "<group>"; };
-		84F928951F29633600B76D79 /* PersonalPhotoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalPhotoTableViewCell.m; sourceTree = "<group>"; };
-		84F928961F29633600B76D79 /* PersonalPhotoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonalPhotoTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,12 +119,10 @@
 		84F9275C1F25D37400B76D79 /* Monitore */ = {
 			isa = PBXGroup;
 			children = (
-				84F928541F29633600B76D79 /* Class */,
 				84F927AE1F25D61100B76D79 /* Base */,
 				84F927B31F25D61100B76D79 /* Config */,
 				84F927B41F25D61100B76D79 /* Tools */,
 				84F9279E1F25D51E00B76D79 /* Resources */,
-				84F927A01F25D51E00B76D79 /* StoryBoard */,
 				84F927A11F25D51E00B76D79 /* Vender */,
 				84F9275D1F25D37400B76D79 /* Supporting Files */,
 			);
@@ -235,14 +163,6 @@
 				84F9279F1F25D51E00B76D79 /* Info.plist */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		84F927A01F25D51E00B76D79 /* StoryBoard */ = {
-			isa = PBXGroup;
-			children = (
-				84F928521F29630800B76D79 /* Main.storyboard */,
-			);
-			path = StoryBoard;
 			sourceTree = "<group>";
 		};
 		84F927A11F25D51E00B76D79 /* Vender */ = {
@@ -288,343 +208,6 @@
 			children = (
 			);
 			path = Tools;
-			sourceTree = "<group>";
-		};
-		84F928541F29633600B76D79 /* Class */ = {
-			isa = PBXGroup;
-			children = (
-				84F928551F29633600B76D79 /* Announcements */,
-				84F928591F29633600B76D79 /* Blacklist */,
-				84F9285D1F29633600B76D79 /* Home */,
-				84F928691F29633600B76D79 /* Information */,
-				84F928721F29633600B76D79 /* Patrol */,
-				84F9287E1F29633600B76D79 /* PersonalCenter */,
-				84F928971F29633600B76D79 /* Report */,
-				84F9289B1F29633600B76D79 /* Task */,
-				84F9289F1F29633600B76D79 /* Training */,
-			);
-			path = Class;
-			sourceTree = "<group>";
-		};
-		84F928551F29633600B76D79 /* Announcements */ = {
-			isa = PBXGroup;
-			children = (
-				84F928561F29633600B76D79 /* Controller */,
-				84F928571F29633600B76D79 /* Model */,
-				84F928581F29633600B76D79 /* View */,
-			);
-			path = Announcements;
-			sourceTree = "<group>";
-		};
-		84F928561F29633600B76D79 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		84F928571F29633600B76D79 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		84F928581F29633600B76D79 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		84F928591F29633600B76D79 /* Blacklist */ = {
-			isa = PBXGroup;
-			children = (
-				84F9285A1F29633600B76D79 /* Controller */,
-				84F9285B1F29633600B76D79 /* Model */,
-				84F9285C1F29633600B76D79 /* View */,
-			);
-			path = Blacklist;
-			sourceTree = "<group>";
-		};
-		84F9285A1F29633600B76D79 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		84F9285B1F29633600B76D79 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		84F9285C1F29633600B76D79 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		84F9285D1F29633600B76D79 /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				84F9285E1F29633600B76D79 /* Controller */,
-				84F928611F29633600B76D79 /* Model */,
-				84F928621F29633600B76D79 /* View */,
-			);
-			path = Home;
-			sourceTree = "<group>";
-		};
-		84F9285E1F29633600B76D79 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				84F9285F1F29633600B76D79 /* HomeViewController.h */,
-				84F928601F29633600B76D79 /* HomeViewController.m */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		84F928611F29633600B76D79 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		84F928621F29633600B76D79 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				84F928631F29633600B76D79 /* HomeCollectionViewCell.h */,
-				84F928641F29633600B76D79 /* HomeCollectionViewCell.m */,
-				84F928651F29633600B76D79 /* HomeCollectionViewCell.xib */,
-				84F928661F29633600B76D79 /* HomeHeaderView.h */,
-				84F928671F29633600B76D79 /* HomeHeaderView.m */,
-				84F928681F29633600B76D79 /* HomeHeaderView.xib */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		84F928691F29633600B76D79 /* Information */ = {
-			isa = PBXGroup;
-			children = (
-				84F9286A1F29633600B76D79 /* Controller */,
-				84F9286D1F29633600B76D79 /* Model */,
-				84F9286E1F29633600B76D79 /* View */,
-			);
-			path = Information;
-			sourceTree = "<group>";
-		};
-		84F9286A1F29633600B76D79 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				84F9286B1F29633600B76D79 /* InfoViewController.h */,
-				84F9286C1F29633600B76D79 /* InfoViewController.m */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		84F9286D1F29633600B76D79 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		84F9286E1F29633600B76D79 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				84F9286F1F29633600B76D79 /* InfoTableViewCell.h */,
-				84F928701F29633600B76D79 /* InfoTableViewCell.m */,
-				84F928711F29633600B76D79 /* InfoTableViewCell.xib */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		84F928721F29633600B76D79 /* Patrol */ = {
-			isa = PBXGroup;
-			children = (
-				84F928731F29633600B76D79 /* Controller */,
-				84F928761F29633600B76D79 /* Model */,
-				84F928771F29633600B76D79 /* View */,
-			);
-			path = Patrol;
-			sourceTree = "<group>";
-		};
-		84F928731F29633600B76D79 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				84F928741F29633600B76D79 /* PatrolViewController.h */,
-				84F928751F29633600B76D79 /* PatrolViewController.m */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		84F928761F29633600B76D79 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		84F928771F29633600B76D79 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				84F928781F29633600B76D79 /* PatrolTableHeaderView.h */,
-				84F928791F29633600B76D79 /* PatrolTableHeaderView.m */,
-				84F9287A1F29633600B76D79 /* PatrolTableHeaderView.xib */,
-				84F9287B1F29633600B76D79 /* PatrolTableViewCell.h */,
-				84F9287C1F29633600B76D79 /* PatrolTableViewCell.m */,
-				84F9287D1F29633600B76D79 /* PatrolTableViewCell.xib */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		84F9287E1F29633600B76D79 /* PersonalCenter */ = {
-			isa = PBXGroup;
-			children = (
-				84F9287F1F29633600B76D79 /* Controller */,
-				84F928861F29633600B76D79 /* Model */,
-				84F928871F29633600B76D79 /* View */,
-			);
-			path = PersonalCenter;
-			sourceTree = "<group>";
-		};
-		84F9287F1F29633600B76D79 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				84F928801F29633600B76D79 /* PatrolHistoryViewController.h */,
-				84F928811F29633600B76D79 /* PatrolHistoryViewController.m */,
-				84F928821F29633600B76D79 /* PersonalCenterVc.h */,
-				84F928831F29633600B76D79 /* PersonalCenterVc.m */,
-				84F928841F29633600B76D79 /* PersonalDataViewController.h */,
-				84F928851F29633600B76D79 /* PersonalDataViewController.m */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		84F928861F29633600B76D79 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		84F928871F29633600B76D79 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				84F928881F29633600B76D79 /* PersonalCenterTableViewCell.h */,
-				84F928891F29633600B76D79 /* PersonalCenterTableViewCell.m */,
-				84F9288A1F29633600B76D79 /* PersonalCenterTableViewCell.xib */,
-				84F9288B1F29633600B76D79 /* PersonalDataFooterView.h */,
-				84F9288C1F29633600B76D79 /* PersonalDataFooterView.m */,
-				84F9288D1F29633600B76D79 /* PersonalDataFooterView.xib */,
-				84F9288E1F29633600B76D79 /* PersonalDataHeaderView.h */,
-				84F9288F1F29633600B76D79 /* PersonalDataHeaderView.m */,
-				84F928901F29633600B76D79 /* PersonalDataHeaderView.xib */,
-				84F928911F29633600B76D79 /* PersonalDataTableViewCell.h */,
-				84F928921F29633600B76D79 /* PersonalDataTableViewCell.m */,
-				84F928931F29633600B76D79 /* PersonalDataTableViewCell.xib */,
-				84F928941F29633600B76D79 /* PersonalPhotoTableViewCell.h */,
-				84F928951F29633600B76D79 /* PersonalPhotoTableViewCell.m */,
-				84F928961F29633600B76D79 /* PersonalPhotoTableViewCell.xib */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		84F928971F29633600B76D79 /* Report */ = {
-			isa = PBXGroup;
-			children = (
-				84F928981F29633600B76D79 /* Controller */,
-				84F928991F29633600B76D79 /* Model */,
-				84F9289A1F29633600B76D79 /* View */,
-			);
-			path = Report;
-			sourceTree = "<group>";
-		};
-		84F928981F29633600B76D79 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		84F928991F29633600B76D79 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		84F9289A1F29633600B76D79 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		84F9289B1F29633600B76D79 /* Task */ = {
-			isa = PBXGroup;
-			children = (
-				84F9289C1F29633600B76D79 /* Controller */,
-				84F9289D1F29633600B76D79 /* Model */,
-				84F9289E1F29633600B76D79 /* View */,
-			);
-			path = Task;
-			sourceTree = "<group>";
-		};
-		84F9289C1F29633600B76D79 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		84F9289D1F29633600B76D79 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		84F9289E1F29633600B76D79 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		84F9289F1F29633600B76D79 /* Training */ = {
-			isa = PBXGroup;
-			children = (
-				84F928A01F29633600B76D79 /* Controller */,
-				84F928A11F29633600B76D79 /* Model */,
-				84F928A21F29633600B76D79 /* View */,
-			);
-			path = Training;
-			sourceTree = "<group>";
-		};
-		84F928A01F29633600B76D79 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		84F928A11F29633600B76D79 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		84F928A21F29633600B76D79 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -734,20 +317,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				84F927C51F25DA6000B76D79 /* MNavigationItem.xib in Resources */,
-				84F928AF1F29633600B76D79 /* PatrolTableViewCell.xib in Resources */,
-				84F928A51F29633600B76D79 /* HomeCollectionViewCell.xib in Resources */,
-				84F928BC1F29633600B76D79 /* PersonalPhotoTableViewCell.xib in Resources */,
-				84F928B61F29633600B76D79 /* PersonalDataFooterView.xib in Resources */,
-				84F928AD1F29633600B76D79 /* PatrolTableHeaderView.xib in Resources */,
-				84F928B81F29633600B76D79 /* PersonalDataHeaderView.xib in Resources */,
-				84F928531F29630800B76D79 /* Main.storyboard in Resources */,
-				84F928A71F29633600B76D79 /* HomeHeaderView.xib in Resources */,
 				84F927AD1F25D5C900B76D79 /* LaunchScreen.storyboard in Resources */,
-				84F928BA1F29633600B76D79 /* PersonalDataTableViewCell.xib in Resources */,
-				84F928AA1F29633600B76D79 /* InfoTableViewCell.xib in Resources */,
 				84F927A91F25D56800B76D79 /* Assets.xcassets in Resources */,
 				84F927A71F25D51E00B76D79 /* Info.plist in Resources */,
-				84F928B41F29633600B76D79 /* PersonalCenterTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -772,30 +344,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84F928BB1F29633600B76D79 /* PersonalPhotoTableViewCell.m in Sources */,
 				84F928481F2898FF00B76D79 /* CustomeLabel.m in Sources */,
-				84F928A91F29633600B76D79 /* InfoTableViewCell.m in Sources */,
 				84F927C31F25DA3F00B76D79 /* MNavigationItem.m in Sources */,
-				84F928A81F29633600B76D79 /* InfoViewController.m in Sources */,
 				84F927CE1F25E8D400B76D79 /* MNavigationController.m in Sources */,
-				84F928B51F29633600B76D79 /* PersonalDataFooterView.m in Sources */,
-				84F928B11F29633600B76D79 /* PersonalCenterVc.m in Sources */,
-				84F928AE1F29633600B76D79 /* PatrolTableViewCell.m in Sources */,
 				84F927B51F25D61100B76D79 /* AppDelegate.m in Sources */,
-				84F928AB1F29633600B76D79 /* PatrolViewController.m in Sources */,
 				84F927BD1F25D72200B76D79 /* BaseViewController.m in Sources */,
-				84F928B71F29633600B76D79 /* PersonalDataHeaderView.m in Sources */,
-				84F928B21F29633600B76D79 /* PersonalDataViewController.m in Sources */,
-				84F928A31F29633600B76D79 /* HomeViewController.m in Sources */,
-				84F928B01F29633600B76D79 /* PatrolHistoryViewController.m in Sources */,
-				84F928B91F29633600B76D79 /* PersonalDataTableViewCell.m in Sources */,
 				84F9275F1F25D37400B76D79 /* main.m in Sources */,
-				84F928AC1F29633600B76D79 /* PatrolTableHeaderView.m in Sources */,
 				84F927C81F25DD8100B76D79 /* UIView+LjAdd.m in Sources */,
-				84F928B31F29633600B76D79 /* PersonalCenterTableViewCell.m in Sources */,
 				84F927DD1F27478800B76D79 /* NSArray+LjAdd.m in Sources */,
-				84F928A61F29633600B76D79 /* HomeHeaderView.m in Sources */,
-				84F928A41F29633600B76D79 /* HomeCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
