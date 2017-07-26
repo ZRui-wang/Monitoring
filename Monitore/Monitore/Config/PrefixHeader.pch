@@ -13,5 +13,8 @@
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
 #import "Define.h"
+#import "NSArray+LjAdd.h"
+#import "UIView+LjAdd.h"
+#import "CustomeLabel.h"
 
 #endif /* PrefixHeader_pch */

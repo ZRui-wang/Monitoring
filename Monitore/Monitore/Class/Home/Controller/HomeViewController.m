@@ -9,6 +9,9 @@
 #import "HomeViewController.h"
 #import "HomeHeaderView.h"
 #import "HomeCollectionViewCell.h"
+#import "PersonalCenterVc.h"
+#import "InfoViewController.h"
+#import "PatrolViewController.h"
 
 @interface HomeViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -36,7 +39,7 @@ static NSString *HomeCollectionViewCellId = @"HomeCollectionViewCell";
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     
-    self.title = @"群防群治";
+    self.title = @"群防群治";    
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -71,6 +74,50 @@ static NSString *HomeCollectionViewCellId = @"HomeCollectionViewCell";
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
     return 1;
+}
+
+#pragma mark - UICollectionViewDelegat
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.item == 0) {
+        // 通知公告
+    }
+    else if (indexPath.item == 1)
+    {
+        // 群防任务
+    }
+    else if (indexPath.item == 2)
+    {
+        // 在线举报
+    }
+    else if (indexPath.item == 3)
+    {
+        // 在线巡逻
+        PatrolViewController *patrolVc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"PatrolViewController"];
+        [self.navigationController pushViewController:patrolVc animated:YES];
+        
+    }
+    else if (indexPath.item == 4)
+    {
+        // 学习培训
+    }
+    else if (indexPath.item == 5)
+    {
+        // 黑名单
+    }
+    else if (indexPath.item == 6)
+    {
+        // 信息中心
+        InfoViewController *infoVc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"InfoViewController"];
+        [self.navigationController pushViewController:infoVc animated:YES];
+    }
+    else// if (indexPath.item == 7)
+    {
+        // 个人中心
+        PersonalCenterVc *personalCenterVc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"PersonalCenterVc"];
+        [self.navigationController pushViewController:personalCenterVc animated:YES];
+    }
+
 }
 
 
