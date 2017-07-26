@@ -9,6 +9,7 @@
 #import "PersonalCenterVc.h"
 #import "PersonalCenterTableViewCell.h"
 #import "PersonalDataViewController.h"
+#import "PatrolHistoryViewController.h"
 
 @interface PersonalCenterVc ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -74,6 +75,8 @@
     else if (indexPath.row == 1)
     {
         // 巡逻里程
+        PatrolHistoryViewController *patrolHistoryVc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]instantiateViewControllerWithIdentifier:@"PatrolHistoryViewController"];
+        [self.navigationController pushViewController:patrolHistoryVc animated:YES];
     }
     else if (indexPath.row == 2)
     {
