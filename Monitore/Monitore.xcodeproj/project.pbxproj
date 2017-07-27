@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		78E26AB11F29FEC2007A96F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78E26AB01F29FEC2007A96F6 /* Main.storyboard */; };
 		84F9275F1F25D37400B76D79 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F9275E1F25D37400B76D79 /* main.m */; };
 		84F927781F25D37400B76D79 /* MonitoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F927771F25D37400B76D79 /* MonitoreTests.m */; };
 		84F927831F25D37400B76D79 /* MonitoreUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F927821F25D37400B76D79 /* MonitoreUITests.m */; };
@@ -44,7 +45,6 @@
 		84F929231F29652B00B76D79 /* PersonalDataTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F928FC1F29652B00B76D79 /* PersonalDataTableViewCell.xib */; };
 		84F929241F29652B00B76D79 /* PersonalPhotoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F928FE1F29652B00B76D79 /* PersonalPhotoTableViewCell.m */; };
 		84F929251F29652B00B76D79 /* PersonalPhotoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F928FF1F29652B00B76D79 /* PersonalPhotoTableViewCell.xib */; };
-		84F9292B1F2967B100B76D79 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84F9292A1F2967B100B76D79 /* Main.storyboard */; };
 		84F929301F2968AE00B76D79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84F9292D1F2968AE00B76D79 /* Assets.xcassets */; };
 		84F929311F2968AE00B76D79 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84F9292E1F2968AE00B76D79 /* Info.plist */; };
 		84F929321F2968AE00B76D79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84F9292F1F2968AE00B76D79 /* LaunchScreen.storyboard */; };
@@ -86,6 +86,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		78E26AB01F29FEC2007A96F6 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		84F9275A1F25D37400B76D79 /* Monitore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Monitore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84F9275E1F25D37400B76D79 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		84F927731F25D37400B76D79 /* MonitoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MonitoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -153,7 +154,6 @@
 		84F928FD1F29652B00B76D79 /* PersonalPhotoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalPhotoTableViewCell.h; sourceTree = "<group>"; };
 		84F928FE1F29652B00B76D79 /* PersonalPhotoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalPhotoTableViewCell.m; sourceTree = "<group>"; };
 		84F928FF1F29652B00B76D79 /* PersonalPhotoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonalPhotoTableViewCell.xib; sourceTree = "<group>"; };
-		84F9292A1F2967B100B76D79 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		84F9292D1F2968AE00B76D79 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84F9292E1F2968AE00B76D79 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84F9292F1F2968AE00B76D79 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -685,7 +685,7 @@
 		84F929291F2967B100B76D79 /* StoryBoard */ = {
 			isa = PBXGroup;
 			children = (
-				84F9292A1F2967B100B76D79 /* Main.storyboard */,
+				78E26AB01F29FEC2007A96F6 /* Main.storyboard */,
 				84F929391F2979AD00B76D79 /* Patrol.storyboard */,
 				84F9293B1F297C8E00B76D79 /* PersonalCenter.storyboard */,
 				84F9294B1F29918400B76D79 /* Report.storyboard */,
@@ -815,13 +815,13 @@
 				84F9290E1F29652B00B76D79 /* HomeCollectionViewCell.xib in Resources */,
 				84F929321F2968AE00B76D79 /* LaunchScreen.storyboard in Resources */,
 				84F927C51F25DA6000B76D79 /* MNavigationItem.xib in Resources */,
+				78E26AB11F29FEC2007A96F6 /* Main.storyboard in Resources */,
 				84F9294C1F29918400B76D79 /* Report.storyboard in Resources */,
 				84F929131F29652B00B76D79 /* InfoTableViewCell.xib in Resources */,
 				84F9291D1F29652B00B76D79 /* PersonalCenterTableViewCell.xib in Resources */,
 				84F929311F2968AE00B76D79 /* Info.plist in Resources */,
 				84F929301F2968AE00B76D79 /* Assets.xcassets in Resources */,
 				84F9295C1F29E24900B76D79 /* AnnouncementTableViewCell.xib in Resources */,
-				84F9292B1F2967B100B76D79 /* Main.storyboard in Resources */,
 				84F9293A1F2979AD00B76D79 /* Patrol.storyboard in Resources */,
 				84F929211F29652B00B76D79 /* PersonalDataHeaderView.xib in Resources */,
 				84F9291F1F29652B00B76D79 /* PersonalDataFooterView.xib in Resources */,
