@@ -32,7 +32,7 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"PersonalDataFooterView" bundle:nil] forHeaderFooterViewReuseIdentifier:@"PersonalDataFooterView"];
     [self.tableView registerNib:[UINib nibWithNibName:@"PersonalDataHeaderView" bundle:nil] forHeaderFooterViewReuseIdentifier:@"PersonalDataHeaderView"];
 
-    self.tableView.tableFooterView = [PersonalDataFooterView xibView];
+//    self.tableView.tableFooterView = [PersonalDataFooterView xibView];
 }
 
 #pragma mark - UITableDatasource
