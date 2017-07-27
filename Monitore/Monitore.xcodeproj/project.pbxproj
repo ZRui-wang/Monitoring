@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		78E26AB11F29FEC2007A96F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78E26AB01F29FEC2007A96F6 /* Main.storyboard */; };
+		78E26AB41F2A24FF007A96F6 /* PullAnnounceMentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78E26AB31F2A24FF007A96F6 /* PullAnnounceMentViewController.m */; };
+		78E26AB61F2A2540007A96F6 /* Announcement.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78E26AB51F2A2540007A96F6 /* Announcement.storyboard */; };
 		84F9275F1F25D37400B76D79 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F9275E1F25D37400B76D79 /* main.m */; };
 		84F927781F25D37400B76D79 /* MonitoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F927771F25D37400B76D79 /* MonitoreTests.m */; };
 		84F927831F25D37400B76D79 /* MonitoreUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F927821F25D37400B76D79 /* MonitoreUITests.m */; };
@@ -87,6 +89,9 @@
 
 /* Begin PBXFileReference section */
 		78E26AB01F29FEC2007A96F6 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		78E26AB21F2A24FF007A96F6 /* PullAnnounceMentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullAnnounceMentViewController.h; sourceTree = "<group>"; };
+		78E26AB31F2A24FF007A96F6 /* PullAnnounceMentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullAnnounceMentViewController.m; sourceTree = "<group>"; };
+		78E26AB51F2A2540007A96F6 /* Announcement.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Announcement.storyboard; sourceTree = "<group>"; };
 		84F9275A1F25D37400B76D79 /* Monitore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Monitore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84F9275E1F25D37400B76D79 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		84F927731F25D37400B76D79 /* MonitoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MonitoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -352,6 +357,8 @@
 			children = (
 				84F929501F29DF0B00B76D79 /* AnnouncementViewController.h */,
 				84F929511F29DF0B00B76D79 /* AnnouncementViewController.m */,
+				78E26AB21F2A24FF007A96F6 /* PullAnnounceMentViewController.h */,
+				78E26AB31F2A24FF007A96F6 /* PullAnnounceMentViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -689,6 +696,7 @@
 				84F929391F2979AD00B76D79 /* Patrol.storyboard */,
 				84F9293B1F297C8E00B76D79 /* PersonalCenter.storyboard */,
 				84F9294B1F29918400B76D79 /* Report.storyboard */,
+				78E26AB51F2A2540007A96F6 /* Announcement.storyboard */,
 			);
 			path = StoryBoard;
 			sourceTree = "<group>";
@@ -815,6 +823,7 @@
 				84F9290E1F29652B00B76D79 /* HomeCollectionViewCell.xib in Resources */,
 				84F929321F2968AE00B76D79 /* LaunchScreen.storyboard in Resources */,
 				84F927C51F25DA6000B76D79 /* MNavigationItem.xib in Resources */,
+				78E26AB61F2A2540007A96F6 /* Announcement.storyboard in Resources */,
 				78E26AB11F29FEC2007A96F6 /* Main.storyboard in Resources */,
 				84F9294C1F29918400B76D79 /* Report.storyboard in Resources */,
 				84F929131F29652B00B76D79 /* InfoTableViewCell.xib in Resources */,
@@ -888,6 +897,7 @@
 				84F9294A1F29914300B76D79 /* GoToReprotViewController.m in Sources */,
 				84F927DD1F27478800B76D79 /* NSArray+LjAdd.m in Sources */,
 				84F9290F1F29652B00B76D79 /* HomeHeaderView.m in Sources */,
+				78E26AB41F2A24FF007A96F6 /* PullAnnounceMentViewController.m in Sources */,
 				84F929551F29E0FC00B76D79 /* AnnouncementVcHeaderView.m in Sources */,
 				84F929381F2975AD00B76D79 /* PatrolTrajectoryViewController.m in Sources */,
 				84F9290D1F29652B00B76D79 /* HomeCollectionViewCell.m in Sources */,

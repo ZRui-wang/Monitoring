@@ -21,6 +21,7 @@
     [super awakeFromNib];
     // Initialization code
     [self.title alignTop];
+    self.title.text = @"asfasjf a\n";
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

@@ -10,4 +10,7 @@
 
 @interface AnnouncementVcHeaderView : UITableViewHeaderFooterView
 
+@property (weak, nonatomic) IBOutlet UIButton *typeButton;
+@property (weak, nonatomic) IBOutlet UIButton *stateButton;
+
 @end

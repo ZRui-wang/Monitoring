@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -15,6 +15,10 @@
             <rect key="frame" x="0.0" y="0.0" width="377" height="58"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vhH-4T-73D">
+                    <rect key="frame" x="0.0" y="0.0" width="377" height="58"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J32-Ab-8H9">
                     <rect key="frame" x="203.5" y="10" width="143.5" height="38"/>
                     <color key="backgroundColor" red="0.01877382956" green="0.4281618297" blue="0.73732841010000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -28,10 +32,14 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="vhH-4T-73D" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="5vk-Fc-KeB"/>
                 <constraint firstItem="J32-Ab-8H9" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="8kM-cN-gD4"/>
+                <constraint firstAttribute="trailing" secondItem="vhH-4T-73D" secondAttribute="trailing" id="8sf-ZY-S6Y"/>
                 <constraint firstItem="J32-Ab-8H9" firstAttribute="width" secondItem="yHo-kb-Sqa" secondAttribute="width" id="Gcd-YW-sFa"/>
                 <constraint firstItem="yHo-kb-Sqa" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="30" id="GtB-o7-NM0"/>
+                <constraint firstItem="vhH-4T-73D" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="GtX-5P-CkU"/>
                 <constraint firstAttribute="bottom" secondItem="J32-Ab-8H9" secondAttribute="bottom" constant="10" id="Jr0-5Y-mZs"/>
+                <constraint firstAttribute="bottom" secondItem="vhH-4T-73D" secondAttribute="bottom" id="Mr5-Cj-fDd"/>
                 <constraint firstAttribute="trailing" secondItem="J32-Ab-8H9" secondAttribute="trailing" constant="30" id="fYH-Zs-aqI"/>
                 <constraint firstItem="J32-Ab-8H9" firstAttribute="leading" secondItem="yHo-kb-Sqa" secondAttribute="trailing" constant="30" id="lIk-GQ-A0q"/>
                 <constraint firstItem="yHo-kb-Sqa" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="ujn-ad-g7u"/>
@@ -39,6 +47,10 @@
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="stateButton" destination="J32-Ab-8H9" id="vIh-zZ-1fm"/>
+                <outlet property="typeButton" destination="yHo-kb-Sqa" id="BlU-AX-zbX"/>
+            </connections>
             <point key="canvasLocation" x="49.5" y="20"/>
         </view>
     </objects>
