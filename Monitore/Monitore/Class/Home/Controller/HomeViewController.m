@@ -12,6 +12,7 @@
 #import "PersonalCenterVc.h"
 #import "InfoViewController.h"
 #import "PatrolViewController.h"
+#import "ReportViewController.h"
 
 @interface HomeViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -94,6 +95,8 @@ static NSString *HomeCollectionViewCellId = @"HomeCollectionViewCell";
     else if (indexPath.item == 2)
     {
         // 在线举报
+        ReportViewController *reportVc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"ReportViewController"];
+        [self.navigationController pushViewController:reportVc animated:YES];
     }
     else if (indexPath.item == 3)
     {

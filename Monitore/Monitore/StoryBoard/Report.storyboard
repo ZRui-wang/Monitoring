@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Go To Reprot View Controller-->
+        <scene sceneID="a2Q-ql-O6q">
+            <objects>
+                <viewController storyboardIdentifier="GoToReprotViewController" id="9xr-5J-xp9" customClass="GoToReprotViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tyC-nU-pMz"/>
+                        <viewControllerLayoutGuide type="bottom" id="e9R-SV-NpW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lqQ-5y-zv3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gIS-rM-NKC">
+                                <rect key="frame" x="30" y="622" width="142.5" height="40"/>
+                                <color key="backgroundColor" red="0.01877382956" green="0.4281618297" blue="0.73732841010000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="MvJ-zR-59I"/>
+                                </constraints>
+                                <state key="normal" title="缓存">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bj4-8q-FG9">
+                                <rect key="frame" x="202.5" y="622" width="142.5" height="40"/>
+                                <color key="backgroundColor" red="0.01877382956" green="0.4281618297" blue="0.73732841010000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="rbj-an-YR3"/>
+                                </constraints>
+                                <state key="normal" title="提交">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="O0v-EA-7aj">
+                                <rect key="frame" x="0.0" y="20" width="375" height="592"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Bj4-8q-FG9" secondAttribute="trailing" constant="30" id="B02-Oq-oYE"/>
+                            <constraint firstItem="O0v-EA-7aj" firstAttribute="leading" secondItem="lqQ-5y-zv3" secondAttribute="leading" id="QjS-cK-vdC"/>
+                            <constraint firstItem="Bj4-8q-FG9" firstAttribute="top" secondItem="O0v-EA-7aj" secondAttribute="bottom" constant="10" id="Z7e-NU-cYU"/>
+                            <constraint firstAttribute="trailing" secondItem="O0v-EA-7aj" secondAttribute="trailing" id="cpm-ht-xqQ"/>
+                            <constraint firstItem="gIS-rM-NKC" firstAttribute="leading" secondItem="lqQ-5y-zv3" secondAttribute="leading" constant="30" id="o9p-A8-BvL"/>
+                            <constraint firstItem="e9R-SV-NpW" firstAttribute="top" secondItem="gIS-rM-NKC" secondAttribute="bottom" constant="5" id="qZr-jb-L8z"/>
+                            <constraint firstItem="O0v-EA-7aj" firstAttribute="top" secondItem="tyC-nU-pMz" secondAttribute="bottom" id="uFS-Kf-TF5"/>
+                            <constraint firstItem="e9R-SV-NpW" firstAttribute="top" secondItem="Bj4-8q-FG9" secondAttribute="bottom" constant="5" id="wc7-ot-r1k"/>
+                            <constraint firstItem="Bj4-8q-FG9" firstAttribute="width" secondItem="gIS-rM-NKC" secondAttribute="width" id="xo5-i7-8qf"/>
+                            <constraint firstItem="Bj4-8q-FG9" firstAttribute="leading" secondItem="gIS-rM-NKC" secondAttribute="trailing" constant="30" id="z0N-SI-Qb6"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0NI-ri-sTz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="39" y="-9"/>
+        </scene>
+    </scenes>
+</document>
