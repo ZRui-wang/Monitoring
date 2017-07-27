@@ -10,4 +10,6 @@
 
 @interface HomeCollectionViewCell : UICollectionViewCell
 
+- (void)displayCellWithData:(NSString *)title;
+
 @end

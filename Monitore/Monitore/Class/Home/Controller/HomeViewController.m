@@ -16,6 +16,7 @@
 @interface HomeViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *layouT;
+@property (strong, nonatomic) NSArray *titleAry;
 
 @end
 
@@ -39,7 +40,10 @@ static NSString *HomeCollectionViewCellId = @"HomeCollectionViewCell";
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     
-    self.title = @"群防群治";    
+    self.title = @"群防群治";
+    
+    NSArray *temptAry = @[@"通知公告", @"群防任务", @"在线举报", @"在线巡逻", @"学习培训", @"黑名单", @"信息中心", @"个人中心"];
+    self.titleAry = temptAry;
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -51,6 +55,7 @@ static NSString *HomeCollectionViewCellId = @"HomeCollectionViewCell";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     HomeCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:HomeCollectionViewCellId forIndexPath:indexPath];
+    [cell displayCellWithData:[self.titleAry objectAtIndexCheck:indexPath.item]];
     return cell;
 }
 

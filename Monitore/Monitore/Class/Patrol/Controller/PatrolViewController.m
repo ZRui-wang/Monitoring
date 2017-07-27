@@ -9,6 +9,8 @@
 #import "PatrolViewController.h"
 #import "PatrolTableViewCell.h"
 #import "PatrolTableHeaderView.h"
+#import "GoToPatrolViewController.h"
+#import "PatrolTrajectoryViewController.h"
 
 @interface PatrolViewController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -21,7 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"我要巡逻";
+    self.title = @"巡逻记录";
     [self.tableView registerNib:[UINib nibWithNibName:@"PatrolTableViewCell" bundle:nil] forCellReuseIdentifier:@"PatrolTableViewCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"PatrolTableHeaderView" bundle:nil] forHeaderFooterViewReuseIdentifier:@"PatrolTableHeaderView"];
     
@@ -55,7 +57,16 @@
     return view;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    PatrolTrajectoryViewController *patrolTrajectoryVc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]instantiateViewControllerWithIdentifier:@"PatrolTrajectoryViewController"];
+    [self.navigationController pushViewController:patrolTrajectoryVc animated:YES];
+}
+
 - (IBAction)goToPatrolAction:(id)sender {
+    
+    GoToPatrolViewController *goToPatrolVc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]instantiateViewControllerWithIdentifier:@"GoToPatrolViewController"];
+    [self.navigationController pushViewController:goToPatrolVc animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
