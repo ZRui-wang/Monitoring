@@ -16,5 +16,6 @@
 #import "NSArray+LjAdd.h"
 #import "UIView+LjAdd.h"
 #import "CustomeLabel.h"
+#import "UILabel+VerticalAlign.h"
 
 #endif /* PrefixHeader_pch */

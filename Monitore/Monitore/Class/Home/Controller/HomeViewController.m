@@ -13,6 +13,7 @@
 #import "InfoViewController.h"
 #import "PatrolViewController.h"
 #import "ReportViewController.h"
+#import "AnnouncementViewController.h"
 
 @interface HomeViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -87,6 +88,8 @@ static NSString *HomeCollectionViewCellId = @"HomeCollectionViewCell";
 {
     if (indexPath.item == 0) {
         // 通知公告
+        AnnouncementViewController *announcementVc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"AnnouncementViewController"];
+        [self.navigationController pushViewController:announcementVc animated:YES];
     }
     else if (indexPath.item == 1)
     {

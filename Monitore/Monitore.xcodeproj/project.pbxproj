@@ -58,6 +58,14 @@
 		84F929471F298F1100B76D79 /* ReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F929461F298F1100B76D79 /* ReportViewController.m */; };
 		84F9294A1F29914300B76D79 /* GoToReprotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F929491F29914300B76D79 /* GoToReprotViewController.m */; };
 		84F9294C1F29918400B76D79 /* Report.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84F9294B1F29918400B76D79 /* Report.storyboard */; };
+		84F929521F29DF0B00B76D79 /* AnnouncementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F929511F29DF0B00B76D79 /* AnnouncementViewController.m */; };
+		84F929551F29E0FC00B76D79 /* AnnouncementVcHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F929541F29E0FC00B76D79 /* AnnouncementVcHeaderView.m */; };
+		84F929571F29E10800B76D79 /* AnnouncementVcHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F929561F29E10800B76D79 /* AnnouncementVcHeaderView.xib */; };
+		84F9295B1F29E24900B76D79 /* AnnouncementTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F929591F29E24900B76D79 /* AnnouncementTableViewCell.m */; };
+		84F9295C1F29E24900B76D79 /* AnnouncementTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F9295A1F29E24900B76D79 /* AnnouncementTableViewCell.xib */; };
+		84F929601F29E41100B76D79 /* PullTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F9295E1F29E41100B76D79 /* PullTableViewCell.m */; };
+		84F929611F29E41100B76D79 /* PullTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F9295F1F29E41100B76D79 /* PullTableViewCell.xib */; };
+		84F929641F29E72500B76D79 /* UILabel+VerticalAlign.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F929631F29E72500B76D79 /* UILabel+VerticalAlign.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -165,6 +173,19 @@
 		84F929481F29914300B76D79 /* GoToReprotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoToReprotViewController.h; sourceTree = "<group>"; };
 		84F929491F29914300B76D79 /* GoToReprotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoToReprotViewController.m; sourceTree = "<group>"; };
 		84F9294B1F29918400B76D79 /* Report.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Report.storyboard; sourceTree = "<group>"; };
+		84F929501F29DF0B00B76D79 /* AnnouncementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnouncementViewController.h; sourceTree = "<group>"; };
+		84F929511F29DF0B00B76D79 /* AnnouncementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnouncementViewController.m; sourceTree = "<group>"; };
+		84F929531F29E0FC00B76D79 /* AnnouncementVcHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnouncementVcHeaderView.h; sourceTree = "<group>"; };
+		84F929541F29E0FC00B76D79 /* AnnouncementVcHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnouncementVcHeaderView.m; sourceTree = "<group>"; };
+		84F929561F29E10800B76D79 /* AnnouncementVcHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnnouncementVcHeaderView.xib; sourceTree = "<group>"; };
+		84F929581F29E24900B76D79 /* AnnouncementTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnouncementTableViewCell.h; sourceTree = "<group>"; };
+		84F929591F29E24900B76D79 /* AnnouncementTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnouncementTableViewCell.m; sourceTree = "<group>"; };
+		84F9295A1F29E24900B76D79 /* AnnouncementTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnnouncementTableViewCell.xib; sourceTree = "<group>"; };
+		84F9295D1F29E41100B76D79 /* PullTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullTableViewCell.h; sourceTree = "<group>"; };
+		84F9295E1F29E41100B76D79 /* PullTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullTableViewCell.m; sourceTree = "<group>"; };
+		84F9295F1F29E41100B76D79 /* PullTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PullTableViewCell.xib; sourceTree = "<group>"; };
+		84F929621F29E72500B76D79 /* UILabel+VerticalAlign.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+VerticalAlign.h"; sourceTree = "<group>"; };
+		84F929631F29E72500B76D79 /* UILabel+VerticalAlign.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+VerticalAlign.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -278,6 +299,8 @@
 				84F927DC1F27478800B76D79 /* NSArray+LjAdd.m */,
 				84F928461F2898FE00B76D79 /* CustomeLabel.h */,
 				84F928471F2898FF00B76D79 /* CustomeLabel.m */,
+				84F929621F29E72500B76D79 /* UILabel+VerticalAlign.h */,
+				84F929631F29E72500B76D79 /* UILabel+VerticalAlign.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -327,6 +350,8 @@
 		84F928BF1F29652B00B76D79 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				84F929501F29DF0B00B76D79 /* AnnouncementViewController.h */,
+				84F929511F29DF0B00B76D79 /* AnnouncementViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -341,6 +366,15 @@
 		84F928C11F29652B00B76D79 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				84F929531F29E0FC00B76D79 /* AnnouncementVcHeaderView.h */,
+				84F929541F29E0FC00B76D79 /* AnnouncementVcHeaderView.m */,
+				84F929561F29E10800B76D79 /* AnnouncementVcHeaderView.xib */,
+				84F929581F29E24900B76D79 /* AnnouncementTableViewCell.h */,
+				84F929591F29E24900B76D79 /* AnnouncementTableViewCell.m */,
+				84F9295A1F29E24900B76D79 /* AnnouncementTableViewCell.xib */,
+				84F9295D1F29E41100B76D79 /* PullTableViewCell.h */,
+				84F9295E1F29E41100B76D79 /* PullTableViewCell.m */,
+				84F9295F1F29E41100B76D79 /* PullTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -786,13 +820,16 @@
 				84F9291D1F29652B00B76D79 /* PersonalCenterTableViewCell.xib in Resources */,
 				84F929311F2968AE00B76D79 /* Info.plist in Resources */,
 				84F929301F2968AE00B76D79 /* Assets.xcassets in Resources */,
+				84F9295C1F29E24900B76D79 /* AnnouncementTableViewCell.xib in Resources */,
 				84F9292B1F2967B100B76D79 /* Main.storyboard in Resources */,
 				84F9293A1F2979AD00B76D79 /* Patrol.storyboard in Resources */,
 				84F929211F29652B00B76D79 /* PersonalDataHeaderView.xib in Resources */,
 				84F9291F1F29652B00B76D79 /* PersonalDataFooterView.xib in Resources */,
 				84F9293C1F297C8E00B76D79 /* PersonalCenter.storyboard in Resources */,
+				84F929611F29E41100B76D79 /* PullTableViewCell.xib in Resources */,
 				84F929441F297DFD00B76D79 /* SettingTableViewCell.xib in Resources */,
 				84F929101F29652B00B76D79 /* HomeHeaderView.xib in Resources */,
+				84F929571F29E10800B76D79 /* AnnouncementVcHeaderView.xib in Resources */,
 				84F929181F29652B00B76D79 /* PatrolTableViewCell.xib in Resources */,
 				84F929251F29652B00B76D79 /* PersonalPhotoTableViewCell.xib in Resources */,
 			);
@@ -830,7 +867,9 @@
 				84F9291E1F29652B00B76D79 /* PersonalDataFooterView.m in Sources */,
 				84F9291A1F29652B00B76D79 /* PersonalCenterVc.m in Sources */,
 				84F929171F29652B00B76D79 /* PatrolTableViewCell.m in Sources */,
+				84F929521F29DF0B00B76D79 /* AnnouncementViewController.m in Sources */,
 				84F927B51F25D61100B76D79 /* AppDelegate.m in Sources */,
+				84F929641F29E72500B76D79 /* UILabel+VerticalAlign.m in Sources */,
 				84F929141F29652B00B76D79 /* PatrolViewController.m in Sources */,
 				84F927BD1F25D72200B76D79 /* BaseViewController.m in Sources */,
 				84F929201F29652B00B76D79 /* PersonalDataHeaderView.m in Sources */,
@@ -838,15 +877,18 @@
 				84F929351F2971F500B76D79 /* GoToPatrolViewController.m in Sources */,
 				84F9290C1F29652B00B76D79 /* HomeViewController.m in Sources */,
 				84F929191F29652B00B76D79 /* PatrolHistoryViewController.m in Sources */,
+				84F929601F29E41100B76D79 /* PullTableViewCell.m in Sources */,
 				84F929221F29652B00B76D79 /* PersonalDataTableViewCell.m in Sources */,
 				84F9275F1F25D37400B76D79 /* main.m in Sources */,
 				84F929151F29652B00B76D79 /* PatrolTableHeaderView.m in Sources */,
+				84F9295B1F29E24900B76D79 /* AnnouncementTableViewCell.m in Sources */,
 				84F929471F298F1100B76D79 /* ReportViewController.m in Sources */,
 				84F927C81F25DD8100B76D79 /* UIView+LjAdd.m in Sources */,
 				84F9291C1F29652B00B76D79 /* PersonalCenterTableViewCell.m in Sources */,
 				84F9294A1F29914300B76D79 /* GoToReprotViewController.m in Sources */,
 				84F927DD1F27478800B76D79 /* NSArray+LjAdd.m in Sources */,
 				84F9290F1F29652B00B76D79 /* HomeHeaderView.m in Sources */,
+				84F929551F29E0FC00B76D79 /* AnnouncementVcHeaderView.m in Sources */,
 				84F929381F2975AD00B76D79 /* PatrolTrajectoryViewController.m in Sources */,
 				84F9290D1F29652B00B76D79 /* HomeCollectionViewCell.m in Sources */,
 			);
