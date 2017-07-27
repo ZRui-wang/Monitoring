@@ -50,6 +50,7 @@
 		84F929321F2968AE00B76D79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84F9292F1F2968AE00B76D79 /* LaunchScreen.storyboard */; };
 		84F929351F2971F500B76D79 /* GoToPatrolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F929341F2971F500B76D79 /* GoToPatrolViewController.m */; };
 		84F929381F2975AD00B76D79 /* PatrolTrajectoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F929371F2975AD00B76D79 /* PatrolTrajectoryViewController.m */; };
+		84F9293A1F2979AD00B76D79 /* Patrol.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84F929391F2979AD00B76D79 /* Patrol.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -145,6 +146,7 @@
 		84F929341F2971F500B76D79 /* GoToPatrolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoToPatrolViewController.m; sourceTree = "<group>"; };
 		84F929361F2975AD00B76D79 /* PatrolTrajectoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatrolTrajectoryViewController.h; sourceTree = "<group>"; };
 		84F929371F2975AD00B76D79 /* PatrolTrajectoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatrolTrajectoryViewController.m; sourceTree = "<group>"; };
+		84F929391F2979AD00B76D79 /* Patrol.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Patrol.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -623,6 +625,7 @@
 			isa = PBXGroup;
 			children = (
 				84F9292A1F2967B100B76D79 /* Main.storyboard */,
+				84F929391F2979AD00B76D79 /* Patrol.storyboard */,
 			);
 			path = StoryBoard;
 			sourceTree = "<group>";
@@ -753,6 +756,7 @@
 				84F929311F2968AE00B76D79 /* Info.plist in Resources */,
 				84F929301F2968AE00B76D79 /* Assets.xcassets in Resources */,
 				84F9292B1F2967B100B76D79 /* Main.storyboard in Resources */,
+				84F9293A1F2979AD00B76D79 /* Patrol.storyboard in Resources */,
 				84F929211F29652B00B76D79 /* PersonalDataHeaderView.xib in Resources */,
 				84F9291F1F29652B00B76D79 /* PersonalDataFooterView.xib in Resources */,
 				84F929101F29652B00B76D79 /* HomeHeaderView.xib in Resources */,

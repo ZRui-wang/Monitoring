@@ -59,13 +59,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    PatrolTrajectoryViewController *patrolTrajectoryVc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]instantiateViewControllerWithIdentifier:@"PatrolTrajectoryViewController"];
+    PatrolTrajectoryViewController *patrolTrajectoryVc = [[UIStoryboard storyboardWithName:@"Patrol" bundle:nil]instantiateViewControllerWithIdentifier:@"PatrolTrajectoryViewController"];
     [self.navigationController pushViewController:patrolTrajectoryVc animated:YES];
 }
 
 - (IBAction)goToPatrolAction:(id)sender {
     
-    GoToPatrolViewController *goToPatrolVc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]instantiateViewControllerWithIdentifier:@"GoToPatrolViewController"];
+    GoToPatrolViewController *goToPatrolVc = [[UIStoryboard storyboardWithName:@"Patrol" bundle:nil]instantiateViewControllerWithIdentifier:@"GoToPatrolViewController"];
     [self.navigationController pushViewController:goToPatrolVc animated:YES];
 }
 

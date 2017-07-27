@@ -98,7 +98,7 @@ static NSString *HomeCollectionViewCellId = @"HomeCollectionViewCell";
     else if (indexPath.item == 3)
     {
         // 在线巡逻
-        PatrolViewController *patrolVc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"PatrolViewController"];
+        PatrolViewController *patrolVc = [[UIStoryboard storyboardWithName:@"Patrol" bundle:nil] instantiateViewControllerWithIdentifier:@"PatrolViewController"];
         [self.navigationController pushViewController:patrolVc animated:YES];
         
     }
