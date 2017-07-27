@@ -62,42 +62,6 @@
             </objects>
             <point key="canvasLocation" x="1748" y="1164.4677661169417"/>
         </scene>
-        <!--Patrol History View Controller-->
-        <scene sceneID="ZYU-WC-ZFv">
-            <objects>
-                <viewController storyboardIdentifier="PatrolHistoryViewController" id="2Z4-aD-pmE" customClass="PatrolHistoryViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="RBf-b5-9o1"/>
-                        <viewControllerLayoutGuide type="bottom" id="uCY-vE-jNA"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="cPp-hP-PvD">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hV9-4O-Ksn">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="2Z4-aD-pmE" id="TFa-0T-cjf"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="uCY-vE-jNA" firstAttribute="top" secondItem="hV9-4O-Ksn" secondAttribute="bottom" id="9Oo-FT-lYx"/>
-                            <constraint firstAttribute="trailing" secondItem="hV9-4O-Ksn" secondAttribute="trailing" id="UW0-k9-07K"/>
-                            <constraint firstItem="hV9-4O-Ksn" firstAttribute="leading" secondItem="cPp-hP-PvD" secondAttribute="leading" id="lhE-zs-cYT"/>
-                            <constraint firstItem="hV9-4O-Ksn" firstAttribute="top" secondItem="RBf-b5-9o1" secondAttribute="bottom" id="rXV-e4-KNQ"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="tableView" destination="hV9-4O-Ksn" id="uBV-Q9-mVU"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zuW-ox-IHl" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2538" y="1146"/>
-        </scene>
         <!--Go To Patrol View Controller-->
         <scene sceneID="rb6-XW-Nlb">
             <objects>

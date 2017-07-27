@@ -10,6 +10,7 @@
 #import "PersonalCenterTableViewCell.h"
 #import "PersonalDataViewController.h"
 #import "PatrolHistoryViewController.h"
+#import "SettingViewController.h"
 
 @interface PersonalCenterVc ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -75,7 +76,7 @@
     else if (indexPath.row == 1)
     {
         // 巡逻里程
-        PatrolHistoryViewController *patrolHistoryVc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]instantiateViewControllerWithIdentifier:@"PatrolHistoryViewController"];
+        PatrolHistoryViewController *patrolHistoryVc = [[UIStoryboard storyboardWithName:@"PersonalCenter" bundle:nil]instantiateViewControllerWithIdentifier:@"PatrolHistoryViewController"];
         [self.navigationController pushViewController:patrolHistoryVc animated:YES];
     }
     else if (indexPath.row == 2)
@@ -93,6 +94,8 @@
     else
     {
         // 设置
+        SettingViewController *settingVc = [[UIStoryboard storyboardWithName:@"PersonalCenter" bundle:nil]instantiateViewControllerWithIdentifier:@"SettingViewController"];
+        [self.navigationController pushViewController:settingVc animated:YES];
     }
 }
 

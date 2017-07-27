@@ -51,6 +51,10 @@
 		84F929351F2971F500B76D79 /* GoToPatrolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F929341F2971F500B76D79 /* GoToPatrolViewController.m */; };
 		84F929381F2975AD00B76D79 /* PatrolTrajectoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F929371F2975AD00B76D79 /* PatrolTrajectoryViewController.m */; };
 		84F9293A1F2979AD00B76D79 /* Patrol.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84F929391F2979AD00B76D79 /* Patrol.storyboard */; };
+		84F9293C1F297C8E00B76D79 /* PersonalCenter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84F9293B1F297C8E00B76D79 /* PersonalCenter.storyboard */; };
+		84F9293F1F297D0E00B76D79 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F9293E1F297D0E00B76D79 /* SettingViewController.m */; };
+		84F929431F297DFD00B76D79 /* SettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F929411F297DFD00B76D79 /* SettingTableViewCell.m */; };
+		84F929441F297DFD00B76D79 /* SettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F929421F297DFD00B76D79 /* SettingTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -147,6 +151,12 @@
 		84F929361F2975AD00B76D79 /* PatrolTrajectoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatrolTrajectoryViewController.h; sourceTree = "<group>"; };
 		84F929371F2975AD00B76D79 /* PatrolTrajectoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatrolTrajectoryViewController.m; sourceTree = "<group>"; };
 		84F929391F2979AD00B76D79 /* Patrol.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Patrol.storyboard; sourceTree = "<group>"; };
+		84F9293B1F297C8E00B76D79 /* PersonalCenter.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PersonalCenter.storyboard; sourceTree = "<group>"; };
+		84F9293D1F297D0E00B76D79 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		84F9293E1F297D0E00B76D79 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		84F929401F297DFD00B76D79 /* SettingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingTableViewCell.h; sourceTree = "<group>"; };
+		84F929411F297DFD00B76D79 /* SettingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingTableViewCell.m; sourceTree = "<group>"; };
+		84F929421F297DFD00B76D79 /* SettingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -495,6 +505,8 @@
 				84F928EC1F29652B00B76D79 /* PersonalCenterVc.m */,
 				84F928ED1F29652B00B76D79 /* PersonalDataViewController.h */,
 				84F928EE1F29652B00B76D79 /* PersonalDataViewController.m */,
+				84F9293D1F297D0E00B76D79 /* SettingViewController.h */,
+				84F9293E1F297D0E00B76D79 /* SettingViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -524,6 +536,9 @@
 				84F928FD1F29652B00B76D79 /* PersonalPhotoTableViewCell.h */,
 				84F928FE1F29652B00B76D79 /* PersonalPhotoTableViewCell.m */,
 				84F928FF1F29652B00B76D79 /* PersonalPhotoTableViewCell.xib */,
+				84F929401F297DFD00B76D79 /* SettingTableViewCell.h */,
+				84F929411F297DFD00B76D79 /* SettingTableViewCell.m */,
+				84F929421F297DFD00B76D79 /* SettingTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -626,6 +641,7 @@
 			children = (
 				84F9292A1F2967B100B76D79 /* Main.storyboard */,
 				84F929391F2979AD00B76D79 /* Patrol.storyboard */,
+				84F9293B1F297C8E00B76D79 /* PersonalCenter.storyboard */,
 			);
 			path = StoryBoard;
 			sourceTree = "<group>";
@@ -759,6 +775,8 @@
 				84F9293A1F2979AD00B76D79 /* Patrol.storyboard in Resources */,
 				84F929211F29652B00B76D79 /* PersonalDataHeaderView.xib in Resources */,
 				84F9291F1F29652B00B76D79 /* PersonalDataFooterView.xib in Resources */,
+				84F9293C1F297C8E00B76D79 /* PersonalCenter.storyboard in Resources */,
+				84F929441F297DFD00B76D79 /* SettingTableViewCell.xib in Resources */,
 				84F929101F29652B00B76D79 /* HomeHeaderView.xib in Resources */,
 				84F929181F29652B00B76D79 /* PatrolTableViewCell.xib in Resources */,
 				84F929251F29652B00B76D79 /* PersonalPhotoTableViewCell.xib in Resources */,
@@ -791,6 +809,8 @@
 				84F929121F29652B00B76D79 /* InfoTableViewCell.m in Sources */,
 				84F927C31F25DA3F00B76D79 /* MNavigationItem.m in Sources */,
 				84F929111F29652B00B76D79 /* InfoViewController.m in Sources */,
+				84F9293F1F297D0E00B76D79 /* SettingViewController.m in Sources */,
+				84F929431F297DFD00B76D79 /* SettingTableViewCell.m in Sources */,
 				84F927CE1F25E8D400B76D79 /* MNavigationController.m in Sources */,
 				84F9291E1F29652B00B76D79 /* PersonalDataFooterView.m in Sources */,
 				84F9291A1F29652B00B76D79 /* PersonalCenterVc.m in Sources */,
