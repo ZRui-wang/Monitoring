@@ -32,6 +32,9 @@
                     <constraint firstItem="ZgF-Pb-858" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="30" id="Lri-uE-fVt"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="title" destination="ZgF-Pb-858" id="vto-VR-SK1"/>
+            </connections>
         </tableViewCell>
     </objects>
 </document>

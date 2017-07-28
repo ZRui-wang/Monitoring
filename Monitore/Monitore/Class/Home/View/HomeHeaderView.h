@@ -10,4 +10,10 @@
 
 @interface HomeHeaderView : UICollectionReusableView
 
+@property (weak, nonatomic) IBOutlet UIButton *signInButton;
+
+@property (weak, nonatomic) IBOutlet UIButton *rewardButton;
+
+@property (weak, nonatomic) IBOutlet UIButton *collectButton;
+
 @end

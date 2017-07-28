@@ -24,6 +24,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"个人中心";
+    [self leftCustomBarButton];
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;

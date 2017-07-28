@@ -23,6 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self leftCustomBarButton];
     self.title = @"个人资料";
     self.tableView.delegate = self;
     self.tableView.dataSource = self;

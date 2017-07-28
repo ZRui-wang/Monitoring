@@ -8,6 +8,10 @@
 
 #import "HomeHeaderView.h"
 
+@interface HomeHeaderView ()
+
+@end
+
 @implementation HomeHeaderView
 
 /*

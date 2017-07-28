@@ -48,6 +48,18 @@ static NSString *HomeCollectionViewCellId = @"HomeCollectionViewCell";
     self.titleAry = temptAry;
 }
 
+- (void)signInBtnAction:(UIButton *)button{
+    // 每日签到
+}
+
+- (void)rewardBtnAction:(UIButton *)button{
+    // 奖励兑换
+}
+
+- (void)collectionBtnAction:(UIButton *)button{
+    // 我要采集
+}
+
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
@@ -65,9 +77,13 @@ static NSString *HomeCollectionViewCellId = @"HomeCollectionViewCell";
            viewForSupplementaryElementOfKind:(NSString *)kind
                                  atIndexPath:(NSIndexPath *)indexPath {
     
-    UICollectionReusableView *headView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader
+    HomeHeaderView *headView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader
                                                                             withReuseIdentifier:HomeHeaderViewId
                                                                                    forIndexPath:indexPath];
+    [headView.signInButton addTarget:self action:@selector(signInBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+    [headView.rewardButton addTarget:self action:@selector(rewardBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+    [headView.collectButton addTarget:self action:@selector(collectionBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+    
     return headView;
 }
 
