@@ -69,6 +69,11 @@
 		84F929641F29E72500B76D79 /* UILabel+VerticalAlign.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F929631F29E72500B76D79 /* UILabel+VerticalAlign.m */; };
 		84F929681F2AFDC100B76D79 /* PatrolHistoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F929661F2AFDC100B76D79 /* PatrolHistoryTableViewCell.m */; };
 		84F929691F2AFDC100B76D79 /* PatrolHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F929671F2AFDC100B76D79 /* PatrolHistoryTableViewCell.xib */; };
+		84F9296D1F2B159100B76D79 /* GoToReportTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F9296B1F2B159100B76D79 /* GoToReportTableViewCell.m */; };
+		84F9296E1F2B159100B76D79 /* GoToReportTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F9296C1F2B159100B76D79 /* GoToReportTableViewCell.xib */; };
+		84F929721F2B1A4000B76D79 /* TextViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F929701F2B1A4000B76D79 /* TextViewTableViewCell.m */; };
+		84F929731F2B1A4000B76D79 /* TextViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F929711F2B1A4000B76D79 /* TextViewTableViewCell.xib */; };
+		84F929761F2B1FD700B76D79 /* Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F929751F2B1FD700B76D79 /* Tools.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -193,6 +198,14 @@
 		84F929651F2AFDC100B76D79 /* PatrolHistoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatrolHistoryTableViewCell.h; sourceTree = "<group>"; };
 		84F929661F2AFDC100B76D79 /* PatrolHistoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatrolHistoryTableViewCell.m; sourceTree = "<group>"; };
 		84F929671F2AFDC100B76D79 /* PatrolHistoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PatrolHistoryTableViewCell.xib; sourceTree = "<group>"; };
+		84F9296A1F2B159100B76D79 /* GoToReportTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoToReportTableViewCell.h; sourceTree = "<group>"; };
+		84F9296B1F2B159100B76D79 /* GoToReportTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoToReportTableViewCell.m; sourceTree = "<group>"; };
+		84F9296C1F2B159100B76D79 /* GoToReportTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GoToReportTableViewCell.xib; sourceTree = "<group>"; };
+		84F9296F1F2B1A4000B76D79 /* TextViewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextViewTableViewCell.h; sourceTree = "<group>"; };
+		84F929701F2B1A4000B76D79 /* TextViewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextViewTableViewCell.m; sourceTree = "<group>"; };
+		84F929711F2B1A4000B76D79 /* TextViewTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextViewTableViewCell.xib; sourceTree = "<group>"; };
+		84F929741F2B1FD700B76D79 /* Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tools.h; sourceTree = "<group>"; };
+		84F929751F2B1FD700B76D79 /* Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tools.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -324,6 +337,8 @@
 		84F927B41F25D61100B76D79 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				84F929741F2B1FD700B76D79 /* Tools.h */,
+				84F929751F2B1FD700B76D79 /* Tools.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -626,6 +641,12 @@
 		84F929031F29652B00B76D79 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				84F9296A1F2B159100B76D79 /* GoToReportTableViewCell.h */,
+				84F9296B1F2B159100B76D79 /* GoToReportTableViewCell.m */,
+				84F9296C1F2B159100B76D79 /* GoToReportTableViewCell.xib */,
+				84F9296F1F2B1A4000B76D79 /* TextViewTableViewCell.h */,
+				84F929701F2B1A4000B76D79 /* TextViewTableViewCell.m */,
+				84F929711F2B1A4000B76D79 /* TextViewTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -822,6 +843,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84F929231F29652B00B76D79 /* PersonalDataTableViewCell.xib in Resources */,
+				84F9296E1F2B159100B76D79 /* GoToReportTableViewCell.xib in Resources */,
 				84F929161F29652B00B76D79 /* PatrolTableHeaderView.xib in Resources */,
 				84F9290E1F29652B00B76D79 /* HomeCollectionViewCell.xib in Resources */,
 				84F929321F2968AE00B76D79 /* LaunchScreen.storyboard in Resources */,
@@ -837,6 +859,7 @@
 				84F9293A1F2979AD00B76D79 /* Patrol.storyboard in Resources */,
 				84F929211F29652B00B76D79 /* PersonalDataHeaderView.xib in Resources */,
 				84F9291F1F29652B00B76D79 /* PersonalDataFooterView.xib in Resources */,
+				84F929731F2B1A4000B76D79 /* TextViewTableViewCell.xib in Resources */,
 				84F9293C1F297C8E00B76D79 /* PersonalCenter.storyboard in Resources */,
 				84F929611F29E41100B76D79 /* PullTableViewCell.xib in Resources */,
 				84F929441F297DFD00B76D79 /* SettingTableViewCell.xib in Resources */,
@@ -875,6 +898,7 @@
 				84F927C31F25DA3F00B76D79 /* MNavigationItem.m in Sources */,
 				84F929111F29652B00B76D79 /* InfoViewController.m in Sources */,
 				84F9293F1F297D0E00B76D79 /* SettingViewController.m in Sources */,
+				84F929761F2B1FD700B76D79 /* Tools.m in Sources */,
 				84F929431F297DFD00B76D79 /* SettingTableViewCell.m in Sources */,
 				84F927CE1F25E8D400B76D79 /* MNavigationController.m in Sources */,
 				84F9291E1F29652B00B76D79 /* PersonalDataFooterView.m in Sources */,
@@ -898,11 +922,13 @@
 				84F929471F298F1100B76D79 /* ReportViewController.m in Sources */,
 				84F927C81F25DD8100B76D79 /* UIView+LjAdd.m in Sources */,
 				84F9291C1F29652B00B76D79 /* PersonalCenterTableViewCell.m in Sources */,
+				84F9296D1F2B159100B76D79 /* GoToReportTableViewCell.m in Sources */,
 				84F9294A1F29914300B76D79 /* GoToReprotViewController.m in Sources */,
 				84F929681F2AFDC100B76D79 /* PatrolHistoryTableViewCell.m in Sources */,
 				84F927DD1F27478800B76D79 /* NSArray+LjAdd.m in Sources */,
 				84F9290F1F29652B00B76D79 /* HomeHeaderView.m in Sources */,
 				84F929551F29E0FC00B76D79 /* AnnouncementVcHeaderView.m in Sources */,
+				84F929721F2B1A4000B76D79 /* TextViewTableViewCell.m in Sources */,
 				84F929381F2975AD00B76D79 /* PatrolTrajectoryViewController.m in Sources */,
 				84F9290D1F29652B00B76D79 /* HomeCollectionViewCell.m in Sources */,
 			);

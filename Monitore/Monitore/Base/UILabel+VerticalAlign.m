@@ -18,8 +18,8 @@
     double finalHeight = fontSize.height * self.numberOfLines;
     double finalWidth = self.frame.size.width;    //expected width of label
     
-    CGSize theStringSize = [self.text boundingRectWithSize:fontSize options:NSStringDrawingTruncatesLastVisibleLine attributes:@{NSFontAttributeName: self.font} context:nil].size;
-//    CGSize theStringSize = [self.text sizeWithFont:self.font constrainedToSize:CGSizeMake(finalWidth, finalHeight) lineBreakMode:self.lineBreakMode];
+//    CGSize theStringSize = [self.text boundingRectWithSize:fontSize options:NSStringDrawingTruncatesLastVisibleLine attributes:@{NSFontAttributeName: self.font} context:nil].size;
+    CGSize theStringSize = [self.text sizeWithFont:self.font constrainedToSize:CGSizeMake(finalWidth, finalHeight) lineBreakMode:self.lineBreakMode];
     
     
     int newLinesToPad = (finalHeight  - theStringSize.height) / fontSize.height;
