@@ -14,6 +14,7 @@
 #import "PatrolViewController.h"
 #import "ReportViewController.h"
 #import "AnnouncementViewController.h"
+#import "LoginViewController.h"
 
 @interface HomeViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -50,6 +51,9 @@ static NSString *HomeCollectionViewCellId = @"HomeCollectionViewCell";
 
 - (void)signInBtnAction:(UIButton *)button{
     // 每日签到
+    
+    LoginViewController *loginVc = [[UIStoryboard storyboardWithName:@"PersonalCenter" bundle:nil] instantiateViewControllerWithIdentifier:@"LoginViewController"];
+    [self.navigationController pushViewController:loginVc animated:YES];
 }
 
 - (void)rewardBtnAction:(UIButton *)button{
