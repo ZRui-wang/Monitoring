@@ -10,6 +10,7 @@
 		78A29FDD1F2F77B50086F388 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A29FDC1F2F77B50086F388 /* LoginViewController.m */; };
 		78E26AB11F29FEC2007A96F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78E26AB01F29FEC2007A96F6 /* Main.storyboard */; };
 		78E26AB61F2A2540007A96F6 /* Announcement.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78E26AB51F2A2540007A96F6 /* Announcement.storyboard */; };
+		846F693B1F31ADE700144601 /* BaiduTraceSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 846F693A1F31ADE700144601 /* BaiduTraceSDK.framework */; };
 		849C97051F30623400B38C64 /* IQNSArray+Sort.m in Sources */ = {isa = PBXBuildFile; fileRef = 849C96E31F30623400B38C64 /* IQNSArray+Sort.m */; };
 		849C97061F30623400B38C64 /* IQUIScrollView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 849C96E51F30623400B38C64 /* IQUIScrollView+Additions.m */; };
 		849C97071F30623400B38C64 /* IQUITextFieldView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 849C96E71F30623400B38C64 /* IQUITextFieldView+Additions.m */; };
@@ -115,6 +116,7 @@
 		78A29FDC1F2F77B50086F388 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		78E26AB01F29FEC2007A96F6 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		78E26AB51F2A2540007A96F6 /* Announcement.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Announcement.storyboard; sourceTree = "<group>"; };
+		846F693A1F31ADE700144601 /* BaiduTraceSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduTraceSDK.framework; sourceTree = "<group>"; };
 		849C96E21F30623400B38C64 /* IQNSArray+Sort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IQNSArray+Sort.h"; sourceTree = "<group>"; };
 		849C96E31F30623400B38C64 /* IQNSArray+Sort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IQNSArray+Sort.m"; sourceTree = "<group>"; };
 		849C96E41F30623400B38C64 /* IQUIScrollView+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IQUIScrollView+Additions.h"; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				846F693B1F31ADE700144601 /* BaiduTraceSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +288,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		846F69391F31ADE700144601 /* BaiduTrace_iOSSDK_v3.0.4 */ = {
+			isa = PBXGroup;
+			children = (
+				846F693A1F31ADE700144601 /* BaiduTraceSDK.framework */,
+			);
+			path = BaiduTrace_iOSSDK_v3.0.4;
+			sourceTree = "<group>";
+		};
 		849C96E01F30623400B38C64 /* IQKeyboardManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -427,6 +438,7 @@
 		84F927A11F25D51E00B76D79 /* Vender */ = {
 			isa = PBXGroup;
 			children = (
+				846F69391F31ADE700144601 /* BaiduTrace_iOSSDK_v3.0.4 */,
 				849C96E01F30623400B38C64 /* IQKeyboardManager */,
 			);
 			path = Vender;
@@ -1216,6 +1228,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 68A4VY9K26;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Monitore/Vender/BaiduTrace_iOSSDK_v3.0.4",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Monitore/Config/PrefixHeader.pch";
 				INFOPLIST_FILE = Monitore/Resources/Info.plist;
@@ -1232,6 +1249,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 68A4VY9K26;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Monitore/Vender/BaiduTrace_iOSSDK_v3.0.4",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Monitore/Config/PrefixHeader.pch";
 				INFOPLIST_FILE = Monitore/Resources/Info.plist;
