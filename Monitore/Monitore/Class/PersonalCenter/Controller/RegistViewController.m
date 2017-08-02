@@ -10,6 +10,16 @@
 
 @interface RegistViewController ()
 
+@property (weak, nonatomic) IBOutlet UITextField *phoneTextField;
+@property (weak, nonatomic) IBOutlet UITextField *verifyCodeTextField;
+@property (weak, nonatomic) IBOutlet UITextField *secrityTextField;
+@property (weak, nonatomic) IBOutlet UITextField *sureSecrityTextFeild;
+@property (weak, nonatomic) IBOutlet UITextField *recommendCodeTextField;
+@property (weak, nonatomic) IBOutlet UIButton *commenUserButton;
+@property (weak, nonatomic) IBOutlet UIButton *specialButton;
+@property (weak, nonatomic) IBOutlet UIView *recommendBgView;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *buttonPositionX;
 @end
 
 @implementation RegistViewController
@@ -17,6 +27,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+}
+
+- (IBAction)commenUserBtnAction:(UIButton *)sender {
+}
+
+- (IBAction)sepcialBtnAction:(UIButton *)sender {
+}
+- (IBAction)registBtnAction:(UIButton *)sender {
 }
 
 - (void)didReceiveMemoryWarning {
