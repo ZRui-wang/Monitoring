@@ -8,7 +8,7 @@
 
 #import "PatrolTrajectoryViewController.h"
 
-@interface PatrolTrajectoryViewController ()
+@interface PatrolTrajectoryViewController ()<BTKTrackDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *address;
 @property (weak, nonatomic) IBOutlet UILabel *patrolTime;
 @property (weak, nonatomic) IBOutlet UILabel *patrolLength;
@@ -16,6 +16,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *startTime;
 @property (weak, nonatomic) IBOutlet UILabel *endAddress;
 @property (weak, nonatomic) IBOutlet UILabel *endTime;
+@property (weak, nonatomic) IBOutlet UIView *mapBgView;
+
+@property (strong, nonatomic)BMKMapView *mapView;
 
 @end
 
@@ -26,6 +29,22 @@
     // Do any additional setup after loading the view.
     [self leftCustomBarButton];
     self.title = @"巡逻轨迹";
+    
+    self.mapView = [[BMKMapView alloc]initWithFrame:self.mapBgView.frame];
+    self.mapView.userTrackingMode = BMKUserTrackingModeFollowWithHeading;
+    
+    self.mapBgView = self.mapView;
+//    [self.mapBgView addSubview:self.mapView];
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
+    // 构造请求对象
+    NSUInteger endTime = [[NSDate date] timeIntervalSince1970];
+    BTKQueryHistoryTrackRequest *request = [[BTKQueryHistoryTrackRequest alloc] initWithEntityName:@"entityB" startTime:endTime - 84400 endTime:endTime isProcessed:TRUE processOption:nil supplementMode:BTK_TRACK_PROCESS_OPTION_SUPPLEMENT_MODE_WALKING outputCoordType:BTK_COORDTYPE_BD09LL sortType:BTK_TRACK_SORT_TYPE_DESC pageIndex:1 pageSize:10 serviceID:145266 tag:13];
+    // 发起查询请求
+    [[BTKTrackAction sharedInstance] queryHistoryTrackWith:request delegate:self];
 }
 
 - (void)didReceiveMemoryWarning {

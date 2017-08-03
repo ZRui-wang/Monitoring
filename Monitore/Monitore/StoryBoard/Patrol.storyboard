@@ -252,11 +252,19 @@
                                     <constraint firstAttribute="trailing" secondItem="vUy-M1-ZEt" secondAttribute="trailing" constant="5" id="yXN-JL-izz"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tLn-VX-8Ci">
+                                <rect key="frame" x="0.0" y="200" width="375" height="467"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="WRL-VM-AMT" firstAttribute="top" secondItem="UP3-SP-YQf" secondAttribute="bottom" id="Cec-bW-tJM"/>
                             <constraint firstItem="WRL-VM-AMT" firstAttribute="leading" secondItem="iH1-Wf-pMu" secondAttribute="leading" id="QAU-2b-7bd"/>
+                            <constraint firstAttribute="trailing" secondItem="tLn-VX-8Ci" secondAttribute="trailing" id="Qe4-fc-aCX"/>
+                            <constraint firstItem="tLn-VX-8Ci" firstAttribute="leading" secondItem="iH1-Wf-pMu" secondAttribute="leading" id="W5h-Cq-XlT"/>
+                            <constraint firstItem="tLn-VX-8Ci" firstAttribute="top" secondItem="WRL-VM-AMT" secondAttribute="bottom" id="fKA-Gs-ves"/>
+                            <constraint firstItem="PQZ-rq-8Sg" firstAttribute="top" secondItem="tLn-VX-8Ci" secondAttribute="bottom" id="gyi-zS-N12"/>
                             <constraint firstAttribute="trailing" secondItem="WRL-VM-AMT" secondAttribute="trailing" id="x9G-hz-LdT"/>
                         </constraints>
                     </view>
@@ -264,6 +272,7 @@
                         <outlet property="address" destination="d2X-K9-Dun" id="IXH-9f-Zvi"/>
                         <outlet property="endAddress" destination="7Dd-v9-6EA" id="GeP-Pv-o6p"/>
                         <outlet property="endTime" destination="rmS-mg-Qxv" id="6mg-iW-Nwa"/>
+                        <outlet property="mapBgView" destination="tLn-VX-8Ci" id="4w6-2x-CTm"/>
                         <outlet property="patrolLength" destination="m4h-Hu-4t8" id="OBt-5c-b6q"/>
                         <outlet property="patrolTime" destination="vUy-M1-ZEt" id="LwM-vq-2mh"/>
                         <outlet property="startAddress" destination="04p-FR-cSV" id="WLA-ll-Xqb"/>
