@@ -43,7 +43,7 @@
     [[BTKAction sharedInstance]setLocationAttributeWithActivityType:CLActivityTypeOther desiredAccuracy:kCLLocationAccuracyBest distanceFilter:kCLDistanceFilterNone];
     [[BTKAction sharedInstance] changeGatherAndPackIntervals:1 packInterval:10 delegate:self];
     
-    // 开启估计服务
+    // 开启轨迹服务
     BTKStartServiceOption *op = [[BTKStartServiceOption alloc] initWithEntityName:@"entityB"];
     // 开启服务
     [[BTKAction sharedInstance] startService:op delegate:self];
