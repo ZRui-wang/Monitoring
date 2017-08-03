@@ -27,6 +27,13 @@
     manager.enableAutoToolbar = YES;
     [[IQKeyboardManager sharedManager] setToolbarDoneBarButtonItemText:@"完成"];
     
+    BMKMapManager *mapManager = [[BMKMapManager alloc]init];
+    BOOL ret = [mapManager start:@"3hYyfdDODjd421keGGoZw2gHLaUBE2zx" generalDelegate:nil];
+    
+    if (!ret) {
+        NSLog(@"地图启动失败");
+    }
+    
     return YES;
 }
 
