@@ -33,8 +33,8 @@
     self.mapView = [[BMKMapView alloc]initWithFrame:self.mapBgView.frame];
     self.mapView.userTrackingMode = BMKUserTrackingModeFollowWithHeading;
     
-    self.mapBgView = self.mapView;
-//    [self.mapBgView addSubview:self.mapView];
+//    self.mapBgView = self.mapView;
+    [self.view addSubview:self.mapView];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
