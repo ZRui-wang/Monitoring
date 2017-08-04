@@ -65,7 +65,7 @@
     option.mapMatch = TRUE;
     option.radiusThreshold = 10;
     // 构造请求对象
-    BTKQueryTrackLatestPointRequest *request = [[BTKQueryTrackLatestPointRequest alloc] initWithEntityName:@"entityA" processOption: option outputCootdType:BTK_COORDTYPE_BD09LL serviceID:100000 tag:11];
+    BTKQueryTrackLatestPointRequest *request = [[BTKQueryTrackLatestPointRequest alloc] initWithEntityName:@"entityA" processOption: option outputCootdType:BTK_COORDTYPE_BD09LL serviceID:145266 tag:11];
     // 发起查询请求
     [[BTKTrackAction sharedInstance] queryTrackLatestPointWith:request delegate:self];
     

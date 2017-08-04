@@ -8,6 +8,22 @@
 
 #import "PatrolHistoryModel.h"
 
-@implementation PatrolHistoryModel
+@implementation EndPointModel
 
 @end
+
+@implementation PointsModel
+
+@end
+
+@implementation PatrolHistoryModel
++ (NSDictionary *)modelContainerPropertyGenericClass {
+    return @{
+             @"points": [PointsModel class]
+             };
+}
+@end
+
+
+
+

@@ -18,6 +18,7 @@
 #import "CustomeLabel.h"
 #import "UILabel+VerticalAlign.h"
 #import "Tools.h"
+#import "YYKit.h"
 
 #import <BaiduMapAPI_Base/BMKBaseComponent.h>//引入base相关所有的头文件
 
