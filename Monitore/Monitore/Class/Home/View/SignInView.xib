@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SignInView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zfc-fh-mgV">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9xB-oV-A3g">
+                    <rect key="frame" x="50" y="150" width="275" height="275"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="签到成功" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gQD-vq-fiE">
+                            <rect key="frame" x="39" y="27" width="176" height="33"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                            <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="9xB-oV-A3g" secondAttribute="height" multiplier="1:1" id="SeD-Gj-ck4"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="9xB-oV-A3g" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="50" id="1p8-pR-LBG"/>
+                <constraint firstAttribute="trailing" secondItem="zfc-fh-mgV" secondAttribute="trailing" id="DDf-Yz-tBk"/>
+                <constraint firstItem="9xB-oV-A3g" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="150" id="PsD-S2-EQl"/>
+                <constraint firstItem="zfc-fh-mgV" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="QRs-8z-MD2"/>
+                <constraint firstAttribute="bottom" secondItem="zfc-fh-mgV" secondAttribute="bottom" id="cFe-z8-RYx"/>
+                <constraint firstAttribute="trailing" secondItem="9xB-oV-A3g" secondAttribute="trailing" constant="50" id="m6p-kf-V97"/>
+                <constraint firstItem="zfc-fh-mgV" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="qaX-Iy-e26"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <connections>
+                <outlet property="bgView" destination="zfc-fh-mgV" id="qFb-0E-oPV"/>
+            </connections>
+            <point key="canvasLocation" x="-55.5" y="34.5"/>
+        </view>
+    </objects>
+</document>

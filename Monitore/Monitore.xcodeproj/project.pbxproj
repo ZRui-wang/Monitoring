@@ -111,6 +111,11 @@
 		847ED2001F3421F500BC710E /* YYTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 847ED1AC1F3421F400BC710E /* YYTimer.m */; };
 		847ED2011F3421F500BC710E /* YYTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 847ED1AE1F3421F400BC710E /* YYTransaction.m */; };
 		847ED2021F3421F500BC710E /* YYWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 847ED1B01F3421F400BC710E /* YYWeakProxy.m */; };
+		847ED2051F343B4900BC710E /* SignInView.m in Sources */ = {isa = PBXBuildFile; fileRef = 847ED2041F343B4900BC710E /* SignInView.m */; };
+		847ED2071F343B5900BC710E /* SignInView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847ED2061F343B5900BC710E /* SignInView.xib */; };
+		847ED2121F34416A00BC710E /* CollectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 847ED2111F34416A00BC710E /* CollectViewController.m */; };
+		847ED2151F345BCD00BC710E /* DIYPickView.m in Sources */ = {isa = PBXBuildFile; fileRef = 847ED2141F345BCD00BC710E /* DIYPickView.m */; };
+		847ED2171F345BDA00BC710E /* DIYPickView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847ED2161F345BDA00BC710E /* DIYPickView.xib */; };
 		849C97051F30623400B38C64 /* IQNSArray+Sort.m in Sources */ = {isa = PBXBuildFile; fileRef = 849C96E31F30623400B38C64 /* IQNSArray+Sort.m */; };
 		849C97061F30623400B38C64 /* IQUIScrollView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 849C96E51F30623400B38C64 /* IQUIScrollView+Additions.m */; };
 		849C97071F30623400B38C64 /* IQUITextFieldView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 849C96E71F30623400B38C64 /* IQUITextFieldView+Additions.m */; };
@@ -415,6 +420,14 @@
 		847ED1AF1F3421F400BC710E /* YYWeakProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYWeakProxy.h; sourceTree = "<group>"; };
 		847ED1B01F3421F400BC710E /* YYWeakProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYWeakProxy.m; sourceTree = "<group>"; };
 		847ED1B11F3421F400BC710E /* YYKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYKit.h; sourceTree = "<group>"; };
+		847ED2031F343B4900BC710E /* SignInView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignInView.h; sourceTree = "<group>"; };
+		847ED2041F343B4900BC710E /* SignInView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInView.m; sourceTree = "<group>"; };
+		847ED2061F343B5900BC710E /* SignInView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignInView.xib; sourceTree = "<group>"; };
+		847ED2101F34416A00BC710E /* CollectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectViewController.h; sourceTree = "<group>"; };
+		847ED2111F34416A00BC710E /* CollectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectViewController.m; sourceTree = "<group>"; };
+		847ED2131F345BCD00BC710E /* DIYPickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIYPickView.h; sourceTree = "<group>"; };
+		847ED2141F345BCD00BC710E /* DIYPickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIYPickView.m; sourceTree = "<group>"; };
+		847ED2161F345BDA00BC710E /* DIYPickView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DIYPickView.xib; sourceTree = "<group>"; };
 		849C96E21F30623400B38C64 /* IQNSArray+Sort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IQNSArray+Sort.h"; sourceTree = "<group>"; };
 		849C96E31F30623400B38C64 /* IQNSArray+Sort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IQNSArray+Sort.m"; sourceTree = "<group>"; };
 		849C96E41F30623400B38C64 /* IQUIScrollView+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IQUIScrollView+Additions.h"; sourceTree = "<group>"; };
@@ -896,6 +909,42 @@
 			path = Utility;
 			sourceTree = "<group>";
 		};
+		847ED20C1F34415300BC710E /* Collect */ = {
+			isa = PBXGroup;
+			children = (
+				847ED20D1F34415300BC710E /* Controller */,
+				847ED20E1F34415300BC710E /* Model */,
+				847ED20F1F34415300BC710E /* View */,
+			);
+			path = Collect;
+			sourceTree = "<group>";
+		};
+		847ED20D1F34415300BC710E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				847ED2101F34416A00BC710E /* CollectViewController.h */,
+				847ED2111F34416A00BC710E /* CollectViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		847ED20E1F34415300BC710E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		847ED20F1F34415300BC710E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				847ED2131F345BCD00BC710E /* DIYPickView.h */,
+				847ED2141F345BCD00BC710E /* DIYPickView.m */,
+				847ED2161F345BDA00BC710E /* DIYPickView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		849C96E01F30623400B38C64 /* IQKeyboardManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -1094,6 +1143,7 @@
 		84F928BD1F29652B00B76D79 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				847ED20C1F34415300BC710E /* Collect */,
 				84F928BE1F29652B00B76D79 /* Announcements */,
 				84F928C21F29652B00B76D79 /* Blacklist */,
 				84F928C61F29652B00B76D79 /* Home */,
@@ -1215,6 +1265,9 @@
 				84F928CF1F29652B00B76D79 /* HomeHeaderView.h */,
 				84F928D01F29652B00B76D79 /* HomeHeaderView.m */,
 				84F928D11F29652B00B76D79 /* HomeHeaderView.xib */,
+				847ED2031F343B4900BC710E /* SignInView.h */,
+				847ED2041F343B4900BC710E /* SignInView.m */,
+				847ED2061F343B5900BC710E /* SignInView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1597,6 +1650,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				847ED2071F343B5900BC710E /* SignInView.xib in Resources */,
 				84F929231F29652B00B76D79 /* PersonalDataTableViewCell.xib in Resources */,
 				84F9296E1F2B159100B76D79 /* GoToReportTableViewCell.xib in Resources */,
 				84F929161F29652B00B76D79 /* PatrolTableHeaderView.xib in Resources */,
@@ -1622,6 +1676,7 @@
 				84F929101F29652B00B76D79 /* HomeHeaderView.xib in Resources */,
 				84F929571F29E10800B76D79 /* AnnouncementVcHeaderView.xib in Resources */,
 				84F929181F29652B00B76D79 /* PatrolTableViewCell.xib in Resources */,
+				847ED2171F345BDA00BC710E /* DIYPickView.xib in Resources */,
 				84F929691F2AFDC100B76D79 /* PatrolHistoryTableViewCell.xib in Resources */,
 				84F929251F29652B00B76D79 /* PersonalPhotoTableViewCell.xib in Resources */,
 				849C97131F30623400B38C64 /* IQKeyboardManager.bundle in Resources */,
@@ -1716,6 +1771,7 @@
 				847ED1E11F3421F500BC710E /* NSObject+YYModel.m in Sources */,
 				847ED1BA1F3421F500BC710E /* NSObject+YYAdd.m in Sources */,
 				849C970C1F30623400B38C64 /* IQKeyboardReturnKeyHandler.m in Sources */,
+				847ED2121F34416A00BC710E /* CollectViewController.m in Sources */,
 				847ED1B91F3421F500BC710E /* NSNumber+YYAdd.m in Sources */,
 				84F929191F29652B00B76D79 /* PatrolHistoryViewController.m in Sources */,
 				84F929601F29E41100B76D79 /* PullTableViewCell.m in Sources */,
@@ -1763,6 +1819,7 @@
 				84F9290F1F29652B00B76D79 /* HomeHeaderView.m in Sources */,
 				847ED1B41F3421F500BC710E /* NSData+YYAdd.m in Sources */,
 				847ED1E81F3421F500BC710E /* YYTextLayout.m in Sources */,
+				847ED2051F343B4900BC710E /* SignInView.m in Sources */,
 				847ED1EF1F3421F500BC710E /* YYTextArchiver.m in Sources */,
 				847ED1B71F3421F500BC710E /* NSKeyedUnarchiver+YYAdd.m in Sources */,
 				847ED1F61F3421F500BC710E /* YYTextView.m in Sources */,
@@ -1785,6 +1842,7 @@
 				847ED1F91F3421F500BC710E /* YYFileHash.m in Sources */,
 				847ED0FD1F340E5500BC710E /* JSONKit.m in Sources */,
 				847ED1C51F3421F500BC710E /* UIColor+YYAdd.m in Sources */,
+				847ED2151F345BCD00BC710E /* DIYPickView.m in Sources */,
 				849C970F1F30623400B38C64 /* IQPreviousNextView.m in Sources */,
 				847ED1CA1F3421F500BC710E /* UIImage+YYAdd.m in Sources */,
 			);

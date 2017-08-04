@@ -15,6 +15,8 @@
 #import "ReportViewController.h"
 #import "AnnouncementViewController.h"
 #import "LoginViewController.h"
+#import "SignInView.h"
+#import "CollectViewController.h"
 
 @interface HomeViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -51,9 +53,8 @@ static NSString *HomeCollectionViewCellId = @"HomeCollectionViewCell";
 
 - (void)signInBtnAction:(UIButton *)button{
     // 每日签到
-    
-    LoginViewController *loginVc = [[UIStoryboard storyboardWithName:@"PersonalCenter" bundle:nil] instantiateViewControllerWithIdentifier:@"LoginViewController"];
-    [self.navigationController pushViewController:loginVc animated:YES];
+    UIView *signView = [SignInView xibView];
+    [self.view addSubview:signView];
 }
 
 - (void)rewardBtnAction:(UIButton *)button{
@@ -62,6 +63,8 @@ static NSString *HomeCollectionViewCellId = @"HomeCollectionViewCell";
 
 - (void)collectionBtnAction:(UIButton *)button{
     // 我要采集
+    CollectViewController *collectVc = [[UIStoryboard storyboardWithName:@"Report" bundle:nil] instantiateViewControllerWithIdentifier:@"CollectViewController"];
+    [self.navigationController pushViewController:collectVc animated:YES];
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -114,6 +117,8 @@ static NSString *HomeCollectionViewCellId = @"HomeCollectionViewCell";
     else if (indexPath.item == 1)
     {
         // 群防任务
+        LoginViewController *loginVc = [[UIStoryboard storyboardWithName:@"PersonalCenter" bundle:nil] instantiateViewControllerWithIdentifier:@"LoginViewController"];
+        [self.navigationController pushViewController:loginVc animated:YES];
     }
     else if (indexPath.item == 2)
     {
