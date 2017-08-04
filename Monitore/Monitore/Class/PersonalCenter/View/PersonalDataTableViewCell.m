@@ -33,13 +33,13 @@
         self.title.text = self.titleAry[indexPath.row];
         if (indexPath.row == 0) {
             self.skipTitle.text = @"修改手机号";
-            self.skipTitle.hidden = NO;
-            self.skipImage.hidden = NO;
+            self.skipTitle.hidden = YES;
+            self.skipImage.hidden = YES;
         }
         if (indexPath.row == 3) {
             self.skipTitle.text = @"修改类型";
-            self.skipTitle.hidden = NO;
-            self.skipImage.hidden = NO;
+            self.skipTitle.hidden = YES;
+            self.skipImage.hidden = YES;
         }
     }
     else

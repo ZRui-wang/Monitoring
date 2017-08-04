@@ -30,6 +30,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.title = @"车辆采集";
     [self leftCustomBarButton];
     [self fuwenbenLabel:self.numberTitle FontNumber:14 AndRange:NSMakeRange(4, 1) AndColor:[UIColor redColor]];
     [self fuwenbenLabel:self.colorTitle FontNumber:14 AndRange:NSMakeRange(4, 1) AndColor:[UIColor redColor]];
