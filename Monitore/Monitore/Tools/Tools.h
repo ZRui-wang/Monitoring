@@ -10,6 +10,12 @@
 
 @interface Tools : NSObject
 
+
+typedef void(^AddressBlock)(NSString *);
+
++ (id)sharedTools;
+- (void)getCurrentAddress:(AddressBlock)addressBlock;
+
 + (CGFloat)heightForTextWith:(NSString *)text fontSize:(CGFloat)fontSize width:(CGFloat)width;
 + (CGFloat)widthForTextWith:(NSString *)text fontSize:(CGFloat)fontSize height:(CGFloat)height;
 

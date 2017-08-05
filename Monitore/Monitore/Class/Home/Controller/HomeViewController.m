@@ -49,6 +49,10 @@ static NSString *HomeCollectionViewCellId = @"HomeCollectionViewCell";
     
     NSArray *temptAry = @[@"通知公告", @"群防任务", @"在线举报", @"在线巡逻", @"学习培训", @"黑名单", @"信息中心", @"个人中心"];
     self.titleAry = temptAry;
+    
+    [[Tools sharedTools] getCurrentAddress:^(NSString *address){
+        NSLog(@"定位的地址=%@", address);
+    }];
 }
 
 - (void)signInBtnAction:(UIButton *)button{

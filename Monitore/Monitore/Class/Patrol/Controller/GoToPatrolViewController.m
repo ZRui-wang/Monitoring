@@ -55,17 +55,12 @@
     BTKQueryTrackProcessOption *processOption = [[BTKQueryTrackProcessOption alloc] init];
     processOption.denoise = TRUE;
     processOption.vacuate = TRUE;
-    processOption.mapMatch = FALSE;
-    processOption.radiusThreshold = 0;
+    processOption.mapMatch = TRUE;
+    processOption.radiusThreshold = 10;
     processOption.transportMode = BTK_TRACK_PROCESS_OPTION_SUPPLEMENT_MODE_STRAIGHT;
-    
-    // 设置纠偏选项
-    BTKQueryTrackProcessOption *option = [[BTKQueryTrackProcessOption alloc] init];
-    option.denoise = TRUE;
-    option.mapMatch = TRUE;
-    option.radiusThreshold = 10;
+
     // 构造请求对象
-    BTKQueryTrackLatestPointRequest *request = [[BTKQueryTrackLatestPointRequest alloc] initWithEntityName:@"entityA" processOption: option outputCootdType:BTK_COORDTYPE_BD09LL serviceID:145266 tag:11];
+    BTKQueryTrackLatestPointRequest *request = [[BTKQueryTrackLatestPointRequest alloc] initWithEntityName:@"entityB" processOption: processOption outputCootdType:BTK_COORDTYPE_BD09LL serviceID:145266 tag:11];
     // 发起查询请求
     [[BTKTrackAction sharedInstance] queryTrackLatestPointWith:request delegate:self];
     
@@ -110,7 +105,7 @@
 //处理位置坐标更新
 - (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation
 {
-    //NSLog(@"didUpdateUserLocation lat %f,long %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
+    NSLog(@"didUpdateUserLocation lat %f,long %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
     self.mapView.showsUserLocation = YES;
     [self.mapView updateLocationData:userLocation];
 }

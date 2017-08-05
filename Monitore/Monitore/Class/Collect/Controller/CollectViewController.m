@@ -38,6 +38,10 @@
     
     colorAry = @[@"蓝色", @"黄色", @"绿色", @"黑色", @"白色"];
     
+    [[Tools sharedTools]getCurrentAddress:^(NSString *address) {
+        self.addressLabel.text = address;
+    }];
+    
 }
 
 - (void)didReceiveMemoryWarning {

@@ -10,11 +10,29 @@
 #import <CoreLocation/CoreLocation.h>
 #import <MapKit/MapKit.h>
 
+
+
 @interface Tools ()<CLLocationManagerDelegate>
+
+
 @property (strong, nonatomic)CLLocationManager *locationManager;
+@property (copy, nonatomic)NSString *currentAddress;
+
+@property (copy, nonatomic)AddressBlock addressBlock;
 @end
 
 @implementation Tools
+
++ (id)sharedTools
+{
+    static Tools *sharedAccountManagerInstance = nil;
+    static dispatch_once_t predicate;
+    dispatch_once(&predicate, ^{
+        sharedAccountManagerInstance = [[self alloc] init];
+    });
+    return sharedAccountManagerInstance;
+}
+
 
 + (CGFloat)heightForTextWith:(NSString *)text fontSize:(CGFloat)fontSize width:(CGFloat)width {
     
@@ -29,7 +47,7 @@
 }
 
 
-- (void)getCurrentAddress{
+- (void)getCurrentAddress:(AddressBlock)addressBlock{
     // 初始化定位管理器
     self.locationManager = [[CLLocationManager alloc]init];
     // 设置代理
@@ -42,6 +60,13 @@
     [self.locationManager requestAlwaysAuthorization];
     // 开始定位
     [self.locationManager startUpdatingLocation];
+    
+    NSString *str = @"str";
+    
+    
+    self.addressBlock = ^(NSString *address){
+       addressBlock(address);
+    };
     
 }
 
@@ -58,7 +83,7 @@
             NSString *administrativeAreaStr = placemark.administrativeArea;
             NSString *localityStr = placemark.locality;
             NSString *subLocalityStr = placemark.subLocality;
-            self.location.text = [NSString stringWithFormat:@"%@ %@ %@",administrativeAreaStr,localityStr,subLocalityStr];
+//            self.location.text = [NSString stringWithFormat:@"%@ %@ %@",administrativeAreaStr,localityStr,subLocalityStr];
             NSLog(@"信息1：%@",placemark.name);
     
             //获取城市
@@ -68,7 +93,7 @@
                 city = placemark.administrativeArea;
             }
             NSLog(@"city = %@", city);
-            _cityLable.text = city;
+//            _cityLable.text = city;
     //            [_cityButton setTitle:city forState:UIControlStateNormal];
     
         }
@@ -91,48 +116,27 @@
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
     
-    
-    
     CLLocation *location = [locations lastObject];
-    
     NSLog(@"latitude === %g  longitude === %g",location.coordinate.latitude, location.coordinate.longitude);
     
-    
-    
     //反向地理编码
-    
     CLGeocoder *clGeoCoder = [[CLGeocoder alloc] init];
-    
     CLLocation *cl = [[CLLocation alloc] initWithLatitude:location.coordinate.latitude longitude:location.coordinate.longitude];
-    
     [clGeoCoder reverseGeocodeLocation:cl completionHandler: ^(NSArray *placemarks,NSError *error) {
         
         for (CLPlacemark *placeMark in placemarks) {
-            
-            
-            
             NSDictionary *addressDic = placeMark.addressDictionary;
-            
-            
-            
             NSString *state=[addressDic objectForKey:@"State"];
-            
             NSString *city=[addressDic objectForKey:@"City"];
-            
             NSString *subLocality=[addressDic objectForKey:@"SubLocality"];
-            
             NSString *street=[addressDic objectForKey:@"Street"];
-            
-            
-            
             NSLog(@"所在城市====%@ %@ %@ %@", state, city, subLocality, street);
             
-//            [_locationManager stopUpdatingLocation];
+            self.addressBlock([NSString stringWithFormat:@"%@, %@, %@", city, subLocality, street]);
             
+            [_locationManager stopUpdatingLocation];
         }
-        
     }];
-    
 }
 
 @end
