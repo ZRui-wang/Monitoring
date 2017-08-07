@@ -162,7 +162,8 @@
             sportNode.angle = model.direction;
 //            sportNode.distance = [dic[@"distance"] doubleValue];
             sportNode.speed = [model.speed doubleValue];
-            [sportNodes addObject:sportNode];
+            [sportNodes insertObject:sportNode atIndex:0];
+
         }
     }
     sportNodeNum = sportNodes.count;
