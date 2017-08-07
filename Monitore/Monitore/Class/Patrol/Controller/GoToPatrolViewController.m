@@ -8,30 +8,6 @@
 
 #import "GoToPatrolViewController.h"
 
-// 运动结点信息类
-@interface BMKSportNode : NSObject
-
-//经纬度
-@property (nonatomic, assign) CLLocationCoordinate2D coordinate;
-//方向（角度）
-@property (nonatomic, assign) CGFloat angle;
-//距离
-@property (nonatomic, assign) CGFloat distance;
-//速度
-@property (nonatomic, assign) CGFloat speed;
-
-@end
-
-@implementation BMKSportNode
-
-@synthesize coordinate = _coordinate;
-@synthesize angle = _angle;
-@synthesize distance = _distance;
-@synthesize speed = _speed;
-
-@end
-
-
 @interface GoToPatrolViewController ()<BMKMapViewDelegate, BMKLocationServiceDelegate, BTKTraceDelegate, BTKTrackDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *patrolAddress;
 @property (weak, nonatomic) IBOutlet UILabel *patrolTime;
@@ -61,14 +37,13 @@
     self.title = @"我要巡逻";
     
     self.mapView = [[BMKMapView alloc]initWithFrame:self.mapBagView.frame];
-    // 用户位置追踪
     self.mapView.userTrackingMode = BMKUserTrackingModeFollowWithHeading;
     // 地图样式
     self.mapView.mapType = MKMapTypeStandard;
     self.mapView.showsUserLocation = YES;
     [self.mapBagView addSubview:self.mapView];
 
-
+    
     self.locService = [[BMKLocationService alloc]init];
     self.locService.delegate = self;
     // 设置过滤距离， 更新的最小间隔距离
@@ -81,7 +56,7 @@
     [[BTKAction sharedInstance] initInfo:sop];
     
     // 定位选项设置
-    [[BTKAction sharedInstance]setLocationAttributeWithActivityType:CLActivityTypeOther desiredAccuracy:kCLLocationAccuracyBest distanceFilter:6.0f];
+    [[BTKAction sharedInstance]setLocationAttributeWithActivityType:CLActivityTypeOther desiredAccuracy:kCLLocationAccuracyBest distanceFilter:kCLDistanceFilterNone];
     [[BTKAction sharedInstance] changeGatherAndPackIntervals:1 packInterval:10 delegate:self];
     
     // 开启轨迹服务
@@ -172,8 +147,8 @@
         CLLocationDegrees latitude  = location.coordinate.latitude;
         CLLocationDegrees longitude = location.coordinate.longitude;
         CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(latitude, longitude);
-//        BMKMapPoint point = BMKMapPointForCoordinate(coordinate);
-//        pointArray[idx] = point;
+        BMKMapPoint point = BMKMapPointForCoordinate(coordinate);
+        pointArray[idx] = point;
     }
     // 3、防止重复绘制
     if (self.routeLine) {
@@ -193,6 +168,7 @@
     free(pointArray);
 }
 
+
 - (void)setConfig{
     
 }
@@ -207,8 +183,11 @@
 //处理位置坐标更新
 - (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation
 {
-    NSLog(@"didUpdateUserLocation lat %f,long %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
-
+    //NSLog(@"didUpdateUserLocation lat %f,long %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
+//    self.mapView.showsUserLocation = YES;
+//    [self.mapView updateLocationData:userLocation];
+    
+    
     [self.mapView updateLocationData:userLocation];
     // 说明:由于开启了“无限后台”的外挂模式(^-^)所以可以直接写操作代码，然后系统默认在任何情况执行，但是为了已读，规划代码如下
     // 1、活跃状态
@@ -227,38 +206,6 @@
 }
 
 - (IBAction)finishPatrolButtonAction:(id)sender {
-}
-
-
-//开始
-- (void)start {
-//    CLLocationCoordinate2D paths[sportNodes.count];
-//    for (NSInteger i = 0; i < sportNodes.count; i++) {
-//        BMKSportNode *node = sportNodes[i];
-//        paths[i] = node.coordinate;
-//    }
-//    
-//    pathPloygon = [BMKPolygon polygonWithCoordinates:paths count:sportNodes.count];
-//    [self.mapView addOverlay:pathPloygon];
-//    
-//    sportAnnotation = [[BMKPointAnnotation alloc]init];
-//    sportAnnotation.coordinate = paths[0];
-//    sportAnnotation.title = @"test";
-//    [_mapView addAnnotation:sportAnnotation];
-//    currentIndex = 0;
-}
-
-//runing
-- (void)running {
-//    BMKSportNode *node = [sportNodes objectAtIndex:currentIndex % sportNodeNum];
-//    sportAnnotationView.imageView.transform = CGAffineTransformMakeRotation(node.angle);
-//    [UIView animateWithDuration:1 animations:^{
-//        currentIndex++;
-//        BMKSportNode *node = [sportNodes objectAtIndex:currentIndex % sportNodeNum];
-//        sportAnnotation.coordinate = node.coordinate;
-//    } completion:^(BOOL finished) {
-//        [self running];
-//    }];
 }
 
 #pragma mark - BMKMapViewDelegate
@@ -282,7 +229,7 @@
 
 
 - (void)mapView:(BMKMapView *)mapView didAddAnnotationViews:(NSArray *)views {
-    [self running];
+//    [self running];
 }
 
 
@@ -291,9 +238,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-
-
 
 /*
 #pragma mark - Navigation

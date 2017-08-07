@@ -145,7 +145,7 @@
     
     // 构造请求对象
     NSUInteger endTime = [[NSDate date] timeIntervalSince1970];
-    BTKQueryHistoryTrackRequest *request = [[BTKQueryHistoryTrackRequest alloc] initWithEntityName:@"entityB" startTime:endTime - 86300 endTime:endTime isProcessed:TRUE processOption:nil supplementMode:BTK_TRACK_PROCESS_OPTION_SUPPLEMENT_MODE_WALKING outputCoordType:BTK_COORDTYPE_BD09LL sortType:BTK_TRACK_SORT_TYPE_DESC pageIndex:1 pageSize:10 serviceID:145266 tag:13];
+    BTKQueryHistoryTrackRequest *request = [[BTKQueryHistoryTrackRequest alloc] initWithEntityName:@"entityA" startTime:endTime - 86300 endTime:endTime isProcessed:TRUE processOption:nil supplementMode:BTK_TRACK_PROCESS_OPTION_SUPPLEMENT_MODE_WALKING outputCoordType:BTK_COORDTYPE_BD09LL sortType:BTK_TRACK_SORT_TYPE_DESC pageIndex:1 pageSize:10 serviceID:145266 tag:13];
     // 发起查询请求
     [[BTKTrackAction sharedInstance] queryHistoryTrackWith:request delegate:self];
 }
@@ -162,7 +162,7 @@
             sportNode.angle = model.direction;
 //            sportNode.distance = [dic[@"distance"] doubleValue];
             sportNode.speed = [model.speed doubleValue];
-            [sportNodes insertObject:sportNode atIndex:0];
+            [sportNodes addObject:sportNode];
         }
     }
     sportNodeNum = sportNodes.count;

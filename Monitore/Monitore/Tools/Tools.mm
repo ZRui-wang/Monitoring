@@ -65,7 +65,7 @@
     
     
     self.addressBlock = ^(NSString *address){
-       addressBlock(address);
+        addressBlock(address);
     };
     
 }
@@ -83,9 +83,9 @@
             NSString *administrativeAreaStr = placemark.administrativeArea;
             NSString *localityStr = placemark.locality;
             NSString *subLocalityStr = placemark.subLocality;
-//            self.location.text = [NSString stringWithFormat:@"%@ %@ %@",administrativeAreaStr,localityStr,subLocalityStr];
+            //            self.location.text = [NSString stringWithFormat:@"%@ %@ %@",administrativeAreaStr,localityStr,subLocalityStr];
             NSLog(@"信息1：%@",placemark.name);
-    
+            
             //获取城市
             NSString *city = placemark.locality;
             if (!city) {
@@ -93,9 +93,9 @@
                 city = placemark.administrativeArea;
             }
             NSLog(@"city = %@", city);
-//            _cityLable.text = city;
-    //            [_cityButton setTitle:city forState:UIControlStateNormal];
-    
+            //            _cityLable.text = city;
+            //            [_cityButton setTitle:city forState:UIControlStateNormal];
+            
         }
         else if (error == nil && [array count] == 0){
             NSLog(@"No results were returned.");
@@ -104,9 +104,9 @@
             NSLog(@"An error occurred = %@", error);
         }
     }];
-
+    
     //系统会一直更新数据，直到选择停止更新，因为我们只需要获得一次经纬度即可，所以获取之后就停止更新
-
+    
     [manager stopUpdatingLocation];
     
 }
