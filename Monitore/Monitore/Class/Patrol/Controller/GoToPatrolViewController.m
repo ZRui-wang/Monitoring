@@ -39,7 +39,7 @@
     self.mapView = [[BMKMapView alloc]initWithFrame:self.mapBagView.frame];
     self.mapView.userTrackingMode = BMKUserTrackingModeFollowWithHeading;
     // 地图样式
-    self.mapView.mapType = MKMapTypeStandard;
+    self.mapView.mapType = MKMapTypeSatellite;
     self.mapView.showsUserLocation = YES;
     [self.mapBagView addSubview:self.mapView];
 
@@ -148,6 +148,7 @@
         CLLocationDegrees longitude = location.coordinate.longitude;
         CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(latitude, longitude);
         BMKMapPoint point = BMKMapPointForCoordinate(coordinate);
+        NSLog(@"哈哈哈哈 = %f, %f", point.x, point.y);
         pointArray[idx] = point;
     }
     // 3、防止重复绘制
@@ -158,6 +159,7 @@
     
     // 4、画线
     self.routeLine = [BMKPolyline polylineWithPoints:pointArray count:self.locationPoint.count];
+    
     
     // 5、将折线(覆盖)添加到地图
     if (nil != self.routeLine) {
@@ -184,10 +186,7 @@
 - (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation
 {
     //NSLog(@"didUpdateUserLocation lat %f,long %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
-//    self.mapView.showsUserLocation = YES;
-//    [self.mapView updateLocationData:userLocation];
-    
-    
+
     [self.mapView updateLocationData:userLocation];
     // 说明:由于开启了“无限后台”的外挂模式(^-^)所以可以直接写操作代码，然后系统默认在任何情况执行，但是为了已读，规划代码如下
     // 1、活跃状态
@@ -217,13 +216,12 @@
 //根据overlay生成对应的View
 - (BMKOverlayView *)mapView:(BMKMapView *)mapView viewForOverlay:(id <BMKOverlay>)overlay
 {
-    if ([overlay isKindOfClass:[BMKPolygon class]])
+    if ([overlay isKindOfClass:[BMKPolyline class]])
     {
-        BMKPolygonView* polygonView = [[BMKPolygonView alloc] initWithOverlay:overlay];
-        polygonView.strokeColor = [[UIColor alloc] initWithRed:0.0 green:0.5 blue:0.0 alpha:0.6];
-        polygonView.lineWidth = 3.0;
-        return polygonView;
-    }
+        BMKPolylineView *lineview=[[BMKPolylineView alloc] initWithOverlay:overlay];
+        lineview.strokeColor=[[UIColor blueColor] colorWithAlphaComponent:0.5];
+        lineview.lineWidth=2.0;
+        return lineview;    }
     return nil;
 }
 
