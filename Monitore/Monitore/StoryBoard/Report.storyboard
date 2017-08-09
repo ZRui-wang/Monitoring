@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -105,7 +105,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Bl2-tN-dlQ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="汽车" translatesAutoresizingMaskIntoConstraints="NO" id="Bl2-tN-dlQ">
                                 <rect key="frame" x="10" y="20" width="355" height="142"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Bl2-tN-dlQ" secondAttribute="height" multiplier="2.5:1" id="GIa-rj-CVK"/>
@@ -192,18 +192,17 @@
                                     <constraint firstAttribute="height" constant="20" id="Orr-9c-OYT"/>
                                     <constraint firstAttribute="width" constant="20" id="sDI-ZU-b54"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="arrow_right"/>
+                                <state key="normal" title="Button" image="刷新"/>
                                 <connections>
                                     <action selector="refreshAddressBtnAction:" destination="5RQ-hr-Ie2" eventType="touchUpInside" id="b6o-cj-5cJ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U6S-ge-HVL">
                                 <rect key="frame" x="50" y="607" width="275" height="40"/>
-                                <color key="backgroundColor" red="0.01877382956" green="0.4281618297" blue="0.73732841010000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="NhV-bP-OCS"/>
                                 </constraints>
-                                <state key="normal" title="提交">
+                                <state key="normal" title="提交" backgroundImage="大按钮">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -291,6 +290,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrow_right" width="7" height="12"/>
+        <image name="arrow_right" width="6" height="11"/>
+        <image name="刷新" width="15" height="15"/>
+        <image name="大按钮" width="300" height="41"/>
+        <image name="汽车" width="355" height="134"/>
     </resources>
 </document>

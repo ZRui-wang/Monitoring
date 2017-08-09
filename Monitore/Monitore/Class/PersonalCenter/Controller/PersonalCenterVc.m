@@ -11,6 +11,7 @@
 #import "PersonalDataViewController.h"
 #import "PatrolHistoryViewController.h"
 #import "SettingViewController.h"
+#import "HelpCenterViewController.h"
 
 @interface PersonalCenterVc ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -87,6 +88,8 @@
     else if (indexPath.row == 3)
     {
         // 帮助中心
+        HelpCenterViewController *helpCenterVc = [[UIStoryboard storyboardWithName:@"PersonalCenter" bundle:nil]instantiateViewControllerWithIdentifier:@"HelpCenterViewController"];
+        [self.navigationController pushViewController:helpCenterVc animated:YES];
     }
     else if (indexPath.row == 4)
     {

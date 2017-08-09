@@ -93,7 +93,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mYU-aB-6T5" userLabel="BgView">
                                 <rect key="frame" x="0.0" y="20" width="375" height="200"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Afk-d7-aCy">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="个人中心图层" translatesAutoresizingMaskIntoConstraints="NO" id="Afk-d7-aCy">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Lpe-0e-SiI">
@@ -183,13 +183,12 @@
                                     <constraint firstItem="bBm-mN-8Lt" firstAttribute="top" secondItem="UIN-aH-CEF" secondAttribute="bottom" constant="15" id="z8Z-66-ecF"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ccd-fl-9Wf">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ccd-fl-9Wf">
                                 <rect key="frame" x="40" y="583.5" width="295" height="30"/>
-                                <color key="backgroundColor" red="0.018773829564452171" green="0.42816182971000671" blue="0.73732841014862061" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="czB-Yh-0Xn"/>
                                 </constraints>
-                                <state key="normal" title="退   出">
+                                <state key="normal" title="退   出" backgroundImage="大按钮">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -351,11 +350,10 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sI6-AY-zCi">
                                 <rect key="frame" x="50" y="622" width="275" height="40"/>
-                                <color key="backgroundColor" red="0.01877382956" green="0.4281618297" blue="0.73732841010000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="ku0-tj-cFw"/>
                                 </constraints>
-                                <state key="normal" title="我要举报">
+                                <state key="normal" title="我要举报" backgroundImage="大按钮">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -391,4 +389,8 @@
             <point key="canvasLocation" x="2487" y="-197"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="个人中心图层" width="375" height="165"/>
+        <image name="大按钮" width="300" height="41"/>
+    </resources>
 </document>

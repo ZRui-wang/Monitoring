@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -96,7 +96,7 @@
                             <view contentMode="scaleToFill" restorationIdentifier="LoginViewController" translatesAutoresizingMaskIntoConstraints="NO" id="tH9-Bm-vKx">
                                 <rect key="frame" x="66" y="191.5" width="188" height="40"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="announce" translatesAutoresizingMaskIntoConstraints="NO" id="PcV-ih-LIc">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="个人资料" translatesAutoresizingMaskIntoConstraints="NO" id="PcV-ih-LIc">
                                         <rect key="frame" x="20" y="10" width="20" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="k3C-Mh-ti0"/>
@@ -126,7 +126,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bXh-yp-hfg">
                                 <rect key="frame" x="66" y="251.5" width="188" height="40"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="announce" translatesAutoresizingMaskIntoConstraints="NO" id="ek4-TM-cz9">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="锁" translatesAutoresizingMaskIntoConstraints="NO" id="ek4-TM-cz9">
                                         <rect key="frame" x="20" y="10" width="20" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="20" id="Zfz-a3-dCk"/>
@@ -491,9 +491,64 @@
             </objects>
             <point key="canvasLocation" x="4753.125" y="1126.056338028169"/>
         </scene>
+        <!--Help Center View Controller-->
+        <scene sceneID="URo-Mf-ijy">
+            <objects>
+                <viewController storyboardIdentifier="HelpCenterViewController" id="q29-Aw-PJW" customClass="HelpCenterViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UAz-3K-j9W"/>
+                        <viewControllerLayoutGuide type="bottom" id="4e5-hQ-7os"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="SCS-aY-S7B">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="n9P-Z6-Pau">
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                                <color key="backgroundColor" red="0.94095736742019653" green="0.94509977102279663" blue="0.94911319017410278" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="GLb-lr-1fJ">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="NZO-Kv-Qh9">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="q29-Aw-PJW" id="d0g-pJ-nfI"/>
+                                    <outlet property="delegate" destination="q29-Aw-PJW" id="gKt-kx-Jgg"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="n9P-Z6-Pau" firstAttribute="leading" secondItem="SCS-aY-S7B" secondAttribute="leading" id="JL5-hr-D90"/>
+                            <constraint firstAttribute="trailing" secondItem="n9P-Z6-Pau" secondAttribute="trailing" id="Vdw-ye-t4d"/>
+                            <constraint firstItem="n9P-Z6-Pau" firstAttribute="top" secondItem="UAz-3K-j9W" secondAttribute="bottom" id="Z9g-NR-BBs"/>
+                            <constraint firstItem="4e5-hQ-7os" firstAttribute="top" secondItem="n9P-Z6-Pau" secondAttribute="bottom" id="cE7-lU-0SD"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="n9P-Z6-Pau" id="JHF-XT-zJG"/>
+                        <outlet property="layout" destination="GLb-lr-1fJ" id="CLC-gS-raO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qeh-2G-KLz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5511" y="1145"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="announce" width="15" height="14"/>
         <image name="btn_select_empty" width="21" height="21"/>
+        <image name="个人资料" width="18" height="19"/>
+        <image name="锁" width="20" height="21"/>
     </resources>
 </document>
