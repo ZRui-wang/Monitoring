@@ -11,6 +11,7 @@
 #import "AnnouncementTableViewCell.h"
 #import "PullTableViewCell.h"
 #import "PullTableViewCell.h"
+#import "DetailViewController.h"
 
 @interface AnnouncementViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -21,6 +22,10 @@
 
 @property (strong, nonatomic)UIView *bgView;
 
+@property (strong, nonatomic)UIButton *typeBtn;
+
+@property (strong, nonatomic)UIButton *stateBtn;
+
 
 @end
 
@@ -30,6 +35,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self leftCustomBarButton];
+    self.title = @"通知公告";
     
     self.bgView = [[UIView alloc]initWithFrame:CGRectMake(0, 55, SCREEN_WIDTH, 0)];
     self.bgView.backgroundColor = [UIColor blackColor];
@@ -67,7 +73,7 @@
         return 40;
     }
     else{
-        return 60;
+        return 80;
     }
 }
 
@@ -96,10 +102,17 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     AnnouncementVcHeaderView *view = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"AnnouncementVcHeaderView"];
-    
-    [view.typeButton addTarget:self action:@selector(typeButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-    
-    [view.stateButton addTarget:self action:@selector(typeButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    view.refreshButtonBlock = ^(BOOL typeIsSelected, BOOL stateIsSelected){
+        if (typeIsSelected || stateIsSelected) {
+            [UIView animateWithDuration:1 animations:^{
+                self.pullTableView.frame = CGRectMake(0, 55, SCREEN_WIDTH, 200);
+                self.bgView.frame = CGRectMake(0, 55, SCREEN_WIDTH, SCREEN_HEIGHT-55);
+            }];
+        }
+        else{
+            [self hidenBgView];
+        }
+    };
     
     return view;
 }
@@ -123,10 +136,17 @@
         }
         [self hidenBgView];
     }
+    else{
+        DetailViewController *detailVc = [[DetailViewController alloc]init];
+        [self.navigationController pushViewController:detailVc animated:YES];
+    }
 }
 
 - (void)typeButtonAction:(UIButton *)button{
     button.selected = !button.isSelected;
+    
+    self.typeBtn.selected = button.selected;
+    self.stateBtn.selected = !button.selected;
     
     if (button.selected) {
         [UIView animateWithDuration:1 animations:^{
@@ -140,6 +160,21 @@
 
 }
 
+- (void)stateButtonAction:(UIButton *)button{
+    button.selected = !button.isSelected;
+    self.typeBtn.selected = !button.selected;
+    self.stateBtn.selected = button.selected;
+    if (button.selected) {
+        [UIView animateWithDuration:1 animations:^{
+            self.pullTableView.frame = CGRectMake(0, 55, SCREEN_WIDTH, 200);
+            self.bgView.frame = CGRectMake(0, 55, SCREEN_WIDTH, SCREEN_HEIGHT-55);
+        }];
+    }
+    else{
+        [self hidenBgView];
+    }
+}
+
 - (void)tabAction{
     [self hidenBgView];
 }
@@ -148,7 +183,14 @@
     [UIView animateWithDuration:1 animations:^{
         self.pullTableView.frame = CGRectMake(0, 55, SCREEN_WIDTH, 0);
         self.bgView.frame = CGRectMake(0, 55, SCREEN_WIDTH, 0);
+    }completion:^(BOOL finished) {
+        [[NSNotificationCenter defaultCenter]postNotificationName:@"hidenBgView" object:nil];
     }];
+}
+
+- (void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
 }
 
 - (void)didReceiveMemoryWarning {

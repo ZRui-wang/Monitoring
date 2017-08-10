@@ -134,6 +134,7 @@
 		849C97121F30623400B38C64 /* IQUIView+IQKeyboardToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 849C97021F30623400B38C64 /* IQUIView+IQKeyboardToolbar.m */; };
 		849C97131F30623400B38C64 /* IQKeyboardManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 849C97041F30623400B38C64 /* IQKeyboardManager.bundle */; };
 		849C97161F3064AB00B38C64 /* RegistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849C97151F3064AB00B38C64 /* RegistViewController.m */; };
+		84AB54BF1F3C2D8D006F7904 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AB54BE1F3C2D8D006F7904 /* DetailViewController.m */; };
 		84F9275F1F25D37400B76D79 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F9275E1F25D37400B76D79 /* main.m */; };
 		84F927781F25D37400B76D79 /* MonitoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F927771F25D37400B76D79 /* MonitoreTests.m */; };
 		84F927831F25D37400B76D79 /* MonitoreUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F927821F25D37400B76D79 /* MonitoreUITests.m */; };
@@ -466,6 +467,8 @@
 		849C97041F30623400B38C64 /* IQKeyboardManager.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = IQKeyboardManager.bundle; sourceTree = "<group>"; };
 		849C97141F3064AB00B38C64 /* RegistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistViewController.h; sourceTree = "<group>"; };
 		849C97151F3064AB00B38C64 /* RegistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistViewController.m; sourceTree = "<group>"; };
+		84AB54BD1F3C2D8D006F7904 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		84AB54BE1F3C2D8D006F7904 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		84F9275A1F25D37400B76D79 /* Monitore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Monitore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84F9275E1F25D37400B76D79 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		84F927731F25D37400B76D79 /* MonitoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MonitoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1179,6 +1182,8 @@
 			children = (
 				84F929501F29DF0B00B76D79 /* AnnouncementViewController.h */,
 				84F929511F29DF0B00B76D79 /* AnnouncementViewController.m */,
+				84AB54BD1F3C2D8D006F7904 /* DetailViewController.h */,
+				84AB54BE1F3C2D8D006F7904 /* DetailViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1852,6 +1857,7 @@
 				847ED1F91F3421F500BC710E /* YYFileHash.m in Sources */,
 				847ED0FD1F340E5500BC710E /* JSONKit.m in Sources */,
 				847ED1C51F3421F500BC710E /* UIColor+YYAdd.m in Sources */,
+				84AB54BF1F3C2D8D006F7904 /* DetailViewController.m in Sources */,
 				847ED2151F345BCD00BC710E /* DIYPickView.m in Sources */,
 				849C970F1F30623400B38C64 /* IQPreviousNextView.m in Sources */,
 				847ED1CA1F3421F500BC710E /* UIImage+YYAdd.m in Sources */,

@@ -9,7 +9,7 @@
 #import "CollectViewController.h"
 #import "DIYPickView.h"
 
-@interface CollectViewController ()<UIPickerViewDelegate, UIPickerViewDataSource, UIActionSheetDelegate>
+@interface CollectViewController ()<UIPickerViewDelegate, UIPickerViewDataSource, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *number;
 @property (weak, nonatomic) IBOutlet UILabel *colour;
 @property (weak, nonatomic) IBOutlet UILabel *addressLabel;
@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *colorTitle;
 @property (weak, nonatomic) IBOutlet UILabel *addressTitle;
 @property (weak, nonatomic) IBOutlet UIImageView *collectImageView;
+@property (weak, nonatomic) IBOutlet UIButton *takePhotoButton;
 
 @property (strong, nonatomic)DIYPickView *selectColorView;
 @property (strong, nonatomic)UIView *pickBgView;
@@ -55,11 +56,22 @@
 }
 
 - (IBAction)refreshAddressBtnAction:(id)sender {
+    [[Tools sharedTools]getCurrentAddress:^(NSString *address) {
+        self.addressLabel.text = address;
+    }];
 }
 
 - (IBAction)submitButtonAction:(id)sender {
 }
 
+- (IBAction)takePhotoButtonAction:(UIButton *)sender {
+    UIImagePickerController *picker = [[UIImagePickerController alloc]init];
+    picker.delegate = self;
+    picker.allowsEditing = NO;
+    
+    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    [self presentViewController:picker animated:YES completion:nil];
+}
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
     return 1;
@@ -102,6 +114,92 @@
     //设置文字颜色
     [str addAttribute:NSForegroundColorAttributeName value:vaColor range:range];
     labell.attributedText = str;
+}
+
+/**
+ 
+ *  打开相册
+ 
+ */
+
+-(void)openPhotoLibrary
+
+{
+    
+    // Supported orientations has no common orientation with the application, and [PUUIAlbumListViewController shouldAutorotate] is returning YES
+    
+    
+    
+    // 进入相册
+    
+    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
+        
+    {
+        
+        UIImagePickerController *imagePicker = [[UIImagePickerController alloc]init];
+        
+        imagePicker.allowsEditing = YES;
+        
+        imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        
+        imagePicker.delegate = self;
+        
+        [self presentViewController:imagePicker animated:YES completion:^{
+            
+            NSLog(@"打开相册");
+            
+        }];
+        
+    }
+    
+    else
+        
+    {
+        
+        NSLog(@"不能打开相册");
+        
+    }
+    
+}
+
+
+
+#pragma mark - UIImagePickerControllerDelegate
+
+// 拍照完成回调
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(nullable NSDictionary<NSString *,id> *)editingInfo NS_DEPRECATED_IOS(2_0, 3_0)
+
+{
+    
+    NSSLog(@"finish..");
+    
+    self.collectImageView.image = image;
+    
+//    if(picker.sourceType == UIImagePickerControllerSourceTypeCamera)
+//        
+//    {
+//        
+//        //图片存入相册
+//        
+//        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+//        
+//    }
+    
+    
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+}
+
+//进入拍摄页面点击取消按钮
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+
+{
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
 }
 
 - (void)buttonAction{

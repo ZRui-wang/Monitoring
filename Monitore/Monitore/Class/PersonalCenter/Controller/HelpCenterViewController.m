@@ -12,6 +12,7 @@
 @interface HelpCenterViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *layout;
+@property (strong, nonatomic) NSArray *titleAry;
 
 @end
 
@@ -20,8 +21,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.title = @"帮助中心";
     self.layout.itemSize = CGSizeMake((SCREEN_WIDTH-60)/3.0, (SCREEN_WIDTH-60)/3.0);
     [self.collectionView registerNib:[UINib nibWithNibName:@"HomeCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"HomeCollectionViewCell"];
+    
+    self.titleAry = @[@"下载APP", @"账号注册", @"登录激活", @"群防任务", @"线索举报", @"通知公告"];
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
@@ -30,6 +34,7 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     HomeCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HomeCollectionViewCell" forIndexPath:indexPath];
+    [cell displayCellWithData:self.titleAry[indexPath.row]];
     return cell;
 }
 
@@ -39,6 +44,10 @@
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
     return 15;
+}
+
+-(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
+    return UIEdgeInsetsMake(10, 15, 10, 15);
 }
 
 - (void)didReceiveMemoryWarning {

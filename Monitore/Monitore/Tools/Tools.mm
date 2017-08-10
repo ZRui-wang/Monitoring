@@ -12,7 +12,7 @@
 
 
 
-@interface Tools ()<CLLocationManagerDelegate>
+@interface Tools ()<CLLocationManagerDelegate, BMKLocationServiceDelegate>
 
 
 @property (strong, nonatomic)CLLocationManager *locationManager;
@@ -63,11 +63,90 @@
     
     NSString *str = @"str";
     
+    BMKLocationService *service = [[BMKLocationService alloc]init];
+    service.delegate = self;
+    [service startUserLocationService];
+    
     
     self.addressBlock = ^(NSString *address){
         addressBlock(address);
     };
+}
+
+//实现相关delegate 处理位置信息更新
+//处理方向变更信息
+- (void)didUpdateUserHeading:(BMKUserLocation *)userLocation
+{
+    //NSLog(@"heading is %@",userLocation.heading);
+}
+//处理位置坐标更新
+- (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation
+{
+    //NSLog(@"didUpdateUserLocation lat %f,long %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
     
+    // 获取当前所在的城市名
+    
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    //根据经纬度反向地理编译出地址信息
+    [geocoder reverseGeocodeLocation:    // 获取当前所在的城市名
+     
+     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+     //根据经纬度反向地理编译出地址信息
+     [geocoder reverseGeocodeLocation:newLocation completionHandler:^(NSArray *array, NSError *error){
+        
+        if (array.count > 0){
+            CLPlacemark *placemark = [array objectAtIndex:0];
+            NSString *administrativeAreaStr = placemark.administrativeArea;
+            NSString *localityStr = placemark.locality;
+            NSString *subLocalityStr = placemark.subLocality;
+            //            self.location.text = [NSString stringWithFormat:@"%@ %@ %@",administrativeAreaStr,localityStr,subLocalityStr];
+            NSLog(@"信息1：%@",placemark.name);
+            
+            //获取城市
+            NSString *city = placemark.locality;
+            if (!city) {
+                //四大直辖市的城市信息无法通过locality获得，只能通过获取省份的方法来获得（如果city为空，则可知为直辖市）
+                city = placemark.administrativeArea;
+            }
+            NSLog(@"city = %@", city);
+            //            _cityLable.text = city;
+            //            [_cityButton setTitle:city forState:UIControlStateNormal];
+            
+        }
+        else if (error == nil && [array count] == 0){
+            NSLog(@"No results were returned.");
+        }
+        else if (error != nil){
+            NSLog(@"An error occurred = %@", error);
+        }
+    }];  completionHandler:^(NSArray *array, NSError *error){
+        
+        if (array.count > 0){
+            CLPlacemark *placemark = [array objectAtIndex:0];
+            NSString *administrativeAreaStr = placemark.administrativeArea;
+            NSString *localityStr = placemark.locality;
+            NSString *subLocalityStr = placemark.subLocality;
+            //            self.location.text = [NSString stringWithFormat:@"%@ %@ %@",administrativeAreaStr,localityStr,subLocalityStr];
+            NSLog(@"信息1：%@",placemark.name);
+            
+            //获取城市
+            NSString *city = placemark.locality;
+            if (!city) {
+                //四大直辖市的城市信息无法通过locality获得，只能通过获取省份的方法来获得（如果city为空，则可知为直辖市）
+                city = placemark.administrativeArea;
+            }
+            NSLog(@"city = %@", city);
+            //            _cityLable.text = city;
+            //            [_cityButton setTitle:city forState:UIControlStateNormal];
+            
+        }
+        else if (error == nil && [array count] == 0){
+            NSLog(@"No results were returned.");
+        }
+        else if (error != nil){
+            NSLog(@"An error occurred = %@", error);
+        }
+    }];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation{
