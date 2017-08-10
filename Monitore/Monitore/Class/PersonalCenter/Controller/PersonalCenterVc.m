@@ -12,6 +12,7 @@
 #import "PatrolHistoryViewController.h"
 #import "SettingViewController.h"
 #import "HelpCenterViewController.h"
+#import "UserFeedbackViewController.h"
 
 @interface PersonalCenterVc ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -94,6 +95,9 @@
     else if (indexPath.row == 4)
     {
         // 用户反馈
+        UserFeedbackViewController *userFeedbackVc = [[UIStoryboard storyboardWithName:@"PersonalCenter" bundle:nil]instantiateViewControllerWithIdentifier:@"UserFeedbackViewController"];
+        [self.navigationController pushViewController:userFeedbackVc animated:YES];
+
     }
     else
     {

@@ -12,4 +12,5 @@
 
 - (void)displayCellWithData:(NSString *)title;
 
+- (void)displayCellWithData:(NSString *)title image:(NSString *)image;
 @end

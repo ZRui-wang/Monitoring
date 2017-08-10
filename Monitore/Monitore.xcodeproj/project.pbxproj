@@ -12,6 +12,7 @@
 		78E26AB11F29FEC2007A96F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78E26AB01F29FEC2007A96F6 /* Main.storyboard */; };
 		78E26AB61F2A2540007A96F6 /* Announcement.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78E26AB51F2A2540007A96F6 /* Announcement.storyboard */; };
 		78EB07DD1F3B51EC00C64587 /* HelpCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78EB07DC1F3B51EC00C64587 /* HelpCenterViewController.m */; };
+		78EB07E01F3C9EB200C64587 /* UserFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78EB07DF1F3C9EB200C64587 /* UserFeedbackViewController.m */; };
 		8473C5BA1F32B825009F4B42 /* Tools.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8473C5B91F32B825009F4B42 /* Tools.mm */; };
 		8473C5C21F32B8D2009F4B42 /* BaiduMapAPI_Base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8473C5BC1F32B8D2009F4B42 /* BaiduMapAPI_Base.framework */; };
 		8473C5C31F32B8D2009F4B42 /* BaiduMapAPI_Location.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8473C5BD1F32B8D2009F4B42 /* BaiduMapAPI_Location.framework */; };
@@ -240,6 +241,8 @@
 		78E26AB51F2A2540007A96F6 /* Announcement.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Announcement.storyboard; sourceTree = "<group>"; };
 		78EB07DB1F3B51EC00C64587 /* HelpCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpCenterViewController.h; sourceTree = "<group>"; };
 		78EB07DC1F3B51EC00C64587 /* HelpCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpCenterViewController.m; sourceTree = "<group>"; };
+		78EB07DE1F3C9EB200C64587 /* UserFeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserFeedbackViewController.h; sourceTree = "<group>"; };
+		78EB07DF1F3C9EB200C64587 /* UserFeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserFeedbackViewController.m; sourceTree = "<group>"; };
 		8473C5B91F32B825009F4B42 /* Tools.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Tools.mm; sourceTree = "<group>"; };
 		8473C5BC1F32B8D2009F4B42 /* BaiduMapAPI_Base.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Base.framework; sourceTree = "<group>"; };
 		8473C5BD1F32B8D2009F4B42 /* BaiduMapAPI_Location.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Location.framework; sourceTree = "<group>"; };
@@ -1392,6 +1395,8 @@
 				849C97151F3064AB00B38C64 /* RegistViewController.m */,
 				78EB07DB1F3B51EC00C64587 /* HelpCenterViewController.h */,
 				78EB07DC1F3B51EC00C64587 /* HelpCenterViewController.m */,
+				78EB07DE1F3C9EB200C64587 /* UserFeedbackViewController.h */,
+				78EB07DF1F3C9EB200C64587 /* UserFeedbackViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1856,6 +1861,7 @@
 				847ED1F71F3421F500BC710E /* YYAsyncLayer.m in Sources */,
 				847ED1F91F3421F500BC710E /* YYFileHash.m in Sources */,
 				847ED0FD1F340E5500BC710E /* JSONKit.m in Sources */,
+				78EB07E01F3C9EB200C64587 /* UserFeedbackViewController.m in Sources */,
 				847ED1C51F3421F500BC710E /* UIColor+YYAdd.m in Sources */,
 				84AB54BF1F3C2D8D006F7904 /* DetailViewController.m in Sources */,
 				847ED2151F345BCD00BC710E /* DIYPickView.m in Sources */,

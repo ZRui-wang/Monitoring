@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -26,12 +26,12 @@
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dy6-oj-K0n">
                             <rect key="frame" x="179.5" y="30.5" width="87.5" height="87.5"/>
-                            <state key="normal" image="通知公告"/>
+                            <state key="normal" backgroundImage="jiangli"/>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="slq-3z-wpS" userLabel="Button3">
                             <rect key="frame" x="313" y="30" width="87.5" height="87.5"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <state key="normal" image="通知公告"/>
+                            <state key="normal" backgroundImage="采集日志"/>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ViB-rr-hY4" userLabel="Button1">
                             <rect key="frame" x="46" y="30" width="87.5" height="87.5"/>
@@ -39,7 +39,7 @@
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="ViB-rr-hY4" secondAttribute="height" multiplier="1:1" id="MEc-B3-Wd1"/>
                             </constraints>
-                            <state key="normal" image="通知公告"/>
+                            <state key="normal" backgroundImage="签到"/>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="每日签到" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Po-KK-mkg">
                             <rect key="frame" x="63" y="125.5" width="53.5" height="17"/>
@@ -113,6 +113,8 @@
         </view>
     </objects>
     <resources>
-        <image name="通知公告" width="100" height="100"/>
+        <image name="jiangli" width="65" height="64"/>
+        <image name="签到" width="24" height="27"/>
+        <image name="采集日志" width="64" height="64"/>
     </resources>
 </document>

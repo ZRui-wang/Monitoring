@@ -27,4 +27,9 @@
     self.titleImage.image = [UIImage imageNamed:title];
 }
 
+- (void)displayCellWithData:(NSString *)title image:(NSString *)image{
+    self.title.text = title;
+    self.titleImage.image = [UIImage imageNamed:image];
+}
+
 @end
