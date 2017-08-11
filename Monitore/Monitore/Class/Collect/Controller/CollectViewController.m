@@ -28,6 +28,10 @@
     NSArray *colorAry;
 }
 
+- (void)dealloc{
+    NSLog(@"销毁啦哈哈");
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -39,8 +43,9 @@
     
     colorAry = @[@"蓝色", @"黄色", @"绿色", @"黑色", @"白色"];
     
+    __block typeof(self) weak = self;
     [[Tools sharedTools]getCurrentAddress:^(NSString *address) {
-        self.addressLabel.text = address;
+        weak.addressLabel.text = address;
     }];
 
     
@@ -56,8 +61,10 @@
 }
 
 - (IBAction)refreshAddressBtnAction:(id)sender {
+    
+    __block typeof(self) weak = self;
     [[Tools sharedTools]getCurrentAddress:^(NSString *address) {
-        self.addressLabel.text = address;
+        weak.addressLabel.text = address;
     }];
 }
 

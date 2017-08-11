@@ -12,11 +12,12 @@
 
 
 
-@interface Tools ()<CLLocationManagerDelegate, BMKLocationServiceDelegate>
+@interface Tools ()<CLLocationManagerDelegate, BMKLocationServiceDelegate, BMKGeoCodeSearchDelegate>
 
-
-@property (strong, nonatomic)CLLocationManager *locationManager;
 @property (copy, nonatomic)NSString *currentAddress;
+
+@property (strong, nonatomic)BMKLocationService *service;
+@property (strong, nonatomic)BMKGeoCodeSearch *geocodesearch;
 
 @property (copy, nonatomic)AddressBlock addressBlock;
 @end
@@ -48,24 +49,14 @@
 
 
 - (void)getCurrentAddress:(AddressBlock)addressBlock{
-    // 初始化定位管理器
-    self.locationManager = [[CLLocationManager alloc]init];
-    // 设置代理
-    self.locationManager.delegate = self;
-    // 设置定位精度到米
-    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    // 设置过滤器为无
-    self.locationManager.distanceFilter = kCLDistanceFilterNone;
     
-    [self.locationManager requestAlwaysAuthorization];
-    // 开始定位
-    [self.locationManager startUpdatingLocation];
+    self.service = [[BMKLocationService alloc]init];
+    self.service.delegate = self;
+    self.service.desiredAccuracy = kCLLocationAccuracyBest;
+    [self.service startUserLocationService];
     
-    NSString *str = @"str";
-    
-    BMKLocationService *service = [[BMKLocationService alloc]init];
-    service.delegate = self;
-    [service startUserLocationService];
+    self.geocodesearch = [[BMKGeoCodeSearch alloc]init];
+    self.geocodesearch.delegate = self;
     
     
     self.addressBlock = ^(NSString *address){
@@ -92,138 +83,23 @@
     if (lat!=nil && lon!=nil) {
         pt = (CLLocationCoordinate2D){[lat floatValue], [lon floatValue]};
     }
-//    BMKReverseGeoCodeOption *reverseGeocodeSearchOption = [[BMKReverseGeoCodeOption alloc]init];
-//    reverseGeocodeSearchOption.reverseGeoPoint = pt;
-//    BOOL flag = [_geocodesearch reverseGeoCode:reverseGeocodeSearchOption];
-//    if(flag) NSLog(@"反geo检索发送成功");
-//    // 获取当前所在的城市名
-//    
-//    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-//    //根据经纬度反向地理编译出地址信息
-//     [geocoder reverseGeocodeLocation:userLocation completionHandler:^(NSArray *array, NSError *error){
-//        
-//        if (array.count > 0){
-//            CLPlacemark *placemark = [array objectAtIndex:0];
-//            NSString *administrativeAreaStr = placemark.administrativeArea;
-//            NSString *localityStr = placemark.locality;
-//            NSString *subLocalityStr = placemark.subLocality;
-//            //            self.location.text = [NSString stringWithFormat:@"%@ %@ %@",administrativeAreaStr,localityStr,subLocalityStr];
-//            NSLog(@"信息1：%@",placemark.name);
-//            
-//            //获取城市
-//            NSString *city = placemark.locality;
-//            if (!city) {
-//                //四大直辖市的城市信息无法通过locality获得，只能通过获取省份的方法来获得（如果city为空，则可知为直辖市）
-//                city = placemark.administrativeArea;
-//            }
-//            NSLog(@"city = %@", city);
-//            //            _cityLable.text = city;
-//            //            [_cityButton setTitle:city forState:UIControlStateNormal];
-//            
-//        }
-//        else if (error == nil && [array count] == 0){
-//            NSLog(@"No results were returned.");
-//        }
-//        else if (error != nil){
-//            NSLog(@"An error occurred = %@", error);
-//        }
-//    }];  completionHandler:^(NSArray *array, NSError *error){
-//        
-//        if (array.count > 0){
-//            CLPlacemark *placemark = [array objectAtIndex:0];
-//            NSString *administrativeAreaStr = placemark.administrativeArea;
-//            NSString *localityStr = placemark.locality;
-//            NSString *subLocalityStr = placemark.subLocality;
-//            //            self.location.text = [NSString stringWithFormat:@"%@ %@ %@",administrativeAreaStr,localityStr,subLocalityStr];
-//            NSLog(@"信息1：%@",placemark.name);
-//            
-//            //获取城市
-//            NSString *city = placemark.locality;
-//            if (!city) {
-//                //四大直辖市的城市信息无法通过locality获得，只能通过获取省份的方法来获得（如果city为空，则可知为直辖市）
-//                city = placemark.administrativeArea;
-//            }
-//            NSLog(@"city = %@", city);
-//            //            _cityLable.text = city;
-//            //            [_cityButton setTitle:city forState:UIControlStateNormal];
-//            
-//        }
-//        else if (error == nil && [array count] == 0){
-//            NSLog(@"No results were returned.");
-//        }
-//        else if (error != nil){
-//            NSLog(@"An error occurred = %@", error);
-//        }
-//    }];
+    BMKReverseGeoCodeOption *reverseGeocodeSearchOption = [[BMKReverseGeoCodeOption alloc]init];
+    reverseGeocodeSearchOption.reverseGeoPoint = pt;
+    
+    
+    BOOL flag = [_geocodesearch reverseGeoCode:reverseGeocodeSearchOption];
+    if(flag) NSLog(@"反geo检索发送成功");
+
 }
 
-- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation{
+// 实现反编码的delegate
+-(void) onGetReverseGeoCodeResult:(BMKGeoCodeSearch *)searcher result:(BMKReverseGeoCodeResult *)result errorCode:(BMKSearchErrorCode)error {
+    self.currentAddress = [NSString stringWithFormat:@"%@, %@, %@, %@", result.addressDetail.city, result.addressDetail.district, result.addressDetail.streetName, result.addressDetail.streetNumber];
     
-    // 获取当前所在的城市名
-    
-    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-    //根据经纬度反向地理编译出地址信息
-    [geocoder reverseGeocodeLocation:newLocation completionHandler:^(NSArray *array, NSError *error){
-        
-        if (array.count > 0){
-            CLPlacemark *placemark = [array objectAtIndex:0];
-            NSString *administrativeAreaStr = placemark.administrativeArea;
-            NSString *localityStr = placemark.locality;
-            NSString *subLocalityStr = placemark.subLocality;
-            //            self.location.text = [NSString stringWithFormat:@"%@ %@ %@",administrativeAreaStr,localityStr,subLocalityStr];
-            NSLog(@"信息1：%@",placemark.name);
-            
-            //获取城市
-            NSString *city = placemark.locality;
-            if (!city) {
-                //四大直辖市的城市信息无法通过locality获得，只能通过获取省份的方法来获得（如果city为空，则可知为直辖市）
-                city = placemark.administrativeArea;
-            }
-            NSLog(@"city = %@", city);
-            //            _cityLable.text = city;
-            //            [_cityButton setTitle:city forState:UIControlStateNormal];
-            
-        }
-        else if (error == nil && [array count] == 0){
-            NSLog(@"No results were returned.");
-        }
-        else if (error != nil){
-            NSLog(@"An error occurred = %@", error);
-        }
-    }];
-    
-    //系统会一直更新数据，直到选择停止更新，因为我们只需要获得一次经纬度即可，所以获取之后就停止更新
-    
-    [manager stopUpdatingLocation];
-    
-}
-
-
-//获取经纬度和详细地址
-
-- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
-    
-    CLLocation *location = [locations lastObject];
-    NSLog(@"latitude === %g  longitude === %g",location.coordinate.latitude, location.coordinate.longitude);
-    
-    //反向地理编码
-    CLGeocoder *clGeoCoder = [[CLGeocoder alloc] init];
-    CLLocation *cl = [[CLLocation alloc] initWithLatitude:location.coordinate.latitude longitude:location.coordinate.longitude];
-    [clGeoCoder reverseGeocodeLocation:cl completionHandler: ^(NSArray *placemarks,NSError *error) {
-        
-        for (CLPlacemark *placeMark in placemarks) {
-            NSDictionary *addressDic = placeMark.addressDictionary;
-            NSString *state=[addressDic objectForKey:@"State"];
-            NSString *city=[addressDic objectForKey:@"City"];
-            NSString *subLocality=[addressDic objectForKey:@"SubLocality"];
-            NSString *street=[addressDic objectForKey:@"Street"];
-            NSLog(@"所在城市====%@ %@ %@ %@", state, city, subLocality, street);
-            
-            self.addressBlock([NSString stringWithFormat:@"%@, %@, %@", city, subLocality, street]);
-            
-            [_locationManager stopUpdatingLocation];
-        }
-    }];
+    self.addressBlock(self.currentAddress);
+    [self.service stopUserLocationService];
+    self.service.delegate = nil;
+    self.geocodesearch.delegate = nil;
 }
 
 @end
