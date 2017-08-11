@@ -83,16 +83,24 @@
 - (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation
 {
 //    //NSLog(@"didUpdateUserLocation lat %f,long %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
-//    
+//
+    NSLog(@"didUpdateUserLocation lat %f,long %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
+    NSString *lat = [NSString stringWithFormat:@"%f",userLocation.location.coordinate.latitude];
+    NSString *lon = [NSString stringWithFormat:@"%f",userLocation.location.coordinate.longitude];
+
+    CLLocationCoordinate2D pt = (CLLocationCoordinate2D){0, 0};
+    if (lat!=nil && lon!=nil) {
+        pt = (CLLocationCoordinate2D){[lat floatValue], [lon floatValue]};
+    }
+//    BMKReverseGeoCodeOption *reverseGeocodeSearchOption = [[BMKReverseGeoCodeOption alloc]init];
+//    reverseGeocodeSearchOption.reverseGeoPoint = pt;
+//    BOOL flag = [_geocodesearch reverseGeoCode:reverseGeocodeSearchOption];
+//    if(flag) NSLog(@"反geo检索发送成功");
 //    // 获取当前所在的城市名
 //    
 //    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
 //    //根据经纬度反向地理编译出地址信息
-//    [[geocoder reverseGeocodeLocation:    // 获取当前所在的城市名
-//     
-//     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-//     //根据经纬度反向地理编译出地址信息
-//     [geocoder reverseGeocodeLocation:newLocation completionHandler:^(NSArray *array, NSError *error){
+//     [geocoder reverseGeocodeLocation:userLocation completionHandler:^(NSArray *array, NSError *error){
 //        
 //        if (array.count > 0){
 //            CLPlacemark *placemark = [array objectAtIndex:0];

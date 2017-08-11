@@ -7,7 +7,7 @@
 //
 
 #import "HelpCenterViewController.h"
-#import "HomeCollectionViewCell.h"
+#import "HelpCenterCollectionViewCell.h"
 
 @interface HelpCenterViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -26,7 +26,7 @@
     [self leftCustomBarButton];
     
     self.layout.itemSize = CGSizeMake((SCREEN_WIDTH-60)/3.0, (SCREEN_WIDTH-60)/3.0);
-    [self.collectionView registerNib:[UINib nibWithNibName:@"HomeCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"HomeCollectionViewCell"];
+    [self.collectionView registerNib:[UINib nibWithNibName:@"HelpCenterCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"HelpCenterCollectionViewCell"];
     
     self.titleAry = @[@"下载APP", @"账号注册", @"登录激活", @"群防任务", @"线索举报", @"通知公告"];
     self.imageAry = @[@"下载APP", @"账号注册", @"登录激活", @"任务", @"举报", @"公告"];
@@ -37,9 +37,10 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    HomeCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HomeCollectionViewCell" forIndexPath:indexPath];
-    [cell displayCellWithData:self.titleAry[indexPath.row] image:self.imageAry[indexPath.row]];
+    HelpCenterCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HelpCenterCollectionViewCell" forIndexPath:indexPath];
+    [cell displayCell:self.titleAry[indexPath.row] image:self.imageAry[indexPath.row]];
     return cell;
+
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{

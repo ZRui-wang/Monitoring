@@ -7,6 +7,7 @@
 //
 
 #import "LoginViewController.h"
+#import "RegistViewController.h"
 
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UIView *nameBgView;
@@ -20,6 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self leftCustomBarButton];
     self.nameBgView.layer.cornerRadius = self.nameBgView.self.frame.size.height/2.0;
     self.nameBgView.layer.masksToBounds = YES;
     self.passWorldBgView.layer.cornerRadius = self.passWorldBgView.self.frame.size.height/2.0;
@@ -36,6 +38,8 @@
 }
 
 - (IBAction)registButtonAction:(id)sender {
+    RegistViewController *registVc = [[UIStoryboard storyboardWithName:@"PersonalCenter" bundle:nil]instantiateViewControllerWithIdentifier:@"RegistViewController"];
+    [self.navigationController pushViewController:registVc animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

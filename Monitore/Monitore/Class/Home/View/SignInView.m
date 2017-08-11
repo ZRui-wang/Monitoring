@@ -11,6 +11,7 @@
 
 @interface SignInView ()
 @property (weak, nonatomic) IBOutlet UIView *bgView;
+@property (weak, nonatomic) IBOutlet UIImageView *signInImageView;
 
 @end
 

@@ -18,6 +18,11 @@
 @property (weak, nonatomic) IBOutlet UIButton *commenUserButton;
 @property (weak, nonatomic) IBOutlet UIButton *specialButton;
 @property (weak, nonatomic) IBOutlet UIView *recommendBgView;
+@property (weak, nonatomic) IBOutlet UIView *sureBgView;
+@property (weak, nonatomic) IBOutlet UIView *secriteBgView;
+@property (weak, nonatomic) IBOutlet UIView *codeBgView;
+@property (weak, nonatomic) IBOutlet UIView *phoneBgView;
+@property (weak, nonatomic) IBOutlet UIButton *getCodeButton;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *buttonPositionX;
 @end
@@ -27,12 +32,30 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self leftCustomBarButton];
+    
+    self.phoneBgView.layer.cornerRadius = 4;
+    self.phoneBgView.layer.masksToBounds = YES;
+    self.codeBgView.layer.cornerRadius = 4;
+    self.codeBgView.layer.masksToBounds = YES;
+    self.secriteBgView.layer.cornerRadius = 4;
+    self.secriteBgView.layer.masksToBounds = YES;
+    self.sureBgView.layer.masksToBounds =YES;
+    self.sureBgView.layer.cornerRadius = 4;
+    self.recommendBgView.layer.cornerRadius = 4;
+    self.recommendBgView.layer.masksToBounds = YES;
+    self.commenUserButton.selected = YES;
+    self.specialButton.selected = NO;
 }
 
 - (IBAction)commenUserBtnAction:(UIButton *)sender {
+    sender.selected = !sender.isSelected;
+    self.specialButton.selected = !sender.selected;
 }
 
 - (IBAction)sepcialBtnAction:(UIButton *)sender {
+    sender.selected = !sender.isSelected;
+    self.commenUserButton.selected = !sender.selected;
 }
 - (IBAction)registBtnAction:(UIButton *)sender {
 }

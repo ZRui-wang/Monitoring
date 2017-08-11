@@ -19,7 +19,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="396" height="143.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="公告" translatesAutoresizingMaskIntoConstraints="NO" id="cbs-C1-l6D">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="新闻标题" translatesAutoresizingMaskIntoConstraints="NO" id="cbs-C1-l6D">
                         <rect key="frame" x="10" y="10" width="118.5" height="118.5"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="cbs-C1-l6D" secondAttribute="height" multiplier="1:1" id="tso-tD-IBm"/>
@@ -61,6 +61,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="公告" width="17" height="13"/>
+        <image name="新闻标题" width="52" height="50"/>
     </resources>
 </document>

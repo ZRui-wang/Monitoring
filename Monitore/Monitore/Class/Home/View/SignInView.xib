@@ -23,17 +23,16 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9xB-oV-A3g">
                     <rect key="frame" x="50" y="150" width="275" height="275"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="签到成功" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gQD-vq-fiE">
-                            <rect key="frame" x="39" y="27" width="176" height="33"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                            <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="签到图" translatesAutoresizingMaskIntoConstraints="NO" id="yCv-eV-eBW">
+                            <rect key="frame" x="0.0" y="0.0" width="275" height="275"/>
+                        </imageView>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="9xB-oV-A3g" secondAttribute="height" multiplier="1:1" id="SeD-Gj-ck4"/>
+                        <constraint firstAttribute="trailing" secondItem="yCv-eV-eBW" secondAttribute="trailing" id="cnK-fb-GQe"/>
+                        <constraint firstAttribute="bottom" secondItem="yCv-eV-eBW" secondAttribute="bottom" id="dhP-bO-K8y"/>
+                        <constraint firstItem="yCv-eV-eBW" firstAttribute="top" secondItem="9xB-oV-A3g" secondAttribute="top" id="kyq-KM-RsI"/>
+                        <constraint firstItem="yCv-eV-eBW" firstAttribute="leading" secondItem="9xB-oV-A3g" secondAttribute="leading" id="rCs-iz-VAN"/>
                     </constraints>
                 </view>
             </subviews>
@@ -50,8 +49,12 @@
             <nil key="simulatedStatusBarMetrics"/>
             <connections>
                 <outlet property="bgView" destination="zfc-fh-mgV" id="qFb-0E-oPV"/>
+                <outlet property="signInImageView" destination="yCv-eV-eBW" id="9GB-cS-yJx"/>
             </connections>
             <point key="canvasLocation" x="-55.5" y="34.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="签到图" width="284" height="287"/>
+    </resources>
 </document>
