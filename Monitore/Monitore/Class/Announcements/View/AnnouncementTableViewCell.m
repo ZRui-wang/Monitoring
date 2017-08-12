@@ -21,6 +21,7 @@
     [super awakeFromNib];
     // Initialization code
     [self.title alignTop];
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
 //    self.title.text = @"asfasjf a\n";
 }
 

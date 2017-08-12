@@ -10,4 +10,6 @@
 
 @interface GoToReportTableViewCell : UITableViewCell
 
+- (void)displayCellTitle:(NSString *)title;
+
 @end

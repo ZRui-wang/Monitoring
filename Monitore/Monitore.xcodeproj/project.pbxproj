@@ -17,6 +17,10 @@
 		846CEAA11F3D75C100D6BF9D /* BaiduMapAPI_Map.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 846CEA9C1F3D75C100D6BF9D /* BaiduMapAPI_Map.framework */; };
 		846CEAA21F3D75C100D6BF9D /* BaiduMapAPI_Search.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 846CEA9D1F3D75C100D6BF9D /* BaiduMapAPI_Search.framework */; };
 		846CEAA31F3D75C100D6BF9D /* BaiduMapAPI_Utils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 846CEA9E1F3D75C100D6BF9D /* BaiduMapAPI_Utils.framework */; };
+		846CEAA71F3F05AE00D6BF9D /* ReportAddressTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 846CEAA51F3F05AE00D6BF9D /* ReportAddressTableViewCell.m */; };
+		846CEAA81F3F05AE00D6BF9D /* ReportAddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846CEAA61F3F05AE00D6BF9D /* ReportAddressTableViewCell.xib */; };
+		846CEAAC1F3F082900D6BF9D /* ReportImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 846CEAAA1F3F082900D6BF9D /* ReportImageTableViewCell.m */; };
+		846CEAAD1F3F082900D6BF9D /* ReportImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846CEAAB1F3F082900D6BF9D /* ReportImageTableViewCell.xib */; };
 		8473C5BA1F32B825009F4B42 /* Tools.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8473C5B91F32B825009F4B42 /* Tools.mm */; };
 		8473C5C61F32B8D2009F4B42 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8473C5C01F32B8D2009F4B42 /* libcrypto.a */; };
 		8473C5C71F32B8D2009F4B42 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8473C5C11F32B8D2009F4B42 /* libssl.a */; };
@@ -250,6 +254,12 @@
 		846CEA9C1F3D75C100D6BF9D /* BaiduMapAPI_Map.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Map.framework; sourceTree = "<group>"; };
 		846CEA9D1F3D75C100D6BF9D /* BaiduMapAPI_Search.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Search.framework; sourceTree = "<group>"; };
 		846CEA9E1F3D75C100D6BF9D /* BaiduMapAPI_Utils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Utils.framework; sourceTree = "<group>"; };
+		846CEAA41F3F05AE00D6BF9D /* ReportAddressTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportAddressTableViewCell.h; sourceTree = "<group>"; };
+		846CEAA51F3F05AE00D6BF9D /* ReportAddressTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportAddressTableViewCell.m; sourceTree = "<group>"; };
+		846CEAA61F3F05AE00D6BF9D /* ReportAddressTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReportAddressTableViewCell.xib; sourceTree = "<group>"; };
+		846CEAA91F3F082900D6BF9D /* ReportImageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportImageTableViewCell.h; sourceTree = "<group>"; };
+		846CEAAA1F3F082900D6BF9D /* ReportImageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportImageTableViewCell.m; sourceTree = "<group>"; };
+		846CEAAB1F3F082900D6BF9D /* ReportImageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReportImageTableViewCell.xib; sourceTree = "<group>"; };
 		8473C5B91F32B825009F4B42 /* Tools.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Tools.mm; sourceTree = "<group>"; };
 		8473C5BF1F32B8D2009F4B42 /* BaiduTraceSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduTraceSDK.framework; sourceTree = "<group>"; };
 		8473C5C01F32B8D2009F4B42 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
@@ -1485,6 +1495,12 @@
 				84F9296F1F2B1A4000B76D79 /* TextViewTableViewCell.h */,
 				84F929701F2B1A4000B76D79 /* TextViewTableViewCell.m */,
 				84F929711F2B1A4000B76D79 /* TextViewTableViewCell.xib */,
+				846CEAA41F3F05AE00D6BF9D /* ReportAddressTableViewCell.h */,
+				846CEAA51F3F05AE00D6BF9D /* ReportAddressTableViewCell.m */,
+				846CEAA61F3F05AE00D6BF9D /* ReportAddressTableViewCell.xib */,
+				846CEAA91F3F082900D6BF9D /* ReportImageTableViewCell.h */,
+				846CEAAA1F3F082900D6BF9D /* ReportImageTableViewCell.m */,
+				846CEAAB1F3F082900D6BF9D /* ReportImageTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1687,6 +1703,7 @@
 				84F929161F29652B00B76D79 /* PatrolTableHeaderView.xib in Resources */,
 				84F9290E1F29652B00B76D79 /* HomeCollectionViewCell.xib in Resources */,
 				84F929321F2968AE00B76D79 /* LaunchScreen.storyboard in Resources */,
+				846CEAAD1F3F082900D6BF9D /* ReportImageTableViewCell.xib in Resources */,
 				84F927C51F25DA6000B76D79 /* MNavigationItem.xib in Resources */,
 				78E26AB61F2A2540007A96F6 /* Announcement.storyboard in Resources */,
 				78E26AB11F29FEC2007A96F6 /* Main.storyboard in Resources */,
@@ -1701,6 +1718,7 @@
 				84F929211F29652B00B76D79 /* PersonalDataHeaderView.xib in Resources */,
 				84F9291F1F29652B00B76D79 /* PersonalDataFooterView.xib in Resources */,
 				84F929731F2B1A4000B76D79 /* TextViewTableViewCell.xib in Resources */,
+				846CEAA81F3F05AE00D6BF9D /* ReportAddressTableViewCell.xib in Resources */,
 				84F9293C1F297C8E00B76D79 /* PersonalCenter.storyboard in Resources */,
 				84F929611F29E41100B76D79 /* PullTableViewCell.xib in Resources */,
 				84F929441F297DFD00B76D79 /* SettingTableViewCell.xib in Resources */,
@@ -1792,6 +1810,7 @@
 				847ED1CE1F3421F500BC710E /* UITextField+YYAdd.m in Sources */,
 				849C970A1F30623400B38C64 /* IQUIWindow+Hierarchy.m in Sources */,
 				847ED1F81F3421F500BC710E /* YYDispatchQueuePool.m in Sources */,
+				846CEAAC1F3F082900D6BF9D /* ReportImageTableViewCell.m in Sources */,
 				84F929141F29652B00B76D79 /* PatrolViewController.m in Sources */,
 				847ED1F01F3421F500BC710E /* YYTextAttribute.m in Sources */,
 				84F927BD1F25D72200B76D79 /* BaseViewController.m in Sources */,
@@ -1852,6 +1871,7 @@
 				84F927DD1F27478800B76D79 /* NSArray+LjAdd.m in Sources */,
 				84F9290F1F29652B00B76D79 /* HomeHeaderView.m in Sources */,
 				847ED1B41F3421F500BC710E /* NSData+YYAdd.m in Sources */,
+				846CEAA71F3F05AE00D6BF9D /* ReportAddressTableViewCell.m in Sources */,
 				847ED1E81F3421F500BC710E /* YYTextLayout.m in Sources */,
 				847ED2051F343B4900BC710E /* SignInView.m in Sources */,
 				847ED1EF1F3421F500BC710E /* YYTextArchiver.m in Sources */,

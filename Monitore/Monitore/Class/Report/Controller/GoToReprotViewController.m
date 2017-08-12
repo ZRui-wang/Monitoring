@@ -9,12 +9,17 @@
 #import "GoToReprotViewController.h"
 #import "GoToReportTableViewCell.h"
 #import "TextViewTableViewCell.h"
+#import "ReportAddressTableViewCell.h"
+#import "ReportImageTableViewCell.h"
 
-@interface GoToReprotViewController ()<UITableViewDataSource, UITableViewDelegate, UITextViewDelegate>
+@interface GoToReprotViewController ()<UITableViewDataSource, UITableViewDelegate, UITextViewDelegate, textViewDidFinishEidedDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (strong, nonatomic)UITextView *textView;
+
+@property (strong, nonatomic)NSArray *titleAry;
+@property (strong, nonatomic)NSArray *themeAry;
 
 @end
 
@@ -30,56 +35,41 @@
     [self leftCustomBarButton];
     self.title = @"我要举报";
     
+    //  支持自适应 cell
+//    self.tableView.estimatedRowHeight = 100;
+//    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    
+    self.titleAry = @[@"大类", @"小类"];
+    self.themeAry = @[@"主题", @"描述"];
+    
     [self.tableView registerNib:[UINib nibWithNibName:@"GoToReportTableViewCell" bundle:nil] forCellReuseIdentifier:@"GoToReportTableViewCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"TextViewTableViewCell" bundle:nil] forCellReuseIdentifier:@"TextViewTableViewCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"ReportAddressTableViewCell" bundle:nil] forCellReuseIdentifier:@"ReportAddressTableViewCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"ReportImageTableViewCell" bundle:nil] forCellReuseIdentifier:@"ReportImageTableViewCell"];
+    self.tableView.tableFooterView = [UIView new];
     
-    titleHeigh = 40;
+    titleHeigh = 50;
     detailHeigh = 80;
     
 }
 
-- (void)textViewDidEndEditing:(UITextView *)textView{
-    if (textView.tag == 2) {
-        // 标题
-        titleHeigh = [Tools heightForTextWith:textView.text fontSize:14 width:SCREEN_WIDTH-90];
+- (void)finishEditHeigh:(CGFloat)heigh row:(NSInteger)row{
+    if (row == 2) {
+        titleHeigh = heigh;
+    }else{
+        detailHeigh = heigh;
     }
-    else{
-        // 描述
-        detailHeigh = [Tools heightForTextWith:textView.text fontSize:14 width:SCREEN_WIDTH-90];
-    }
-    
-    [self.tableView reloadData];
-    
 }
-//
-//- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
-//    if ([text isEqualToString:@"\n"]) {
-//        [textView resignFirstResponder];//按回车取消第一相应者
-//    }
-//    return YES;
-//}
-//
-//- (BOOL)textViewShouldBeginEditing:(UITextView *)textView
-//{
-//    self.plaseholdLabel.alpha = 0;//开始编辑时
-//    return YES;
-//}
-//
-//- (BOOL)textViewShouldEndEditing:(UITextView *)textView
-//{//将要停止编辑(不是第一响应者时)
-//    if (textView.text.length == 0) {
-//        self.plaseholdLabel.alpha = 1;
-//    }
-//    return YES;
-//}
+
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 5;
+    return 6;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row < 2) {
-        return 40;
+        return 50;
     }
     else if(indexPath.row == 2){
         return titleHeigh;
@@ -87,8 +77,11 @@
     else if(indexPath.row == 3){
         return detailHeigh;
     }
+    else if(indexPath.row == 4){
+        return 50;
+    }
     else{
-        return 10;
+        return 200;
     }
 }
 
@@ -96,22 +89,25 @@
 {
     if (indexPath.row < 2) {
         GoToReportTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GoToReportTableViewCell" forIndexPath:indexPath];
+        [cell displayCellTitle:self.titleAry[indexPath.row]];
+        return cell;
+    }
+    else if(indexPath.row < 4){
+        TextViewTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TextViewTableViewCell" forIndexPath:indexPath];
+        cell.delegate = self;
+        cell.cellRow = indexPath.row;
+        [cell diaplayCell:self.themeAry[indexPath.row -2]];
+        return cell;
+    }
+    else if(indexPath.row == 4){
+        ReportAddressTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ReportAddressTableViewCell" forIndexPath:indexPath];
+
         return cell;
     }
     else{
-        TextViewTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TextViewTableViewCell" forIndexPath:indexPath];
-//        self.textView = cell.textView;
-//        self.textView.delegate = self;
-//        self.textView.tag = indexPath.row;
-        
-//        if (indexPath.row == 2) {
-//            cell.textView.text = @"限制20个字";
-//        }
-//        else{
-//            cell.textView.text = @"为提高您提交的线索举报被采纳的可能性， 请尽可能详细地地描述举报内容， 建议提交图片或者视频以协助核查";
-//        }
-        
+        ReportImageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ReportImageTableViewCell" forIndexPath:indexPath];
         return cell;
+        
     }
 }
 

@@ -21,6 +21,10 @@
     // Initialization code
 }
 
+- (void)displayCellTitle:(NSString *)title{
+    self.title.text = title;
+}
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 

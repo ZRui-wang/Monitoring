@@ -10,13 +10,16 @@
 
 @protocol textViewDidFinishEidedDelegate <NSObject>
 
-- (void)finishEdit;
+- (void)finishEditHeigh:(CGFloat)heigh row:(NSInteger)row;
 
 @end
 
 @interface TextViewTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (weak, nonatomic) IBOutlet UILabel *plaseholdLabel;
+@property (assign,nonatomic) NSInteger cellRow;
 
 @property (assign, nonatomic) id<textViewDidFinishEidedDelegate> delegate;
+
+- (void)diaplayCell:(NSString *)title;
 @end
