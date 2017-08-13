@@ -10,4 +10,6 @@
 
 @interface ReportImageTableViewCell : UITableViewCell
 
+- (void)displayCell;
+
 @end

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" restorationIdentifier="UploadPhotoView" id="iN0-l3-epB" customClass="UploadPhotoView">
+            <rect key="frame" x="0.0" y="0.0" width="178" height="127"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nrc-pe-2wd">
+                    <rect key="frame" x="15" y="0.0" width="163" height="1"/>
+                    <color key="backgroundColor" red="0.94095736740000002" green="0.94509977099999998" blue="0.94911319019999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="bQ5-iW-YmY"/>
+                    </constraints>
+                </view>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="xoA-to-QB3">
+                    <rect key="frame" x="0.0" y="57" width="178" height="70"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mc8-xx-fi7">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="图片/视频记录" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="olL-8h-nRN">
+                    <rect key="frame" x="15" y="15" width="97" height="17"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="17" id="Ruz-bj-yGz"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Nrc-pe-2wd" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Jjl-8E-KwA"/>
+                <constraint firstAttribute="bottom" secondItem="xoA-to-QB3" secondAttribute="bottom" id="N8c-4t-gpy"/>
+                <constraint firstAttribute="trailing" secondItem="xoA-to-QB3" secondAttribute="trailing" id="Tsy-tL-ksV"/>
+                <constraint firstItem="olL-8h-nRN" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="YQl-sW-j9k"/>
+                <constraint firstAttribute="trailing" secondItem="Nrc-pe-2wd" secondAttribute="trailing" id="aSc-ob-oQ2"/>
+                <constraint firstItem="xoA-to-QB3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="bDO-jS-F9m"/>
+                <constraint firstItem="olL-8h-nRN" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="dUI-Vz-p7e"/>
+                <constraint firstItem="Nrc-pe-2wd" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="qAw-7r-9bI"/>
+                <constraint firstItem="xoA-to-QB3" firstAttribute="top" secondItem="olL-8h-nRN" secondAttribute="bottom" constant="25" id="tEL-cQ-T2y"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="collectionView" destination="xoA-to-QB3" id="4L0-h2-IfR"/>
+                <outlet property="layout" destination="mc8-xx-fi7" id="ArV-gz-ZWN"/>
+            </connections>
+            <point key="canvasLocation" x="41" y="-173.5"/>
+        </view>
+    </objects>
+</document>

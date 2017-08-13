@@ -123,20 +123,8 @@
     labell.attributedText = str;
 }
 
-/**
- 
- *  打开相册
- 
- */
-
--(void)openPhotoLibrary
-
-{
-    
-    // Supported orientations has no common orientation with the application, and [PUUIAlbumListViewController shouldAutorotate] is returning YES
-    
-    
-    
+/***打开相册*/
+-(void)openPhotoLibrary{
     // 进入相册
     
     if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		788297621F3FDA8A0062EA65 /* UploadPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 788297611F3FDA8A0062EA65 /* UploadPhotoView.m */; };
+		788297641F3FDA980062EA65 /* UploadPhotoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 788297631F3FDA980062EA65 /* UploadPhotoView.xib */; };
+		788297681F3FDC720062EA65 /* UploadPhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 788297661F3FDC720062EA65 /* UploadPhotoCollectionViewCell.m */; };
+		788297691F3FDC720062EA65 /* UploadPhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 788297671F3FDC720062EA65 /* UploadPhotoCollectionViewCell.xib */; };
 		78A29FDD1F2F77B50086F388 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A29FDC1F2F77B50086F388 /* LoginViewController.m */; };
 		78E26AB11F29FEC2007A96F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78E26AB01F29FEC2007A96F6 /* Main.storyboard */; };
 		78E26AB61F2A2540007A96F6 /* Announcement.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78E26AB51F2A2540007A96F6 /* Announcement.storyboard */; };
@@ -241,6 +245,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		788297601F3FDA8A0062EA65 /* UploadPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadPhotoView.h; sourceTree = "<group>"; };
+		788297611F3FDA8A0062EA65 /* UploadPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadPhotoView.m; sourceTree = "<group>"; };
+		788297631F3FDA980062EA65 /* UploadPhotoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UploadPhotoView.xib; sourceTree = "<group>"; };
+		788297651F3FDC720062EA65 /* UploadPhotoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadPhotoCollectionViewCell.h; sourceTree = "<group>"; };
+		788297661F3FDC720062EA65 /* UploadPhotoCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadPhotoCollectionViewCell.m; sourceTree = "<group>"; };
+		788297671F3FDC720062EA65 /* UploadPhotoCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UploadPhotoCollectionViewCell.xib; sourceTree = "<group>"; };
 		78A29FDB1F2F77B50086F388 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		78A29FDC1F2F77B50086F388 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		78E26AB01F29FEC2007A96F6 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -1150,6 +1160,12 @@
 				84F928471F2898FF00B76D79 /* CustomeLabel.m */,
 				84F929621F29E72500B76D79 /* UILabel+VerticalAlign.h */,
 				84F929631F29E72500B76D79 /* UILabel+VerticalAlign.m */,
+				788297601F3FDA8A0062EA65 /* UploadPhotoView.h */,
+				788297611F3FDA8A0062EA65 /* UploadPhotoView.m */,
+				788297631F3FDA980062EA65 /* UploadPhotoView.xib */,
+				788297651F3FDC720062EA65 /* UploadPhotoCollectionViewCell.h */,
+				788297661F3FDC720062EA65 /* UploadPhotoCollectionViewCell.m */,
+				788297671F3FDC720062EA65 /* UploadPhotoCollectionViewCell.xib */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -1705,6 +1721,7 @@
 				84F929321F2968AE00B76D79 /* LaunchScreen.storyboard in Resources */,
 				846CEAAD1F3F082900D6BF9D /* ReportImageTableViewCell.xib in Resources */,
 				84F927C51F25DA6000B76D79 /* MNavigationItem.xib in Resources */,
+				788297641F3FDA980062EA65 /* UploadPhotoView.xib in Resources */,
 				78E26AB61F2A2540007A96F6 /* Announcement.storyboard in Resources */,
 				78E26AB11F29FEC2007A96F6 /* Main.storyboard in Resources */,
 				84F9294C1F29918400B76D79 /* Report.storyboard in Resources */,
@@ -1728,6 +1745,7 @@
 				84F929181F29652B00B76D79 /* PatrolTableViewCell.xib in Resources */,
 				847ED2171F345BDA00BC710E /* DIYPickView.xib in Resources */,
 				84F929691F2AFDC100B76D79 /* PatrolHistoryTableViewCell.xib in Resources */,
+				788297691F3FDC720062EA65 /* UploadPhotoCollectionViewCell.xib in Resources */,
 				84F929251F29652B00B76D79 /* PersonalPhotoTableViewCell.xib in Resources */,
 				849C97131F30623400B38C64 /* IQKeyboardManager.bundle in Resources */,
 			);
@@ -1828,6 +1846,7 @@
 				847ED1B91F3421F500BC710E /* NSNumber+YYAdd.m in Sources */,
 				84F929191F29652B00B76D79 /* PatrolHistoryViewController.m in Sources */,
 				84F929601F29E41100B76D79 /* PullTableViewCell.m in Sources */,
+				788297621F3FDA8A0062EA65 /* UploadPhotoView.m in Sources */,
 				849C97071F30623400B38C64 /* IQUITextFieldView+Additions.m in Sources */,
 				847ED1E91F3421F500BC710E /* YYTextLine.m in Sources */,
 				847ED1BE1F3421F500BC710E /* NSThread+YYAdd.m in Sources */,
@@ -1883,6 +1902,7 @@
 				847ED1FE1F3421F500BC710E /* YYThreadSafeArray.m in Sources */,
 				847ED1E31F3421F500BC710E /* YYTextContainerView.m in Sources */,
 				84F929551F29E0FC00B76D79 /* AnnouncementVcHeaderView.m in Sources */,
+				788297681F3FDC720062EA65 /* UploadPhotoCollectionViewCell.m in Sources */,
 				84F929721F2B1A4000B76D79 /* TextViewTableViewCell.m in Sources */,
 				847ED1FB1F3421F500BC710E /* YYKeychain.m in Sources */,
 				8473C5BA1F32B825009F4B42 /* Tools.mm in Sources */,
