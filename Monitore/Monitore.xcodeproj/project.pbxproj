@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		78657BC01F41DA4200DC2AFE /* TaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78657BBF1F41DA4200DC2AFE /* TaskViewController.m */; };
+		78657BC41F41DA6F00DC2AFE /* TaskTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 78657BC21F41DA6F00DC2AFE /* TaskTableViewCell.m */; };
+		78657BC51F41DA6F00DC2AFE /* TaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78657BC31F41DA6F00DC2AFE /* TaskTableViewCell.xib */; };
+		78657BC81F41E52100DC2AFE /* TaskHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 78657BC71F41E52100DC2AFE /* TaskHeaderView.m */; };
+		78657BCA1F41E53000DC2AFE /* TaskHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78657BC91F41E53000DC2AFE /* TaskHeaderView.xib */; };
 		788297621F3FDA8A0062EA65 /* UploadPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 788297611F3FDA8A0062EA65 /* UploadPhotoView.m */; };
 		788297641F3FDA980062EA65 /* UploadPhotoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 788297631F3FDA980062EA65 /* UploadPhotoView.xib */; };
 		788297681F3FDC720062EA65 /* UploadPhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 788297661F3FDC720062EA65 /* UploadPhotoCollectionViewCell.m */; };
@@ -245,6 +250,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		78657BBE1F41DA4200DC2AFE /* TaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskViewController.h; sourceTree = "<group>"; };
+		78657BBF1F41DA4200DC2AFE /* TaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskViewController.m; sourceTree = "<group>"; };
+		78657BC11F41DA6F00DC2AFE /* TaskTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskTableViewCell.h; sourceTree = "<group>"; };
+		78657BC21F41DA6F00DC2AFE /* TaskTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskTableViewCell.m; sourceTree = "<group>"; };
+		78657BC31F41DA6F00DC2AFE /* TaskTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TaskTableViewCell.xib; sourceTree = "<group>"; };
+		78657BC61F41E52100DC2AFE /* TaskHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskHeaderView.h; sourceTree = "<group>"; };
+		78657BC71F41E52100DC2AFE /* TaskHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskHeaderView.m; sourceTree = "<group>"; };
+		78657BC91F41E53000DC2AFE /* TaskHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TaskHeaderView.xib; sourceTree = "<group>"; };
 		788297601F3FDA8A0062EA65 /* UploadPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadPhotoView.h; sourceTree = "<group>"; };
 		788297611F3FDA8A0062EA65 /* UploadPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadPhotoView.m; sourceTree = "<group>"; };
 		788297631F3FDA980062EA65 /* UploadPhotoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UploadPhotoView.xib; sourceTree = "<group>"; };
@@ -1534,6 +1547,8 @@
 		84F929051F29652B00B76D79 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				78657BBE1F41DA4200DC2AFE /* TaskViewController.h */,
+				78657BBF1F41DA4200DC2AFE /* TaskViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1548,6 +1563,12 @@
 		84F929071F29652B00B76D79 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				78657BC11F41DA6F00DC2AFE /* TaskTableViewCell.h */,
+				78657BC21F41DA6F00DC2AFE /* TaskTableViewCell.m */,
+				78657BC31F41DA6F00DC2AFE /* TaskTableViewCell.xib */,
+				78657BC61F41E52100DC2AFE /* TaskHeaderView.h */,
+				78657BC71F41E52100DC2AFE /* TaskHeaderView.m */,
+				78657BC91F41E53000DC2AFE /* TaskHeaderView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1717,6 +1738,7 @@
 				84F929231F29652B00B76D79 /* PersonalDataTableViewCell.xib in Resources */,
 				84F9296E1F2B159100B76D79 /* GoToReportTableViewCell.xib in Resources */,
 				84F929161F29652B00B76D79 /* PatrolTableHeaderView.xib in Resources */,
+				78657BCA1F41E53000DC2AFE /* TaskHeaderView.xib in Resources */,
 				84F9290E1F29652B00B76D79 /* HomeCollectionViewCell.xib in Resources */,
 				84F929321F2968AE00B76D79 /* LaunchScreen.storyboard in Resources */,
 				846CEAAD1F3F082900D6BF9D /* ReportImageTableViewCell.xib in Resources */,
@@ -1737,6 +1759,7 @@
 				84F929731F2B1A4000B76D79 /* TextViewTableViewCell.xib in Resources */,
 				846CEAA81F3F05AE00D6BF9D /* ReportAddressTableViewCell.xib in Resources */,
 				84F9293C1F297C8E00B76D79 /* PersonalCenter.storyboard in Resources */,
+				78657BC51F41DA6F00DC2AFE /* TaskTableViewCell.xib in Resources */,
 				84F929611F29E41100B76D79 /* PullTableViewCell.xib in Resources */,
 				84F929441F297DFD00B76D79 /* SettingTableViewCell.xib in Resources */,
 				84F929101F29652B00B76D79 /* HomeHeaderView.xib in Resources */,
@@ -1777,8 +1800,10 @@
 				847ED1F21F3421F500BC710E /* YYTextRubyAnnotation.m in Sources */,
 				847ED1F11F3421F500BC710E /* YYTextParser.m in Sources */,
 				84F929241F29652B00B76D79 /* PersonalPhotoTableViewCell.m in Sources */,
+				78657BC41F41DA6F00DC2AFE /* TaskTableViewCell.m in Sources */,
 				847ED1D01F3421F500BC710E /* YYCache.m in Sources */,
 				847ED1BC1F3421F500BC710E /* NSObject+YYAddForKVO.m in Sources */,
+				78657BC01F41DA4200DC2AFE /* TaskViewController.m in Sources */,
 				847ED1E21F3421F500BC710E /* YYClassInfo.m in Sources */,
 				847ED1E01F3421F500BC710E /* YYWebImageOperation.m in Sources */,
 				847ED1F51F3421F500BC710E /* YYLabel.m in Sources */,
@@ -1876,6 +1901,7 @@
 				847ED1DD1F3421F500BC710E /* YYImageCoder.m in Sources */,
 				847ED1D51F3421F500BC710E /* CALayer+YYWebImage.m in Sources */,
 				847ED1B31F3421F500BC710E /* NSBundle+YYAdd.m in Sources */,
+				78657BC81F41E52100DC2AFE /* TaskHeaderView.m in Sources */,
 				84F9291C1F29652B00B76D79 /* PersonalCenterTableViewCell.m in Sources */,
 				84F9296D1F2B159100B76D79 /* GoToReportTableViewCell.m in Sources */,
 				84F9294A1F29914300B76D79 /* GoToReprotViewController.m in Sources */,
