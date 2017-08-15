@@ -20,14 +20,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self leftCustomBarButton];
     
-//    UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 150)];
+    UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 100)];
     
     
-    UIView *headerView = [TaskHeaderView xibView];
-    headerView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 150);
+    UIView *headerView1 = [TaskHeaderView xibView];
+    headerView1.frame = CGRectMake(0, 0, SCREEN_WIDTH, 100);
     
-//    [headerView addSubview:[TaskHeaderView xibView]];
+    [headerView addSubview:headerView1];
     
 //    headerView.backgroundColor = [UIColor redColor];
 //    self.tableView.tableHeaderView = headerView;
