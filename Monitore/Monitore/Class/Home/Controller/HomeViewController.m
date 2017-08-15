@@ -17,6 +17,7 @@
 #import "LoginViewController.h"
 #import "SignInView.h"
 #import "CollectViewController.h"
+#import "TaskViewController.h"
 
 @interface HomeViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -117,8 +118,8 @@ static NSString *HomeCollectionViewCellId = @"HomeCollectionViewCell";
     else if (indexPath.item == 1)
     {
         // 群防任务
-        LoginViewController *loginVc = [[UIStoryboard storyboardWithName:@"PersonalCenter" bundle:nil] instantiateViewControllerWithIdentifier:@"LoginViewController"];
-        [self.navigationController pushViewController:loginVc animated:YES];
+        TaskViewController *taskVc = [[UIStoryboard storyboardWithName:@"Announcement" bundle:nil]instantiateViewControllerWithIdentifier:@"TaskViewController"];
+        [self.navigationController pushViewController:taskVc animated:YES];
     }
     else if (indexPath.item == 2)
     {
@@ -136,6 +137,8 @@ static NSString *HomeCollectionViewCellId = @"HomeCollectionViewCell";
     else if (indexPath.item == 4)
     {
         // 学习培训
+        LoginViewController *loginVc = [[UIStoryboard storyboardWithName:@"PersonalCenter" bundle:nil] instantiateViewControllerWithIdentifier:@"LoginViewController"];
+        [self.navigationController pushViewController:loginVc animated:YES];
     }
     else if (indexPath.item == 5)
     {
