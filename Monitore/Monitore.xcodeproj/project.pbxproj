@@ -152,6 +152,15 @@
 		84AB54BF1F3C2D8D006F7904 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AB54BE1F3C2D8D006F7904 /* DetailViewController.m */; };
 		84AB54C31F3D3F8F006F7904 /* HelpCenterCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AB54C11F3D3F8F006F7904 /* HelpCenterCollectionViewCell.m */; };
 		84AB54C41F3D3F8F006F7904 /* HelpCenterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84AB54C21F3D3F8F006F7904 /* HelpCenterCollectionViewCell.xib */; };
+		84B7B57F1F45644100C3C708 /* UIColor+get_FFFFFFcolor.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B7B56B1F45644100C3C708 /* UIColor+get_FFFFFFcolor.m */; };
+		84B7B5801F45644100C3C708 /* MYColorBackView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B7B56E1F45644100C3C708 /* MYColorBackView.m */; };
+		84B7B5811F45644100C3C708 /* MYPresentAnimationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B7B5701F45644100C3C708 /* MYPresentAnimationManager.m */; };
+		84B7B5821F45644100C3C708 /* MYPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B7B5721F45644100C3C708 /* MYPresentationController.m */; };
+		84B7B5831F45644100C3C708 /* MYPresentedController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B7B5741F45644100C3C708 /* MYPresentedController.m */; };
+		84B7B5841F45644100C3C708 /* UITableView+SDAutoTableViewCellHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B7B5781F45644100C3C708 /* UITableView+SDAutoTableViewCellHeight.m */; };
+		84B7B5851F45644100C3C708 /* UIView+SDAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B7B57A1F45644100C3C708 /* UIView+SDAutoLayout.m */; };
+		84B7B5861F45644100C3C708 /* TXTimeChoose.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B7B57C1F45644100C3C708 /* TXTimeChoose.m */; };
+		84B7B5871F45644100C3C708 /* TXTimeSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B7B57E1F45644100C3C708 /* TXTimeSelectorViewController.m */; };
 		84F9275F1F25D37400B76D79 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F9275E1F25D37400B76D79 /* main.m */; };
 		84F927781F25D37400B76D79 /* MonitoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F927771F25D37400B76D79 /* MonitoreTests.m */; };
 		84F927831F25D37400B76D79 /* MonitoreUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F927821F25D37400B76D79 /* MonitoreUITests.m */; };
@@ -512,6 +521,25 @@
 		84AB54C01F3D3F8F006F7904 /* HelpCenterCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpCenterCollectionViewCell.h; sourceTree = "<group>"; };
 		84AB54C11F3D3F8F006F7904 /* HelpCenterCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpCenterCollectionViewCell.m; sourceTree = "<group>"; };
 		84AB54C21F3D3F8F006F7904 /* HelpCenterCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HelpCenterCollectionViewCell.xib; sourceTree = "<group>"; };
+		84B7B56A1F45644100C3C708 /* UIColor+get_FFFFFFcolor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+get_FFFFFFcolor.h"; sourceTree = "<group>"; };
+		84B7B56B1F45644100C3C708 /* UIColor+get_FFFFFFcolor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+get_FFFFFFcolor.m"; sourceTree = "<group>"; };
+		84B7B56D1F45644100C3C708 /* MYColorBackView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYColorBackView.h; sourceTree = "<group>"; };
+		84B7B56E1F45644100C3C708 /* MYColorBackView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYColorBackView.m; sourceTree = "<group>"; };
+		84B7B56F1F45644100C3C708 /* MYPresentAnimationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYPresentAnimationManager.h; sourceTree = "<group>"; };
+		84B7B5701F45644100C3C708 /* MYPresentAnimationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYPresentAnimationManager.m; sourceTree = "<group>"; };
+		84B7B5711F45644100C3C708 /* MYPresentationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYPresentationController.h; sourceTree = "<group>"; };
+		84B7B5721F45644100C3C708 /* MYPresentationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYPresentationController.m; sourceTree = "<group>"; };
+		84B7B5731F45644100C3C708 /* MYPresentedController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYPresentedController.h; sourceTree = "<group>"; };
+		84B7B5741F45644100C3C708 /* MYPresentedController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYPresentedController.m; sourceTree = "<group>"; };
+		84B7B5761F45644100C3C708 /* SDAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDAutoLayout.h; sourceTree = "<group>"; };
+		84B7B5771F45644100C3C708 /* UITableView+SDAutoTableViewCellHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+SDAutoTableViewCellHeight.h"; sourceTree = "<group>"; };
+		84B7B5781F45644100C3C708 /* UITableView+SDAutoTableViewCellHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+SDAutoTableViewCellHeight.m"; sourceTree = "<group>"; };
+		84B7B5791F45644100C3C708 /* UIView+SDAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SDAutoLayout.h"; sourceTree = "<group>"; };
+		84B7B57A1F45644100C3C708 /* UIView+SDAutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SDAutoLayout.m"; sourceTree = "<group>"; };
+		84B7B57B1F45644100C3C708 /* TXTimeChoose.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXTimeChoose.h; sourceTree = "<group>"; };
+		84B7B57C1F45644100C3C708 /* TXTimeChoose.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXTimeChoose.m; sourceTree = "<group>"; };
+		84B7B57D1F45644100C3C708 /* TXTimeSelectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXTimeSelectorViewController.h; sourceTree = "<group>"; };
+		84B7B57E1F45644100C3C708 /* TXTimeSelectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXTimeSelectorViewController.m; sourceTree = "<group>"; };
 		84F9275A1F25D37400B76D79 /* Monitore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Monitore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84F9275E1F25D37400B76D79 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		84F927731F25D37400B76D79 /* MonitoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MonitoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1078,6 +1106,56 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		84B7B5681F45644100C3C708 /* TXTimeSelector */ = {
+			isa = PBXGroup;
+			children = (
+				84B7B5691F45644100C3C708 /* FFFFFFColor */,
+				84B7B56C1F45644100C3C708 /* MYDropMenu */,
+				84B7B5751F45644100C3C708 /* SDAutoLayout */,
+				84B7B57B1F45644100C3C708 /* TXTimeChoose.h */,
+				84B7B57C1F45644100C3C708 /* TXTimeChoose.m */,
+				84B7B57D1F45644100C3C708 /* TXTimeSelectorViewController.h */,
+				84B7B57E1F45644100C3C708 /* TXTimeSelectorViewController.m */,
+			);
+			path = TXTimeSelector;
+			sourceTree = "<group>";
+		};
+		84B7B5691F45644100C3C708 /* FFFFFFColor */ = {
+			isa = PBXGroup;
+			children = (
+				84B7B56A1F45644100C3C708 /* UIColor+get_FFFFFFcolor.h */,
+				84B7B56B1F45644100C3C708 /* UIColor+get_FFFFFFcolor.m */,
+			);
+			path = FFFFFFColor;
+			sourceTree = "<group>";
+		};
+		84B7B56C1F45644100C3C708 /* MYDropMenu */ = {
+			isa = PBXGroup;
+			children = (
+				84B7B56D1F45644100C3C708 /* MYColorBackView.h */,
+				84B7B56E1F45644100C3C708 /* MYColorBackView.m */,
+				84B7B56F1F45644100C3C708 /* MYPresentAnimationManager.h */,
+				84B7B5701F45644100C3C708 /* MYPresentAnimationManager.m */,
+				84B7B5711F45644100C3C708 /* MYPresentationController.h */,
+				84B7B5721F45644100C3C708 /* MYPresentationController.m */,
+				84B7B5731F45644100C3C708 /* MYPresentedController.h */,
+				84B7B5741F45644100C3C708 /* MYPresentedController.m */,
+			);
+			path = MYDropMenu;
+			sourceTree = "<group>";
+		};
+		84B7B5751F45644100C3C708 /* SDAutoLayout */ = {
+			isa = PBXGroup;
+			children = (
+				84B7B5761F45644100C3C708 /* SDAutoLayout.h */,
+				84B7B5771F45644100C3C708 /* UITableView+SDAutoTableViewCellHeight.h */,
+				84B7B5781F45644100C3C708 /* UITableView+SDAutoTableViewCellHeight.m */,
+				84B7B5791F45644100C3C708 /* UIView+SDAutoLayout.h */,
+				84B7B57A1F45644100C3C708 /* UIView+SDAutoLayout.m */,
+			);
+			path = SDAutoLayout;
+			sourceTree = "<group>";
+		};
 		84F927511F25D37400B76D79 = {
 			isa = PBXGroup;
 			children = (
@@ -1563,6 +1641,7 @@
 		84F929071F29652B00B76D79 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				84B7B5681F45644100C3C708 /* TXTimeSelector */,
 				78657BC11F41DA6F00DC2AFE /* TaskTableViewCell.h */,
 				78657BC21F41DA6F00DC2AFE /* TaskTableViewCell.m */,
 				78657BC31F41DA6F00DC2AFE /* TaskTableViewCell.xib */,
@@ -1796,10 +1875,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				847ED1FF1F3421F500BC710E /* YYThreadSafeDictionary.m in Sources */,
+				84B7B5871F45644100C3C708 /* TXTimeSelectorViewController.m in Sources */,
 				847ED1B21F3421F500BC710E /* NSArray+YYAdd.m in Sources */,
 				847ED1F21F3421F500BC710E /* YYTextRubyAnnotation.m in Sources */,
 				847ED1F11F3421F500BC710E /* YYTextParser.m in Sources */,
 				84F929241F29652B00B76D79 /* PersonalPhotoTableViewCell.m in Sources */,
+				84B7B57F1F45644100C3C708 /* UIColor+get_FFFFFFcolor.m in Sources */,
 				78657BC41F41DA6F00DC2AFE /* TaskTableViewCell.m in Sources */,
 				847ED1D01F3421F500BC710E /* YYCache.m in Sources */,
 				847ED1BC1F3421F500BC710E /* NSObject+YYAddForKVO.m in Sources */,
@@ -1823,6 +1904,7 @@
 				849C970E1F30623400B38C64 /* IQBarButtonItem.m in Sources */,
 				847ED2011F3421F500BC710E /* YYTransaction.m in Sources */,
 				847ED1DC1F3421F500BC710E /* YYImageCache.m in Sources */,
+				84B7B5831F45644100C3C708 /* MYPresentedController.m in Sources */,
 				847ED1D81F3421F500BC710E /* UIImageView+YYWebImage.m in Sources */,
 				849C97121F30623400B38C64 /* IQUIView+IQKeyboardToolbar.m in Sources */,
 				84F929111F29652B00B76D79 /* InfoViewController.m in Sources */,
@@ -1830,6 +1912,7 @@
 				84F9293F1F297D0E00B76D79 /* SettingViewController.m in Sources */,
 				847ED1B51F3421F500BC710E /* NSDate+YYAdd.m in Sources */,
 				84F929431F297DFD00B76D79 /* SettingTableViewCell.m in Sources */,
+				84B7B5861F45644100C3C708 /* TXTimeChoose.m in Sources */,
 				84F927CE1F25E8D400B76D79 /* MNavigationController.m in Sources */,
 				847ED1C91F3421F500BC710E /* UIGestureRecognizer+YYAdd.m in Sources */,
 				847ED1C01F3421F500BC710E /* CALayer+YYAdd.m in Sources */,
@@ -1889,6 +1972,7 @@
 				847ED1D61F3421F500BC710E /* MKAnnotationView+YYWebImage.m in Sources */,
 				847ED1ED1F3421F500BC710E /* NSParagraphStyle+YYText.m in Sources */,
 				84F9295B1F29E24900B76D79 /* AnnouncementTableViewCell.m in Sources */,
+				84B7B5811F45644100C3C708 /* MYPresentAnimationManager.m in Sources */,
 				847ED1E51F3421F500BC710E /* YYTextEffectWindow.m in Sources */,
 				84F929471F298F1100B76D79 /* ReportViewController.m in Sources */,
 				847ED1D91F3421F500BC710E /* YYAnimatedImageView.m in Sources */,
@@ -1904,6 +1988,7 @@
 				78657BC81F41E52100DC2AFE /* TaskHeaderView.m in Sources */,
 				84F9291C1F29652B00B76D79 /* PersonalCenterTableViewCell.m in Sources */,
 				84F9296D1F2B159100B76D79 /* GoToReportTableViewCell.m in Sources */,
+				84B7B5841F45644100C3C708 /* UITableView+SDAutoTableViewCellHeight.m in Sources */,
 				84F9294A1F29914300B76D79 /* GoToReprotViewController.m in Sources */,
 				847ED1D31F3421F500BC710E /* YYMemoryCache.m in Sources */,
 				847ED1EC1F3421F500BC710E /* NSAttributedString+YYText.m in Sources */,
@@ -1911,6 +1996,7 @@
 				847ED1DB1F3421F500BC710E /* YYImage.m in Sources */,
 				847ED1E71F3421F500BC710E /* YYTextKeyboardManager.m in Sources */,
 				849C97081F30623400B38C64 /* IQUIView+Hierarchy.m in Sources */,
+				84B7B5801F45644100C3C708 /* MYColorBackView.m in Sources */,
 				847ED1EA1F3421F500BC710E /* YYTextMagnifier.m in Sources */,
 				849C970D1F30623400B38C64 /* IQTextView.m in Sources */,
 				84F927DD1F27478800B76D79 /* NSArray+LjAdd.m in Sources */,
@@ -1943,10 +2029,12 @@
 				847ED0FD1F340E5500BC710E /* JSONKit.m in Sources */,
 				78EB07E01F3C9EB200C64587 /* UserFeedbackViewController.m in Sources */,
 				847ED1C51F3421F500BC710E /* UIColor+YYAdd.m in Sources */,
+				84B7B5821F45644100C3C708 /* MYPresentationController.m in Sources */,
 				84AB54BF1F3C2D8D006F7904 /* DetailViewController.m in Sources */,
 				847ED2151F345BCD00BC710E /* DIYPickView.m in Sources */,
 				849C970F1F30623400B38C64 /* IQPreviousNextView.m in Sources */,
 				847ED1CA1F3421F500BC710E /* UIImage+YYAdd.m in Sources */,
+				84B7B5851F45644100C3C708 /* UIView+SDAutoLayout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
