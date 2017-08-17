@@ -8,6 +8,9 @@
 
 #import "TaskHeaderView.h"
 
+@interface TaskHeaderView ()
+
+@end
 @implementation TaskHeaderView
 
 
@@ -17,9 +20,30 @@
     // Drawing code
 }
 
+
+- (IBAction)allTypeButtonAction:(id)sender {
+    if ([_delegate respondsToSelector:@selector(allTypeAction)]) {
+        [_delegate allTypeAction];
+    }
+}
+
+- (IBAction)startTimeButtonAction:(id)sender {
+    if ([_delegate respondsToSelector:@selector(startTimeAction)]) {
+        [_delegate startTimeAction];
+    }
+}
+
+- (IBAction)endTimeButtonAction:(id)sender {
+    if ([_delegate respondsToSelector:@selector(endTimeAction)]) {
+        [_delegate endTimeAction];
+    }
+}
+
 - (void)layoutSubviews{
     
 }
+
+
 
 
 @end

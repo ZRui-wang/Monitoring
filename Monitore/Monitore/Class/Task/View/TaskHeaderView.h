@@ -8,6 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol TaskHeaderViewDelegate <NSObject>
+
+- (void)allTypeAction;
+
+- (void)startTimeAction;
+
+- (void)endTimeAction;
+
+@end
+
 @interface TaskHeaderView : UIView
+
+@property (assign, nonatomic)id <TaskHeaderViewDelegate> delegate;
 
 @end

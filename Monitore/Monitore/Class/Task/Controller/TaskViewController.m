@@ -9,8 +9,9 @@
 #import "TaskViewController.h"
 #import "TaskTableViewCell.h"
 #import "TaskHeaderView.h"
+#import "TXTimeSelectorViewController.h"
 
-@interface TaskViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface TaskViewController ()<UITableViewDelegate, UITableViewDataSource, TaskHeaderViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
@@ -25,7 +26,8 @@
     UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 100)];
     
     
-    UIView *headerView1 = [TaskHeaderView xibView];
+    TaskHeaderView *headerView1 = [TaskHeaderView xibView];
+    headerView1.delegate = self;
     headerView1.frame = CGRectMake(0, 0, SCREEN_WIDTH, 100);
     
     [headerView addSubview:headerView1];
@@ -34,6 +36,20 @@
 //    self.tableView.tableHeaderView = headerView;
     self.tableView.tableHeaderView = headerView;
     [self.tableView registerNib:[UINib nibWithNibName:@"TaskTableViewCell" bundle:nil] forCellReuseIdentifier:@"TaskTableViewCell"];
+}
+
+
+- (void)startTimeAction{
+    [self creatPickView];
+}
+
+- (void)creatPickView{
+    TXTimeSelectorViewController *tc = [[TXTimeSelectorViewController alloc]initWithShowFrame:CGRectMake(0, 104, SCREEN_WIDTH , SCREEN_HEIGHT/2) ShowStyle:MYPresentedViewShowStyleFromTopSpreadStyle callback:^(NSString  *result) {
+        NSLog(@"time --> %@",result);
+//        [self.btn setTitle:result forState:UIControlStateNormal];
+    }];
+    tc.mode = UIDatePickerModeDateAndTime;
+    [self presentViewController:tc animated:YES completion:nil];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
