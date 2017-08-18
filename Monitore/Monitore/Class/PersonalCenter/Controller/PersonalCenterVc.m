@@ -109,6 +109,7 @@
 
 
 - (IBAction)quitButtonAction:(id)sender {
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

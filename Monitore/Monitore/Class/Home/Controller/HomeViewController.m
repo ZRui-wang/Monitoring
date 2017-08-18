@@ -37,6 +37,7 @@ static NSString *HomeCollectionViewCellId = @"HomeCollectionViewCell";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 //    self.collectionView.contentInset=UIEdgeInsetsMake(-64, 0, 0, 0);//上移64
+    [self.navigationItem setHidesBackButton:YES];
 
     self.layouT.headerReferenceSize = CGSizeMake(SCREEN_WIDTH, SCREEN_WIDTH/3.0*2+40);
     self.layouT.itemSize = CGSizeMake((SCREEN_WIDTH-3)/4.0, SCREEN_WIDTH/3.0);

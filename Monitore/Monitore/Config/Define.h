@@ -9,11 +9,28 @@
 #ifndef Define_h
 #define Define_h
 
+#pragma mark -------------- 颜色转换 ----------------------------------------------------------------------------
+/**
+ 16进制颜色转换
+ */
+#define UIColorWithHex(hexValue) [UIColor colorWithRed:((float)((hexValue & 0xFF0000) >> 16))/255.0 \
+green:((float)((hexValue & 0xFF00) >> 8))/255.0 \
+blue:((float)(hexValue & 0xFF))/255.0 alpha:1]
+
 /**
  获取屏幕的宽高
  */
 #define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
 #define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
+
+/**
+ APP主色  绿色
+ */
+#define kDefaultGreenColor UIColorWithHex(0x8ec31e)
+/**
+ 字体的灰色
+ */
+#define kDefaultGrayColor  UIColorWithHex(0x888888)
 
 //MARK: - 打印
 #if DEBUG

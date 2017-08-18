@@ -8,8 +8,9 @@
 
 #import "LoginViewController.h"
 #import "RegistViewController.h"
+#import "HomeViewController.h"
 
-@interface LoginViewController ()
+@interface LoginViewController ()<UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIView *nameBgView;
 @property (weak, nonatomic) IBOutlet UIView *passWorldBgView;
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
@@ -29,9 +30,14 @@
     
     self.loginButton.layer.cornerRadius = self.loginButton.frame.size.height/2.0;
     self.loginButton.layer.masksToBounds = YES;
+    
+    // 设置导航控制器的代理为self
+    self.navigationController.delegate = self;
 }
 
 - (IBAction)loginButtonAction:(id)sender {
+    HomeViewController *homeVc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"HomeViewController"];
+    [self.navigationController pushViewController:homeVc animated:YES];
 }
 
 - (IBAction)forgetButtonAction:(id)sender {
@@ -39,7 +45,17 @@
 
 - (IBAction)registButtonAction:(id)sender {
     RegistViewController *registVc = [[UIStoryboard storyboardWithName:@"PersonalCenter" bundle:nil]instantiateViewControllerWithIdentifier:@"RegistViewController"];
-    [self.navigationController pushViewController:registVc animated:YES];
+    [self presentViewController:registVc animated:YES completion:nil];
+//    [self.navigationController pushViewController:registVc animated:YES];
+}
+
+#pragma mark - UINavigationControllerDelegate
+// 将要显示控制器
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    // 判断要显示的控制器是否是自己
+    BOOL isShowHomePage = [viewController isKindOfClass:[self class]];
+    
+    [self.navigationController setNavigationBarHidden:isShowHomePage animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

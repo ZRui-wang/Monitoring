@@ -45,20 +45,24 @@
 
 - (UIButton *)leftBtn{
     if (!_leftBtn) {
-        self.leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [self.leftBtn setTitle:@"取消" forState:UIControlStateNormal];
-        [self.leftBtn setTitleColor:[UIColor colorWithHexString:@"333333"] forState:UIControlStateNormal];
-        [self.leftBtn addTarget:self action:@selector(handleDateTopViewLeft) forControlEvents:UIControlEventTouchUpInside];
+        _leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_leftBtn setTitle:@"取消" forState:UIControlStateNormal];
+        [_leftBtn setTitleColor:[UIColor colorWithHexString:@"333333"] forState:UIControlStateNormal];
+        [_leftBtn addTarget:self action:@selector(handleDateTopViewLeft) forControlEvents:UIControlEventTouchUpInside];
+        _leftBtn.layer.borderWidth = 1;
+        _leftBtn.layer.borderColor = [UIColor blueColor].CGColor;
     }
     return _leftBtn;
 }
 
 - (UIButton *)rightBtn {
     if (!_rightBtn) {
-        self.rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [self.rightBtn setTitleColor:[UIColor colorWithHexString:@"333333"] forState:UIControlStateNormal];
-        [self.rightBtn setTitle:@"确定" forState:UIControlStateNormal];
-        [self.rightBtn addTarget:self action:@selector(handleDateTopViewRight) forControlEvents:UIControlEventTouchUpInside];
+        _rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_rightBtn setTitleColor:[UIColor colorWithHexString:@"333333"] forState:UIControlStateNormal];
+        [_rightBtn setTitle:@"确定" forState:UIControlStateNormal];
+        [_rightBtn addTarget:self action:@selector(handleDateTopViewRight) forControlEvents:UIControlEventTouchUpInside];
+        _rightBtn.layer.borderWidth = 1;
+        _rightBtn.layer.borderColor = [UIColor blueColor].CGColor;
     }
     return _rightBtn;
 }
@@ -94,22 +98,22 @@
 
 - (void)subViewsLayout{
     self.leftBtn.sd_layout
-    .leftSpaceToView(self, 8)
-    .topSpaceToView(self, 8)
+    .leftSpaceToView(self, 15)
+    .topSpaceToView(self.dateP, 0)
     .heightIs(35)
     .widthIs(kFullWidth/3);
     
     self.rightBtn.sd_layout
-    .rightSpaceToView(self, 8)
-    .topSpaceToView(self, 8)
+    .rightSpaceToView(self, 15)
+    .topSpaceToView(self.dateP, 0)
     .heightRatioToView(self.leftBtn, 1)
-    .widthRatioToView(self.leftBtn, 1);
+    .leftSpaceToView(self.leftBtn, 30);
     
     self.dateP.sd_layout
-    .leftSpaceToView(self, 20)
-    .rightSpaceToView(self, 20)
-    .topSpaceToView(self.leftBtn, 8)
-    .bottomSpaceToView(self, 8);
+    .leftSpaceToView(self, 0)
+    .rightSpaceToView(self, 0)
+    .topSpaceToView(self, 0)
+    .bottomSpaceToView(self, 40);
 }
 
 // NSDate --> NSString

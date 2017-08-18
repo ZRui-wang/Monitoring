@@ -59,6 +59,9 @@
 }
 - (IBAction)registBtnAction:(UIButton *)sender {
 }
+- (IBAction)loginNowButtonAction:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
