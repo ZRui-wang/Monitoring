@@ -78,8 +78,6 @@
     UITableView *tableView = [self tableView];
     [tableView beginUpdates];
     [tableView endUpdates];
-    
-    
 }
 
 - (UITableView *)tableView

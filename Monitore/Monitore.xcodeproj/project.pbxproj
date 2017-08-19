@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7812D87A1F47E7D80041CC9C /* CarouselFigure.m in Sources */ = {isa = PBXBuildFile; fileRef = 7812D8791F47E7D80041CC9C /* CarouselFigure.m */; };
+		7812D87D1F47E98E0041CC9C /* BrandScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = 7812D87C1F47E98E0041CC9C /* BrandScroll.m */; };
 		78657BC01F41DA4200DC2AFE /* TaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78657BBF1F41DA4200DC2AFE /* TaskViewController.m */; };
 		78657BC41F41DA6F00DC2AFE /* TaskTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 78657BC21F41DA6F00DC2AFE /* TaskTableViewCell.m */; };
 		78657BC51F41DA6F00DC2AFE /* TaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78657BC31F41DA6F00DC2AFE /* TaskTableViewCell.xib */; };
@@ -286,6 +288,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7812D8781F47E7D80041CC9C /* CarouselFigure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarouselFigure.h; sourceTree = "<group>"; };
+		7812D8791F47E7D80041CC9C /* CarouselFigure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarouselFigure.m; sourceTree = "<group>"; };
+		7812D87B1F47E98E0041CC9C /* BrandScroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrandScroll.h; sourceTree = "<group>"; };
+		7812D87C1F47E98E0041CC9C /* BrandScroll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrandScroll.m; sourceTree = "<group>"; };
 		78657BBE1F41DA4200DC2AFE /* TaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskViewController.h; sourceTree = "<group>"; };
 		78657BBF1F41DA4200DC2AFE /* TaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskViewController.m; sourceTree = "<group>"; };
 		78657BC11F41DA6F00DC2AFE /* TaskTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskTableViewCell.h; sourceTree = "<group>"; };
@@ -1562,6 +1568,10 @@
 				847ED2031F343B4900BC710E /* SignInView.h */,
 				847ED2041F343B4900BC710E /* SignInView.m */,
 				847ED2061F343B5900BC710E /* SignInView.xib */,
+				7812D8781F47E7D80041CC9C /* CarouselFigure.h */,
+				7812D8791F47E7D80041CC9C /* CarouselFigure.m */,
+				7812D87B1F47E98E0041CC9C /* BrandScroll.h */,
+				7812D87C1F47E98E0041CC9C /* BrandScroll.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2067,6 +2077,7 @@
 				84B7B5C51F46B2ED00C3C708 /* SDWebImagePrefetcher.m in Sources */,
 				849C97121F30623400B38C64 /* IQUIView+IQKeyboardToolbar.m in Sources */,
 				84F929111F29652B00B76D79 /* InfoViewController.m in Sources */,
+				7812D87A1F47E7D80041CC9C /* CarouselFigure.m in Sources */,
 				847ED1EB1F3421F500BC710E /* YYTextSelectionView.m in Sources */,
 				84F9293F1F297D0E00B76D79 /* SettingViewController.m in Sources */,
 				847ED1B51F3421F500BC710E /* NSDate+YYAdd.m in Sources */,
@@ -2158,6 +2169,7 @@
 				847ED1D51F3421F500BC710E /* CALayer+YYWebImage.m in Sources */,
 				847ED1B31F3421F500BC710E /* NSBundle+YYAdd.m in Sources */,
 				78657BC81F41E52100DC2AFE /* TaskHeaderView.m in Sources */,
+				7812D87D1F47E98E0041CC9C /* BrandScroll.m in Sources */,
 				84F9291C1F29652B00B76D79 /* PersonalCenterTableViewCell.m in Sources */,
 				84B7B5C81F46B2ED00C3C708 /* UIImage+MultiFormat.m in Sources */,
 				84F9296D1F2B159100B76D79 /* GoToReportTableViewCell.m in Sources */,

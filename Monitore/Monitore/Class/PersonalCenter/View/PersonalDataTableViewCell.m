@@ -23,6 +23,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
     NSArray *titleTempAry = @[@"当前账号:", @"真实姓名:", @"性别:", @"群防力量类型:", @"身份证号:", @"职业:", @"单位及职务:", @"推荐人手机号:", @"", @"申请时间:", @"所属地区:", @"注册派出所:", @"常住地址:"];
     self.titleAry = titleTempAry;
 }

@@ -9,7 +9,7 @@
 #import "CollectViewController.h"
 #import "DIYPickView.h"
 
-@interface CollectViewController ()<UIPickerViewDelegate, UIPickerViewDataSource, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface CollectViewController ()<UIPickerViewDelegate, UIPickerViewDataSource, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *number;
 @property (weak, nonatomic) IBOutlet UILabel *colour;
 @property (weak, nonatomic) IBOutlet UILabel *addressLabel;
@@ -19,6 +19,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *addressTitle;
 @property (weak, nonatomic) IBOutlet UIImageView *collectImageView;
 @property (weak, nonatomic) IBOutlet UIButton *takePhotoButton;
+@property (weak, nonatomic) IBOutlet UITextView *textView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *textViewHeigh;
 
 @property (strong, nonatomic)DIYPickView *selectColorView;
 @property (strong, nonatomic)UIView *pickBgView;
@@ -48,7 +50,8 @@
         weak.addressLabel.text = address;
     }];
 
-    
+    self.textView.delegate = self;
+    self.textView.scrollEnabled = NO;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -110,6 +113,34 @@
     
     [self.selectColorView.cancelButton addTarget:self action:@selector(buttonAction) forControlEvents:UIControlEventTouchUpInside];
     [self.selectColorView.confirmButton addTarget:self action:@selector(buttonAction) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
+    if ([text isEqualToString:@"\n"]) {
+        [textView resignFirstResponder];//按回车取消第一相应者
+    }
+    return YES;
+}
+
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView
+{
+    return YES;
+}
+
+- (BOOL)textViewShouldEndEditing:(UITextView *)textView
+{//将要停止编辑(不是第一响应者时)
+    return YES;
+}
+
+- (void)textViewDidChange:(UITextView *)textView
+{
+    CGRect bounds = textView.bounds;
+    // 计算 text view 的高度
+    CGSize maxSize = CGSizeMake(bounds.size.width, CGFLOAT_MAX);
+    CGSize newSize = [textView sizeThatFits:maxSize];
+    bounds.size = newSize;
+    textView.bounds = bounds;
+    self.textViewHeigh.constant = textView.bounds.size.height;
 }
 
 //设置不同字体颜色
