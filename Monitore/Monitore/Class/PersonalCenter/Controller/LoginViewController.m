@@ -9,6 +9,7 @@
 #import "LoginViewController.h"
 #import "RegistViewController.h"
 #import "HomeViewController.h"
+#import "ForgetPassWordViewController.h"
 
 @interface LoginViewController ()<UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIView *nameBgView;
@@ -41,6 +42,10 @@
 }
 
 - (IBAction)forgetButtonAction:(id)sender {
+    ForgetPassWordViewController *forgetPassWordVc = [[UIStoryboard storyboardWithName:@"PersonalCenter" bundle:nil] instantiateViewControllerWithIdentifier:@"ForgetPassWordViewController"];
+    [self.navigationController pushViewController:forgetPassWordVc animated:YES];
+//    [self presentViewController:forgetPassWordVc animated:YES completion:nil];
+    
 }
 
 - (IBAction)registButtonAction:(id)sender {
