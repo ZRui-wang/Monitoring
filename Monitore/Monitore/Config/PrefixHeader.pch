@@ -23,6 +23,7 @@
 #import "UIViewController+Dialog.h"
 #import "SVProgressHUD.h"
 #import "DLAlertView.h"
+#include "IQKeyboardManager.h"
 
 
 

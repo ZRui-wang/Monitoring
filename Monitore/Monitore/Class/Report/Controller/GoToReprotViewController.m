@@ -39,6 +39,8 @@
     [self leftCustomBarButton];
     self.title = @"我要举报";
     
+    [[IQKeyboardManager sharedManager] setEnable:NO];
+    
     
     [self.photoArray addObject:[UIImage imageNamed:@"加号"]];
     
@@ -46,7 +48,7 @@
 //    self.tableView.estimatedRowHeight = 100;
 //    self.tableView.rowHeight = UITableViewAutomaticDimension;
     
-    self.titleAry = @[@"大类", @"小类"];
+    self.titleAry = @[@"分类"];
     self.themeAry = @[@"主题", @"描述"];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"GoToReportTableViewCell" bundle:nil] forCellReuseIdentifier:@"GoToReportTableViewCell"];
@@ -55,13 +57,14 @@
 //    [self.tableView registerNib:[UINib nibWithNibName:@"ReportImageTableViewCell" bundle:nil] forCellReuseIdentifier:@"ReportImageTableViewCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"UploadPhotoView" bundle:nil] forHeaderFooterViewReuseIdentifier:@"UploadPhotoView"];
     
-//    self.uploadPhoto = [UploadPhotoView xibView];
-//    self.uploadPhoto.delegate = self;
-//    self.tableView.tableFooterView = self.uploadPhoto;
-    
     titleHeigh = 50;
     detailHeigh = 80;
     
+}
+
+- (void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    [[IQKeyboardManager sharedManager] setEnable:YES];
 }
 - (void)takePhotos{
     UIImagePickerController *picker = [[UIImagePickerController alloc]init];
@@ -73,7 +76,7 @@
 }
 
 - (void)finishEditHeigh:(CGFloat)heigh row:(NSInteger)row{
-    if (row == 2) {
+    if (row == 1) {
         titleHeigh = heigh;
     }else{
         detailHeigh = heigh;
@@ -85,20 +88,20 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 5;
+    return 4;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.row < 2) {
+    if (indexPath.row < 1) {
         return 50;
     }
-    else if(indexPath.row == 2){
+    else if(indexPath.row == 1){
         return titleHeigh;
     }
-    else if(indexPath.row == 3){
+    else if(indexPath.row == 2){
         return detailHeigh;
     }
-    else if(indexPath.row == 4){
+    else if(indexPath.row == 3){
         return 50;
     }
     else{
@@ -108,19 +111,19 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row < 2) {
+    if (indexPath.row < 1) {
         GoToReportTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GoToReportTableViewCell" forIndexPath:indexPath];
         [cell displayCellTitle:self.titleAry[indexPath.row]];
         return cell;
     }
-    else if(indexPath.row < 4){
+    else if(indexPath.row < 3){
         TextViewTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TextViewTableViewCell" forIndexPath:indexPath];
         cell.delegate = self;
         cell.cellRow = indexPath.row;
-        [cell diaplayCell:self.themeAry[indexPath.row -2]];
+        [cell diaplayCell:self.themeAry[indexPath.row -1]];
         return cell;
     }
-    else if(indexPath.row == 4){
+    else if(indexPath.row == 3){
         ReportAddressTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ReportAddressTableViewCell" forIndexPath:indexPath];
 
         return cell;
@@ -138,6 +141,51 @@
     view.photoArray = self.photoArray;
     [view.collectionView reloadData];
     return view;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row == 0) {
+        //创建AlertController对象 preferredStyle可以设置是AlertView样式或者ActionSheet样式
+        UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"分类" message:@"举报类型" preferredStyle:UIAlertControllerStyleActionSheet];
+        //创建取消按钮
+        UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"违法违规" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        UIAlertAction *action3 = [UIAlertAction actionWithTitle:@"消防隐患" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        UIAlertAction *action4 = [UIAlertAction actionWithTitle:@"违法车辆" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        UIAlertAction *action5 = [UIAlertAction actionWithTitle:@"防诈骗打假" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        UIAlertAction *action6 = [UIAlertAction actionWithTitle:@"邻里矛盾" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        UIAlertAction *action7 = [UIAlertAction actionWithTitle:@"特殊人群维稳" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        UIAlertAction *action8 = [UIAlertAction actionWithTitle:@"爱心求助" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+
+        //添加按钮
+        [alertC addAction:action1];
+        [alertC addAction:action2];
+        [alertC addAction:action3];
+        [alertC addAction:action4];
+        [alertC addAction:action5];
+        [alertC addAction:action6];
+        [alertC addAction:action7];
+        [alertC addAction:action8];
+        
+        //显示
+        [self presentViewController:alertC animated:YES completion:nil];
+    }
 }
 
 - (IBAction)saveButtonAction:(id)sender {
