@@ -21,7 +21,7 @@
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
     // Drawing code
-    [self.homeHeaderView addSubview:[[CarouselFigure alloc]initWithFrame:CGRectMake(0, 0, SCREEN_HEIGHT, self.homeHeaderView.frame.size.height)]];
+//    [self.homeHeaderView addSubview:[[CarouselFigure alloc]initWithFrame:CGRectMake(0, 0, SCREEN_HEIGHT, self.homeHeaderView.frame.size.height)]];
 }
 
 

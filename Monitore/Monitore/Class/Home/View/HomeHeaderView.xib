@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,30 +18,64 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GVm-dB-d6u">
                     <rect key="frame" x="0.0" y="0.0" width="445" height="147.5"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="首页" translatesAutoresizingMaskIntoConstraints="NO" id="8ZS-1y-t3u">
+                            <rect key="frame" x="20" y="15" width="115" height="115"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="115" id="ds0-66-CGF"/>
+                                <constraint firstAttribute="height" constant="115" id="riQ-qk-upI"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="治安新闻：居住证可以网上办理啦，两种方法轻松搞定~" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wCV-4O-Xjp">
+                            <rect key="frame" x="150" y="30" width="285" height="45"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="45" id="maD-R8-2Fk"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017-09-04" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9tf-No-2cA">
+                            <rect key="frame" x="150" y="105" width="79.5" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="8ZS-1y-t3u" firstAttribute="top" secondItem="GVm-dB-d6u" secondAttribute="top" constant="15" id="6ml-AC-wRZ"/>
+                        <constraint firstItem="8ZS-1y-t3u" firstAttribute="leading" secondItem="GVm-dB-d6u" secondAttribute="leading" constant="20" id="exo-2O-dSP"/>
+                        <constraint firstItem="9tf-No-2cA" firstAttribute="top" secondItem="wCV-4O-Xjp" secondAttribute="bottom" constant="30" id="i92-UD-Hgk"/>
+                        <constraint firstItem="wCV-4O-Xjp" firstAttribute="top" secondItem="GVm-dB-d6u" secondAttribute="top" constant="30" id="is3-tJ-gxD"/>
+                        <constraint firstItem="9tf-No-2cA" firstAttribute="leading" secondItem="8ZS-1y-t3u" secondAttribute="trailing" constant="15" id="jF8-3p-arI"/>
+                        <constraint firstAttribute="trailing" secondItem="wCV-4O-Xjp" secondAttribute="trailing" constant="10" id="ld9-Li-ao5"/>
+                        <constraint firstItem="wCV-4O-Xjp" firstAttribute="leading" secondItem="8ZS-1y-t3u" secondAttribute="trailing" constant="15" id="yEw-tk-VN6"/>
+                    </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jea-2f-BGo">
                     <rect key="frame" x="0.0" y="163.5" width="445" height="147.5"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dy6-oj-K0n">
-                            <rect key="frame" x="179.5" y="30.5" width="87.5" height="87.5"/>
+                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dy6-oj-K0n">
+                            <rect key="frame" x="192.5" y="34.5" width="60" height="60"/>
                             <state key="normal" backgroundImage="jiangli"/>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="slq-3z-wpS" userLabel="Button3">
-                            <rect key="frame" x="313" y="30" width="87.5" height="87.5"/>
+                            <rect key="frame" x="326" y="34" width="60" height="60"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <state key="normal" backgroundImage="采集日志"/>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ViB-rr-hY4" userLabel="Button1">
-                            <rect key="frame" x="46" y="30" width="87.5" height="87.5"/>
+                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ViB-rr-hY4" userLabel="Button1">
+                            <rect key="frame" x="59" y="34" width="60" height="60"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="width" secondItem="ViB-rr-hY4" secondAttribute="height" multiplier="1:1" id="MEc-B3-Wd1"/>
+                                <constraint firstAttribute="width" constant="60" id="Lwf-XY-93b"/>
+                                <constraint firstAttribute="height" constant="60" id="PoX-zb-R1M"/>
                             </constraints>
                             <state key="normal" backgroundImage="签到"/>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="每日签到" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Po-KK-mkg">
-                            <rect key="frame" x="63" y="125.5" width="53.5" height="17"/>
+                            <rect key="frame" x="63" y="115.5" width="53.5" height="17"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="17" id="0Fm-PV-TYR"/>
                             </constraints>
@@ -51,7 +84,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="奖励兑换" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uL8-MG-IrG">
-                            <rect key="frame" x="196.5" y="125.5" width="53.5" height="17"/>
+                            <rect key="frame" x="196" y="115.5" width="53.5" height="17"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="17" id="mYL-zB-DPv"/>
                             </constraints>
@@ -60,7 +93,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我要采集" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cOl-ct-iQR">
-                            <rect key="frame" x="329.5" y="125.5" width="53.5" height="17"/>
+                            <rect key="frame" x="330" y="115.5" width="53.5" height="17"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="17" id="nwx-8G-q7E"/>
                             </constraints>
@@ -74,16 +107,15 @@
                         <constraint firstItem="Dy6-oj-K0n" firstAttribute="height" secondItem="ViB-rr-hY4" secondAttribute="height" id="82x-3Q-8FS"/>
                         <constraint firstItem="slq-3z-wpS" firstAttribute="centerX" secondItem="Jea-2f-BGo" secondAttribute="centerX" multiplier="1.6" id="DLB-0m-90R"/>
                         <constraint firstItem="uL8-MG-IrG" firstAttribute="centerX" secondItem="Dy6-oj-K0n" secondAttribute="centerX" id="E0n-aM-32h"/>
-                        <constraint firstAttribute="bottom" secondItem="cOl-ct-iQR" secondAttribute="bottom" constant="5" id="Kze-TN-3Cp"/>
+                        <constraint firstAttribute="bottom" secondItem="cOl-ct-iQR" secondAttribute="bottom" constant="15" id="Kze-TN-3Cp"/>
                         <constraint firstItem="slq-3z-wpS" firstAttribute="height" secondItem="ViB-rr-hY4" secondAttribute="height" id="S6c-6u-Q3O"/>
                         <constraint firstItem="Dy6-oj-K0n" firstAttribute="width" secondItem="ViB-rr-hY4" secondAttribute="width" id="WpZ-kf-XrO"/>
                         <constraint firstItem="slq-3z-wpS" firstAttribute="width" secondItem="ViB-rr-hY4" secondAttribute="width" id="ZWP-1V-7u8"/>
-                        <constraint firstItem="ViB-rr-hY4" firstAttribute="top" secondItem="Jea-2f-BGo" secondAttribute="top" constant="30" id="ZjH-Io-lgX"/>
-                        <constraint firstAttribute="bottom" secondItem="uL8-MG-IrG" secondAttribute="bottom" constant="5" id="c7M-2M-HVa"/>
+                        <constraint firstAttribute="bottom" secondItem="uL8-MG-IrG" secondAttribute="bottom" constant="15" id="c7M-2M-HVa"/>
                         <constraint firstItem="Dy6-oj-K0n" firstAttribute="centerX" secondItem="Jea-2f-BGo" secondAttribute="centerX" id="d8V-kK-noX"/>
-                        <constraint firstItem="ViB-rr-hY4" firstAttribute="centerY" secondItem="Jea-2f-BGo" secondAttribute="centerY" id="dCu-Zr-Fyv"/>
+                        <constraint firstItem="ViB-rr-hY4" firstAttribute="centerY" secondItem="Jea-2f-BGo" secondAttribute="centerY" constant="-10" id="dCu-Zr-Fyv"/>
                         <constraint firstItem="Dy6-oj-K0n" firstAttribute="centerY" secondItem="ViB-rr-hY4" secondAttribute="centerY" id="fmN-xH-4jH"/>
-                        <constraint firstAttribute="bottom" secondItem="4Po-KK-mkg" secondAttribute="bottom" constant="5" id="jd0-F2-Mxm"/>
+                        <constraint firstAttribute="bottom" secondItem="4Po-KK-mkg" secondAttribute="bottom" constant="15" id="jd0-F2-Mxm"/>
                         <constraint firstItem="cOl-ct-iQR" firstAttribute="centerX" secondItem="slq-3z-wpS" secondAttribute="centerX" id="jsW-nX-8gL"/>
                         <constraint firstItem="ViB-rr-hY4" firstAttribute="centerX" secondItem="Jea-2f-BGo" secondAttribute="centerX" multiplier="0.4" id="llY-VN-FzB"/>
                         <constraint firstItem="slq-3z-wpS" firstAttribute="centerY" secondItem="ViB-rr-hY4" secondAttribute="centerY" id="nfm-1Z-nLZ"/>
@@ -117,5 +149,6 @@
         <image name="jiangli" width="65" height="64"/>
         <image name="签到" width="24" height="27"/>
         <image name="采集日志" width="64" height="64"/>
+        <image name="首页" width="95" height="95"/>
     </resources>
 </document>
