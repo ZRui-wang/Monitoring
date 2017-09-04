@@ -26,10 +26,10 @@
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>需要持续定位</string>
 	<key>NSCameraUsageDescription</key>
 	<string>访问相机</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>需要持续定位</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>location</string>
