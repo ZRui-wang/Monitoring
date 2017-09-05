@@ -36,11 +36,12 @@
     [self leftCustomBarButton];
     self.title = @"我要巡逻";
     
-    self.mapView = [[BMKMapView alloc]initWithFrame:self.mapBagView.frame];
-    self.mapView.userTrackingMode = BMKUserTrackingModeFollowWithHeading;
+    self.mapView = [[BMKMapView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-60)];
+    self.mapView.userTrackingMode = BMKUserTrackingModeFollow;
     // 地图样式
     self.mapView.mapType = MKMapTypeSatellite;
     self.mapView.showsUserLocation = YES;
+    [self.mapView setZoomLevel:18];
     [self.mapBagView addSubview:self.mapView];
 
     
@@ -52,7 +53,7 @@
     [self.locService startUserLocationService];
     
     // 配置鹰眼基本信息
-    BTKServiceOption *sop = [[BTKServiceOption alloc]initWithAK:@"3hYyfdDODjd421keGGoZw2gHLaUBE2zx" mcode:@"com.dualens.optical" serviceID:145266 keepAlive:YES];
+    BTKServiceOption *sop = [[BTKServiceOption alloc]initWithAK:@"3hYyfdDODjd421keGGoZw2gHLaUBE2zx" mcode:@"com.monitor.optional" serviceID:145266 keepAlive:YES];
     [[BTKAction sharedInstance] initInfo:sop];
     
     // 定位选项设置

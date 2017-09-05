@@ -55,7 +55,7 @@
         }
     }
     
-    self.refreshButtonBlock(self.typeButton.isSelected, self.stateButton.isSelected);
+//    self.refreshButtonBlock(self.typeButton.isSelected, self.stateButton.isSelected);
 }
 
 @end

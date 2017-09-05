@@ -102,6 +102,9 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     AnnouncementVcHeaderView *view = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"AnnouncementVcHeaderView"];
+    if (view) {
+            self.typeBtn = view.typeButton;
+    }
     view.refreshButtonBlock = ^(BOOL typeIsSelected, BOOL stateIsSelected){
         if (typeIsSelected || stateIsSelected) {
             [UIView animateWithDuration:1 animations:^{
@@ -121,18 +124,24 @@
     if (tableView.tag == 100) {
         if (indexPath.row == 0) {
             // 全部
+            [self.typeBtn setTitle:@"全部" forState:UIControlStateNormal];
+            [self.typeBtn setTitleColor:[UIColor colorWithRed:47/255.0 green:109/255.0 blue:182/255.0 alpha:1] forState:UIControlStateNormal];
         }
         else if (indexPath.row == 1){
             // 群防新闻
+            [self.typeBtn setTitle:@"群防新闻" forState:UIControlStateNormal];
         }
         else if (indexPath.row == 2){
             // 线索征集
+            [self.typeBtn setTitle:@"线索征集" forState:UIControlStateNormal];
         }
         else if (indexPath.row == 3){
             // 招募信息
+            [self.typeBtn setTitle:@"招募信息" forState:UIControlStateNormal];
         }
         else if (indexPath.row == 4){
             // 培训通知
+            [self.typeBtn setTitle:@"培训通知" forState:UIControlStateNormal];
         }
         [self hidenBgView];
     }

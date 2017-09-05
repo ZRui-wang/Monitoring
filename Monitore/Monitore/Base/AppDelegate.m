@@ -7,9 +7,12 @@
 //
 
 #import "AppDelegate.h"
+#import "QNUploadManager.h"
 
 
 @interface AppDelegate ()
+
+@property QNUploadManager *upManager;
 
 @end
 
@@ -33,6 +36,9 @@
     if (!ret) {
         NSLog(@"地图启动失败");
     }
+    
+    // 七牛
+    self.upManager = [[QNUploadManager alloc]init];
     
     return YES;
 }
