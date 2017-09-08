@@ -103,13 +103,13 @@
                                 <rect key="frame" x="0.0" y="77" width="375" height="535"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nYF-OK-Xve">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nYF-OK-Xve">
                                 <rect key="frame" x="50" y="622" width="275" height="40"/>
                                 <color key="backgroundColor" red="0.01877382956" green="0.4281618297" blue="0.73732841010000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="aOg-41-adD"/>
                                 </constraints>
-                                <state key="normal" title="结束巡逻">
+                                <state key="normal" title="开始巡逻">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -141,6 +141,7 @@
                         <outlet property="mapBagView" destination="e6k-Jd-fZf" id="AOe-oa-91w"/>
                         <outlet property="patrolAddress" destination="ow9-GY-EGe" id="0VN-Ti-wZ3"/>
                         <outlet property="patrolTime" destination="FWm-pd-sVY" id="IYk-kH-XdP"/>
+                        <outlet property="startButton" destination="nYF-OK-Xve" id="vtB-oG-Nqm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VVW-Og-AtB" userLabel="First Responder" sceneMemberID="firstResponder"/>

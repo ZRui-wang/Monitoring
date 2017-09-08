@@ -8,10 +8,13 @@
 
 #import "GoToPatrolViewController.h"
 
-@interface GoToPatrolViewController ()<BMKMapViewDelegate, BMKLocationServiceDelegate, BTKTraceDelegate, BTKTrackDelegate>
+@interface GoToPatrolViewController ()<BMKMapViewDelegate, BMKLocationServiceDelegate, BTKTraceDelegate, BTKTrackDelegate, DLAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *patrolAddress;
 @property (weak, nonatomic) IBOutlet UILabel *patrolTime;
 @property (weak, nonatomic) IBOutlet UIView *mapBagView;
+@property (weak, nonatomic) IBOutlet UIButton *startButton;
+
+@property (strong, nonatomic)NSTimer *timer;
 
 //位置管理者
 @property (nonatomic, strong) CLLocationManager *localManager;
@@ -28,13 +31,23 @@
 
 @end
 
-@implementation GoToPatrolViewController
+@implementation GoToPatrolViewController{
+    NSInteger timerCount;
+}
+
+- (void)dealloc{
+    if ([_timer isValid]) {
+        [_timer invalidate];
+    }
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self leftCustomBarButton];
     self.title = @"我要巡逻";
+    
+    timerCount = 0;
     
     self.mapView = [[BMKMapView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-60)];
     self.mapView.userTrackingMode = BMKUserTrackingModeFollow;
@@ -60,14 +73,6 @@
     [[BTKAction sharedInstance]setLocationAttributeWithActivityType:CLActivityTypeOther desiredAccuracy:kCLLocationAccuracyBest distanceFilter:kCLDistanceFilterNone];
     [[BTKAction sharedInstance] changeGatherAndPackIntervals:1 packInterval:10 delegate:self];
     
-    // 开启轨迹服务
-    BTKStartServiceOption *op = [[BTKStartServiceOption alloc] initWithEntityName:@"entityB"];
-    // 开启服务
-    [[BTKAction sharedInstance] startService:op delegate:self];
-    
-    // 轨迹采集
-    [[BTKAction sharedInstance] startGather:self];
-    
     // 纠错
     BTKQueryTrackProcessOption *processOption = [[BTKQueryTrackProcessOption alloc] init];
     processOption.denoise = TRUE;
@@ -80,7 +85,16 @@
     BTKQueryTrackLatestPointRequest *request = [[BTKQueryTrackLatestPointRequest alloc] initWithEntityName:@"entityB" processOption: processOption outputCootdType:BTK_COORDTYPE_BD09LL serviceID:145266 tag:11];
     // 发起查询请求
     [[BTKTrackAction sharedInstance] queryTrackLatestPointWith:request delegate:self];
+}
+
+- (void)startTrajectory{
+    // 开启轨迹服务
+    BTKStartServiceOption *op = [[BTKStartServiceOption alloc] initWithEntityName:@"entityB"];
+    // 开启服务
+    [[BTKAction sharedInstance] startService:op delegate:self];
     
+    // 轨迹采集
+    [[BTKAction sharedInstance] startGather:self];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -96,6 +110,13 @@
     
     [[BTKAction sharedInstance] stopGather:self];
     [[BTKAction sharedInstance] stopService:self];
+}
+
+-(void)alertView:(DLAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 1) {
+        [self.timer invalidate];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 // 开始采集回调
@@ -205,11 +226,36 @@
     }
 }
 
-- (IBAction)finishPatrolButtonAction:(id)sender {
+
+- (IBAction)finishPatrolButtonAction:(UIButton *)sender {
+    sender.selected = !sender.isSelected;
+    
+    if (sender.selected) {
+        // 开始
+        [self.startButton setTitle:@"结束巡逻" forState:UIControlStateNormal];
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerAction) userInfo:nil repeats:YES];
+        
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[[UIImage imageNamed:@"back"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStyleDone target:self action:@selector(leftBarButtonAction1)];
+        
+        [self startTrajectory];
+    }else{
+        // 结束
+        DLAlertView *alertView = [[DLAlertView alloc]initWithTitle:@"提示" message:@"确定要结束巡逻？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+        [alertView show];
+    }
+}
+
+- (void)leftBarButtonAction1{
+    DLAlertView *alertView = [[DLAlertView alloc]initWithTitle:@"提示" message:@"确定要结束巡逻？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    [alertView show];
+}
+
+- (void)timerAction{
+    timerCount ++;
+    self.patrolTime.text = [NSString stringWithFormat:@"已执行：%lds", timerCount];
 }
 
 #pragma mark - BMKMapViewDelegate
-
 - (void)mapViewDidFinishLoading:(BMKMapView *)mapView {
     //    [self start];
 }
