@@ -32,6 +32,12 @@ blue:((float)(hexValue & 0xFF))/255.0 alpha:1]
  */
 #define kDefaultGrayColor  UIColorWithHex(0x888888)
 
+
+#define kLINK_HOST @"http://39.108.78.69:3002/mobile/"
+#define Kstatus @"status"
+#define Kinfo @"info"
+#define Ksuccess @"200"
+
 //MARK: - 打印
 #if DEBUG
 #define NSSLog(FORMAT, ...) fprintf(stderr,"[%s:%d行] %s\n",[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String], __LINE__, [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String])

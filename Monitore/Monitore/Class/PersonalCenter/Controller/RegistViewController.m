@@ -8,7 +8,7 @@
 
 #import "RegistViewController.h"
 
-@interface RegistViewController ()
+@interface RegistViewController ()<DLAlertViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *phoneTextField;
 @property (weak, nonatomic) IBOutlet UITextField *verifyCodeTextField;
@@ -25,6 +25,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *getCodeButton;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *buttonPositionX;
+
+@property (nonatomic, copy) NSString *userType;
 @end
 
 @implementation RegistViewController
@@ -33,6 +35,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self leftCustomBarButton];
+    
+    self.userType = @"1";
     
     self.phoneBgView.layer.cornerRadius = 4;
     self.phoneBgView.layer.masksToBounds = YES;
@@ -51,15 +55,50 @@
 - (IBAction)commenUserBtnAction:(UIButton *)sender {
     sender.selected = !sender.isSelected;
     self.specialButton.selected = !sender.selected;
+    self.userType = @"0";
+    
+    self.buttonPositionX.constant = 55;
+    self.recommendBgView.hidden = YES;
 }
 
 - (IBAction)sepcialBtnAction:(UIButton *)sender {
     sender.selected = !sender.isSelected;
     self.commenUserButton.selected = !sender.selected;
+    self.userType = @"1";
+    
+    self.buttonPositionX.constant = 85;
+    self.recommendBgView.hidden = NO;
 }
 - (IBAction)registBtnAction:(UIButton *)sender {
+    
+    if (![self.secrityTextField.text isEqualToString:self.sureSecrityTextFeild.text]) {
+        [self showWarningMessage:@"两次输入的密码不一样"];
+        return;
+    }
+    NSDictionary *paraDic = @{@"USERNAME":self.phoneTextField.text,
+                              @"PASSWORD":self.sureSecrityTextFeild.text,
+                              @"TYPES":self.userType};
+    
+    [[DLAPIClient sharedClient]POST:@"regist" parameters:paraDic success:^(NSURLSessionDataTask *task, id responseObject) {
+        if ([responseObject[Kstatus] isEqualToString:Ksuccess]) {            
+            DLAlertView *alertView = [[DLAlertView alloc]initWithTitle:@"提示" message:responseObject[Kinfo] delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+            [alertView show];
+            
+        }
+        else{
+            [self showWarningMessage:responseObject[Kinfo]];
+        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"%@", task.currentRequest.URL);
+        
+    }];
+    
 }
 - (IBAction)loginNowButtonAction:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)alertView:(DLAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

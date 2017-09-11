@@ -10,11 +10,14 @@
 #import "RegistViewController.h"
 #import "HomeViewController.h"
 #import "ForgetPassWordViewController.h"
+#import "UserTitle.h"
 
 @interface LoginViewController ()<UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIView *nameBgView;
 @property (weak, nonatomic) IBOutlet UIView *passWorldBgView;
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
+@property (weak, nonatomic) IBOutlet UITextField *userName;
+@property (weak, nonatomic) IBOutlet UITextField *passWord;
 
 @end
 
@@ -36,9 +39,36 @@
     self.navigationController.delegate = self;
 }
 
+- (void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    self.userName.text = @"";
+    self.passWord.text = @"";
+    
+}
+
 - (IBAction)loginButtonAction:(id)sender {
-    HomeViewController *homeVc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"HomeViewController"];
-    [self.navigationController pushViewController:homeVc animated:YES];
+    
+    NSDictionary *dic = @{@"USERNAME":self.userName.text, @"PASSWORD":self.passWord.text};
+    
+    [[DLAPIClient sharedClient]POST:@"login" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+        if ([responseObject[Kstatus] isEqualToString:Ksuccess]) {
+            
+            UserTitle *userTitle = [UserTitle modelWithDictionary:responseObject[@"user"]];
+            
+            NSData *myEncodedObject = [NSKeyedArchiver archivedDataWithRootObject:userTitle];
+            
+            [[NSUserDefaults standardUserDefaults]setObject:myEncodedObject forKey:@"userTitle"];
+                        
+            HomeViewController *homeVc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"HomeViewController"];
+            [self.navigationController pushViewController:homeVc animated:YES];
+        }else{
+            [self showWarningMessage:responseObject[Kinfo]];
+        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [self showWarningMessage:@"请求失败"];
+    }];
+    
+
 }
 
 - (IBAction)forgetButtonAction:(id)sender {

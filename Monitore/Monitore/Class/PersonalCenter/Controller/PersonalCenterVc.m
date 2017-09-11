@@ -13,10 +13,17 @@
 #import "SettingViewController.h"
 #import "HelpCenterViewController.h"
 #import "UserFeedbackViewController.h"
+#import "UserTitle.h"
 
 @interface PersonalCenterVc ()<UITableViewDelegate, UITableViewDataSource>
 
+@property (weak, nonatomic) IBOutlet UIImageView *userHeader;
+@property (weak, nonatomic) IBOutlet UILabel *userName;
+@property (weak, nonatomic) IBOutlet UILabel *stars;
+@property (weak, nonatomic) IBOutlet UILabel *scores;
 @property (nonatomic, strong)NSArray *titleAry;
+
+@property (nonatomic, strong) UserTitle *userTitle;
 
 @end
 
@@ -31,6 +38,12 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.scrollEnabled = NO;
+    
+    NSData *myEncodedObject = [[NSUserDefaults standardUserDefaults]objectForKey:@"userTitle"];
+    self.userTitle = (UserTitle *)[NSKeyedUnarchiver unarchiveObjectWithData: myEncodedObject];
+    self.userName.text = self.userTitle.nickname;
+    self.stars.text = self.userTitle.stars;
+    self.scores.text = self.userTitle.score;
     
     [self.tableView registerNib:[UINib nibWithNibName:@"PersonalCenterTableViewCell" bundle:nil] forCellReuseIdentifier:@"PersonalCenterTableViewCell"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;

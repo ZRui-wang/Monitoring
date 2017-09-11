@@ -221,9 +221,12 @@
                         <outlet property="address" destination="j6S-Pk-IhC" id="hVZ-5K-oEV"/>
                         <outlet property="headerImageView" destination="Lpe-0e-SiI" id="rGb-Ep-L56"/>
                         <outlet property="phoneNo" destination="bBm-mN-8Lt" id="BA5-k8-8oq"/>
-                        <outlet property="score" destination="jNm-Pd-aDX" id="kas-pr-PlB"/>
+                        <outlet property="scores" destination="zxY-ZZ-Nks" id="1kF-gE-4Ie"/>
                         <outlet property="starLeval" destination="E6S-gN-0iW" id="bhi-0K-Nm1"/>
+                        <outlet property="stars" destination="E6S-gN-0iW" id="lJz-nT-z8D"/>
                         <outlet property="tableView" destination="01e-Dv-kVY" id="OOY-mc-oud"/>
+                        <outlet property="userHeader" destination="Lpe-0e-SiI" id="GGe-Eb-mRm"/>
+                        <outlet property="userName" destination="E6S-gN-0iW" id="hyL-He-f1U"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Tz-ls-3rN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -448,7 +451,7 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -537,7 +540,9 @@
                     <connections>
                         <outlet property="loginButton" destination="5oG-vy-bHs" id="AhG-Ic-3MH"/>
                         <outlet property="nameBgView" destination="nix-4g-E70" id="aCR-px-Xfl"/>
+                        <outlet property="passWord" destination="Bvz-Sv-Ece" id="7e7-4q-3o9"/>
                         <outlet property="passWorldBgView" destination="5O7-Eg-InY" id="pDl-tu-eE9"/>
+                        <outlet property="userName" destination="cyD-4O-WU5" id="zeW-GY-CAB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nIx-v9-Fhk" userLabel="First Responder" sceneMemberID="firstResponder"/>
