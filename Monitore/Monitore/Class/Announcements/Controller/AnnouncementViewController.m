@@ -59,6 +59,19 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"AnnouncementVcHeaderView" bundle:nil] forHeaderFooterViewReuseIdentifier:@"AnnouncementVcHeaderView"];
 }
 
+- (void)getNetWorkData{
+    
+    NSDictionary *dic = @{@"TYPE_ID":@"", @"STATE":@"", @"currentPage":@"", @"showCount":@""};
+    
+    [[DLAPIClient sharedClient]POST:@"infoList" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+        NSArray *dataAry = responseObject[@"dataList"];
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+    }];
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if (tableView.tag == 100) {
         return 5;

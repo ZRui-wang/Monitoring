@@ -53,11 +53,21 @@
     [[DLAPIClient sharedClient]POST:@"login" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject[Kstatus] isEqualToString:Ksuccess]) {
             
+            NSLog(@"%@", responseObject);
+            
             UserTitle *userTitle = [UserTitle modelWithDictionary:responseObject[@"user"]];
             
-            NSData *myEncodedObject = [NSKeyedArchiver archivedDataWithRootObject:userTitle];
+            // 创建一个可变data 初始化归档对象
+            NSMutableData *data = [NSMutableData data];
+            // 创建一个归档对象
+            NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
+            // 进行归档编码
+            [archiver encodeObject:userTitle forKey:@"userTitle"]; //此时调用归档方法encodeWithCoder:
             
-            [[NSUserDefaults standardUserDefaults]setObject:myEncodedObject forKey:@"userTitle"];
+            // 编码完成  
+            [archiver finishEncoding];
+            
+            [[NSUserDefaults standardUserDefaults]setObject:data forKey:@"userTitle"];
                         
             HomeViewController *homeVc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"HomeViewController"];
             [self.navigationController pushViewController:homeVc animated:YES];

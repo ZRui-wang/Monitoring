@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="TW3-Ni-7Qo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="TW3-Ni-7Qo">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -221,7 +221,7 @@
                         <outlet property="address" destination="j6S-Pk-IhC" id="hVZ-5K-oEV"/>
                         <outlet property="headerImageView" destination="Lpe-0e-SiI" id="rGb-Ep-L56"/>
                         <outlet property="phoneNo" destination="bBm-mN-8Lt" id="BA5-k8-8oq"/>
-                        <outlet property="scores" destination="zxY-ZZ-Nks" id="1kF-gE-4Ie"/>
+                        <outlet property="scores" destination="jNm-Pd-aDX" id="m4V-fK-q4q"/>
                         <outlet property="starLeval" destination="E6S-gN-0iW" id="bhi-0K-Nm1"/>
                         <outlet property="stars" destination="E6S-gN-0iW" id="lJz-nT-z8D"/>
                         <outlet property="tableView" destination="01e-Dv-kVY" id="OOY-mc-oud"/>

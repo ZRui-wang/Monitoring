@@ -14,6 +14,7 @@
 #import "HelpCenterViewController.h"
 #import "UserFeedbackViewController.h"
 #import "UserTitle.h"
+#import "UserModel.h"
 
 @interface PersonalCenterVc ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -24,6 +25,7 @@
 @property (nonatomic, strong)NSArray *titleAry;
 
 @property (nonatomic, strong) UserTitle *userTitle;
+@property (nonatomic, strong) UserModel *model;
 
 @end
 
@@ -40,10 +42,16 @@
     self.tableView.scrollEnabled = NO;
     
     NSData *myEncodedObject = [[NSUserDefaults standardUserDefaults]objectForKey:@"userTitle"];
-    self.userTitle = (UserTitle *)[NSKeyedUnarchiver unarchiveObjectWithData: myEncodedObject];
-    self.userName.text = self.userTitle.nickname;
-    self.stars.text = self.userTitle.stars;
-    self.scores.text = self.userTitle.score;
+
+    NSKeyedUnarchiver *unArchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:myEncodedObject];
+    // 解码返回一个对象
+    self.userTitle = [unArchiver decodeObjectForKey:@"userTitle"]; // 此时调用反归档方法initWithCoder:
+    // 反归档完成
+    [unArchiver finishDecoding];
+
+    self.userName.text = self.userTitle.mobile;
+    self.stars.text = [NSString stringWithFormat:@"%ld", self.userTitle.stars];
+    self.scores.text = [NSString stringWithFormat:@"%ld", self.userTitle.score];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"PersonalCenterTableViewCell" bundle:nil] forCellReuseIdentifier:@"PersonalCenterTableViewCell"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
@@ -61,6 +69,22 @@
                           @{@"titleImage":@"设置",
                             @"title":@"设置"}];
     self.titleAry = titleTemptAry;
+    
+    [self requestNetWork];
+}
+
+- (void)requestNetWork{
+    NSDictionary *dic = @{@"ID":self.userTitle.usersId};
+    [[DLAPIClient sharedClient]POST:@"getUserInfo" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"%@", responseObject);
+        if ([responseObject[Kstatus]isEqualToString:Ksuccess]) {
+            self.model = [UserModel modelWithDictionary:responseObject[@"user"]];
+        }else{
+            
+        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+    }];
 }
 
 #pragma mark - UITableViewDatasouse

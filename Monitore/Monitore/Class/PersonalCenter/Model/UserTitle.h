@@ -8,12 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-@interface UserTitle : NSObject
+@interface UserTitle : NSObject<NSCoding>
 
 @property (copy, nonatomic) NSString *pcs;
 @property (copy, nonatomic) NSString *nickname;
-@property (copy, nonatomic) NSString *stars;
-@property (copy, nonatomic) NSString *score;
+@property (assign, nonatomic) NSInteger stars;
+@property (assign, nonatomic) NSInteger score;
 @property (copy, nonatomic) NSString *usersId;
 @property (copy, nonatomic) NSString *mobile;
 
