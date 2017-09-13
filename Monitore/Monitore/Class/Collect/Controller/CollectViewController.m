@@ -10,11 +10,10 @@
 #import "DIYPickView.h"
 
 @interface CollectViewController ()<UIPickerViewDelegate, UIPickerViewDataSource, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate>
-@property (weak, nonatomic) IBOutlet UITextField *number;
+
 @property (weak, nonatomic) IBOutlet UILabel *colour;
 @property (weak, nonatomic) IBOutlet UILabel *addressLabel;
 
-@property (weak, nonatomic) IBOutlet UILabel *numberTitle;
 @property (weak, nonatomic) IBOutlet UILabel *colorTitle;
 @property (weak, nonatomic) IBOutlet UILabel *addressTitle;
 @property (weak, nonatomic) IBOutlet UIImageView *collectImageView;
@@ -37,10 +36,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"车辆采集";
+    self.title = @"我要救援";
     [self leftCustomBarButton];
-    [self fuwenbenLabel:self.numberTitle FontNumber:14 AndRange:NSMakeRange(4, 1) AndColor:[UIColor redColor]];
-    [self fuwenbenLabel:self.colorTitle FontNumber:14 AndRange:NSMakeRange(4, 1) AndColor:[UIColor redColor]];
+
+    [self fuwenbenLabel:self.colorTitle FontNumber:14 AndRange:NSMakeRange(2, 1) AndColor:[UIColor redColor]];
     [self fuwenbenLabel:self.addressTitle FontNumber:14 AndRange:NSMakeRange(4, 1) AndColor:[UIColor redColor]];
     
     colorAry = @[@"蓝色", @"黄色", @"绿色", @"黑色", @"白色"];

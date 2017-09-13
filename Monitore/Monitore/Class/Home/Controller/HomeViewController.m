@@ -12,7 +12,7 @@
 #import "PersonalCenterVc.h"
 #import "InfoViewController.h"
 #import "PatrolViewController.h"
-#import "ReportViewController.h"
+#import "GoToReprotViewController.h"
 #import "AnnouncementViewController.h"
 #import "LoginViewController.h"
 #import "SignInView.h"
@@ -49,7 +49,7 @@ static NSString *HomeCollectionViewCellId = @"HomeCollectionViewCell";
     
     self.title = @"群防群治";
     
-    NSArray *temptAry = @[@"通知公告", @"群防任务", @"在线举报", @"在线巡逻", @"学习培训", @"黑名单", @"信息中心", @"个人中心"];
+    NSArray *temptAry = @[@"通知公告", @"群防任务", @"在线监督", @"在线巡逻", @"防骗培训", @"黑名单", @"志愿者管理", @"个人中心"];
     self.titleAry = temptAry;
 }
 
@@ -125,7 +125,7 @@ static NSString *HomeCollectionViewCellId = @"HomeCollectionViewCell";
     else if (indexPath.item == 2)
     {
         // 在线举报
-        ReportViewController *reportVc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"ReportViewController"];
+        GoToReprotViewController *reportVc = [[UIStoryboard storyboardWithName:@"Report" bundle:nil] instantiateViewControllerWithIdentifier:@"GoToReprotViewController"];
         [self.navigationController pushViewController:reportVc animated:YES];
     }
     else if (indexPath.item == 3)
@@ -138,8 +138,8 @@ static NSString *HomeCollectionViewCellId = @"HomeCollectionViewCell";
     else if (indexPath.item == 4)
     {
         // 学习培训
-        LoginViewController *loginVc = [[UIStoryboard storyboardWithName:@"PersonalCenter" bundle:nil] instantiateViewControllerWithIdentifier:@"LoginViewController"];
-        [self.navigationController pushViewController:loginVc animated:YES];
+//        LoginViewController *loginVc = [[UIStoryboard storyboardWithName:@"PersonalCenter" bundle:nil] instantiateViewControllerWithIdentifier:@"LoginViewController"];
+//        [self.navigationController pushViewController:loginVc animated:YES];
     }
     else if (indexPath.item == 5)
     {
