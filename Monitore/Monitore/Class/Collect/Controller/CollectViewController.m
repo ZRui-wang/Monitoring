@@ -8,6 +8,7 @@
 
 #import "CollectViewController.h"
 #import "DIYPickView.h"
+#import "AddContactViewController.h"
 
 @interface CollectViewController ()<UIPickerViewDelegate, UIPickerViewDataSource, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate>
 
@@ -38,6 +39,7 @@
     // Do any additional setup after loading the view.
     self.title = @"我要救援";
     [self leftCustomBarButton];
+    [self rightCustomBarButton];
 
     [self fuwenbenLabel:self.colorTitle FontNumber:14 AndRange:NSMakeRange(2, 1) AndColor:[UIColor redColor]];
     [self fuwenbenLabel:self.addressTitle FontNumber:14 AndRange:NSMakeRange(4, 1) AndColor:[UIColor redColor]];
@@ -229,6 +231,18 @@
 
 - (void)buttonAction{
     [self.pickBgView removeFromSuperview];
+}
+
+
+- (void)rightCustomBarButton{
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"+紧急联系人" style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButtonAction)];
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
+}
+
+- (void)rightBarButtonAction{
+    
+    AddContactViewController *goToReprotVc = [[UIStoryboard storyboardWithName:@"Report" bundle:nil]instantiateViewControllerWithIdentifier:@"AddContactViewController"];
+    [self.navigationController pushViewController:goToReprotVc animated:YES];
 }
 
 /*

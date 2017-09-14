@@ -1,34 +1,25 @@
 //
-//  BaseViewController.m
+//  AddContactViewController.m
 //  Monitore
 //
-//  Created by kede on 2017/7/24.
+//  Created by kede on 2017/9/14.
 //  Copyright © 2017年 kede. All rights reserved.
 //
 
-#import "BaseViewController.h"
-#import "MNavigationItem.h"
-#import "UIView+LjAdd.h"
+#import "AddContactViewController.h"
 
-@interface BaseViewController ()
+@interface AddContactViewController ()
 
 @end
 
-@implementation BaseViewController
+@implementation AddContactViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.title = @"紧急联系人";
+    [self leftCustomBarButton];
 }
-
-- (void)leftCustomBarButton{
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[[UIImage imageNamed:@"back"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStyleDone target:self action:@selector(leftBarButtonAction)];
-}
-
-- (void)leftBarButtonAction{
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

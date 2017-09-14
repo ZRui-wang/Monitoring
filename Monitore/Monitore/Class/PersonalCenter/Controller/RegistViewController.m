@@ -51,6 +51,22 @@
     self.commenUserButton.selected = YES;
     self.specialButton.selected = NO;
 }
+- (IBAction)getCodeButtonAction:(UIButton *)sender {
+    
+    NSDictionary *dic = @{@"MOBILE":self.phoneTextField.text};
+    
+    [[DLAPIClient sharedClient]POST:@"smsCode" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+        if ([responseObject[Kstatus]isEqualToString:Ksuccess]) {
+           [self showWithStatus:@"验证码发送成功"];
+        }else{
+           [self showWarningMessage:responseObject[Kinfo]];
+        }
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [self showWarningMessage:@"数据错误"];
+    }];
+    
+}
 
 - (IBAction)commenUserBtnAction:(UIButton *)sender {
     sender.selected = !sender.isSelected;

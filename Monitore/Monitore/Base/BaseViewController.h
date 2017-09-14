@@ -11,4 +11,5 @@
 @interface BaseViewController : UIViewController
 
 - (void)leftCustomBarButton;
+
 @end

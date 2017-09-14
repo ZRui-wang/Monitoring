@@ -8,6 +8,22 @@
 
 #import "AnnounceListModel.h"
 
+
+@implementation CategoryModel
+
+@end
+
+@implementation AnnounceModel
+
+@end
+
 @implementation AnnounceListModel
+
++ (NSDictionary *)modelContainerPropertyGenericClass {
+    return @{
+             @"dataList" : [AnnounceModel class],
+             @"categoryList" : [CategoryModel class]
+             };
+}
 
 @end

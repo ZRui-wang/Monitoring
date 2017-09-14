@@ -12,6 +12,7 @@
 #import "PullTableViewCell.h"
 #import "PullTableViewCell.h"
 #import "DetailViewController.h"
+#import "AnnounceListModel.h"
 
 @interface AnnouncementViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -25,6 +26,10 @@
 @property (strong, nonatomic)UIButton *typeBtn;
 
 @property (strong, nonatomic)UIButton *stateBtn;
+
+@property (strong, nonatomic)NSMutableArray *dataListAry;
+
+@property (strong, nonatomic)NSMutableArray *categoryListAry;
 
 
 @end
@@ -57,15 +62,20 @@
     
     [self.tableView registerNib:[UINib nibWithNibName:@"AnnouncementTableViewCell" bundle:nil] forCellReuseIdentifier:@"AnnouncementTableViewCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"AnnouncementVcHeaderView" bundle:nil] forHeaderFooterViewReuseIdentifier:@"AnnouncementVcHeaderView"];
+    
+    [self getNetWorkData];
 }
 
 - (void)getNetWorkData{
     
-    NSDictionary *dic = @{@"TYPE_ID":@"", @"STATE":@"", @"currentPage":@"", @"showCount":@""};
+    NSDictionary *dic = @{@"TYPE_ID":@"", @"STATE":@"", @"currentPage":@"1", @"showCount":@""};
     
     [[DLAPIClient sharedClient]POST:@"infoList" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
         
-        NSArray *dataAry = responseObject[@"dataList"];
+        AnnounceListModel *model = [AnnounceListModel modelWithDictionary:responseObject];
+        
+        [self.dataListAry addObjectsFromArray:model.dataList];
+        [self.categoryListAry addObjectsFromArray:model.categoryList];
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         

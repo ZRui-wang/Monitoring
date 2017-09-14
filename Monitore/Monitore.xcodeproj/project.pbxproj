@@ -320,6 +320,7 @@
 		84F9296E1F2B159100B76D79 /* GoToReportTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F9296C1F2B159100B76D79 /* GoToReportTableViewCell.xib */; };
 		84F929721F2B1A4000B76D79 /* TextViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F929701F2B1A4000B76D79 /* TextViewTableViewCell.m */; };
 		84F929731F2B1A4000B76D79 /* TextViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F929711F2B1A4000B76D79 /* TextViewTableViewCell.xib */; };
+		84FA79FC1F6A7444006472B4 /* AddContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FA79FB1F6A7444006472B4 /* AddContactViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -937,6 +938,8 @@
 		84F929701F2B1A4000B76D79 /* TextViewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextViewTableViewCell.m; sourceTree = "<group>"; };
 		84F929711F2B1A4000B76D79 /* TextViewTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextViewTableViewCell.xib; sourceTree = "<group>"; };
 		84F929741F2B1FD700B76D79 /* Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tools.h; sourceTree = "<group>"; };
+		84FA79FA1F6A7444006472B4 /* AddContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddContactViewController.h; sourceTree = "<group>"; };
+		84FA79FB1F6A7444006472B4 /* AddContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddContactViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2195,6 +2198,8 @@
 				84F929461F298F1100B76D79 /* ReportViewController.m */,
 				84F929481F29914300B76D79 /* GoToReprotViewController.h */,
 				84F929491F29914300B76D79 /* GoToReprotViewController.m */,
+				84FA79FA1F6A7444006472B4 /* AddContactViewController.h */,
+				84FA79FB1F6A7444006472B4 /* AddContactViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2621,6 +2626,7 @@
 				84B7B6111F46F39600C3C708 /* IQBarButtonItem.m in Sources */,
 				84F929221F29652B00B76D79 /* PersonalDataTableViewCell.m in Sources */,
 				847ED1C71F3421F500BC710E /* UIDevice+YYAdd.m in Sources */,
+				84FA79FC1F6A7444006472B4 /* AddContactViewController.m in Sources */,
 				847ED1FA1F3421F500BC710E /* YYGestureRecognizer.m in Sources */,
 				8497E8571F662735001ABBEA /* UIImageView+AFNetworking.m in Sources */,
 				847ED1F31F3421F500BC710E /* YYTextRunDelegate.m in Sources */,

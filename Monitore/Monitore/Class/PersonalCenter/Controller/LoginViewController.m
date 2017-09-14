@@ -48,10 +48,14 @@
 
 - (IBAction)loginButtonAction:(id)sender {
     
+    [self showWithStatus:@"登录中..."];
+    
     NSDictionary *dic = @{@"USERNAME":self.userName.text, @"PASSWORD":self.passWord.text};
     
     [[DLAPIClient sharedClient]POST:@"login" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject[Kstatus] isEqualToString:Ksuccess]) {
+            
+            [self removeLoadingHUD];
             
             NSLog(@"%@", responseObject);
             
