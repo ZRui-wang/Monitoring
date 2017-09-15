@@ -8,6 +8,6 @@
 
 #import "BaseViewController.h"
 
-@interface InfoViewController : BaseViewController
+@interface VolunterManagerViewController : BaseViewController
 
 @end

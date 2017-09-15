@@ -116,6 +116,11 @@
 		847ED2121F34416A00BC710E /* CollectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 847ED2111F34416A00BC710E /* CollectViewController.m */; };
 		847ED2151F345BCD00BC710E /* DIYPickView.m in Sources */ = {isa = PBXBuildFile; fileRef = 847ED2141F345BCD00BC710E /* DIYPickView.m */; };
 		847ED2171F345BDA00BC710E /* DIYPickView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847ED2161F345BDA00BC710E /* DIYPickView.xib */; };
+		847F0F2A1F6B6036005340F8 /* VolunteersListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 847F0F201F6B6036005340F8 /* VolunteersListViewController.m */; };
+		847F0F2B1F6B6036005340F8 /* VolunterManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 847F0F221F6B6036005340F8 /* VolunterManagerViewController.m */; };
+		847F0F2C1F6B6036005340F8 /* VolunterMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 847F0F241F6B6036005340F8 /* VolunterMapViewController.m */; };
+		847F0F2D1F6B6036005340F8 /* InfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 847F0F281F6B6036005340F8 /* InfoTableViewCell.m */; };
+		847F0F2E1F6B6036005340F8 /* InfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847F0F291F6B6036005340F8 /* InfoTableViewCell.xib */; };
 		848ED8341F4A8651002A5EC6 /* ForgetPassWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 848ED8331F4A8651002A5EC6 /* ForgetPassWordViewController.m */; };
 		848EF7921F58FC08007D65CF /* HomeHeaderView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 848EF7911F58FC08007D65CF /* HomeHeaderView.mm */; };
 		848EF7941F58FC27007D65CF /* Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 848EF7931F58FC27007D65CF /* Tools.m */; };
@@ -272,9 +277,6 @@
 		84F9290D1F29652B00B76D79 /* HomeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F928CD1F29652B00B76D79 /* HomeCollectionViewCell.m */; };
 		84F9290E1F29652B00B76D79 /* HomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F928CE1F29652B00B76D79 /* HomeCollectionViewCell.xib */; };
 		84F929101F29652B00B76D79 /* HomeHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F928D11F29652B00B76D79 /* HomeHeaderView.xib */; };
-		84F929111F29652B00B76D79 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F928D51F29652B00B76D79 /* InfoViewController.m */; };
-		84F929121F29652B00B76D79 /* InfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F928D91F29652B00B76D79 /* InfoTableViewCell.m */; };
-		84F929131F29652B00B76D79 /* InfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F928DA1F29652B00B76D79 /* InfoTableViewCell.xib */; };
 		84F929141F29652B00B76D79 /* PatrolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F928DE1F29652B00B76D79 /* PatrolViewController.m */; };
 		84F929151F29652B00B76D79 /* PatrolTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F928E21F29652B00B76D79 /* PatrolTableHeaderView.m */; };
 		84F929161F29652B00B76D79 /* PatrolTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F928E31F29652B00B76D79 /* PatrolTableHeaderView.xib */; };
@@ -574,6 +576,15 @@
 		847ED2131F345BCD00BC710E /* DIYPickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIYPickView.h; sourceTree = "<group>"; };
 		847ED2141F345BCD00BC710E /* DIYPickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIYPickView.m; sourceTree = "<group>"; };
 		847ED2161F345BDA00BC710E /* DIYPickView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DIYPickView.xib; sourceTree = "<group>"; };
+		847F0F1F1F6B6036005340F8 /* VolunteersListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VolunteersListViewController.h; sourceTree = "<group>"; };
+		847F0F201F6B6036005340F8 /* VolunteersListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VolunteersListViewController.m; sourceTree = "<group>"; };
+		847F0F211F6B6036005340F8 /* VolunterManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VolunterManagerViewController.h; sourceTree = "<group>"; };
+		847F0F221F6B6036005340F8 /* VolunterManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VolunterManagerViewController.m; sourceTree = "<group>"; };
+		847F0F231F6B6036005340F8 /* VolunterMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VolunterMapViewController.h; sourceTree = "<group>"; };
+		847F0F241F6B6036005340F8 /* VolunterMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VolunterMapViewController.m; sourceTree = "<group>"; };
+		847F0F271F6B6036005340F8 /* InfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoTableViewCell.h; sourceTree = "<group>"; };
+		847F0F281F6B6036005340F8 /* InfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoTableViewCell.m; sourceTree = "<group>"; };
+		847F0F291F6B6036005340F8 /* InfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoTableViewCell.xib; sourceTree = "<group>"; };
 		848ED8321F4A8651002A5EC6 /* ForgetPassWordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPassWordViewController.h; sourceTree = "<group>"; };
 		848ED8331F4A8651002A5EC6 /* ForgetPassWordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPassWordViewController.m; sourceTree = "<group>"; };
 		848EF7911F58FC08007D65CF /* HomeHeaderView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HomeHeaderView.mm; sourceTree = "<group>"; };
@@ -862,11 +873,6 @@
 		84F928CE1F29652B00B76D79 /* HomeCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeCollectionViewCell.xib; sourceTree = "<group>"; };
 		84F928CF1F29652B00B76D79 /* HomeHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeHeaderView.h; sourceTree = "<group>"; };
 		84F928D11F29652B00B76D79 /* HomeHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeHeaderView.xib; sourceTree = "<group>"; };
-		84F928D41F29652B00B76D79 /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
-		84F928D51F29652B00B76D79 /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
-		84F928D81F29652B00B76D79 /* InfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoTableViewCell.h; sourceTree = "<group>"; };
-		84F928D91F29652B00B76D79 /* InfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoTableViewCell.m; sourceTree = "<group>"; };
-		84F928DA1F29652B00B76D79 /* InfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoTableViewCell.xib; sourceTree = "<group>"; };
 		84F928DD1F29652B00B76D79 /* PatrolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatrolViewController.h; sourceTree = "<group>"; };
 		84F928DE1F29652B00B76D79 /* PatrolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatrolViewController.m; sourceTree = "<group>"; };
 		84F928E11F29652B00B76D79 /* PatrolTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatrolTableHeaderView.h; sourceTree = "<group>"; };
@@ -1306,6 +1312,46 @@
 				847ED2131F345BCD00BC710E /* DIYPickView.h */,
 				847ED2141F345BCD00BC710E /* DIYPickView.m */,
 				847ED2161F345BDA00BC710E /* DIYPickView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		847F0F1D1F6B6036005340F8 /* Volunter */ = {
+			isa = PBXGroup;
+			children = (
+				847F0F1E1F6B6036005340F8 /* Controller */,
+				847F0F251F6B6036005340F8 /* Model */,
+				847F0F261F6B6036005340F8 /* View */,
+			);
+			path = Volunter;
+			sourceTree = "<group>";
+		};
+		847F0F1E1F6B6036005340F8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				847F0F1F1F6B6036005340F8 /* VolunteersListViewController.h */,
+				847F0F201F6B6036005340F8 /* VolunteersListViewController.m */,
+				847F0F211F6B6036005340F8 /* VolunterManagerViewController.h */,
+				847F0F221F6B6036005340F8 /* VolunterManagerViewController.m */,
+				847F0F231F6B6036005340F8 /* VolunterMapViewController.h */,
+				847F0F241F6B6036005340F8 /* VolunterMapViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		847F0F251F6B6036005340F8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		847F0F261F6B6036005340F8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				847F0F271F6B6036005340F8 /* InfoTableViewCell.h */,
+				847F0F281F6B6036005340F8 /* InfoTableViewCell.m */,
+				847F0F291F6B6036005340F8 /* InfoTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1886,11 +1932,11 @@
 		84F928BD1F29652B00B76D79 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				847F0F1D1F6B6036005340F8 /* Volunter */,
 				847ED20C1F34415300BC710E /* Collect */,
 				84F928BE1F29652B00B76D79 /* Announcements */,
 				84F928C21F29652B00B76D79 /* Blacklist */,
 				84F928C61F29652B00B76D79 /* Home */,
-				84F928D21F29652B00B76D79 /* Information */,
 				84F928DB1F29652B00B76D79 /* Patrol */,
 				84F928E71F29652B00B76D79 /* PersonalCenter */,
 				84F929001F29652B00B76D79 /* Report */,
@@ -2019,42 +2065,6 @@
 				7812D8791F47E7D80041CC9C /* CarouselFigure.m */,
 				7812D87B1F47E98E0041CC9C /* BrandScroll.h */,
 				7812D87C1F47E98E0041CC9C /* BrandScroll.m */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		84F928D21F29652B00B76D79 /* Information */ = {
-			isa = PBXGroup;
-			children = (
-				84F928D31F29652B00B76D79 /* Controller */,
-				84F928D61F29652B00B76D79 /* Model */,
-				84F928D71F29652B00B76D79 /* View */,
-			);
-			path = Information;
-			sourceTree = "<group>";
-		};
-		84F928D31F29652B00B76D79 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				84F928D41F29652B00B76D79 /* InfoViewController.h */,
-				84F928D51F29652B00B76D79 /* InfoViewController.m */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		84F928D61F29652B00B76D79 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		84F928D71F29652B00B76D79 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				84F928D81F29652B00B76D79 /* InfoTableViewCell.h */,
-				84F928D91F29652B00B76D79 /* InfoTableViewCell.m */,
-				84F928DA1F29652B00B76D79 /* InfoTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2444,7 +2454,7 @@
 				78E26AB61F2A2540007A96F6 /* Announcement.storyboard in Resources */,
 				78E26AB11F29FEC2007A96F6 /* Main.storyboard in Resources */,
 				84F9294C1F29918400B76D79 /* Report.storyboard in Resources */,
-				84F929131F29652B00B76D79 /* InfoTableViewCell.xib in Resources */,
+				847F0F2E1F6B6036005340F8 /* InfoTableViewCell.xib in Resources */,
 				84F9291D1F29652B00B76D79 /* PersonalCenterTableViewCell.xib in Resources */,
 				84A1D1141F5CF6CF00BFAFC0 /* mapapi.bundle in Resources */,
 				84F929311F2968AE00B76D79 /* Info.plist in Resources */,
@@ -2526,14 +2536,16 @@
 				847ED1F51F3421F500BC710E /* YYLabel.m in Sources */,
 				84A1D5311F5EA7DF00BFAFC0 /* QNGetAddrInfo.m in Sources */,
 				84F928481F2898FF00B76D79 /* CustomeLabel.m in Sources */,
-				84F929121F29652B00B76D79 /* InfoTableViewCell.m in Sources */,
+				847F0F2D1F6B6036005340F8 /* InfoTableViewCell.m in Sources */,
 				84A1D52A1F5EA7DF00BFAFC0 /* QNHijackingDetectWrapper.m in Sources */,
 				847ED1B81F3421F500BC710E /* NSNotificationCenter+YYAdd.m in Sources */,
 				84B7B5E21F46BDFE00C3C708 /* ConstDefine.m in Sources */,
 				84A1D4EA1F5EA65D00BFAFC0 /* QNFileRecorder.m in Sources */,
 				847ED1EE1F3421F500BC710E /* UIPasteboard+YYText.m in Sources */,
+				847F0F2C1F6B6036005340F8 /* VolunterMapViewController.m in Sources */,
 				847ED1BD1F3421F500BC710E /* NSString+YYAdd.m in Sources */,
 				847ED1FD1F3421F500BC710E /* YYSentinel.m in Sources */,
+				847F0F2A1F6B6036005340F8 /* VolunteersListViewController.m in Sources */,
 				847ED1DF1F3421F500BC710E /* YYWebImageManager.m in Sources */,
 				84F927C31F25DA3F00B76D79 /* MNavigationItem.m in Sources */,
 				84A1D5331F5EA7DF00BFAFC0 /* QNIP.m in Sources */,
@@ -2549,7 +2561,6 @@
 				847ED1D81F3421F500BC710E /* UIImageView+YYWebImage.m in Sources */,
 				84A1D4E61F5EA65D00BFAFC0 /* QNUrlSafeBase64.m in Sources */,
 				84B7B5C51F46B2ED00C3C708 /* SDWebImagePrefetcher.m in Sources */,
-				84F929111F29652B00B76D79 /* InfoViewController.m in Sources */,
 				7812D87A1F47E7D80041CC9C /* CarouselFigure.m in Sources */,
 				84A1D5261F5EA7DF00BFAFC0 /* QNNetworkInfo.m in Sources */,
 				847ED1EB1F3421F500BC710E /* YYTextSelectionView.m in Sources */,
@@ -2729,6 +2740,7 @@
 				8497E8541F662735001ABBEA /* AFNetworkActivityIndicatorManager.m in Sources */,
 				847ED1F71F3421F500BC710E /* YYAsyncLayer.m in Sources */,
 				84B7B5BC1F46B2ED00C3C708 /* NSData+ImageContentType.m in Sources */,
+				847F0F2B1F6B6036005340F8 /* VolunterManagerViewController.m in Sources */,
 				848EF7921F58FC08007D65CF /* HomeHeaderView.mm in Sources */,
 				847ED1F91F3421F500BC710E /* YYFileHash.m in Sources */,
 				847ED0FD1F340E5500BC710E /* JSONKit.m in Sources */,

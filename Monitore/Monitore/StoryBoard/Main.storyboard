@@ -266,10 +266,61 @@
             </objects>
             <point key="canvasLocation" x="1794.4000000000001" y="-207.34632683658174"/>
         </scene>
-        <!--Info View Controller-->
+        <!--Volunteers List View Controller-->
+        <scene sceneID="O1r-md-gui">
+            <objects>
+                <viewController storyboardIdentifier="VolunteersListViewController" id="xcS-TA-xfZ" customClass="VolunteersListViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Pnp-D8-frc"/>
+                        <viewControllerLayoutGuide type="bottom" id="o6C-g5-kgZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7Ks-4o-gEX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MNJ-P9-Qmj">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="MNJ-P9-Qmj" secondAttribute="trailing" id="84J-6y-FHG"/>
+                            <constraint firstItem="o6C-g5-kgZ" firstAttribute="top" secondItem="MNJ-P9-Qmj" secondAttribute="bottom" id="NSs-E1-5ZJ"/>
+                            <constraint firstItem="MNJ-P9-Qmj" firstAttribute="leading" secondItem="7Ks-4o-gEX" secondAttribute="leading" id="OYf-Ko-iW7"/>
+                            <constraint firstItem="MNJ-P9-Qmj" firstAttribute="top" secondItem="Pnp-D8-frc" secondAttribute="bottom" id="UUR-XJ-yIF"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="MNJ-P9-Qmj" id="Sfz-bd-wWd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t83-jr-mHU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="274" y="499"/>
+        </scene>
+        <!--Volunter Map View Controller-->
+        <scene sceneID="jAd-z3-iSw">
+            <objects>
+                <viewController storyboardIdentifier="VolunterMapViewController" id="mit-uP-TAD" customClass="VolunterMapViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5Tw-Ye-3wv"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ugg-qH-FfC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WCP-Xy-nBM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DmQ-AK-edU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1010" y="504"/>
+        </scene>
+        <!--Volunter Manager View Controller-->
         <scene sceneID="jZl-Ig-gfz">
             <objects>
-                <viewController storyboardIdentifier="InfoViewController" id="odM-G6-iuH" customClass="InfoViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VolunterManagerViewController" id="odM-G6-iuH" customClass="VolunterManagerViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gIe-XX-rqV"/>
                         <viewControllerLayoutGuide type="bottom" id="wV0-iZ-lyf"/>
@@ -278,30 +329,89 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ios-xM-QSH">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sUD-VA-3j9">
+                                <rect key="frame" x="56" y="20" width="111.5" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="eal-lN-sFM"/>
+                                </constraints>
+                                <state key="normal" title="志愿者">
+                                    <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
-                                    <outlet property="dataSource" destination="odM-G6-iuH" id="MPz-Aa-it1"/>
-                                    <outlet property="delegate" destination="odM-G6-iuH" id="cGu-JR-xKu"/>
+                                    <action selector="listButtonAction:" destination="odM-G6-iuH" eventType="touchUpInside" id="Lmz-vi-hnc"/>
                                 </connections>
-                            </tableView>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oHS-Xx-v6Q">
+                                <rect key="frame" x="207.5" y="20" width="111.5" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="iQQ-pK-bI6"/>
+                                </constraints>
+                                <state key="normal" title="志愿者分布">
+                                    <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="mapButtonAction:" destination="odM-G6-iuH" eventType="touchUpInside" id="3Yd-1x-OkV"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nsq-Hv-ZUY">
+                                <rect key="frame" x="0.0" y="60" width="375" height="2"/>
+                                <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="85p-ud-XpI"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AoX-aV-VfY">
+                                <rect key="frame" x="207.5" y="59" width="111.5" height="3"/>
+                                <color key="backgroundColor" red="0.1849888116" green="0.42891159649999999" blue="0.71379959579999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="3" id="Gzn-pQ-iwQ"/>
+                                </constraints>
+                            </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wpm-Qb-k3t">
+                                <rect key="frame" x="0.0" y="62" width="375" height="605"/>
+                            </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qfr-Mx-xXy">
+                                <rect key="frame" x="56" y="59" width="111.5" height="3"/>
+                                <color key="backgroundColor" red="0.18431372549019609" green="0.42745098039215684" blue="0.71372549019607845" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="3" id="y0K-ZI-J1W"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="wV0-iZ-lyf" firstAttribute="top" secondItem="Ios-xM-QSH" secondAttribute="bottom" id="Hhn-F4-id8"/>
-                            <constraint firstItem="Ios-xM-QSH" firstAttribute="leading" secondItem="iax-jg-MxQ" secondAttribute="leading" id="X3f-Sc-09j"/>
-                            <constraint firstItem="Ios-xM-QSH" firstAttribute="top" secondItem="gIe-XX-rqV" secondAttribute="bottom" id="XUx-6w-MJd"/>
-                            <constraint firstAttribute="trailing" secondItem="Ios-xM-QSH" secondAttribute="trailing" id="a3A-b0-Qsn"/>
+                            <constraint firstItem="Nsq-Hv-ZUY" firstAttribute="top" secondItem="oHS-Xx-v6Q" secondAttribute="bottom" id="2xf-IB-Mp2"/>
+                            <constraint firstItem="oHS-Xx-v6Q" firstAttribute="leading" secondItem="sUD-VA-3j9" secondAttribute="trailing" constant="40" id="5tz-kf-aV2"/>
+                            <constraint firstAttribute="trailing" secondItem="Nsq-Hv-ZUY" secondAttribute="trailing" id="H6U-Gm-F5W"/>
+                            <constraint firstAttribute="trailing" secondItem="Wpm-Qb-k3t" secondAttribute="trailing" id="Jlz-zq-386"/>
+                            <constraint firstItem="oHS-Xx-v6Q" firstAttribute="centerY" secondItem="sUD-VA-3j9" secondAttribute="centerY" id="LVD-8B-OS8"/>
+                            <constraint firstItem="oHS-Xx-v6Q" firstAttribute="width" secondItem="sUD-VA-3j9" secondAttribute="width" id="LqQ-Ig-I9k"/>
+                            <constraint firstItem="sUD-VA-3j9" firstAttribute="top" secondItem="gIe-XX-rqV" secondAttribute="bottom" id="Qm2-80-BvC"/>
+                            <constraint firstItem="Nsq-Hv-ZUY" firstAttribute="leading" secondItem="iax-jg-MxQ" secondAttribute="leading" id="SUN-Qo-rA5"/>
+                            <constraint firstItem="Wpm-Qb-k3t" firstAttribute="top" secondItem="qfr-Mx-xXy" secondAttribute="bottom" id="Sbk-PJ-0MX"/>
+                            <constraint firstItem="AoX-aV-VfY" firstAttribute="leading" secondItem="oHS-Xx-v6Q" secondAttribute="leading" id="VEV-mv-dSl"/>
+                            <constraint firstItem="AoX-aV-VfY" firstAttribute="trailing" secondItem="oHS-Xx-v6Q" secondAttribute="trailing" id="XFc-5O-wfb"/>
+                            <constraint firstItem="Wpm-Qb-k3t" firstAttribute="leading" secondItem="iax-jg-MxQ" secondAttribute="leading" id="XKy-8N-s7j"/>
+                            <constraint firstItem="qfr-Mx-xXy" firstAttribute="leading" secondItem="sUD-VA-3j9" secondAttribute="leading" id="XWV-Kx-QMj"/>
+                            <constraint firstItem="Wpm-Qb-k3t" firstAttribute="top" secondItem="Nsq-Hv-ZUY" secondAttribute="bottom" id="cHl-rR-R8v"/>
+                            <constraint firstItem="qfr-Mx-xXy" firstAttribute="trailing" secondItem="sUD-VA-3j9" secondAttribute="trailing" id="cYm-DM-5HW"/>
+                            <constraint firstItem="wV0-iZ-lyf" firstAttribute="top" secondItem="Wpm-Qb-k3t" secondAttribute="bottom" id="oAg-9L-tjD"/>
+                            <constraint firstItem="sUD-VA-3j9" firstAttribute="leading" secondItem="iax-jg-MxQ" secondAttribute="leadingMargin" constant="40" id="phV-LM-Df9"/>
+                            <constraint firstItem="Wpm-Qb-k3t" firstAttribute="top" secondItem="AoX-aV-VfY" secondAttribute="bottom" id="pl7-Fw-c8j"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="oHS-Xx-v6Q" secondAttribute="trailing" constant="40" id="zdr-Nk-FFL"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="tableView" destination="Ios-xM-QSH" id="DB3-ea-OuA"/>
+                        <outlet property="listButton" destination="sUD-VA-3j9" id="bdZ-So-cc1"/>
+                        <outlet property="listLine" destination="qfr-Mx-xXy" id="yDU-4u-0i0"/>
+                        <outlet property="mapButton" destination="oHS-Xx-v6Q" id="ROb-TZ-Atc"/>
+                        <outlet property="rightLine" destination="AoX-aV-VfY" id="cWn-pf-cfS"/>
+                        <outlet property="scrollView" destination="Wpm-Qb-k3t" id="cz0-gn-0BC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LJ3-FG-e95" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1764" y="464"/>
+            <point key="canvasLocation" x="1764" y="463.71814092953525"/>
         </scene>
         <!--Announcement View Controller-->
         <scene sceneID="XrL-5o-HbG">

@@ -10,7 +10,7 @@
 #import "HomeHeaderView.h"
 #import "HomeCollectionViewCell.h"
 #import "PersonalCenterVc.h"
-#import "InfoViewController.h"
+#import "VolunterManagerViewController.h"
 #import "PatrolViewController.h"
 #import "GoToReprotViewController.h"
 #import "AnnouncementViewController.h"
@@ -148,7 +148,7 @@ static NSString *HomeCollectionViewCellId = @"HomeCollectionViewCell";
     else if (indexPath.item == 6)
     {
         // 信息中心
-        InfoViewController *infoVc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"InfoViewController"];
+        VolunterManagerViewController *infoVc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"VolunterManagerViewController"];
         [self.navigationController pushViewController:infoVc animated:YES];
     }
     else// if (indexPath.item == 7)

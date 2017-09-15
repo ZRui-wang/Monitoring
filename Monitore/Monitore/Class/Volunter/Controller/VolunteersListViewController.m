@@ -1,28 +1,32 @@
 //
-//  InfoViewController.m
+//  VolunteersListViewController.m
 //  Monitore
 //
-//  Created by kede on 2017/7/26.
+//  Created by kede on 2017/9/15.
 //  Copyright © 2017年 kede. All rights reserved.
 //
 
-#import "InfoViewController.h"
+#import "VolunteersListViewController.h"
 #import "InfoTableViewCell.h"
 
-@interface InfoViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface VolunteersListViewController ()<UITableViewDelegate, UITableViewDataSource>
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
-@implementation InfoViewController
+@implementation VolunteersListViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self leftCustomBarButton];
+    self.view.backgroundColor = [UIColor redColor];
+    
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
     [self.tableView registerNib:[UINib nibWithNibName:@"InfoTableViewCell" bundle:nil] forCellReuseIdentifier:@"InfoTableViewCell"];
-    self.tableView.tableFooterView = [UIView new];
 }
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {

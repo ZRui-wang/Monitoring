@@ -26,7 +26,7 @@ blue:((float)(hexValue & 0xFF))/255.0 alpha:1]
 /**
  APP主色  绿色
  */
-#define kDefaultGreenColor UIColorWithHex(0x8ec31e)
+#define kDefaultGreenColor UIColorWithHex(0x2F6DB6)
 /**
  字体的灰色
  */
