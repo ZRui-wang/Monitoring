@@ -8,8 +8,10 @@
 
 #import "VolunterMapViewController.h"
 
-@interface VolunterMapViewController ()
+@interface VolunterMapViewController ()<BMKMapViewDelegate, BMKLocationServiceDelegate>
 
+@property (strong, nonatomic)BMKMapView *mapView;
+@property (strong, nonatomic)BMKLocationService *locService;
 @end
 
 @implementation VolunterMapViewController
@@ -17,7 +19,36 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor greenColor];
+    BMKMapView *mapView = [[BMKMapView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+    self.mapView = mapView;
+    [self.view addSubview:self.mapView];
+    self.mapView.mapType = MKMapTypeSatellite;
+    self.mapView.showsUserLocation = YES;
+    [self.mapView setZoomLevel:18];
+    
+    self.locService = [[BMKLocationService alloc]init];
+    self.locService.delegate = self;
+    self.locService.distanceFilter = 6.0f;
+    self.locService.desiredAccuracy=kCLLocationAccuracyBest;
+    [self.locService startUserLocationService];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    _mapView.delegate = self;
+}
+
+- (void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    self.mapView.delegate = nil;
+}
+
+- (void)didUpdateUserHeading:(BMKUserLocation *)userLocation{
+    [self.mapView updateLocationData:userLocation];
+}
+
+- (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation{
+    [self.mapView updateLocationData:userLocation];
 }
 
 - (void)didReceiveMemoryWarning {

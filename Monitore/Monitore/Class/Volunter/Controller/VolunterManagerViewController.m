@@ -44,6 +44,7 @@
     [self addChildViewController:self.volunteerMapVc];
     self.scrollView.contentSize = CGSizeMake(SCREEN_WIDTH*2, 0);
     self.scrollView.pagingEnabled = true;
+    self.scrollView.scrollEnabled = NO;
     self.scrollView.delegate = self;
     _volunteerVc.view.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-45);
     [self.scrollView addSubview:self.volunteerVc.view];

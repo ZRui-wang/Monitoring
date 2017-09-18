@@ -310,8 +310,23 @@
                     <view key="view" contentMode="scaleToFill" id="WCP-Xy-nBM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xhf-6E-zQZ">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ugg-qH-FfC" firstAttribute="top" secondItem="xhf-6E-zQZ" secondAttribute="bottom" id="ObG-iy-UHX"/>
+                            <constraint firstItem="xhf-6E-zQZ" firstAttribute="top" secondItem="5Tw-Ye-3wv" secondAttribute="bottom" id="WKC-1b-Snt"/>
+                            <constraint firstItem="xhf-6E-zQZ" firstAttribute="leading" secondItem="WCP-Xy-nBM" secondAttribute="leading" id="aS6-1U-hdL"/>
+                            <constraint firstAttribute="trailing" secondItem="xhf-6E-zQZ" secondAttribute="trailing" id="jle-sG-lIT"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="xhf-6E-zQZ" id="l83-wy-1r3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DmQ-AK-edU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
