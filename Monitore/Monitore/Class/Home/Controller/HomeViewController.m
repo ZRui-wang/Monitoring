@@ -21,12 +21,13 @@
 #import "TrainViewController.h"
 #import "BlackListViewController.h"
 #import "AwardViewController.h"
+#import "UserTitle.h"
 
 @interface HomeViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *layouT;
 @property (strong, nonatomic) NSArray *titleAry;
-
+@property (nonatomic, strong) UserTitle *userTitle;
 @end
 
 static NSString *HomeHeaderViewId = @"HomeHeaderView";
@@ -58,8 +59,32 @@ static NSString *HomeCollectionViewCellId = @"HomeCollectionViewCell";
 
 - (void)signInBtnAction:(UIButton *)button{
     // 每日签到
-    UIView *signView = [SignInView xibView];
-    [self.view addSubview:signView];
+    NSData *myEncodedObject = [[NSUserDefaults standardUserDefaults]objectForKey:@"userTitle"];
+    
+    NSKeyedUnarchiver *unArchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:myEncodedObject];
+    // 解码返回一个对象
+    self.userTitle = [unArchiver decodeObjectForKey:@"userTitle"]; // 此时调用反归档方法initWithCoder:
+    // 反归档完成
+    [unArchiver finishDecoding];
+    
+    
+    NSDictionary *dic = @{@"USER_ID":self.userTitle.usersId};
+    
+    [[DLAPIClient sharedClient]POST:@"userSign" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSSLog(@"%@", responseObject);
+        if ([responseObject[Kstatus]isEqualToString:Ksuccess]) {
+            UIView *signView = [SignInView xibView];
+            [self.view addSubview:signView];
+        }else{
+            SignInView *signView = [SignInView xibView];
+            [signView hadSigned];
+            [self.view addSubview:signView];
+        }
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [self showWarningMessage:@"签到失败"];
+
+    }];
 }
 
 - (void)rewardBtnAction:(UIButton *)button{

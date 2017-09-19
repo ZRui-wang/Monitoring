@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *password;
 @property (weak, nonatomic) IBOutlet UITextField *surePassword;
 @property (weak, nonatomic) IBOutlet UIButton *getCodeButton;
+@property (nonatomic, copy) NSString *code;
 
 @end
 
@@ -28,6 +29,23 @@
 - (IBAction)commitButtonAction:(id)sender {
 }
 - (IBAction)getCodeButtonAction:(id)sender {
+    
+    NSDictionary *dic = @{@"MOBILE":self.phoneNumber.text, @"TYPE":@1};
+    
+    [[DLAPIClient sharedClient]POST:@"smsCode" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSSLog(@"%@", responseObject);
+        if ([responseObject[Kstatus]isEqualToString:Ksuccess]) {
+            [self showSuccessMessage:@"验证码发送成功"];
+            self.code = responseObject[@"code"];
+            
+        }else{
+            [self showWarningMessage:responseObject[Kinfo]];
+        }
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [self showWarningMessage:@"数据错误"];
+    }];
+    
 }
 
 - (void)didReceiveMemoryWarning {

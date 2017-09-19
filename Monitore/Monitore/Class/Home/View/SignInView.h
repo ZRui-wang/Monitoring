@@ -10,4 +10,6 @@
 
 @interface SignInView : UIView
 
+- (void)hadSigned;
+
 @end

@@ -29,6 +29,10 @@
     [self addGestureRecognizer:tab];
 }
 
+- (void)hadSigned{
+    [self.signInImageView setImage:[UIImage imageNamed:@"已签到"]];
+}
+
 - (void)tabAction{
     [self removeFromSuperview];
 }

@@ -27,6 +27,8 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *buttonPositionX;
 
 @property (nonatomic, copy) NSString *userType;
+
+@property (nonatomic, copy) NSString *code;
 @end
 
 @implementation RegistViewController
@@ -53,11 +55,14 @@
 }
 - (IBAction)getCodeButtonAction:(UIButton *)sender {
     
-    NSDictionary *dic = @{@"MOBILE":self.phoneTextField.text};
+    NSDictionary *dic = @{@"MOBILE":self.phoneTextField.text, @"TYPE":@0};
     
     [[DLAPIClient sharedClient]POST:@"smsCode" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSSLog(@"%@", responseObject);
         if ([responseObject[Kstatus]isEqualToString:Ksuccess]) {
-           [self showWithStatus:@"验证码发送成功"];
+           [self showSuccessMessage:@"验证码发送成功"];
+            self.code = responseObject[@"code"];
+            
         }else{
            [self showWarningMessage:responseObject[Kinfo]];
         }
@@ -87,10 +92,21 @@
 }
 - (IBAction)registBtnAction:(UIButton *)sender {
     
+    if (![self.verifyCodeTextField.text isEqualToString:self.code]) {
+        [self showWarningMessage:@"验证码输入错误"];
+        return;
+    }
+    
     if (![self.secrityTextField.text isEqualToString:self.sureSecrityTextFeild.text]) {
         [self showWarningMessage:@"两次输入的密码不一样"];
         return;
     }
+    
+    if (self.recommendCodeTextField.text.length ==0 && [self.userType isEqualToString:@"1"]) {
+        [self showWarningMessage:@"请输入推荐码"];
+        return;
+    }
+    
     NSDictionary *paraDic = @{@"USERNAME":self.phoneTextField.text,
                               @"PASSWORD":self.sureSecrityTextFeild.text,
                               @"TYPES":self.userType};
