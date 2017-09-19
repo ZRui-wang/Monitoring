@@ -262,6 +262,15 @@
 		84B7B6141F46F39600C3C708 /* IQToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B7B6031F46F39600C3C708 /* IQToolbar.m */; };
 		84B7B6151F46F39600C3C708 /* IQUIView+IQKeyboardToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B7B6051F46F39600C3C708 /* IQUIView+IQKeyboardToolbar.m */; };
 		84B7B6161F46F39600C3C708 /* IQKeyboardManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 84B7B6071F46F39600C3C708 /* IQKeyboardManager.bundle */; };
+		84C784171F70B7E500D50E3A /* TrainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C784161F70B7E500D50E3A /* TrainViewController.m */; };
+		84C7841B1F70B84000D50E3A /* TrainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C784191F70B84000D50E3A /* TrainTableViewCell.m */; };
+		84C7841C1F70B84000D50E3A /* TrainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84C7841A1F70B84000D50E3A /* TrainTableViewCell.xib */; };
+		84C7841F1F70BEB200D50E3A /* BlackListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C7841E1F70BEB200D50E3A /* BlackListViewController.m */; };
+		84C784231F70BED600D50E3A /* BlackListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C784211F70BED600D50E3A /* BlackListTableViewCell.m */; };
+		84C784241F70BED600D50E3A /* BlackListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84C784221F70BED600D50E3A /* BlackListTableViewCell.xib */; };
+		84C7842B1F70C1EC00D50E3A /* AwardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C7842A1F70C1EC00D50E3A /* AwardViewController.m */; };
+		84C7842F1F70C20400D50E3A /* AwardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C7842D1F70C20400D50E3A /* AwardTableViewCell.m */; };
+		84C784301F70C20400D50E3A /* AwardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84C7842E1F70C20400D50E3A /* AwardTableViewCell.xib */; };
 		84F9275F1F25D37400B76D79 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F9275E1F25D37400B76D79 /* main.m */; };
 		84F927781F25D37400B76D79 /* MonitoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F927771F25D37400B76D79 /* MonitoreTests.m */; };
 		84F927831F25D37400B76D79 /* MonitoreUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F927821F25D37400B76D79 /* MonitoreUITests.m */; };
@@ -841,6 +850,21 @@
 		84B7B6041F46F39600C3C708 /* IQUIView+IQKeyboardToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IQUIView+IQKeyboardToolbar.h"; sourceTree = "<group>"; };
 		84B7B6051F46F39600C3C708 /* IQUIView+IQKeyboardToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IQUIView+IQKeyboardToolbar.m"; sourceTree = "<group>"; };
 		84B7B6071F46F39600C3C708 /* IQKeyboardManager.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = IQKeyboardManager.bundle; sourceTree = "<group>"; };
+		84C784151F70B7E500D50E3A /* TrainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrainViewController.h; sourceTree = "<group>"; };
+		84C784161F70B7E500D50E3A /* TrainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrainViewController.m; sourceTree = "<group>"; };
+		84C784181F70B84000D50E3A /* TrainTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrainTableViewCell.h; sourceTree = "<group>"; };
+		84C784191F70B84000D50E3A /* TrainTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrainTableViewCell.m; sourceTree = "<group>"; };
+		84C7841A1F70B84000D50E3A /* TrainTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrainTableViewCell.xib; sourceTree = "<group>"; };
+		84C7841D1F70BEB200D50E3A /* BlackListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlackListViewController.h; sourceTree = "<group>"; };
+		84C7841E1F70BEB200D50E3A /* BlackListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlackListViewController.m; sourceTree = "<group>"; };
+		84C784201F70BED600D50E3A /* BlackListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlackListTableViewCell.h; sourceTree = "<group>"; };
+		84C784211F70BED600D50E3A /* BlackListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlackListTableViewCell.m; sourceTree = "<group>"; };
+		84C784221F70BED600D50E3A /* BlackListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlackListTableViewCell.xib; sourceTree = "<group>"; };
+		84C784291F70C1EC00D50E3A /* AwardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AwardViewController.h; sourceTree = "<group>"; };
+		84C7842A1F70C1EC00D50E3A /* AwardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AwardViewController.m; sourceTree = "<group>"; };
+		84C7842C1F70C20400D50E3A /* AwardTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AwardTableViewCell.h; sourceTree = "<group>"; };
+		84C7842D1F70C20400D50E3A /* AwardTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AwardTableViewCell.m; sourceTree = "<group>"; };
+		84C7842E1F70C20400D50E3A /* AwardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AwardTableViewCell.xib; sourceTree = "<group>"; };
 		84F9275A1F25D37400B76D79 /* Monitore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Monitore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84F9275E1F25D37400B76D79 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		84F927731F25D37400B76D79 /* MonitoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MonitoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1791,6 +1815,42 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		84C784251F70C1CC00D50E3A /* Award */ = {
+			isa = PBXGroup;
+			children = (
+				84C784261F70C1CC00D50E3A /* Controller */,
+				84C784271F70C1CC00D50E3A /* Model */,
+				84C784281F70C1CC00D50E3A /* View */,
+			);
+			path = Award;
+			sourceTree = "<group>";
+		};
+		84C784261F70C1CC00D50E3A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				84C784291F70C1EC00D50E3A /* AwardViewController.h */,
+				84C7842A1F70C1EC00D50E3A /* AwardViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		84C784271F70C1CC00D50E3A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		84C784281F70C1CC00D50E3A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				84C7842C1F70C20400D50E3A /* AwardTableViewCell.h */,
+				84C7842D1F70C20400D50E3A /* AwardTableViewCell.m */,
+				84C7842E1F70C20400D50E3A /* AwardTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		84F927511F25D37400B76D79 = {
 			isa = PBXGroup;
 			children = (
@@ -1932,6 +1992,7 @@
 		84F928BD1F29652B00B76D79 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				84C784251F70C1CC00D50E3A /* Award */,
 				847F0F1D1F6B6036005340F8 /* Volunter */,
 				847ED20C1F34415300BC710E /* Collect */,
 				84F928BE1F29652B00B76D79 /* Announcements */,
@@ -2005,6 +2066,8 @@
 		84F928C31F29652B00B76D79 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				84C7841D1F70BEB200D50E3A /* BlackListViewController.h */,
+				84C7841E1F70BEB200D50E3A /* BlackListViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2019,6 +2082,9 @@
 		84F928C51F29652B00B76D79 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				84C784201F70BED600D50E3A /* BlackListTableViewCell.h */,
+				84C784211F70BED600D50E3A /* BlackListTableViewCell.m */,
+				84C784221F70BED600D50E3A /* BlackListTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2293,6 +2359,8 @@
 		84F929091F29652B00B76D79 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				84C784151F70B7E500D50E3A /* TrainViewController.h */,
+				84C784161F70B7E500D50E3A /* TrainViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2307,6 +2375,9 @@
 		84F9290B1F29652B00B76D79 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				84C784181F70B84000D50E3A /* TrainTableViewCell.h */,
+				84C784191F70B84000D50E3A /* TrainTableViewCell.m */,
+				84C7841A1F70B84000D50E3A /* TrainTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2455,10 +2526,13 @@
 				78E26AB11F29FEC2007A96F6 /* Main.storyboard in Resources */,
 				84F9294C1F29918400B76D79 /* Report.storyboard in Resources */,
 				847F0F2E1F6B6036005340F8 /* InfoTableViewCell.xib in Resources */,
+				84C7841C1F70B84000D50E3A /* TrainTableViewCell.xib in Resources */,
+				84C784241F70BED600D50E3A /* BlackListTableViewCell.xib in Resources */,
 				84F9291D1F29652B00B76D79 /* PersonalCenterTableViewCell.xib in Resources */,
 				84A1D1141F5CF6CF00BFAFC0 /* mapapi.bundle in Resources */,
 				84F929311F2968AE00B76D79 /* Info.plist in Resources */,
 				84F929301F2968AE00B76D79 /* Assets.xcassets in Resources */,
+				84C784301F70C20400D50E3A /* AwardTableViewCell.xib in Resources */,
 				84F9295C1F29E24900B76D79 /* AnnouncementTableViewCell.xib in Resources */,
 				84F9293A1F2979AD00B76D79 /* Patrol.storyboard in Resources */,
 				84F929211F29652B00B76D79 /* PersonalDataHeaderView.xib in Resources */,
@@ -2532,6 +2606,7 @@
 				84B7B6091F46F39600C3C708 /* IQUIScrollView+Additions.m in Sources */,
 				84A1D4DD1F5EA65D00BFAFC0 /* QN_GTM_Base64.m in Sources */,
 				8497E85A1F662735001ABBEA /* UIWebView+AFNetworking.m in Sources */,
+				84C7841F1F70BEB200D50E3A /* BlackListViewController.m in Sources */,
 				84A1D5211F5EA7DF00BFAFC0 /* QNAssessment.m in Sources */,
 				847ED1F51F3421F500BC710E /* YYLabel.m in Sources */,
 				84A1D5311F5EA7DF00BFAFC0 /* QNGetAddrInfo.m in Sources */,
@@ -2545,6 +2620,7 @@
 				847F0F2C1F6B6036005340F8 /* VolunterMapViewController.m in Sources */,
 				847ED1BD1F3421F500BC710E /* NSString+YYAdd.m in Sources */,
 				847ED1FD1F3421F500BC710E /* YYSentinel.m in Sources */,
+				84C784231F70BED600D50E3A /* BlackListTableViewCell.m in Sources */,
 				847F0F2A1F6B6036005340F8 /* VolunteersListViewController.m in Sources */,
 				847ED1DF1F3421F500BC710E /* YYWebImageManager.m in Sources */,
 				84F927C31F25DA3F00B76D79 /* MNavigationItem.m in Sources */,
@@ -2582,6 +2658,7 @@
 				78EB07DD1F3B51EC00C64587 /* HelpCenterViewController.m in Sources */,
 				84A1D4EC1F5EA65D00BFAFC0 /* QNFormUpload.m in Sources */,
 				84B7B5CD1F46B2ED00C3C708 /* UIView+WebCacheOperation.m in Sources */,
+				84C7842F1F70C20400D50E3A /* AwardTableViewCell.m in Sources */,
 				84F929171F29652B00B76D79 /* PatrolTableViewCell.m in Sources */,
 				84F929521F29DF0B00B76D79 /* AnnouncementViewController.m in Sources */,
 				847ED1C11F3421F500BC710E /* YYCGUtilities.m in Sources */,
@@ -2645,6 +2722,7 @@
 				84A1D4E21F5EA65D00BFAFC0 /* QNFile.m in Sources */,
 				78A29FDD1F2F77B50086F388 /* LoginViewController.m in Sources */,
 				847ED1E61F3421F500BC710E /* YYTextInput.m in Sources */,
+				84C7842B1F70C1EC00D50E3A /* AwardViewController.m in Sources */,
 				8497E8521F662735001ABBEA /* AFAutoPurgingImageCache.m in Sources */,
 				847ED1CF1F3421F500BC710E /* UIView+YYAdd.m in Sources */,
 				84B7B5D81F46B52900C3C708 /* DLAlertView.m in Sources */,
@@ -2679,6 +2757,7 @@
 				847ED1B31F3421F500BC710E /* NSBundle+YYAdd.m in Sources */,
 				78657BC81F41E52100DC2AFE /* TaskHeaderView.m in Sources */,
 				7812D87D1F47E98E0041CC9C /* BrandScroll.m in Sources */,
+				84C7841B1F70B84000D50E3A /* TrainTableViewCell.m in Sources */,
 				84F9291C1F29652B00B76D79 /* PersonalCenterTableViewCell.m in Sources */,
 				8497E8561F662735001ABBEA /* UIButton+AFNetworking.m in Sources */,
 				84B7B5C81F46B2ED00C3C708 /* UIImage+MultiFormat.m in Sources */,
@@ -2720,6 +2799,7 @@
 				848EF7941F58FC27007D65CF /* Tools.m in Sources */,
 				84A1D5231F5EA7DF00BFAFC0 /* QNDnsManager.m in Sources */,
 				84A1D5281F5EA7DF00BFAFC0 /* QNDnspodEnterprise.m in Sources */,
+				84C784171F70B7E500D50E3A /* TrainViewController.m in Sources */,
 				847ED1FE1F3421F500BC710E /* YYThreadSafeArray.m in Sources */,
 				847ED1E31F3421F500BC710E /* YYTextContainerView.m in Sources */,
 				84F929551F29E0FC00B76D79 /* AnnouncementVcHeaderView.m in Sources */,

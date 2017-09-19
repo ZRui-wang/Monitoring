@@ -18,6 +18,9 @@
 #import "SignInView.h"
 #import "CollectViewController.h"
 #import "TaskViewController.h"
+#import "TrainViewController.h"
+#import "BlackListViewController.h"
+#import "AwardViewController.h"
 
 @interface HomeViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -61,6 +64,8 @@ static NSString *HomeCollectionViewCellId = @"HomeCollectionViewCell";
 
 - (void)rewardBtnAction:(UIButton *)button{
     // 奖励兑换
+    AwardViewController *awardVc = [[AwardViewController alloc]init];
+    [self.navigationController pushViewController:awardVc animated:YES];
 }
 
 - (void)collectionBtnAction:(UIButton *)button{
@@ -138,12 +143,15 @@ static NSString *HomeCollectionViewCellId = @"HomeCollectionViewCell";
     else if (indexPath.item == 4)
     {
         // 学习培训
-//        LoginViewController *loginVc = [[UIStoryboard storyboardWithName:@"PersonalCenter" bundle:nil] instantiateViewControllerWithIdentifier:@"LoginViewController"];
-//        [self.navigationController pushViewController:loginVc animated:YES];
+        TrainViewController *trainVc = [[TrainViewController alloc]init];
+        [self.navigationController pushViewController:trainVc animated:YES];
+
     }
     else if (indexPath.item == 5)
     {
         // 黑名单
+        BlackListViewController *blackListVc = [[BlackListViewController alloc]init];
+        [self.navigationController pushViewController:blackListVc animated:YES];
     }
     else if (indexPath.item == 6)
     {
