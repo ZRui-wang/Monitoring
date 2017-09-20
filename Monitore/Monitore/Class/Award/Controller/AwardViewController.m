@@ -8,6 +8,7 @@
 
 #import "AwardViewController.h"
 #import "AwardTableViewCell.h"
+#import "ArardHistoryViewController.h"
 
 @interface AwardViewController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -22,6 +23,7 @@
     // Do any additional setup after loading the view.
     self.title = @"奖励兑换";
     [self leftCustomBarButton];
+    [self rightCustomBarButton];
     
     self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStyleGrouped];
     self.tableView.delegate = self;
@@ -29,6 +31,16 @@
     [self.view addSubview:self.tableView];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"AwardTableViewCell" bundle:nil] forCellReuseIdentifier:@"AwardTableViewCell"];
+}
+
+- (void)rightCustomBarButton{
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"兑换记录" style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButtonAction)];
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
+}
+
+- (void)rightBarButtonAction{
+    ArardHistoryViewController *awardHistoryVc = [[ArardHistoryViewController alloc]init];
+    [self.navigationController pushViewController:awardHistoryVc animated:YES];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -41,7 +53,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 150;
+    return 100;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{

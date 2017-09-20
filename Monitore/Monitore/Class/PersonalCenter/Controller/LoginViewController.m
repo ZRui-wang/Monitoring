@@ -41,8 +41,8 @@
 
 - (void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
-    self.userName.text = @"";
-    self.passWord.text = @"";
+//    self.userName.text = @"";
+//    self.passWord.text = @"";
     
 }
 

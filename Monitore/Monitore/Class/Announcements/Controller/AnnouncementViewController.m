@@ -68,17 +68,18 @@
 
 - (void)getNetWorkData{
     
-    NSDictionary *dic = @{@"TYPE_ID":@"", @"STATE":@"", @"currentPage":@"1", @"showCount":@""};
+    NSDictionary *dic = @{@"TYPE_ID":@"1", @"STATE":@"0", @"currentPage":@1, @"showCount":@"10"};
     
     [[DLAPIClient sharedClient]POST:@"infoList" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
         
+        NSLog(@"%@", responseObject);
         AnnounceListModel *model = [AnnounceListModel modelWithDictionary:responseObject];
         
         [self.dataListAry addObjectsFromArray:model.dataList];
         [self.categoryListAry addObjectsFromArray:model.categoryList];
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        
+        NSLog(@"%@", error);
     }];
 }
 

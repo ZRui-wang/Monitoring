@@ -8,10 +8,15 @@
 
 #import "VolunteersListViewController.h"
 #import "InfoTableViewCell.h"
+#import "VolunteerModel.h"
+#import "VolunteerListHeaderView.h"
 
-@interface VolunteersListViewController ()<UITableViewDelegate, UITableViewDataSource>
+
+@interface VolunteersListViewController ()<UITableViewDelegate, UITableViewDataSource, ExpandSectionDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property (strong, nonatomic) VolunteerModel *volunteerModel;
 
 @end
 
@@ -25,18 +30,45 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView registerNib:[UINib nibWithNibName:@"InfoTableViewCell" bundle:nil] forCellReuseIdentifier:@"InfoTableViewCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"VolunteerListHeaderView" bundle:nil] forHeaderFooterViewReuseIdentifier:@"VolunteerListHeaderView"];
+    
+    [self getdata];
+}
+
+- (void)getdata{
+
 }
 
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 3;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 45;
+    return 3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     InfoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"InfoTableViewCell" forIndexPath:indexPath];
     return cell;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    VolunteerListHeaderView *headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"VolunteerListHeaderView"];
+    headerView.delegate = self;
+    headerView.title.text = @"区域";
+    return headerView;
+    
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 50;
+}
+
+- (void)expandSection:(NSInteger)section isExpand:(BOOL)expand{
+    
 }
 
 - (void)didReceiveMemoryWarning {

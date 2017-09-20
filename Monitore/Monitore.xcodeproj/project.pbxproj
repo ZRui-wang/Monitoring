@@ -271,6 +271,10 @@
 		84C7842B1F70C1EC00D50E3A /* AwardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C7842A1F70C1EC00D50E3A /* AwardViewController.m */; };
 		84C7842F1F70C20400D50E3A /* AwardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C7842D1F70C20400D50E3A /* AwardTableViewCell.m */; };
 		84C784301F70C20400D50E3A /* AwardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84C7842E1F70C20400D50E3A /* AwardTableViewCell.xib */; };
+		84C784351F7237A900D50E3A /* VolunteerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C784341F7237A900D50E3A /* VolunteerModel.m */; };
+		84C784381F724CF900D50E3A /* VolunteerListHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C784371F724CF900D50E3A /* VolunteerListHeaderView.m */; };
+		84C7843A1F724D0D00D50E3A /* VolunteerListHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84C784391F724D0D00D50E3A /* VolunteerListHeaderView.xib */; };
+		84C7843D1F725EFE00D50E3A /* ArardHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C7843C1F725EFE00D50E3A /* ArardHistoryViewController.m */; };
 		84F9275F1F25D37400B76D79 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F9275E1F25D37400B76D79 /* main.m */; };
 		84F927781F25D37400B76D79 /* MonitoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F927771F25D37400B76D79 /* MonitoreTests.m */; };
 		84F927831F25D37400B76D79 /* MonitoreUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F927821F25D37400B76D79 /* MonitoreUITests.m */; };
@@ -865,6 +869,13 @@
 		84C7842C1F70C20400D50E3A /* AwardTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AwardTableViewCell.h; sourceTree = "<group>"; };
 		84C7842D1F70C20400D50E3A /* AwardTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AwardTableViewCell.m; sourceTree = "<group>"; };
 		84C7842E1F70C20400D50E3A /* AwardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AwardTableViewCell.xib; sourceTree = "<group>"; };
+		84C784331F7237A900D50E3A /* VolunteerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VolunteerModel.h; sourceTree = "<group>"; };
+		84C784341F7237A900D50E3A /* VolunteerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VolunteerModel.m; sourceTree = "<group>"; };
+		84C784361F724CF900D50E3A /* VolunteerListHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VolunteerListHeaderView.h; sourceTree = "<group>"; };
+		84C784371F724CF900D50E3A /* VolunteerListHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VolunteerListHeaderView.m; sourceTree = "<group>"; };
+		84C784391F724D0D00D50E3A /* VolunteerListHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VolunteerListHeaderView.xib; sourceTree = "<group>"; };
+		84C7843B1F725EFE00D50E3A /* ArardHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArardHistoryViewController.h; sourceTree = "<group>"; };
+		84C7843C1F725EFE00D50E3A /* ArardHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArardHistoryViewController.m; sourceTree = "<group>"; };
 		84F9275A1F25D37400B76D79 /* Monitore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Monitore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84F9275E1F25D37400B76D79 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		84F927731F25D37400B76D79 /* MonitoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MonitoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1366,6 +1377,8 @@
 		847F0F251F6B6036005340F8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				84C784331F7237A900D50E3A /* VolunteerModel.h */,
+				84C784341F7237A900D50E3A /* VolunteerModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1376,6 +1389,9 @@
 				847F0F271F6B6036005340F8 /* InfoTableViewCell.h */,
 				847F0F281F6B6036005340F8 /* InfoTableViewCell.m */,
 				847F0F291F6B6036005340F8 /* InfoTableViewCell.xib */,
+				84C784361F724CF900D50E3A /* VolunteerListHeaderView.h */,
+				84C784371F724CF900D50E3A /* VolunteerListHeaderView.m */,
+				84C784391F724D0D00D50E3A /* VolunteerListHeaderView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1830,6 +1846,8 @@
 			children = (
 				84C784291F70C1EC00D50E3A /* AwardViewController.h */,
 				84C7842A1F70C1EC00D50E3A /* AwardViewController.m */,
+				84C7843B1F725EFE00D50E3A /* ArardHistoryViewController.h */,
+				84C7843C1F725EFE00D50E3A /* ArardHistoryViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2526,6 +2544,7 @@
 				78E26AB11F29FEC2007A96F6 /* Main.storyboard in Resources */,
 				84F9294C1F29918400B76D79 /* Report.storyboard in Resources */,
 				847F0F2E1F6B6036005340F8 /* InfoTableViewCell.xib in Resources */,
+				84C7843A1F724D0D00D50E3A /* VolunteerListHeaderView.xib in Resources */,
 				84C7841C1F70B84000D50E3A /* TrainTableViewCell.xib in Resources */,
 				84C784241F70BED600D50E3A /* BlackListTableViewCell.xib in Resources */,
 				84F9291D1F29652B00B76D79 /* PersonalCenterTableViewCell.xib in Resources */,
@@ -2635,6 +2654,7 @@
 				847ED1DC1F3421F500BC710E /* YYImageCache.m in Sources */,
 				84B7B5831F45644100C3C708 /* MYPresentedController.m in Sources */,
 				847ED1D81F3421F500BC710E /* UIImageView+YYWebImage.m in Sources */,
+				84C784381F724CF900D50E3A /* VolunteerListHeaderView.m in Sources */,
 				84A1D4E61F5EA65D00BFAFC0 /* QNUrlSafeBase64.m in Sources */,
 				84B7B5C51F46B2ED00C3C708 /* SDWebImagePrefetcher.m in Sources */,
 				7812D87A1F47E7D80041CC9C /* CarouselFigure.m in Sources */,
@@ -2710,6 +2730,7 @@
 				84A1D5431F5EA8D500BFAFC0 /* AFNetworkReachabilityManager.m in Sources */,
 				847ED1BE1F3421F500BC710E /* NSThread+YYAdd.m in Sources */,
 				847ED2001F3421F500BC710E /* YYTimer.m in Sources */,
+				84C7843D1F725EFE00D50E3A /* ArardHistoryViewController.m in Sources */,
 				84A1D5441F5EA8D500BFAFC0 /* AFSecurityPolicy.m in Sources */,
 				84B7B6111F46F39600C3C708 /* IQBarButtonItem.m in Sources */,
 				84F929221F29652B00B76D79 /* PersonalDataTableViewCell.m in Sources */,
@@ -2754,6 +2775,7 @@
 				84B7B5D21F46B2ED00C3C708 /* SVRadialGradientLayer.m in Sources */,
 				84A1D4DF1F5EA65D00BFAFC0 /* QNAsyncRun.m in Sources */,
 				847ED1D51F3421F500BC710E /* CALayer+YYWebImage.m in Sources */,
+				84C784351F7237A900D50E3A /* VolunteerModel.m in Sources */,
 				847ED1B31F3421F500BC710E /* NSBundle+YYAdd.m in Sources */,
 				78657BC81F41E52100DC2AFE /* TaskHeaderView.m in Sources */,
 				7812D87D1F47E98E0041CC9C /* BrandScroll.m in Sources */,

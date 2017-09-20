@@ -542,6 +542,7 @@
                                     </imageView>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="用户名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cyD-4O-WU5">
                                         <rect key="frame" x="50" y="5" width="183" height="35"/>
+                                        <color key="tintColor" red="0.1849888116" green="0.42891159649999999" blue="0.71379959579999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="cKR-nU-9Wg"/>
                                         </constraints>
@@ -572,6 +573,7 @@
                                     </imageView>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bvz-Sv-Ece">
                                         <rect key="frame" x="50" y="5" width="183" height="35"/>
+                                        <color key="tintColor" red="0.1849888116" green="0.42891159649999999" blue="0.71379959579999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="OQh-gH-Jes"/>
                                         </constraints>

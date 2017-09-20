@@ -12,7 +12,7 @@
 #import "InfoTableViewCell.h"
 #import "DIYPickView.h"
 
-@interface VolunterManagerViewController ()<UIScrollViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
+@interface VolunterManagerViewController ()<UIScrollViewDelegate>
 
 @property (strong, nonatomic)VolunteersListViewController *volunteerVc;
 @property (strong, nonatomic)VolunterMapViewController *volunteerMapVc;
@@ -22,14 +22,12 @@
 @property (weak, nonatomic) IBOutlet UIView *rightLine;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
-@property (strong, nonatomic)DIYPickView *selectColorView;
 @property (strong, nonatomic)UIView *pickBgView;
 
 @end
 
 @implementation VolunterManagerViewController{
     NSArray *colorAry;
-    NSInteger pickFlag;
 }
 
 - (void)viewDidLoad {
@@ -42,7 +40,6 @@
     [self.scrollView.panGestureRecognizer requireGestureRecognizerToFail:self.navigationController.interactivePopGestureRecognizer];
     
     colorAry = @[@"尧沟", @"南郝", @"城关", @"朱刘", @"五图", @"红河", @"马宋"];
-    pickFlag = 2;
 }
 
 - (void)configureScrollView
@@ -65,11 +62,6 @@
 
 
 - (IBAction)listButtonAction:(UIButton *)sender {
-
-    pickFlag ++;
-    if (pickFlag>2) {
-        [self creatPickerView];
-    }
     
     self.rightLine.backgroundColor = [UIColor clearColor];
     self.mapButton.selected = false;
@@ -82,7 +74,6 @@
 
 
 - (IBAction)mapButtonAction:(UIButton *)sender {
-    pickFlag = 0;
     [self.pickBgView removeFromSuperview];
     self.listLine.backgroundColor = [UIColor clearColor];
     self.listButton.selected = false;
@@ -96,20 +87,6 @@
     }
 }
 
-- (void)creatPickerView{
-    self.pickBgView = [[UIView alloc]initWithFrame:CGRectMake(0, SCREEN_HEIGHT-200-64, SCREEN_WIDTH, 200)];
-    [self.view addSubview:_pickBgView];
-    
-    self.selectColorView = [DIYPickView xibView];
-    self.selectColorView.size = _pickBgView.size;
-    [_pickBgView addSubview: self.selectColorView];
-    self.selectColorView.pickerView.delegate = self;
-    self.selectColorView.pickerView.dataSource = self;
-    [self.selectColorView.pickerView selectRow:0 inComponent:0 animated:YES];
-    
-    [self.selectColorView.cancelButton addTarget:self action:@selector(cancelAction) forControlEvents:UIControlEventTouchUpInside];
-    [self.selectColorView.confirmButton addTarget:self action:@selector(confirmAction) forControlEvents:UIControlEventTouchUpInside];
-}
 
 - (void)cancelAction{
     [self.pickBgView removeFromSuperview];
@@ -120,34 +97,6 @@
     
     // 进行数据请求
 }
-
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
-    return 1;
-}
-
-- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
-    return 5;
-}
-
-- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
-    return colorAry[row];
-}
-
-- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
-//    self.colour.text = colorAry[row];
-    [self.listButton setTitle:colorAry[row] forState:UIControlStateNormal];
-}
-
-#pragma mark - UIScrollViewDelegate
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    if (scrollView.contentOffset.x == 0) {
-        [self listButtonAction:self.listButton];
-    }else if (scrollView.contentOffset.x == SCREEN_WIDTH){
-        [self mapButtonAction:self.mapButton];
-    }
-}
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
