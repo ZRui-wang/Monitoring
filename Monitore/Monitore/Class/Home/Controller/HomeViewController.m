@@ -74,9 +74,11 @@ static NSString *HomeCollectionViewCellId = @"HomeCollectionViewCell";
         NSSLog(@"%@", responseObject);
         if ([responseObject[Kstatus]isEqualToString:Ksuccess]) {
             UIView *signView = [SignInView xibView];
+            signView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
             [self.view addSubview:signView];
         }else{
             SignInView *signView = [SignInView xibView];
+            signView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
             [signView hadSigned];
             [self.view addSubview:signView];
         }

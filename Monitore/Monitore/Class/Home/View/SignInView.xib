@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,32 +18,28 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zfc-fh-mgV">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9xB-oV-A3g">
-                    <rect key="frame" x="50" y="150" width="275" height="275"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="签到图" translatesAutoresizingMaskIntoConstraints="NO" id="yCv-eV-eBW">
-                            <rect key="frame" x="0.0" y="0.0" width="275" height="275"/>
+                            <rect key="frame" x="45" y="160" width="284" height="287"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="yCv-eV-eBW" secondAttribute="height" multiplier="284:287" id="hQK-Gi-CBw"/>
+                            </constraints>
                         </imageView>
                     </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="9xB-oV-A3g" secondAttribute="height" multiplier="1:1" id="SeD-Gj-ck4"/>
-                        <constraint firstAttribute="trailing" secondItem="yCv-eV-eBW" secondAttribute="trailing" id="cnK-fb-GQe"/>
-                        <constraint firstAttribute="bottom" secondItem="yCv-eV-eBW" secondAttribute="bottom" id="dhP-bO-K8y"/>
-                        <constraint firstItem="yCv-eV-eBW" firstAttribute="top" secondItem="9xB-oV-A3g" secondAttribute="top" id="kyq-KM-RsI"/>
-                        <constraint firstItem="yCv-eV-eBW" firstAttribute="leading" secondItem="9xB-oV-A3g" secondAttribute="leading" id="rCs-iz-VAN"/>
+                        <constraint firstItem="yCv-eV-eBW" firstAttribute="centerY" secondItem="zfc-fh-mgV" secondAttribute="centerY" constant="-30" id="3Tl-0f-Thg"/>
+                        <constraint firstItem="yCv-eV-eBW" firstAttribute="leading" secondItem="zfc-fh-mgV" secondAttribute="leading" constant="45" id="FqH-nk-7Rd"/>
+                        <constraint firstAttribute="trailing" secondItem="yCv-eV-eBW" secondAttribute="trailing" constant="46" id="RHT-dq-P5G"/>
+                        <constraint firstItem="yCv-eV-eBW" firstAttribute="centerX" secondItem="zfc-fh-mgV" secondAttribute="centerX" id="n4R-fs-WQY"/>
                     </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="9xB-oV-A3g" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="50" id="1p8-pR-LBG"/>
                 <constraint firstAttribute="trailing" secondItem="zfc-fh-mgV" secondAttribute="trailing" id="DDf-Yz-tBk"/>
-                <constraint firstItem="9xB-oV-A3g" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="150" id="PsD-S2-EQl"/>
                 <constraint firstItem="zfc-fh-mgV" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="QRs-8z-MD2"/>
                 <constraint firstAttribute="bottom" secondItem="zfc-fh-mgV" secondAttribute="bottom" id="cFe-z8-RYx"/>
-                <constraint firstAttribute="trailing" secondItem="9xB-oV-A3g" secondAttribute="trailing" constant="50" id="m6p-kf-V97"/>
                 <constraint firstItem="zfc-fh-mgV" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="qaX-Iy-e26"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
