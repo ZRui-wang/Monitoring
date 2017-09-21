@@ -79,6 +79,7 @@
         NSLog(@"%@", responseObject);
         if ([responseObject[Kstatus]isEqualToString:Ksuccess]) {
             self.model = [UserModel modelWithDictionary:responseObject[@"user"]];
+            self.model.mobile = self.userTitle.mobile;
         }else{
             
         }

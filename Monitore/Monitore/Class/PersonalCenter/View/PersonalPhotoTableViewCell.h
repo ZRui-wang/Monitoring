@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol SaveInfoDelegate <NSObject>
+
+- (void)buildInfoRow:(NSInteger)row info:(NSString *)info;
+
+@end
+
 @interface PersonalPhotoTableViewCell : UITableViewCell
+
+@property (nonatomic, assign) id<SaveInfoDelegate> delegate;
 
 @end

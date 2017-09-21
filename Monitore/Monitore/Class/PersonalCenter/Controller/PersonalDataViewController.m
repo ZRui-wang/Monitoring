@@ -13,7 +13,7 @@
 #import "PersonalDataHeaderView.h"
 
 
-@interface PersonalDataViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface PersonalDataViewController ()<UITableViewDelegate, UITableViewDataSource, SaveButtonDelegate, SaveInfoDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
@@ -85,9 +85,26 @@
 {
     if (section==1) {
         PersonalDataFooterView *view = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"PersonalDataFooterView"];
+        view.delegate = self;
         return view;
     }
     return nil;
+}
+
+- (void)saveButtonAction{
+//    NSDictionary *dic = @{@"NICKNAME":self.model.nickname, @"IDCARD":self.model.idcard, @"JOB":self.model.job};
+        NSDictionary *dic = @{@"NICKNAME":self.model.nickname, @"IDCARD":self.model.idcard, @"JOB":self.model.job};
+    [[DLAPIClient sharedClient] POST:@"updUserInfo" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"%@", responseObject);
+        if ([responseObject[Kstatus] isEqualToString:Ksuccess]) {
+            [self showSuccessMessage:@"保存成功"];
+        }
+        else{
+            
+        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+    }];
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -110,11 +127,66 @@
     }
     else
     {
+        
         PersonalDataTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PersonalDataTableViewCell" forIndexPath:indexPath];
+        cell.delegate = self;
+        cell.indexPath = indexPath;
+        if (indexPath.row == 9) {
+            cell.date = self.model.createtime;
+        }
+        
+        if (indexPath.row == 0) {
+            cell.mobile = self.model.mobile;
+        }
+        
         [cell displayCellWithData:nil andIndexpath:indexPath];
         return cell;
     }
 
+}
+
+- (void)buildInfoRow:(NSInteger)row info:(NSString *)info{
+    switch (row) {
+        case 1:
+            self.model.nickname = info;
+            break;
+        case 2:
+            
+            break;
+        case 3:
+            
+            break;
+        case 4:
+            self.model.idcard = info;
+            break;
+        case 5:
+            self.model.job = info;
+            break;
+        case 6:
+            
+            break;
+        case 7:
+            
+            break;
+        case 8:
+            
+            break;
+        case 9:
+            
+            break;
+        case 10:
+            
+            break;
+        case 11:
+            
+            break;
+        case 12:
+            
+            break;
+            
+        default:
+            break;
+    }
 }
 
 - (void)didReceiveMemoryWarning {

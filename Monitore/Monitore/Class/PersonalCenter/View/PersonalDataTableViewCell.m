@@ -8,7 +8,7 @@
 
 #import "PersonalDataTableViewCell.h"
 
-@interface PersonalDataTableViewCell ()
+@interface PersonalDataTableViewCell ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *title;
 @property (weak, nonatomic) IBOutlet UILabel *skipTitle;
 @property (weak, nonatomic) IBOutlet UIImageView *skipImage;
@@ -26,6 +26,14 @@
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     NSArray *titleTempAry = @[@"当前账号:", @"真实姓名:", @"性别:", @"群防力量类型:", @"身份证号:", @"职业:", @"单位及职务:", @"推荐人手机号:", @"", @"申请时间:", @"所属地区:", @"常住地址:"];
     self.titleAry = titleTempAry;
+    self.textField.delegate = self;
+    self.textField.tag = self.indexPath.section*10 + self.indexPath.row;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField reason:(UITextFieldDidEndEditingReason)reason{
+    if ([_delegate respondsToSelector:@selector(buildInfoRow:info:)]) {
+        [_delegate buildInfoRow:self.indexPath.section*10+self.indexPath.row info:textField.text];
+    }
 }
 
 - (void)displayCellWithData:(NSDictionary *)dic andIndexpath:(NSIndexPath *)indexPath
@@ -43,7 +51,12 @@
             self.skipImage.hidden = YES;
         }
         if (indexPath.row == 9) {
-            
+            self.textField.text = self.date;
+            self.textField.userInteractionEnabled = NO;
+        }
+        if (indexPath.row == 0) {
+            self.textField.text = self.mobile;
+            self.textField.userInteractionEnabled = NO;
         }
     }
     else

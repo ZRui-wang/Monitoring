@@ -14,6 +14,12 @@
 
 @implementation PersonalDataFooterView
 
+- (IBAction)saveButtonAction:(UIButton *)sender {
+    
+    if ([_delegate respondsToSelector:@selector(saveButtonAction)]) {
+        [_delegate saveButtonAction];
+    }
+}
 
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

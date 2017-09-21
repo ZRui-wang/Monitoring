@@ -7,8 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+@protocol SaveInfoDelegate <NSObject>
+
+- (void)buildInfoRow:(NSInteger)row info:(NSString *)info;
+
+@end
 
 @interface PersonalDataTableViewCell : UITableViewCell
+
+@property (nonatomic, strong)NSIndexPath *indexPath;
+@property (nonatomic, copy)NSString *date;
+@property (nonatomic, copy)NSString *mobile;
+@property (nonatomic, assign) id<SaveInfoDelegate> delegate;
 
 - (void)displayCellWithData:(NSDictionary *)dic andIndexpath:(NSIndexPath *)indexPath;
 

@@ -59,7 +59,16 @@
     
     titleHeigh = 50;
     detailHeigh = 80;
-    
+    [self getClass];
+}
+
+- (void)getClass{
+    [[DLAPIClient sharedClient] POST:@"getRepCate" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"%@", responseObject);
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+    }];
 }
 
 - (void)viewDidDisappear:(BOOL)animated{

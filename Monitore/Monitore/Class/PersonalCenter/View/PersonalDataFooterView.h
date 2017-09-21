@@ -8,7 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol SaveButtonDelegate <NSObject>
+
+- (void)saveButtonAction;
+
+@end
+
 @interface PersonalDataFooterView : UITableViewHeaderFooterView
 
+@property (nonatomic, assign) id<SaveButtonDelegate> delegate;
 
 @end
