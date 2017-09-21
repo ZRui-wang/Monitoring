@@ -12,6 +12,7 @@
 #import "ReportAddressTableViewCell.h"
 #import "ReportImageTableViewCell.h"
 #import "UploadPhotoView.h"
+#import "ClassModel.h"
 
 @interface GoToReprotViewController ()<UITableViewDataSource, UITableViewDelegate, UITextViewDelegate, textViewDidFinishEidedDelegate, TakePhotosDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
@@ -22,6 +23,7 @@
 @property (strong, nonatomic)NSArray *titleAry;
 @property (strong, nonatomic)NSArray *themeAry;
 @property (strong, nonatomic)NSMutableArray *photoArray;
+@property (strong, nonatomic)NSMutableArray *classAry;
 
 @property (strong, nonatomic)UploadPhotoView *uploadPhoto;
 
@@ -38,6 +40,7 @@
     // Do any additional setup after loading the view.
     [self leftCustomBarButton];
     self.title = @"我要举报";
+    self.classAry = [NSMutableArray array];
     
     [[IQKeyboardManager sharedManager] setEnable:NO];
     
@@ -65,6 +68,10 @@
 - (void)getClass{
     [[DLAPIClient sharedClient] POST:@"getRepCate" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         NSLog(@"%@", responseObject);
+        for (NSDictionary *dic in responseObject[@"dataList"]) {
+            ClassModel *model = [ClassModel modelWithDictionary:dic];
+            [self.classAry addObject:model];
+        }
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         
@@ -160,37 +167,44 @@
         UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
             
         }];
-        UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"违法违规" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            
-        }];
-        UIAlertAction *action3 = [UIAlertAction actionWithTitle:@"消防隐患" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            
-        }];
-        UIAlertAction *action4 = [UIAlertAction actionWithTitle:@"违法车辆" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            
-        }];
-        UIAlertAction *action5 = [UIAlertAction actionWithTitle:@"防诈骗打假" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            
-        }];
-        UIAlertAction *action6 = [UIAlertAction actionWithTitle:@"邻里矛盾" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            
-        }];
-        UIAlertAction *action7 = [UIAlertAction actionWithTitle:@"特殊人群维稳" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            
-        }];
-        UIAlertAction *action8 = [UIAlertAction actionWithTitle:@"爱心求助" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            
-        }];
-
-        //添加按钮
+        
         [alertC addAction:action1];
-        [alertC addAction:action2];
-        [alertC addAction:action3];
-        [alertC addAction:action4];
-        [alertC addAction:action5];
-        [alertC addAction:action6];
-        [alertC addAction:action7];
-        [alertC addAction:action8];
+        
+        for (ClassModel *model in self.classAry) {
+            UIAlertAction *action2 = [UIAlertAction actionWithTitle:model.name style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                
+            }];
+            [alertC addAction:action2];
+        }
+
+//        UIAlertAction *action3 = [UIAlertAction actionWithTitle:@"消防隐患" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//
+//        }];
+//        UIAlertAction *action4 = [UIAlertAction actionWithTitle:@"违法车辆" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//
+//        }];
+//        UIAlertAction *action5 = [UIAlertAction actionWithTitle:@"防诈骗打假" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//
+//        }];
+//        UIAlertAction *action6 = [UIAlertAction actionWithTitle:@"邻里矛盾" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//
+//        }];
+//        UIAlertAction *action7 = [UIAlertAction actionWithTitle:@"特殊人群维稳" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//
+//        }];
+//        UIAlertAction *action8 = [UIAlertAction actionWithTitle:@"爱心求助" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//
+//        }];
+//
+//        //添加按钮
+//        [alertC addAction:action1];
+//        [alertC addAction:action2];
+//        [alertC addAction:action3];
+//        [alertC addAction:action4];
+//        [alertC addAction:action5];
+//        [alertC addAction:action6];
+//        [alertC addAction:action7];
+//        [alertC addAction:action8];
         
         //显示
         [self presentViewController:alertC animated:YES completion:nil];

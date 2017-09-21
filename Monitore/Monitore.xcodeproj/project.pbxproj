@@ -14,6 +14,7 @@
 		78657BC51F41DA6F00DC2AFE /* TaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78657BC31F41DA6F00DC2AFE /* TaskTableViewCell.xib */; };
 		78657BC81F41E52100DC2AFE /* TaskHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 78657BC71F41E52100DC2AFE /* TaskHeaderView.m */; };
 		78657BCA1F41E53000DC2AFE /* TaskHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78657BC91F41E53000DC2AFE /* TaskHeaderView.xib */; };
+		7873DCA11F740D2F001319F7 /* ClassModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7873DCA01F740D2F001319F7 /* ClassModel.m */; };
 		788297621F3FDA8A0062EA65 /* UploadPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 788297611F3FDA8A0062EA65 /* UploadPhotoView.m */; };
 		788297641F3FDA980062EA65 /* UploadPhotoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 788297631F3FDA980062EA65 /* UploadPhotoView.xib */; };
 		788297681F3FDC720062EA65 /* UploadPhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 788297661F3FDC720062EA65 /* UploadPhotoCollectionViewCell.m */; };
@@ -382,6 +383,8 @@
 		78657BC61F41E52100DC2AFE /* TaskHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskHeaderView.h; sourceTree = "<group>"; };
 		78657BC71F41E52100DC2AFE /* TaskHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskHeaderView.m; sourceTree = "<group>"; };
 		78657BC91F41E53000DC2AFE /* TaskHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TaskHeaderView.xib; sourceTree = "<group>"; };
+		7873DC9F1F740D2F001319F7 /* ClassModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassModel.h; sourceTree = "<group>"; };
+		7873DCA01F740D2F001319F7 /* ClassModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassModel.m; sourceTree = "<group>"; };
 		788297601F3FDA8A0062EA65 /* UploadPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadPhotoView.h; sourceTree = "<group>"; };
 		788297611F3FDA8A0062EA65 /* UploadPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadPhotoView.m; sourceTree = "<group>"; };
 		788297631F3FDA980062EA65 /* UploadPhotoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UploadPhotoView.xib; sourceTree = "<group>"; };
@@ -2301,6 +2304,8 @@
 		84F929021F29652B00B76D79 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7873DC9F1F740D2F001319F7 /* ClassModel.h */,
+				7873DCA01F740D2F001319F7 /* ClassModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2682,6 +2687,7 @@
 				84F929171F29652B00B76D79 /* PatrolTableViewCell.m in Sources */,
 				84F929521F29DF0B00B76D79 /* AnnouncementViewController.m in Sources */,
 				847ED1C11F3421F500BC710E /* YYCGUtilities.m in Sources */,
+				7873DCA11F740D2F001319F7 /* ClassModel.m in Sources */,
 				847ED1BB1F3421F500BC710E /* NSObject+YYAddForARC.m in Sources */,
 				84F927B51F25D61100B76D79 /* AppDelegate.m in Sources */,
 				84F929641F29E72500B76D79 /* UILabel+VerticalAlign.m in Sources */,
