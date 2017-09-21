@@ -93,7 +93,7 @@
 
 - (void)saveButtonAction{
 //    NSDictionary *dic = @{@"NICKNAME":self.model.nickname, @"IDCARD":self.model.idcard, @"JOB":self.model.job};
-        NSDictionary *dic = @{@"NICKNAME":self.model.nickname, @"IDCARD":self.model.idcard, @"JOB":self.model.job};
+    NSDictionary *dic = @{@"USER_ID":self.model.usersId, @"NICKNAME":self.model.nickname, @"IDCARD":self.model.idcard, @"JOB":self.model.job};
     [[DLAPIClient sharedClient] POST:@"updUserInfo" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
         NSLog(@"%@", responseObject);
         if ([responseObject[Kstatus] isEqualToString:Ksuccess]) {
@@ -135,9 +135,20 @@
             cell.date = self.model.createtime;
         }
         
-        if (indexPath.row == 0) {
+        else if (indexPath.row == 0) {
             cell.mobile = self.model.mobile;
         }
+        else if (indexPath.row == 1){
+            cell.titleValue = self.model.nickname;
+        }
+        else if (indexPath.row == 4){
+            cell.titleValue = self.model.idcard;
+        }
+        else if (indexPath.row == 5){
+            cell.titleValue = self.model.job;
+        }
+        
+        
         
         [cell displayCellWithData:nil andIndexpath:indexPath];
         return cell;

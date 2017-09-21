@@ -44,20 +44,22 @@
             self.skipTitle.text = @"修改手机号";
             self.skipTitle.hidden = YES;
             self.skipImage.hidden = YES;
+            
+            self.textField.text = self.mobile;
+            self.textField.userInteractionEnabled = NO;
         }
-        if (indexPath.row == 3) {
+        else if (indexPath.row == 3) {
             self.skipTitle.text = @"修改类型";
             self.skipTitle.hidden = YES;
             self.skipImage.hidden = YES;
         }
-        if (indexPath.row == 9) {
+        else if (indexPath.row == 9) {
             self.textField.text = self.date;
             self.textField.userInteractionEnabled = NO;
+        }else{
+            self.textField.text = self.titleValue;
         }
-        if (indexPath.row == 0) {
-            self.textField.text = self.mobile;
-            self.textField.userInteractionEnabled = NO;
-        }
+
     }
     else
     {

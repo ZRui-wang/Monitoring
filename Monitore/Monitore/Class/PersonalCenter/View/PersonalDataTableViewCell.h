@@ -18,6 +18,7 @@
 @property (nonatomic, strong)NSIndexPath *indexPath;
 @property (nonatomic, copy)NSString *date;
 @property (nonatomic, copy)NSString *mobile;
+@property (nonatomic, copy)NSString *titleValue;
 @property (nonatomic, assign) id<SaveInfoDelegate> delegate;
 
 - (void)displayCellWithData:(NSDictionary *)dic andIndexpath:(NSIndexPath *)indexPath;
