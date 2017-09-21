@@ -10,9 +10,9 @@
 
 @interface PersonalDataTableViewCell ()
 @property (weak, nonatomic) IBOutlet UILabel *title;
-@property (weak, nonatomic) IBOutlet UILabel *titleDetail;
 @property (weak, nonatomic) IBOutlet UILabel *skipTitle;
 @property (weak, nonatomic) IBOutlet UIImageView *skipImage;
+@property (weak, nonatomic) IBOutlet UITextField *textField;
 
 @property (strong, nonatomic)NSArray *titleAry;
 
@@ -24,7 +24,7 @@
     [super awakeFromNib];
     // Initialization code
     self.selectionStyle = UITableViewCellSelectionStyleNone;
-    NSArray *titleTempAry = @[@"当前账号:", @"真实姓名:", @"性别:", @"群防力量类型:", @"身份证号:", @"职业:", @"单位及职务:", @"推荐人手机号:", @"", @"申请时间:", @"所属地区:", @"注册派出所:", @"常住地址:"];
+    NSArray *titleTempAry = @[@"当前账号:", @"真实姓名:", @"性别:", @"群防力量类型:", @"身份证号:", @"职业:", @"单位及职务:", @"推荐人手机号:", @"", @"申请时间:", @"所属地区:", @"常住地址:"];
     self.titleAry = titleTempAry;
 }
 
@@ -41,6 +41,9 @@
             self.skipTitle.text = @"修改类型";
             self.skipTitle.hidden = YES;
             self.skipImage.hidden = YES;
+        }
+        if (indexPath.row == 9) {
+            
         }
     }
     else

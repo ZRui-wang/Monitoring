@@ -8,6 +8,10 @@
 
 #import "PersonalDataFooterView.h"
 
+@interface PersonalDataFooterView()
+@property (weak, nonatomic) IBOutlet UIButton *saveButton;
+@end
+
 @implementation PersonalDataFooterView
 
 

@@ -111,6 +111,7 @@
     if (indexPath.row == 0) {
         // 个人资料
         PersonalDataViewController *personalDataVc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]instantiateViewControllerWithIdentifier:@"PersonalDataViewController"];
+        personalDataVc.model = self.model;
         [self.navigationController pushViewController:personalDataVc animated:YES];
     }
     else if (indexPath.row == 1)

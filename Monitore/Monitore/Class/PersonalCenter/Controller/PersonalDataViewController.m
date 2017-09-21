@@ -49,7 +49,7 @@
     }
     else
     {
-        return 3;
+        return 2;
     }
 }
 

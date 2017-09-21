@@ -25,5 +25,6 @@
 @property (copy, nonatomic) NSString *pcs;
 @property (copy, nonatomic) NSString *stars;
 @property (copy, nonatomic) NSString *mobile;
+@property (copy, nonatomic) NSString *age;
 
 @end

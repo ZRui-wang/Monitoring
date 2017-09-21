@@ -10,4 +10,5 @@
 
 @interface PersonalDataFooterView : UITableViewHeaderFooterView
 
+
 @end
