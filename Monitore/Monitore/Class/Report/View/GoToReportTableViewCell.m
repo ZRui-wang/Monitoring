@@ -22,8 +22,9 @@
     self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
-- (void)displayCellTitle:(NSString *)title{
+- (void)displayCellTitle:(NSString *)title detail:(NSString *)detail{
     self.title.text = title;
+    self.detail.text = detail;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

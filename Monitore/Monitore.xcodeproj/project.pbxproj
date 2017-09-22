@@ -25,6 +25,7 @@
 		78E26AB61F2A2540007A96F6 /* Announcement.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78E26AB51F2A2540007A96F6 /* Announcement.storyboard */; };
 		78EB07DD1F3B51EC00C64587 /* HelpCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78EB07DC1F3B51EC00C64587 /* HelpCenterViewController.m */; };
 		78EB07E01F3C9EB200C64587 /* UserFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78EB07DF1F3C9EB200C64587 /* UserFeedbackViewController.m */; };
+		8410478E1F749DF400DF5D0D /* ReportModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8410478D1F749DF400DF5D0D /* ReportModel.m */; };
 		846CEAA71F3F05AE00D6BF9D /* ReportAddressTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 846CEAA51F3F05AE00D6BF9D /* ReportAddressTableViewCell.m */; };
 		846CEAA81F3F05AE00D6BF9D /* ReportAddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846CEAA61F3F05AE00D6BF9D /* ReportAddressTableViewCell.xib */; };
 		846CEAAC1F3F082900D6BF9D /* ReportImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 846CEAAA1F3F082900D6BF9D /* ReportImageTableViewCell.m */; };
@@ -401,6 +402,8 @@
 		78EB07DC1F3B51EC00C64587 /* HelpCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpCenterViewController.m; sourceTree = "<group>"; };
 		78EB07DE1F3C9EB200C64587 /* UserFeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserFeedbackViewController.h; sourceTree = "<group>"; };
 		78EB07DF1F3C9EB200C64587 /* UserFeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserFeedbackViewController.m; sourceTree = "<group>"; };
+		8410478C1F749DF400DF5D0D /* ReportModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReportModel.h; sourceTree = "<group>"; };
+		8410478D1F749DF400DF5D0D /* ReportModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReportModel.m; sourceTree = "<group>"; };
 		846CEAA41F3F05AE00D6BF9D /* ReportAddressTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportAddressTableViewCell.h; sourceTree = "<group>"; };
 		846CEAA51F3F05AE00D6BF9D /* ReportAddressTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportAddressTableViewCell.m; sourceTree = "<group>"; };
 		846CEAA61F3F05AE00D6BF9D /* ReportAddressTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReportAddressTableViewCell.xib; sourceTree = "<group>"; };
@@ -2306,6 +2309,8 @@
 			children = (
 				7873DC9F1F740D2F001319F7 /* ClassModel.h */,
 				7873DCA01F740D2F001319F7 /* ClassModel.m */,
+				8410478C1F749DF400DF5D0D /* ReportModel.h */,
+				8410478D1F749DF400DF5D0D /* ReportModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2621,6 +2626,7 @@
 				84A1D5471F5EA8D500BFAFC0 /* AFURLSessionManager.m in Sources */,
 				84B7B6101F46F39600C3C708 /* IQTextView.m in Sources */,
 				84B7B6151F46F39600C3C708 /* IQUIView+IQKeyboardToolbar.m in Sources */,
+				8410478E1F749DF400DF5D0D /* ReportModel.m in Sources */,
 				847ED1BC1F3421F500BC710E /* NSObject+YYAddForKVO.m in Sources */,
 				78657BC01F41DA4200DC2AFE /* TaskViewController.m in Sources */,
 				84A1D52B1F5EA7DF00BFAFC0 /* QNHosts.m in Sources */,

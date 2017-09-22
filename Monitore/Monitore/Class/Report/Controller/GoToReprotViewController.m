@@ -13,8 +13,9 @@
 #import "ReportImageTableViewCell.h"
 #import "UploadPhotoView.h"
 #import "ClassModel.h"
+#import "ReportModel.h"
 
-@interface GoToReprotViewController ()<UITableViewDataSource, UITableViewDelegate, UITextViewDelegate, textViewDidFinishEidedDelegate, TakePhotosDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface GoToReprotViewController ()<UITableViewDataSource, UITableViewDelegate, UITextViewDelegate, textViewDidFinishEidedDelegate, TakePhotosDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, AddressDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -26,6 +27,7 @@
 @property (strong, nonatomic)NSMutableArray *classAry;
 
 @property (strong, nonatomic)UploadPhotoView *uploadPhoto;
+@property (strong, nonatomic)ReportModel *model;
 
 @end
 
@@ -39,17 +41,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self leftCustomBarButton];
-    self.title = @"我要举报";
+    self.title = @"我要监督";
     self.classAry = [NSMutableArray array];
+    self.model = [[ReportModel alloc]init];
+    
+    self.model.userId = self.userTitle.usersId;
     
     [[IQKeyboardManager sharedManager] setEnable:NO];
     
     
     [self.photoArray addObject:[UIImage imageNamed:@"加号"]];
-    
-    //  支持自适应 cell
-//    self.tableView.estimatedRowHeight = 100;
-//    self.tableView.rowHeight = UITableViewAutomaticDimension;
     
     self.titleAry = @[@"分类"];
     self.themeAry = @[@"主题", @"描述"];
@@ -57,12 +58,22 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"GoToReportTableViewCell" bundle:nil] forCellReuseIdentifier:@"GoToReportTableViewCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"TextViewTableViewCell" bundle:nil] forCellReuseIdentifier:@"TextViewTableViewCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"ReportAddressTableViewCell" bundle:nil] forCellReuseIdentifier:@"ReportAddressTableViewCell"];
-//    [self.tableView registerNib:[UINib nibWithNibName:@"ReportImageTableViewCell" bundle:nil] forCellReuseIdentifier:@"ReportImageTableViewCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"UploadPhotoView" bundle:nil] forHeaderFooterViewReuseIdentifier:@"UploadPhotoView"];
+
     
     titleHeigh = 50;
     detailHeigh = 80;
     [self getClass];
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+
+}
+
+- (void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    [[IQKeyboardManager sharedManager] setEnable:YES];
 }
 
 - (void)getClass{
@@ -72,16 +83,16 @@
             ClassModel *model = [ClassModel modelWithDictionary:dic];
             [self.classAry addObject:model];
         }
+
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+        [self tableView:self.tableView didSelectRowAtIndexPath:indexPath];
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         
     }];
 }
 
-- (void)viewDidDisappear:(BOOL)animated{
-    [super viewDidDisappear:animated];
-    [[IQKeyboardManager sharedManager] setEnable:YES];
-}
+
 - (void)takePhotos{
     UIImagePickerController *picker = [[UIImagePickerController alloc]init];
     picker.delegate = self;
@@ -129,7 +140,7 @@
 {
     if (indexPath.row < 1) {
         GoToReportTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GoToReportTableViewCell" forIndexPath:indexPath];
-        [cell displayCellTitle:self.titleAry[indexPath.row]];
+        [cell displayCellTitle:self.titleAry[indexPath.row] detail:self.model.firstTitle];
         return cell;
     }
     else if(indexPath.row < 3){
@@ -141,7 +152,7 @@
     }
     else if(indexPath.row == 3){
         ReportAddressTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ReportAddressTableViewCell" forIndexPath:indexPath];
-
+        cell.delegate = self;
         return cell;
     }
     else{
@@ -170,51 +181,63 @@
         
         [alertC addAction:action1];
         
-        for (ClassModel *model in self.classAry) {
+        for (int i=0; i<self.classAry.count; i++) {
+            ClassModel *model = self.classAry[i];
             UIAlertAction *action2 = [UIAlertAction actionWithTitle:model.name style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                
+                if (i==0) {
+                    self.model.firstId = model.categoryId;
+                    self.model.secodeId = model.categoryId;
+                    self.model.firstTitle = model.name;
+                }
+                [self.tableView reloadData];
+                
                 
             }];
             [alertC addAction:action2];
         }
-
-//        UIAlertAction *action3 = [UIAlertAction actionWithTitle:@"消防隐患" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-//
-//        }];
-//        UIAlertAction *action4 = [UIAlertAction actionWithTitle:@"违法车辆" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-//
-//        }];
-//        UIAlertAction *action5 = [UIAlertAction actionWithTitle:@"防诈骗打假" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-//
-//        }];
-//        UIAlertAction *action6 = [UIAlertAction actionWithTitle:@"邻里矛盾" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-//
-//        }];
-//        UIAlertAction *action7 = [UIAlertAction actionWithTitle:@"特殊人群维稳" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-//
-//        }];
-//        UIAlertAction *action8 = [UIAlertAction actionWithTitle:@"爱心求助" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-//
-//        }];
-//
-//        //添加按钮
-//        [alertC addAction:action1];
-//        [alertC addAction:action2];
-//        [alertC addAction:action3];
-//        [alertC addAction:action4];
-//        [alertC addAction:action5];
-//        [alertC addAction:action6];
-//        [alertC addAction:action7];
-//        [alertC addAction:action8];
         
         //显示
         [self presentViewController:alertC animated:YES completion:nil];
     }
 }
 
+- (void)reportAddress:(NSString *)address longitude:(NSString *)longitude latituded:(NSString *)latitude{
+    self.model.address = address;
+    self.model.longitude = longitude;
+    self.model.latitude = latitude;
+}
+
+- (void)reportContent:(NSString *)content row:(NSInteger)row{
+    if (row == 1) {
+        self.model.title = content;
+    }
+    
+    if (row == 2) {
+        self.model.content = content;
+    }
+    
+    [self.tableView reloadData];
+}
+
 - (IBAction)saveButtonAction:(id)sender {
 }
 
 - (IBAction)submitButtonAction:(id)sender {
+    NSDictionary *dic = @{@"USER_ID":self.model.userId,
+                          @"FIRST_ID":self.model.firstId,
+                          @"SECOND_ID":self.model.secodeId,
+                          @"CONTENT":self.model.content,
+                          @"TITLE":self.model.title,
+                          @"ADDRESS":self.model.address,
+                          @"LONGITUDE":self.model.longitude,
+                          @"LATITUDE":self.model.latitude
+                          }; //                          @"REMARK":@""
+    [[DLAPIClient sharedClient]POST:@"report" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+    }];
 }
 
 /***打开相册*/

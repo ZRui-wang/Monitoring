@@ -8,8 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol BuildReportDicDelegare <NSObject>
+
+- (void)buildInfoRow:(NSInteger)row info:(NSString *)info;
+
+@end
+
 @interface GoToReportTableViewCell : UITableViewCell
 
-- (void)displayCellTitle:(NSString *)title;
+@property (assign,nonatomic) id<BuildReportDicDelegare> delegate;
+
+- (void)displayCellTitle:(NSString *)title detail:(NSString *)detail;
 
 @end

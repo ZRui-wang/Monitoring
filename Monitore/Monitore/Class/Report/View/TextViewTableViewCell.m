@@ -59,6 +59,11 @@
     if (textView.text.length == 0) {
         self.plaseholdLabel.alpha = 1;
     }
+    
+    if ([_delegate respondsToSelector:@selector(reportContent:row:)]) {
+        [_delegate reportContent: textView.text row:self.cellRow];
+    }
+    
     return YES;
 }
 

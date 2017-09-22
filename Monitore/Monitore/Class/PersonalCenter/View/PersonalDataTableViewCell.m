@@ -27,7 +27,7 @@
     NSArray *titleTempAry = @[@"当前账号:", @"真实姓名:", @"性别:", @"群防力量类型:", @"身份证号:", @"职业:", @"单位及职务:", @"推荐人手机号:", @"", @"申请时间:", @"所属地区:", @"常住地址:"];
     self.titleAry = titleTempAry;
     self.textField.delegate = self;
-    self.textField.tag = self.indexPath.section*10 + self.indexPath.row;
+    self.textField.tag = self.indexPath.section*9 + self.indexPath.row;
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField reason:(UITextFieldDidEndEditingReason)reason{

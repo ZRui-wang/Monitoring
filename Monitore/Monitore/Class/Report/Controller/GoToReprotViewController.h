@@ -7,7 +7,9 @@
 //
 
 #import "BaseViewController.h"
+#import "UserTitle.h"
 
-@interface GoToReprotViewController : BaseViewController
+@interface GoToReprotViewController: BaseViewController
+@property (nonatomic, strong) UserTitle *userTitle;
 
 @end

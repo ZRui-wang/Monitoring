@@ -55,10 +55,7 @@ static NSString *HomeCollectionViewCellId = @"HomeCollectionViewCell";
     
     NSArray *temptAry = @[@"通知公告", @"群防任务", @"在线监督", @"在线巡逻", @"防骗培训", @"黑名单", @"志愿者管理", @"个人中心"];
     self.titleAry = temptAry;
-}
-
-- (void)signInBtnAction:(UIButton *)button{
-    // 每日签到
+    
     NSData *myEncodedObject = [[NSUserDefaults standardUserDefaults]objectForKey:@"userTitle"];
     
     NSKeyedUnarchiver *unArchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:myEncodedObject];
@@ -66,8 +63,10 @@ static NSString *HomeCollectionViewCellId = @"HomeCollectionViewCell";
     self.userTitle = [unArchiver decodeObjectForKey:@"userTitle"]; // 此时调用反归档方法initWithCoder:
     // 反归档完成
     [unArchiver finishDecoding];
-    
-    
+}
+
+- (void)signInBtnAction:(UIButton *)button{
+    // 每日签到
     NSDictionary *dic = @{@"USER_ID":self.userTitle.usersId};
     
     [[DLAPIClient sharedClient]POST:@"userSign" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
@@ -158,6 +157,7 @@ static NSString *HomeCollectionViewCellId = @"HomeCollectionViewCell";
     {
         // 在线举报
         GoToReprotViewController *reportVc = [[UIStoryboard storyboardWithName:@"Report" bundle:nil] instantiateViewControllerWithIdentifier:@"GoToReprotViewController"];
+        reportVc.userTitle = self.userTitle;
         [self.navigationController pushViewController:reportVc animated:YES];
     }
     else if (indexPath.item == 3)

@@ -12,6 +12,9 @@
 
 - (void)finishEditHeigh:(CGFloat)heigh row:(NSInteger)row;
 
+- (void)reportContent:(NSString *)content row:(NSInteger)row;
+
+
 @end
 
 @interface TextViewTableViewCell : UITableViewCell
