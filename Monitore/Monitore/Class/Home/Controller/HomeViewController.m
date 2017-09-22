@@ -97,6 +97,7 @@ static NSString *HomeCollectionViewCellId = @"HomeCollectionViewCell";
 - (void)collectionBtnAction:(UIButton *)button{
     // 我要采集
     CollectViewController *collectVc = [[UIStoryboard storyboardWithName:@"Report" bundle:nil] instantiateViewControllerWithIdentifier:@"CollectViewController"];
+    collectVc.userTitle = self.userTitle;
     [self.navigationController pushViewController:collectVc animated:YES];
 }
 

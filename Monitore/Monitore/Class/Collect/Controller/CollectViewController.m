@@ -24,6 +24,9 @@
 
 @property (strong, nonatomic)DIYPickView *selectColorView;
 @property (strong, nonatomic)UIView *pickBgView;
+
+@property (copy, nonatomic)NSString *lat;
+@property (copy, nonatomic)NSString *lon;
 @end
 
 @implementation CollectViewController{
@@ -49,6 +52,7 @@
     __block typeof(self) weak = self;
     [[Tools sharedTools]getCurrentAddress:^(NSString *address) {
         weak.addressLabel.text = address;
+        [weak getGeoCoedAddress:address];
     }];
 
     self.textView.delegate = self;
@@ -69,10 +73,51 @@
     __block typeof(self) weak = self;
     [[Tools sharedTools]getCurrentAddress:^(NSString *address) {
         weak.addressLabel.text = address;
+        [weak getGeoCoedAddress:address];
+    }];
+}
+
+- (void)getGeoCoedAddress:(NSString *)address{
+    CLGeocoder *myGeocoder = [[CLGeocoder alloc] init];
+    [myGeocoder geocodeAddressString:address completionHandler:^(NSArray *placemarks, NSError *error) {
+        if ([placemarks count] > 0 && error == nil) {
+            NSLog(@"Found %lu placemark(s).", (unsigned long)[placemarks count]);
+            CLPlacemark *firstPlacemark = [placemarks objectAtIndex:0];
+            NSLog(@"Longitude = %f", firstPlacemark.location.coordinate.longitude);
+            NSLog(@"Latitude = %f", firstPlacemark.location.coordinate.latitude);
+            
+            self.lon = [NSString stringWithFormat:@"%f", firstPlacemark.location.coordinate.longitude];
+            self.lat = [NSString stringWithFormat:@"%f", firstPlacemark.location.coordinate.latitude];
+            
+        }
+        else if ([placemarks count] == 0 && error == nil) {
+            NSLog(@"Found no placemarks.");
+        } else if (error != nil) {
+            NSLog(@"An error occurred = %@", error);
+        }
     }];
 }
 
 - (IBAction)submitButtonAction:(id)sender {
+    NSDictionary *dic = @{@"USER_ID":self.userTitle.usersId,
+                          @"CAR_NUM":self.userTitle.usersId,
+                          @"CAR_COLOR":self.userTitle.usersId,
+                          @"ADDRESS":self.userTitle.usersId,
+                          @"CONTENT":@"123",
+                          @"ADDRESS":self.addressLabel.text,
+                          @"LONGITUDE":self.lon,
+                          @"LATITUDE":self.lat,
+                          @"IMG":@"3456"};
+    [[DLAPIClient sharedClient]POST:@"gather" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+        if ([responseObject[Kstatus]isEqualToString:Ksuccess]) {
+            [self showSuccessMessage:@"responseObject[Kinfo]"];
+        }else
+        {
+            [self showErrorMessage:responseObject[Kinfo]];
+        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [self showErrorMessage:@"数据错误"];
+    }];
 }
 
 - (IBAction)takePhotoButtonAction:(UIButton *)sender {

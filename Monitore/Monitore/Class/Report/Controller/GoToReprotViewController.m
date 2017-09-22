@@ -234,8 +234,14 @@
                           @"LATITUDE":self.model.latitude
                           }; //                          @"REMARK":@""
     [[DLAPIClient sharedClient]POST:@"report" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
-        
+        if ([responseObject[Kstatus] isEqualToString:Ksuccess]) {
+            [self showErrorMessage:@"提交成功"];
+        }
+        else{
+            [self showErrorMessage:@"操作失败"];
+        }
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [self showErrorMessage:@"数据错误"];
         
     }];
 }
