@@ -7,7 +7,10 @@
 //
 
 #import "BaseViewController.h"
+#import "LinkerModel.h"
 
 @interface AddContactViewController : BaseViewController
+
+@property (nonatomic, strong)LinkerModel *linkerModel;
 
 @end

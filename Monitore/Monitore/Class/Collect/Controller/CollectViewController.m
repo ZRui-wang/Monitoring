@@ -9,6 +9,7 @@
 #import "CollectViewController.h"
 #import "DIYPickView.h"
 #import "AddContactViewController.h"
+#import "LinkerModel.h"
 
 @interface CollectViewController ()<UIPickerViewDelegate, UIPickerViewDataSource, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate>
 
@@ -25,8 +26,11 @@
 @property (strong, nonatomic)DIYPickView *selectColorView;
 @property (strong, nonatomic)UIView *pickBgView;
 
+@property (strong, nonatomic) LinkerModel *linkerModel;
+
 @property (copy, nonatomic)NSString *lat;
 @property (copy, nonatomic)NSString *lon;
+@property (strong, nonatomic)NSData *imageData;
 @end
 
 @implementation CollectViewController{
@@ -57,6 +61,28 @@
 
     self.textView.delegate = self;
     self.textView.scrollEnabled = NO;
+    
+    [self getUngentLink];
+}
+
+- (void)getUngentLink{
+    
+    UserTitle *userTitle = [Tools getPersonData];
+    
+    NSDictionary *dic = @{@"ID":userTitle.usersId};
+    
+    [[DLAPIClient sharedClient]POST:@"getUngentLink" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+        NSLog(@"紧急联系人=%@", responseObject);
+        
+        if ([responseObject[Kstatus]isEqualToString:Ksuccess]) {
+            self.linkerModel = [LinkerModel modelWithDictionary:responseObject[@"user"]];
+        }
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+    }];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -99,6 +125,12 @@
 }
 
 - (IBAction)submitButtonAction:(id)sender {
+    
+    if (!self.linkerModel) {
+        [self showWarningMessage:@"请添加紧急联系人"];
+        return;
+    }
+    
     NSDictionary *dic = @{@"USER_ID":self.userTitle.usersId,
                           @"CAR_NUM":self.userTitle.usersId,
                           @"CAR_COLOR":self.userTitle.usersId,
@@ -107,7 +139,7 @@
                           @"ADDRESS":self.addressLabel.text,
                           @"LONGITUDE":self.lon,
                           @"LATITUDE":self.lat,
-                          @"IMG":@"3456"};
+                          @"IMG":self.imageData};
     [[DLAPIClient sharedClient]POST:@"gather" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject[Kstatus]isEqualToString:Ksuccess]) {
             [self showSuccessMessage:responseObject[Kstatus]];
@@ -117,6 +149,7 @@
         }
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         [self showErrorMessage:@"数据错误"];
+        NSLog(@"%@", error);
     }];
 }
 
@@ -243,25 +276,12 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(nullable NSDictionary<NSString *,id> *)editingInfo NS_DEPRECATED_IOS(2_0, 3_0)
 
 {
-    
+    self.collectImageView.image = image;
     NSSLog(@"finish..");
     
-    self.collectImageView.image = image;
-    
-//    if(picker.sourceType == UIImagePickerControllerSourceTypeCamera)
-//        
-//    {
-//        
-//        //图片存入相册
-//        
-//        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
-//        
-//    }
-    
-    
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
-    
+    self.imageData = UIImagePNGRepresentation(image);
+
+    [self dismissViewControllerAnimated:YES completion:nil];    
 }
 
 //进入拍摄页面点击取消按钮
@@ -287,6 +307,7 @@
 - (void)rightBarButtonAction{
     
     AddContactViewController *goToReprotVc = [[UIStoryboard storyboardWithName:@"Report" bundle:nil]instantiateViewControllerWithIdentifier:@"AddContactViewController"];
+    goToReprotVc.linkerModel = self.linkerModel;
     [self.navigationController pushViewController:goToReprotVc animated:YES];
 }
 

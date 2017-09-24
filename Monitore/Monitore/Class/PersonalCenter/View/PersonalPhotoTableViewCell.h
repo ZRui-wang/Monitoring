@@ -16,6 +16,7 @@
 
 @interface PersonalPhotoTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UIImageView *photo;
 @property (nonatomic, assign) id<SaveInfoDelegate> delegate;
 
 @end

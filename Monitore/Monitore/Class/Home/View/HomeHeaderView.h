@@ -16,4 +16,6 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *collectButton;
 
+@property (strong, nonatomic) NSMutableArray *bannerAry;
+
 @end

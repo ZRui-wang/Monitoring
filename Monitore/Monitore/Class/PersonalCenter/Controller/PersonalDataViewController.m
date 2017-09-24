@@ -13,8 +13,10 @@
 #import "PersonalDataHeaderView.h"
 #import "UserTitle.h"
 
-@interface PersonalDataViewController ()<UITableViewDelegate, UITableViewDataSource, SaveButtonDelegate, SaveInfoDelegate>
+@interface PersonalDataViewController ()<UITableViewDelegate, UITableViewDataSource, SaveButtonDelegate, SaveInfoDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property (strong, nonatomic) UIImage *photoImage;
 
 @end
 
@@ -60,7 +62,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section==0 && indexPath.row == 8) {
-        return 100;
+        return 200;
     }
     else
     {
@@ -105,7 +107,8 @@
         @"SEX":self.model.sex,
         @"REC_MOBILE":self.model.recMobile,
         @"CITY_NAME":self.model.cityName,
-        @"COMPANY":self.model.company
+        @"COMPANY":self.model.company,
+        @"ICON":self.model.icon
         };
     [[DLAPIClient sharedClient] POST:@"updUserInfo" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
         NSLog(@"%@", responseObject);
@@ -116,7 +119,7 @@
             [self showWithStatus:responseObject[Kinfo]];
         }
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        [self showWithStatus:error];
+        [self showWithStatus:error.domain];
     }];
 }
 
@@ -136,11 +139,14 @@
 {
     if (indexPath.section==0 && indexPath.row == 8) {
         PersonalPhotoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PersonalPhotoTableViewCell" forIndexPath:indexPath];
+        if (self.photoImage) {
+          cell.photo.image = self.photoImage;
+        [cell.photo setContentMode:UIViewContentModeScaleToFill];
+        }
         return cell;
     }
     else
     {
-        
         PersonalDataTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PersonalDataTableViewCell" forIndexPath:indexPath];
         cell.delegate = self;
         cell.indexPath = indexPath;
@@ -182,13 +188,80 @@
                 cell.titleValue = self.model.address;
             }
         }
-        
-        
-        
+      
         [cell displayCellWithData:nil andIndexpath:indexPath];
         return cell;
     }
 
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 0 && indexPath.row == 8) {
+        UIImagePickerController *picker = [[UIImagePickerController alloc]init];
+        picker.delegate = self;
+        picker.allowsEditing = NO;
+        
+        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        [self presentViewController:picker animated:YES completion:nil];
+    }
+}
+
+/***打开相册*/
+-(void)openPhotoLibrary{
+    // 进入相册
+    
+    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
+        
+    {
+        
+        UIImagePickerController *imagePicker = [[UIImagePickerController alloc]init];
+        
+        imagePicker.allowsEditing = YES;
+        
+        imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        
+        imagePicker.delegate = self;
+        
+        [self presentViewController:imagePicker animated:YES completion:^{
+            
+            NSLog(@"打开相册");
+            
+        }];
+        
+    }else{
+        NSLog(@"不能打开相册");
+    }
+}
+
+
+
+#pragma mark - UIImagePickerControllerDelegate
+
+// 拍照完成回调
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(nullable NSDictionary<NSString *,id> *)editingInfo NS_DEPRECATED_IOS(2_0, 3_0)
+
+{
+    NSData *data = UIImagePNGRepresentation(image);
+//    self.model.icon = [[NSString alloc]initWithData:data encoding:kCFStringEncodingUTF8];
+    self.model.icon = data;
+    self.photoImage = image;
+    NSSLog(@"finish..");
+    
+//    self.imageData = UIImagePNGRepresentation(image);
+    [self.tableView reloadData];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+//进入拍摄页面点击取消按钮
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+
+{
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
 }
 
 - (void)buildInfoRow:(NSInteger)row info:(NSString *)info{

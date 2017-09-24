@@ -325,6 +325,9 @@
                                     <constraint firstAttribute="height" constant="45" id="2Hm-FT-3ZK"/>
                                 </constraints>
                                 <state key="normal" title="保存"/>
+                                <connections>
+                                    <action selector="saveButtonAction:" destination="kYu-D8-y2h" eventType="touchUpInside" id="vW4-t5-vtJ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -341,6 +344,10 @@
                             <constraint firstItem="1OW-et-Mie" firstAttribute="leading" secondItem="mcy-wO-o1q" secondAttribute="leading" constant="20" id="tLd-Hb-psN"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="name" destination="1OW-et-Mie" id="Vmz-Qw-UCF"/>
+                        <outlet property="phoneNumber" destination="gkc-7e-HnJ" id="tQY-aH-CRC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Emn-FN-yth" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

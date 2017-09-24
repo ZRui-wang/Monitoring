@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -27,7 +27,7 @@
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="治安新闻：居住证可以网上办理啦，两种方法轻松搞定~" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wCV-4O-Xjp">
-                            <rect key="frame" x="150" y="30" width="285" height="45"/>
+                            <rect key="frame" x="33" y="30" width="402" height="45"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="45" id="maD-R8-2Fk"/>
                             </constraints>
@@ -52,6 +52,13 @@
                         <constraint firstAttribute="trailing" secondItem="wCV-4O-Xjp" secondAttribute="trailing" constant="10" id="ld9-Li-ao5"/>
                         <constraint firstItem="wCV-4O-Xjp" firstAttribute="leading" secondItem="8ZS-1y-t3u" secondAttribute="trailing" constant="15" id="yEw-tk-VN6"/>
                     </constraints>
+                    <variation key="default">
+                        <mask key="subviews">
+                            <exclude reference="8ZS-1y-t3u"/>
+                            <exclude reference="wCV-4O-Xjp"/>
+                            <exclude reference="9tf-No-2cA"/>
+                        </mask>
+                    </variation>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jea-2f-BGo">
                     <rect key="frame" x="0.0" y="163.5" width="445" height="147.5"/>

@@ -22,12 +22,14 @@
 #import "BlackListViewController.h"
 #import "AwardViewController.h"
 #import "UserTitle.h"
+#import "BannerModel.h"
 
 @interface HomeViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *layouT;
 @property (strong, nonatomic) NSArray *titleAry;
 @property (nonatomic, strong) UserTitle *userTitle;
+@property (nonatomic, strong) NSMutableArray *bannerAry;
 @end
 
 static NSString *HomeHeaderViewId = @"HomeHeaderView";
@@ -42,7 +44,20 @@ static NSString *HomeCollectionViewCellId = @"HomeCollectionViewCell";
     // Do any additional setup after loading the view.
 //    self.collectionView.contentInset=UIEdgeInsetsMake(-64, 0, 0, 0);//上移64
     [self.navigationItem setHidesBackButton:YES];
+    
+    self.title = @"群防群治";
+    self.bannerAry = [NSMutableArray array];
+    
+    NSArray *temptAry = @[@"通知公告", @"群防任务", @"在线监督", @"在线巡逻", @"防骗培训", @"黑名单", @"志愿者管理", @"个人中心"];
+    self.titleAry = temptAry;
+    
+    self.userTitle = [Tools getPersonData];
+    
+    [self bannerUrl];
+    [self creatCollectionView];
+}
 
+- (void)creatCollectionView{
     self.layouT.headerReferenceSize = CGSizeMake(SCREEN_WIDTH, SCREEN_WIDTH/3.0*2+40);
     self.layouT.itemSize = CGSizeMake((SCREEN_WIDTH-3)/4.0, SCREEN_WIDTH/3.0);
     [self.collectionView registerNib:[UINib nibWithNibName:@"HomeCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:HomeCollectionViewCellId];
@@ -50,19 +65,22 @@ static NSString *HomeCollectionViewCellId = @"HomeCollectionViewCell";
     
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
-    
-    self.title = @"群防群治";
-    
-    NSArray *temptAry = @[@"通知公告", @"群防任务", @"在线监督", @"在线巡逻", @"防骗培训", @"黑名单", @"志愿者管理", @"个人中心"];
-    self.titleAry = temptAry;
-    
-    NSData *myEncodedObject = [[NSUserDefaults standardUserDefaults]objectForKey:@"userTitle"];
-    
-    NSKeyedUnarchiver *unArchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:myEncodedObject];
-    // 解码返回一个对象
-    self.userTitle = [unArchiver decodeObjectForKey:@"userTitle"]; // 此时调用反归档方法initWithCoder:
-    // 反归档完成
-    [unArchiver finishDecoding];
+}
+
+- (void)bannerUrl{
+    [[DLAPIClient sharedClient]POST:@"init" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"轮播图 = %@", responseObject);
+        if ([responseObject[Kstatus]isEqualToString:Ksuccess]) {
+            for (NSDictionary *dic in responseObject[@"dataList"]) {
+                BannerModel *bannerModel = [BannerModel modelWithDictionary:dic];
+                [self.bannerAry addObject:bannerModel];
+                [self.bannerAry addObject:bannerModel];
+            }
+            [self.collectionView reloadData];
+        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+    }];
 }
 
 - (void)signInBtnAction:(UIButton *)button{
@@ -121,6 +139,10 @@ static NSString *HomeCollectionViewCellId = @"HomeCollectionViewCell";
     HomeHeaderView *headView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader
                                                                             withReuseIdentifier:HomeHeaderViewId
                                                                                    forIndexPath:indexPath];
+    if (self.bannerAry.count) {
+       headView.bannerAry = self.bannerAry;
+    }
+    
     [headView.signInButton addTarget:self action:@selector(signInBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     [headView.rewardButton addTarget:self action:@selector(rewardBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     [headView.collectButton addTarget:self action:@selector(collectionBtnAction:) forControlEvents:UIControlEventTouchUpInside];

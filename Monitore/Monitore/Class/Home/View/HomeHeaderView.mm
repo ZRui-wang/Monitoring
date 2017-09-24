@@ -21,7 +21,15 @@
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
     // Drawing code
-//    [self.homeHeaderView addSubview:[[CarouselFigure alloc]initWithFrame:CGRectMake(0, 0, SCREEN_HEIGHT, self.homeHeaderView.frame.size.height)]];
+
+}
+
+- (void)setBannerAry:(NSMutableArray *)bannerAry{
+    _bannerAry = bannerAry;
+    
+    CarouselFigure *figure = [[CarouselFigure alloc]initWithFrame:CGRectMake(0, 0, SCREEN_HEIGHT, self.homeHeaderView.frame.size.height)];
+    figure.array = _bannerAry;
+    [self.homeHeaderView addSubview:figure];
 }
 
 

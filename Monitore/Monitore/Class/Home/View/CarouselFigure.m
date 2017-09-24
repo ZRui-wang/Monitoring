@@ -9,6 +9,7 @@
 #import "CarouselFigure.h"
 #import "UIImageView+WebCache.h"
 #import "BrandScroll.h"
+#import "BannerModel.h"
 
 @interface CarouselFigure()<UIScrollViewDelegate,UIGestureRecognizerDelegate>
 
@@ -43,7 +44,8 @@
         [self.curArray addObject:@"轮播图1"];
         [self.curArray addObject:@"轮播图2"];
         [self.curArray addObject:@"轮播图3"];
-        self.array = @[@"轮播图1", @"轮播图2", @"轮播图3"];
+//        self.array = self.curArray;
+//        self.array = @[@"轮播图1", @"轮播图2", @"轮播图3"];
     }
     return self;
 }
@@ -88,7 +90,7 @@
 - (void)creatCarouseFigureView{
     for (int i = 0; i < 3; i++) {
         UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(_width *i, 0, _width, height)];
-        imageView.contentMode = UIViewContentModeScaleAspectFit;
+        imageView.contentMode = UIViewContentModeScaleToFill;
         [self.scrollView addSubview:imageView];
     }
 }
@@ -132,22 +134,17 @@
     
     
     NSArray *subArray = self.scrollView.subviews;
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < MIN(self.array.count, 3); i++) {
         UIImageView *imageView = subArray[i];
 
-    imageView.image = [UIImage imageNamed:self.curArray[i]];
-        
-//        HomePageModel *homePageModel = [[HomePageModel alloc]init];
-//        homePageModel = self.curArray[i];
-//        NSString *url = [NSString stringWithFormat:@"%@/%@", homePageModel.TargetUrl, homePageModel.ImageName];
+        BannerModel *model = self.curArray[i];
         // 从网络上请求数据
-//        [imageView sd_setImageWithURL:[NSURL URLWithString:homePageModel.ImageName]];
+        [imageView sd_setImageWithURL:[NSURL URLWithString:model.img]];
     }
     
 //    NSLog(@"=====%@", self.curArray[1]);
     self.scrollView.contentOffset = CGPointMake(_width, 0);
     self.pageControl.currentPage = curPage;
-    
 }
 
 

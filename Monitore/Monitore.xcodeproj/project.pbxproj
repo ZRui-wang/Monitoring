@@ -21,6 +21,8 @@
 		788297641F3FDA980062EA65 /* UploadPhotoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 788297631F3FDA980062EA65 /* UploadPhotoView.xib */; };
 		788297681F3FDC720062EA65 /* UploadPhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 788297661F3FDC720062EA65 /* UploadPhotoCollectionViewCell.m */; };
 		788297691F3FDC720062EA65 /* UploadPhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 788297671F3FDC720062EA65 /* UploadPhotoCollectionViewCell.xib */; };
+		7898F4791F773BB400FD2029 /* LinkerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7898F4781F773BB400FD2029 /* LinkerModel.m */; };
+		7898F47C1F7745AC00FD2029 /* BannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7898F47B1F7745AC00FD2029 /* BannerModel.m */; };
 		78A29FDD1F2F77B50086F388 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A29FDC1F2F77B50086F388 /* LoginViewController.m */; };
 		78D8A4401F66DC2300735C6A /* AnnounceListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 78D8A43F1F66DC2300735C6A /* AnnounceListModel.m */; };
 		78E26AB11F29FEC2007A96F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78E26AB01F29FEC2007A96F6 /* Main.storyboard */; };
@@ -398,6 +400,10 @@
 		788297651F3FDC720062EA65 /* UploadPhotoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadPhotoCollectionViewCell.h; sourceTree = "<group>"; };
 		788297661F3FDC720062EA65 /* UploadPhotoCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadPhotoCollectionViewCell.m; sourceTree = "<group>"; };
 		788297671F3FDC720062EA65 /* UploadPhotoCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UploadPhotoCollectionViewCell.xib; sourceTree = "<group>"; };
+		7898F4771F773BB400FD2029 /* LinkerModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LinkerModel.h; sourceTree = "<group>"; };
+		7898F4781F773BB400FD2029 /* LinkerModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LinkerModel.m; sourceTree = "<group>"; };
+		7898F47A1F7745AC00FD2029 /* BannerModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BannerModel.h; sourceTree = "<group>"; };
+		7898F47B1F7745AC00FD2029 /* BannerModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BannerModel.m; sourceTree = "<group>"; };
 		78A29FDB1F2F77B50086F388 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		78A29FDC1F2F77B50086F388 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		78D8A43E1F66DC2300735C6A /* AnnounceListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnounceListModel.h; sourceTree = "<group>"; };
@@ -1349,6 +1355,8 @@
 		847ED20E1F34415300BC710E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7898F4771F773BB400FD2029 /* LinkerModel.h */,
+				7898F4781F773BB400FD2029 /* LinkerModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2141,6 +2149,8 @@
 		84F928CA1F29652B00B76D79 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7898F47A1F7745AC00FD2029 /* BannerModel.h */,
+				7898F47B1F7745AC00FD2029 /* BannerModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2625,6 +2635,7 @@
 				847ED1B21F3421F500BC710E /* NSArray+YYAdd.m in Sources */,
 				847ED1F21F3421F500BC710E /* YYTextRubyAnnotation.m in Sources */,
 				84B7B5CB1F46B2ED00C3C708 /* UIImageView+WebCache.m in Sources */,
+				7898F47C1F7745AC00FD2029 /* BannerModel.m in Sources */,
 				84B7B5CC1F46B2ED00C3C708 /* UIView+WebCache.m in Sources */,
 				84B7B6081F46F39600C3C708 /* IQNSArray+Sort.m in Sources */,
 				847ED1F11F3421F500BC710E /* YYTextParser.m in Sources */,
@@ -2674,6 +2685,7 @@
 				847ED2011F3421F500BC710E /* YYTransaction.m in Sources */,
 				847ED1DC1F3421F500BC710E /* YYImageCache.m in Sources */,
 				84B7B5831F45644100C3C708 /* MYPresentedController.m in Sources */,
+				7898F4791F773BB400FD2029 /* LinkerModel.m in Sources */,
 				847ED1D81F3421F500BC710E /* UIImageView+YYWebImage.m in Sources */,
 				84C784381F724CF900D50E3A /* VolunteerListHeaderView.m in Sources */,
 				84A1D4E61F5EA65D00BFAFC0 /* QNUrlSafeBase64.m in Sources */,
