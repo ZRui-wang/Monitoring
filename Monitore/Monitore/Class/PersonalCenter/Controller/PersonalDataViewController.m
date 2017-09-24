@@ -12,6 +12,7 @@
 #import "PersonalDataFooterView.h"
 #import "PersonalDataHeaderView.h"
 #import "UserTitle.h"
+#import "UIImageView+WebCache.h"
 
 @interface PersonalDataViewController ()<UITableViewDelegate, UITableViewDataSource, SaveButtonDelegate, SaveInfoDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -98,28 +99,88 @@
 }
 
 - (void)saveButtonAction{
+//    NSDictionary *dic = @{
+//        @"USER_ID":self.model.usersId,
+//        @"NICKNAME":self.model.nickname,
+//        @"IDCARD":self.model.idcard,
+//      @"JOB":self.model.job,
+//      @"ADDRESS":self.model.address,
+//        @"SEX":self.model.sex,
+//        @"REC_MOBILE":self.model.recMobile,
+//        @"CITY_NAME":self.model.cityName,
+//        @"COMPANY":self.model.company,
+//        @"ICON":self.model.icon
+//        };
+//    [[DLAPIClient sharedClient] POST:@"updUserInfo" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+//        NSLog(@"%@", responseObject);
+//        if ([responseObject[Kstatus] isEqualToString:Ksuccess]) {
+//            [self showSuccessMessage:@"保存成功"];
+//        }
+//        else{
+//            [self showWithStatus:responseObject[Kinfo]];
+//        }
+//    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+//        [self showErrorMessage:error.domain];
+//    }];
+    
+    [self uploadInfo];
+}
+
+- (void)uploadInfo{
+    // 查询条件
     NSDictionary *dic = @{
-        @"USER_ID":self.model.usersId,
-        @"NICKNAME":self.model.nickname,
-        @"IDCARD":self.model.idcard,
-      @"JOB":self.model.job,
-      @"ADDRESS":self.model.address,
-        @"SEX":self.model.sex,
-        @"REC_MOBILE":self.model.recMobile,
-        @"CITY_NAME":self.model.cityName,
-        @"COMPANY":self.model.company,
-        @"ICON":self.model.icon
-        };
-    [[DLAPIClient sharedClient] POST:@"updUserInfo" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
-        NSLog(@"%@", responseObject);
-        if ([responseObject[Kstatus] isEqualToString:Ksuccess]) {
-            [self showSuccessMessage:@"保存成功"];
+                          @"USER_ID":self.model.usersId,
+                          @"NICKNAME":self.model.nickname,
+                          @"IDCARD":self.model.idcard,
+                          @"JOB":self.model.job,
+                          @"ADDRESS":self.model.address,
+                          @"SEX":self.model.sex,
+                          @"REC_MOBILE":self.model.recMobile,
+                          @"CITY_NAME":self.model.cityName,
+                          @"COMPANY":self.model.company
+                          };
+    NSString *url = [NSString stringWithFormat:@"http://39.108.78.69:3002/mobile/updUserInfo?USER_ID=%@?NICKNAME=%@?IDCARD=%@?JOB=%@?ADDRESS=%@?SEX=%@?REC_MOBILE=%@?CITY_NAME=%@?COMPANY=%@", self.model.usersId, self.model.nickname, self.model.idcard, self.model.job, self.model.address, self.model.sex, self.model.recMobile, self.model.cityName, self.model.company ];
+    // 基于AFN3.0+ 封装的HTPPSession句柄
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.requestSerializer.timeoutInterval = 20;
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain", @"multipart/form-data", @"application/json", @"text/html", @"image/jpeg", @"image/png", @"application/octet-stream", @"text/json", nil];
+    // 在parameters里存放照片以外的对象
+    [manager POST:url parameters:dic constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        // formData: 专门用于拼接需要上传的数据,在此位置生成一个要上传的数据体
+        // 这里的_photoArr是你存放图片的数组
+        for (int i = 0; i < 1; i++) {
+            NSData *imageData = UIImageJPEGRepresentation(self.photoImage, 0.5);
+            
+            // 在网络开发中，上传文件时，是文件不允许被覆盖，文件重名
+            // 要解决此问题，
+            // 可以在上传时使用当前的系统事件作为文件名
+            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+            // 设置时间格式
+            [formatter setDateFormat:@"yyyyMMddHHmmss"];
+            NSString *dateString = [formatter stringFromDate:[NSDate date]];
+            NSString *fileName = [NSString  stringWithFormat:@"%@.png", dateString];
+            /*
+             *该方法的参数
+             1. appendPartWithFileData：要上传的照片[二进制流]
+             2. name：对应网站上[upload.php中]处理文件的字段（比如upload）
+             3. fileName：要保存在服务器上的文件名
+             4. mimeType：上传的文件的类型
+             */
+            [formData appendPartWithFileData:imageData name:@"upload" fileName:fileName mimeType:@"image/jpeg"]; //
         }
-        else{
-            [self showWithStatus:responseObject[Kinfo]];
-        }
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        [self showWithStatus:error.domain];
+        
+    } progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+        NSLog(@"---上传进度--- %@",uploadProgress);
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        NSLog(@"```上传成功``` %@",responseObject);
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        NSLog(@"xxx上传失败xxx %@", error);
+        
     }];
 }
 
@@ -140,8 +201,13 @@
     if (indexPath.section==0 && indexPath.row == 8) {
         PersonalPhotoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PersonalPhotoTableViewCell" forIndexPath:indexPath];
         if (self.photoImage) {
-          cell.photo.image = self.photoImage;
-        [cell.photo setContentMode:UIViewContentModeScaleToFill];
+            if (self.model.icon) {
+                [cell.photo sd_setImageWithURL:                [NSURL URLWithString:[NSString stringWithFormat:@"%@", self.model.icon]]];
+                 }else{
+                     
+                     cell.photo.image = self.photoImage;
+                     [cell.photo setContentMode:UIViewContentModeScaleToFill];
+                 }
         }
         return cell;
     }
@@ -242,9 +308,6 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(nullable NSDictionary<NSString *,id> *)editingInfo NS_DEPRECATED_IOS(2_0, 3_0)
 
 {
-    NSData *data = UIImagePNGRepresentation(image);
-//    self.model.icon = [[NSString alloc]initWithData:data encoding:kCFStringEncodingUTF8];
-    self.model.icon = data;
     self.photoImage = image;
     NSSLog(@"finish..");
     

@@ -10,7 +10,7 @@
 
 @interface UserModel : NSObject
 
-@property (strong, nonatomic) NSData *icon;
+@property (copy, nonatomic) NSString *icon;
 @property (copy, nonatomic) NSString *nickname;
 @property (copy, nonatomic) NSString *recMobile;
 @property (copy, nonatomic) NSString *cityName;
