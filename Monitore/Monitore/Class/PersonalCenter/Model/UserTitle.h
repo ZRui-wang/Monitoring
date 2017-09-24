@@ -14,7 +14,9 @@
 @property (copy, nonatomic) NSString *nickname;
 @property (assign, nonatomic) NSInteger stars;
 @property (assign, nonatomic) NSInteger score;
+@property (assign, nonatomic) NSInteger type;
 @property (copy, nonatomic) NSString *usersId;
 @property (copy, nonatomic) NSString *mobile;
+@property (copy, nonatomic) NSString *recMobile;
 
 @end

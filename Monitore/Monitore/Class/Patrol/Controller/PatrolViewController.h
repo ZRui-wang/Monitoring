@@ -7,7 +7,10 @@
 //
 
 #import "BaseViewController.h"
+#import "UserTitle.h"
 
 @interface PatrolViewController : BaseViewController
+
+@property (nonatomic, strong)UserTitle *userTitle;
 
 @end

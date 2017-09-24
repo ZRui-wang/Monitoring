@@ -102,4 +102,32 @@
     self.geocodesearch.delegate = nil;
 }
 
+// 归档
++ (void)savePersonData:(UserTitle *)userTitle{
+    // 创建一个可变data 初始化归档对象
+    NSMutableData *data = [NSMutableData data];
+    // 创建一个归档对象
+    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
+    // 进行归档编码
+    [archiver encodeObject:userTitle forKey:@"userTitle"]; //此时调用归档方法encodeWithCoder:
+    
+    // 编码完成
+    [archiver finishEncoding];
+}
+
++ (UserTitle *)getPersonData{
+    
+    UserTitle *userTitle = nil;
+    
+    NSData *myEncodedObject = [[NSUserDefaults standardUserDefaults]objectForKey:@"userTitle"];
+    
+    NSKeyedUnarchiver *unArchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:myEncodedObject];
+    // 解码返回一个对象
+    userTitle = [unArchiver decodeObjectForKey:@"userTitle"]; // 此时调用反归档方法initWithCoder:
+    // 反归档完成
+    [unArchiver finishDecoding];
+    
+    return userTitle;
+}
+
 @end

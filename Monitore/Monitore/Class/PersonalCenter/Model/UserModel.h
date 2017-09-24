@@ -26,5 +26,9 @@
 @property (copy, nonatomic) NSString *stars;
 @property (copy, nonatomic) NSString *mobile;
 @property (copy, nonatomic) NSString *age;
+@property (copy, nonatomic) NSString *sex;
+@property (copy, nonatomic) NSString *type;
+@property (copy, nonatomic) NSString *company;
+
 
 @end

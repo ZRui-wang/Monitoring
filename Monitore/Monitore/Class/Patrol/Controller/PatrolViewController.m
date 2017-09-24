@@ -11,10 +11,12 @@
 #import "PatrolTableHeaderView.h"
 #import "GoToPatrolViewController.h"
 #import "PatrolTrajectoryViewController.h"
+#import "PatrolListModel.h"
 
 @interface PatrolViewController ()<UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSMutableArray *patrolListAry;
 
 @end
 
@@ -25,15 +27,40 @@
     // Do any additional setup after loading the view.
     [self leftCustomBarButton];
     self.title = @"巡逻记录";
+    
+    self.patrolListAry = [NSMutableArray array];
+    
     [self.tableView registerNib:[UINib nibWithNibName:@"PatrolTableViewCell" bundle:nil] forCellReuseIdentifier:@"PatrolTableViewCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"PatrolTableHeaderView" bundle:nil] forHeaderFooterViewReuseIdentifier:@"PatrolTableHeaderView"];
+    self.tableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
     
+    [self getPatrolHistory];
     
+}
+
+- (void)getPatrolHistory{
+    NSDictionary *dic = @{@"USER_ID":self.userTitle.usersId};
+    [[DLAPIClient sharedClient]POST:@"userPatrol" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"%@", responseObject);
+        if ([responseObject[Kstatus] isEqualToString:Ksuccess]) {
+            for (NSDictionary *dic in responseObject[@"dataList"]) {
+                PatrolListModel *model = [PatrolListModel modelWithDictionary:dic];
+                [self.patrolListAry addObject:model];
+                [self.tableView reloadData];
+            }
+        }else if ([responseObject[Kstatus] isEqualToString:@"404"]  ){
+            
+        }else{
+            
+        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+    }];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 20;
+    return self.patrolListAry.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section

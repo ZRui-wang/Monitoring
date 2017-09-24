@@ -11,7 +11,7 @@
 #import "PersonalPhotoTableViewCell.h"
 #import "PersonalDataFooterView.h"
 #import "PersonalDataHeaderView.h"
-
+#import "UserTitle.h"
 
 @interface PersonalDataViewController ()<UITableViewDelegate, UITableViewDataSource, SaveButtonDelegate, SaveInfoDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -27,6 +27,10 @@
     self.title = @"个人资料";
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    
+    UserTitle *userTitle = [Tools getPersonData];
+    self.model.type = userTitle.type?@"群防力量":@"普通用户";
+    self.model.usersId = userTitle.usersId;
     
     [self.tableView registerNib:[UINib nibWithNibName:@"PersonalDataTableViewCell" bundle:nil] forCellReuseIdentifier:@"PersonalDataTableViewCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"PersonalPhotoTableViewCell" bundle:nil] forCellReuseIdentifier:@"PersonalPhotoTableViewCell"];
@@ -92,18 +96,27 @@
 }
 
 - (void)saveButtonAction{
-//    NSDictionary *dic = @{@"NICKNAME":self.model.nickname, @"IDCARD":self.model.idcard, @"JOB":self.model.job};
-    NSDictionary *dic = @{@"USER_ID":self.model.usersId, @"NICKNAME":self.model.nickname, @"IDCARD":self.model.idcard, @"JOB":self.model.job, @"ADDRESS":self.model.address};
+    NSDictionary *dic = @{
+        @"USER_ID":self.model.usersId,
+        @"NICKNAME":self.model.nickname,
+        @"IDCARD":self.model.idcard,
+      @"JOB":self.model.job,
+      @"ADDRESS":self.model.address,
+        @"SEX":self.model.sex,
+        @"REC_MOBILE":self.model.recMobile,
+        @"CITY_NAME":self.model.cityName,
+        @"COMPANY":self.model.company
+        };
     [[DLAPIClient sharedClient] POST:@"updUserInfo" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
         NSLog(@"%@", responseObject);
         if ([responseObject[Kstatus] isEqualToString:Ksuccess]) {
             [self showSuccessMessage:@"保存成功"];
         }
         else{
-            
+            [self showWithStatus:responseObject[Kinfo]];
         }
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        
+        [self showWithStatus:error];
     }];
 }
 
@@ -142,7 +155,10 @@
             cell.titleValue = self.model.nickname;
         }
         else if (indexPath.row == 2){
-            cell.titleValue = self.model.nickname;
+            cell.titleValue = self.model.sex;
+        }
+        else if (indexPath.row == 3){
+            cell.titleValue = self.model.type;
         }
         else if (indexPath.row == 4){
             cell.titleValue = self.model.idcard;
@@ -150,8 +166,21 @@
         else if (indexPath.row == 5){
             cell.titleValue = self.model.job;
         }
-        else if (indexPath.row == 10){
-            cell.titleValue = self.model.address;
+        else if (indexPath.row == 6){
+            cell.titleValue = self.model.company;
+        }
+        else if (indexPath.row == 7){
+            cell.titleValue = self.model.recMobile;
+        }
+
+        
+        if (indexPath.section == 1) {
+            if (indexPath.row == 0){
+                cell.titleValue = self.model.cityName;
+            }
+            else if (indexPath.row == 1){
+                cell.titleValue = self.model.address;
+            }
         }
         
         
@@ -168,7 +197,7 @@
             self.model.nickname = info;
             break;
         case 2:
-            
+            self.model.sex = info;
             break;
         case 3:
             
@@ -180,10 +209,10 @@
             self.model.job = info;
             break;
         case 6:
-            
+            self.model.company = info;
             break;
         case 7:
-            
+            self.model.recMobile = info;
             break;
         case 8:
             
@@ -192,10 +221,10 @@
             
             break;
         case 10:
-            self.model.address = info;
+            self.model.cityName = info;
             break;
         case 11:
-            
+            self.model.address = info;
             break;
         case 12:
             

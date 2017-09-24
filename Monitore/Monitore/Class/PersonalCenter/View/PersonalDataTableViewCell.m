@@ -48,10 +48,19 @@
             self.textField.text = self.mobile;
             self.textField.userInteractionEnabled = NO;
         }
+        else if (indexPath.row == 2) {
+            self.skipTitle.hidden = YES;
+            self.skipImage.hidden = YES;
+            self.textField.text = self.titleValue;
+//            self.textField.userInteractionEnabled = NO;
+        }
         else if (indexPath.row == 3) {
             self.skipTitle.text = @"修改类型";
             self.skipTitle.hidden = YES;
             self.skipImage.hidden = YES;
+            self.textField.text = self.titleValue;
+            self.textField.userInteractionEnabled = NO;
+            
         }
         else if (indexPath.row == 9) {
             self.textField.text = self.date;
@@ -64,6 +73,7 @@
     else
     {
         self.title.text = self.titleAry[indexPath.row + 10];
+        self.textField.text = self.titleValue;
         if (indexPath.row == 1) {
             self.skipTitle.text = @"修改";
             self.skipTitle.hidden = NO;

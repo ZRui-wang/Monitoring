@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		780C57C31F75729B00C5721A /* PatrolListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 780C57C21F75729B00C5721A /* PatrolListModel.m */; };
+		780C57C61F76004A00C5721A /* StartPatrolModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 780C57C51F76004A00C5721A /* StartPatrolModel.m */; };
 		7812D87A1F47E7D80041CC9C /* CarouselFigure.m in Sources */ = {isa = PBXBuildFile; fileRef = 7812D8791F47E7D80041CC9C /* CarouselFigure.m */; };
 		7812D87D1F47E98E0041CC9C /* BrandScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = 7812D87C1F47E98E0041CC9C /* BrandScroll.m */; };
 		78657BC01F41DA4200DC2AFE /* TaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78657BBF1F41DA4200DC2AFE /* TaskViewController.m */; };
@@ -372,6 +374,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		780C57C11F75729B00C5721A /* PatrolListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PatrolListModel.h; sourceTree = "<group>"; };
+		780C57C21F75729B00C5721A /* PatrolListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PatrolListModel.m; sourceTree = "<group>"; };
+		780C57C41F76004A00C5721A /* StartPatrolModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StartPatrolModel.h; sourceTree = "<group>"; };
+		780C57C51F76004A00C5721A /* StartPatrolModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StartPatrolModel.m; sourceTree = "<group>"; };
 		7812D8781F47E7D80041CC9C /* CarouselFigure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarouselFigure.h; sourceTree = "<group>"; };
 		7812D8791F47E7D80041CC9C /* CarouselFigure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarouselFigure.m; sourceTree = "<group>"; };
 		7812D87B1F47E98E0041CC9C /* BrandScroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrandScroll.h; sourceTree = "<group>"; };
@@ -2187,6 +2193,10 @@
 			children = (
 				847ED0FE1F341F6600BC710E /* PatrolHistoryModel.h */,
 				847ED0FF1F341F6600BC710E /* PatrolHistoryModel.m */,
+				780C57C11F75729B00C5721A /* PatrolListModel.h */,
+				780C57C21F75729B00C5721A /* PatrolListModel.m */,
+				780C57C41F76004A00C5721A /* StartPatrolModel.h */,
+				780C57C51F76004A00C5721A /* StartPatrolModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2769,7 +2779,9 @@
 				84B7B5D51F46B39300C3C708 /* UIViewController+Dialog.m in Sources */,
 				847ED1E51F3421F500BC710E /* YYTextEffectWindow.m in Sources */,
 				84F929471F298F1100B76D79 /* ReportViewController.m in Sources */,
+				780C57C31F75729B00C5721A /* PatrolListModel.m in Sources */,
 				8497E8531F662735001ABBEA /* AFImageDownloader.m in Sources */,
+				780C57C61F76004A00C5721A /* StartPatrolModel.m in Sources */,
 				84B7B5C61F46B2ED00C3C708 /* UIButton+WebCache.m in Sources */,
 				847ED1D91F3421F500BC710E /* YYAnimatedImageView.m in Sources */,
 				84B7B60A1F46F39600C3C708 /* IQUITextFieldView+Additions.m in Sources */,

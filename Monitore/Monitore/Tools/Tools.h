@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "UserTitle.h"
 
 @interface Tools : NSObject
 
@@ -19,4 +20,8 @@ typedef void(^AddressBlock)(NSString *);
 + (CGFloat)heightForTextWith:(NSString *)text fontSize:(CGFloat)fontSize width:(CGFloat)width;
 + (CGFloat)widthForTextWith:(NSString *)text fontSize:(CGFloat)fontSize height:(CGFloat)height;
 
+// 归档
++ (void)savePersonData:(UserTitle *)userTitle;
+
++ (UserTitle *)getPersonData;
 @end

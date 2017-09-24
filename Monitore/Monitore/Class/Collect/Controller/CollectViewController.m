@@ -110,7 +110,7 @@
                           @"IMG":@"3456"};
     [[DLAPIClient sharedClient]POST:@"gather" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject[Kstatus]isEqualToString:Ksuccess]) {
-            [self showSuccessMessage:@"responseObject[Kinfo]"];
+            [self showSuccessMessage:responseObject[Kstatus]];
         }else
         {
             [self showErrorMessage:responseObject[Kinfo]];

@@ -7,12 +7,16 @@
 //
 
 #import "GoToPatrolViewController.h"
+#import "StartPatrolModel.h"
+#import "UserTitle.h"
 
 @interface GoToPatrolViewController ()<BMKMapViewDelegate, BMKLocationServiceDelegate, BTKTraceDelegate, BTKTrackDelegate, DLAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *patrolAddress;
 @property (weak, nonatomic) IBOutlet UILabel *patrolTime;
 @property (weak, nonatomic) IBOutlet UIView *mapBagView;
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
+
+@property (strong, nonatomic) StartPatrolModel *model;
 
 @property (strong, nonatomic)NSTimer *timer;
 
@@ -48,6 +52,10 @@
     self.title = @"我要巡逻";
     
     timerCount = 0;
+    
+    UserTitle *userTitle = [Tools getPersonData];
+    self.model = [[StartPatrolModel alloc]init];
+    self.model.userId = userTitle.usersId;
     
     self.mapView = [[BMKMapView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-60)];
     self.mapView.userTrackingMode = BMKUserTrackingModeFollow;
@@ -232,6 +240,9 @@
     
     if (sender.selected) {
         // 开始
+ //       [self startPatrol];
+        return;
+        
         [self.startButton setTitle:@"结束巡逻" forState:UIControlStateNormal];
         self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerAction) userInfo:nil repeats:YES];
         
@@ -240,9 +251,40 @@
         [self startTrajectory];
     }else{
         // 结束
+        [self endPatrol];
+        return;
         DLAlertView *alertView = [[DLAlertView alloc]initWithTitle:@"提示" message:@"确定要结束巡逻？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
         [alertView show];
     }
+}
+
+- (void)startPatrol{
+    NSDictionary *dic = @{@"USER_ID":self.model.userId,
+                          @"TITLE":@"巡逻",
+                          @"NAME":@"小三",
+                          @"START_LONGITUDE":@"121.444569",
+                          @"START_LATITUDE":@"31.252137",
+                          @"START_ADDRESS":@"美国"};
+    
+    [[DLAPIClient sharedClient]POST:@"patrol" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"%@", responseObject);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+    }];
+}
+
+- (void)endPatrol{
+    NSDictionary *dic = @{@"USER_ID":self.model.userId,
+                      @"ID":@"c7bd7180485a42c8ae8e4866204e5e07",
+                          @"END_LONGITUDE":@"121.444569",
+                          @"END_LATITUDE":@"31.252137",
+                          @"END_ADDRESS":@"美国"};
+    
+    [[DLAPIClient sharedClient]POST:@"endPatrol" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"%@", responseObject);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+    }];
 }
 
 - (void)leftBarButtonAction1{

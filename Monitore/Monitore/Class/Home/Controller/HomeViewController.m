@@ -165,6 +165,7 @@ static NSString *HomeCollectionViewCellId = @"HomeCollectionViewCell";
     {
         // 在线巡逻
         PatrolViewController *patrolVc = [[UIStoryboard storyboardWithName:@"Patrol" bundle:nil] instantiateViewControllerWithIdentifier:@"PatrolViewController"];
+        patrolVc.userTitle = self.userTitle;
         [self.navigationController pushViewController:patrolVc animated:YES];
         
     }
