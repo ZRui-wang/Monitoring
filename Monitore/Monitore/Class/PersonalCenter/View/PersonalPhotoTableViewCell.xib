@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -18,24 +19,29 @@
                 <rect key="frame" x="0.0" y="0.0" width="333" height="145.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="拍照" translatesAutoresizingMaskIntoConstraints="NO" id="Hhq-KY-QbM">
-                        <rect key="frame" x="5" y="5" width="323" height="114.5"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="拍照" translatesAutoresizingMaskIntoConstraints="NO" id="Hhq-KY-QbM">
+                        <rect key="frame" x="118" y="22.5" width="100" height="100"/>
                         <color key="backgroundColor" red="0.94095736740000002" green="0.94509977099999998" blue="0.94911319019999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="100" id="5RG-kN-6CP"/>
+                            <constraint firstAttribute="width" constant="100" id="qJf-eF-OMe"/>
+                        </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="个人近照" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LCh-f1-uwL">
-                        <rect key="frame" x="140.5" y="124.5" width="53.5" height="16"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="个人头像：" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LCh-f1-uwL">
+                        <rect key="frame" x="13" y="64" width="95" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="95" id="VFA-ms-iRb"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="LCh-f1-uwL" firstAttribute="top" secondItem="Hhq-KY-QbM" secondAttribute="bottom" constant="5" id="EdY-34-rQk"/>
-                    <constraint firstAttribute="bottom" secondItem="LCh-f1-uwL" secondAttribute="bottom" constant="5" id="a71-zi-CN5"/>
-                    <constraint firstItem="Hhq-KY-QbM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="grB-6E-gUN"/>
-                    <constraint firstItem="Hhq-KY-QbM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="iBc-HA-Khw"/>
-                    <constraint firstItem="LCh-f1-uwL" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="lh8-Tn-UzR"/>
-                    <constraint firstAttribute="trailing" secondItem="Hhq-KY-QbM" secondAttribute="trailing" constant="5" id="xSt-Kq-EgI"/>
+                    <constraint firstItem="Hhq-KY-QbM" firstAttribute="leading" secondItem="LCh-f1-uwL" secondAttribute="trailing" constant="10" id="So7-lj-3B7"/>
+                    <constraint firstItem="LCh-f1-uwL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="Tad-PH-5dO"/>
+                    <constraint firstItem="Hhq-KY-QbM" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="fGn-rS-hak"/>
+                    <constraint firstItem="LCh-f1-uwL" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="qmH-2H-QaM"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

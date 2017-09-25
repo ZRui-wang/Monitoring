@@ -14,6 +14,9 @@
     [super awakeFromNib];
     // Initialization code
     self.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    self.photo.layer.cornerRadius = 50;
+    self.photo.layer.masksToBounds = YES;
 }
 
 - (void)setPhoto:(UIImageView *)photo{

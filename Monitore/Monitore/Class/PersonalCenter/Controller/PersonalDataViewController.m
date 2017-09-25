@@ -65,7 +65,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section==0 && indexPath.row == 8) {
-        return 200;
+        return 120;
     }
     else
     {
@@ -215,13 +215,12 @@
     if (indexPath.section==0 && indexPath.row == 8) {
         PersonalPhotoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PersonalPhotoTableViewCell" forIndexPath:indexPath];
         if (self.photoImage) {
-            if (self.model.icon.length) {
+            if (self.photoImage) {
+                cell.photo.image = self.photoImage;
+                [cell.photo setContentMode:UIViewContentModeScaleToFill];
+            }else{
                 [cell.photo sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", self.model.icon]]];
-                 }else{
-                     
-                     cell.photo.image = self.photoImage;
-                     [cell.photo setContentMode:UIViewContentModeScaleToFill];
-                 }
+            }
         }
         return cell;
     }
