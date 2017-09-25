@@ -281,6 +281,9 @@
 		84C784381F724CF900D50E3A /* VolunteerListHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C784371F724CF900D50E3A /* VolunteerListHeaderView.m */; };
 		84C7843A1F724D0D00D50E3A /* VolunteerListHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84C784391F724D0D00D50E3A /* VolunteerListHeaderView.xib */; };
 		84C7843D1F725EFE00D50E3A /* ArardHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C7843C1F725EFE00D50E3A /* ArardHistoryViewController.m */; };
+		84D70AD01F78902D008575F7 /* GiftListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D70ACF1F78902D008575F7 /* GiftListModel.m */; };
+		84D70AD31F78993E008575F7 /* TrainModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D70AD21F78993E008575F7 /* TrainModel.m */; };
+		84D70AD61F789C56008575F7 /* BlackModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D70AD51F789C56008575F7 /* BlackModel.m */; };
 		84F9275F1F25D37400B76D79 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F9275E1F25D37400B76D79 /* main.m */; };
 		84F927781F25D37400B76D79 /* MonitoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F927771F25D37400B76D79 /* MonitoreTests.m */; };
 		84F927831F25D37400B76D79 /* MonitoreUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F927821F25D37400B76D79 /* MonitoreUITests.m */; };
@@ -894,6 +897,12 @@
 		84C784391F724D0D00D50E3A /* VolunteerListHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VolunteerListHeaderView.xib; sourceTree = "<group>"; };
 		84C7843B1F725EFE00D50E3A /* ArardHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArardHistoryViewController.h; sourceTree = "<group>"; };
 		84C7843C1F725EFE00D50E3A /* ArardHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArardHistoryViewController.m; sourceTree = "<group>"; };
+		84D70ACE1F78902D008575F7 /* GiftListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GiftListModel.h; sourceTree = "<group>"; };
+		84D70ACF1F78902D008575F7 /* GiftListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GiftListModel.m; sourceTree = "<group>"; };
+		84D70AD11F78993E008575F7 /* TrainModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrainModel.h; sourceTree = "<group>"; };
+		84D70AD21F78993E008575F7 /* TrainModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrainModel.m; sourceTree = "<group>"; };
+		84D70AD41F789C56008575F7 /* BlackModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlackModel.h; sourceTree = "<group>"; };
+		84D70AD51F789C56008575F7 /* BlackModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlackModel.m; sourceTree = "<group>"; };
 		84F9275A1F25D37400B76D79 /* Monitore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Monitore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84F9275E1F25D37400B76D79 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		84F927731F25D37400B76D79 /* MonitoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MonitoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1875,6 +1884,8 @@
 		84C784271F70C1CC00D50E3A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				84D70ACE1F78902D008575F7 /* GiftListModel.h */,
+				84D70ACF1F78902D008575F7 /* GiftListModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2113,6 +2124,8 @@
 		84F928C41F29652B00B76D79 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				84D70AD41F789C56008575F7 /* BlackModel.h */,
+				84D70AD51F789C56008575F7 /* BlackModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2416,6 +2429,8 @@
 		84F9290A1F29652B00B76D79 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				84D70AD11F78993E008575F7 /* TrainModel.h */,
+				84D70AD21F78993E008575F7 /* TrainModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2805,6 +2820,7 @@
 				84A1D4E11F5EA65D00BFAFC0 /* QNEtag.m in Sources */,
 				847ED1D11F3421F500BC710E /* YYDiskCache.m in Sources */,
 				847ED1C41F3421F500BC710E /* UIBezierPath+YYAdd.m in Sources */,
+				84D70AD01F78902D008575F7 /* GiftListModel.m in Sources */,
 				8497E8591F662735001ABBEA /* UIRefreshControl+AFNetworking.m in Sources */,
 				847ED1F41F3421F500BC710E /* YYTextUtilities.m in Sources */,
 				847ED1DD1F3421F500BC710E /* YYImageCoder.m in Sources */,
@@ -2835,8 +2851,10 @@
 				847ED1E71F3421F500BC710E /* YYTextKeyboardManager.m in Sources */,
 				84B7B5C41F46B2ED00C3C708 /* SDWebImageManager.m in Sources */,
 				84A1D4ED1F5EA65D00BFAFC0 /* QNResumeUpload.m in Sources */,
+				84D70AD31F78993E008575F7 /* TrainModel.m in Sources */,
 				84B7B5CA1F46B2ED00C3C708 /* UIImageView+HighlightedWebCache.m in Sources */,
 				84B7B5801F45644100C3C708 /* MYColorBackView.m in Sources */,
+				84D70AD61F789C56008575F7 /* BlackModel.m in Sources */,
 				847ED1EA1F3421F500BC710E /* YYTextMagnifier.m in Sources */,
 				84F927DD1F27478800B76D79 /* NSArray+LjAdd.m in Sources */,
 				84A1D5301F5EA7DF00BFAFC0 /* QNDes.m in Sources */,

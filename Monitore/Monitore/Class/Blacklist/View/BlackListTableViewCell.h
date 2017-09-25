@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BlackModel.h"
 
 @interface BlackListTableViewCell : UITableViewCell
+
+
+- (void)showDetailWithData:(BlackModel *)model;
 
 @end

@@ -9,10 +9,14 @@
 #import "AwardViewController.h"
 #import "AwardTableViewCell.h"
 #import "ArardHistoryViewController.h"
+#import "UserTitle.h"
+#import "GiftListModel.h"
 
 @interface AwardViewController ()<UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong)UITableView *tableView;
+@property (nonatomic, strong) NSMutableArray *listAry;
+
 
 @end
 
@@ -25,12 +29,35 @@
     [self leftCustomBarButton];
     [self rightCustomBarButton];
     
+    self.listAry = [NSMutableArray array];
+    
     self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStyleGrouped];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.view addSubview:self.tableView];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"AwardTableViewCell" bundle:nil] forCellReuseIdentifier:@"AwardTableViewCell"];
+    
+    [self gitGiftList];
+}
+
+- (void)gitGiftList{
+    
+    UserTitle *title = [Tools getPersonData];
+    
+    [[DLAPIClient sharedClient] POST:@"giftList" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        if ([responseObject[Kstatus]isEqualToString:Ksuccess]) {
+            for (NSDictionary *dic in responseObject[@"dataList"]) {
+                GiftListModel *model = [GiftListModel modelWithDictionary:dic];
+                [self.listAry addObject:model];
+            }
+            [self.tableView reloadData];
+        }else{
+            [self showWarningMessage:@"数据错误"];
+        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [self showErrorMessage:@"网络错误"];
+    }];
 }
 
 - (void)rightCustomBarButton{
@@ -44,11 +71,12 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 20;
+    return self.listAry.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     AwardTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AwardTableViewCell"];
+    [cell showDetailWithData:self.listAry[indexPath.row]];
     return cell;
 }
 

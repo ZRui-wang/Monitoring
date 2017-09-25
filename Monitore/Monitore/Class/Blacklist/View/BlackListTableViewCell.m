@@ -8,12 +8,26 @@
 
 #import "BlackListTableViewCell.h"
 
+@interface BlackListTableViewCell()
+
+@property (weak, nonatomic) IBOutlet UIImageView *img;
+@property (weak, nonatomic) IBOutlet UILabel *title;
+@property (weak, nonatomic) IBOutlet UILabel *time;
+
+@end
+
 @implementation BlackListTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
     self.selectionStyle = UITableViewCellSelectionStyleNone;
+}
+
+- (void)showDetailWithData:(BlackModel *)model{
+    [self.img sd_setImageWithURL:[NSURL URLWithString:model.icon]];
+    self.title.text = model.title;
+    self.time.text = model.createtime;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

@@ -30,6 +30,8 @@
 #import "AFNetworking.h"
 #import "UIKit+AFNetworking.h"
 
+#import "UIImageView+WebCache.h"
+
 
 
 

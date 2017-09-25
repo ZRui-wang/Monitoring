@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TrainModel.h"
 
 @interface TrainTableViewCell : UITableViewCell
+
+- (void)showDetailWithData:(TrainModel *)model;
 
 @end

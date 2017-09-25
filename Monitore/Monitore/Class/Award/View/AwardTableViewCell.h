@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GiftListModel.h"
 
 @interface AwardTableViewCell : UITableViewCell
+
+- (void)showDetailWithData:(GiftListModel *)model;
 
 @end

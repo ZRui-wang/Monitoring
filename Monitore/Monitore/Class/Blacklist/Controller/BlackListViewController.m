@@ -8,10 +8,12 @@
 
 #import "BlackListViewController.h"
 #import "BlackListTableViewCell.h"
+#import "BlackModel.h"
 
 @interface BlackListViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong)UITableView *tableView;
+@property (nonatomic, strong)NSMutableArray *listAry;
 
 @end
 
@@ -21,7 +23,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.title = @"黑名单";
+    self.title = @"维稳黑名单";
     [self leftCustomBarButton];
     
     self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStyleGrouped];
@@ -30,14 +32,34 @@
     [self.view addSubview:self.tableView];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"BlackListTableViewCell" bundle:nil] forCellReuseIdentifier:@"BlackListTableViewCell"];
+    
+    self.listAry  = [NSMutableArray array];
+    [self getBlackListData];
+}
+
+- (void)getBlackListData{
+    [[DLAPIClient sharedClient]POST:@"hmdList" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        if ([responseObject[Kstatus]isEqualToString:Ksuccess]) {
+            for (NSDictionary *dic in responseObject[@"dataList"]) {
+                BlackModel *model = [BlackModel modelWithDictionary:dic];
+                [self.listAry addObject:model];
+            }
+            [self.tableView reloadData];
+        }else{
+            
+        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+    }];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 20;
+    return self.listAry.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     BlackListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BlackListTableViewCell"];
+    [cell showDetailWithData:self.listAry[indexPath.row]];
     return cell;
 }
 

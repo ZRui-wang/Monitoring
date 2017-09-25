@@ -8,12 +8,27 @@
 
 #import "TrainTableViewCell.h"
 
+@interface TrainTableViewCell()
+@property (weak, nonatomic) IBOutlet UIImageView *img;
+@property (weak, nonatomic) IBOutlet UILabel *title;
+@property (weak, nonatomic) IBOutlet UILabel *time;
+
+@end
+
 @implementation TrainTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
     self.selectionStyle = UITableViewCellSelectionStyleNone;
+}
+
+- (void)showDetailWithData:(TrainModel *)model{
+    
+    [self.img sd_setImageWithURL:[NSURL URLWithString:model.icon]];
+    self.title.text = model.title;
+    self.time.text = model.createtime;
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

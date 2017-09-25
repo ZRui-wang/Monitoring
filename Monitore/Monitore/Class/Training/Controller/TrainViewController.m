@@ -8,10 +8,12 @@
 
 #import "TrainViewController.h"
 #import "TrainTableViewCell.h"
+#import "TrainModel.h"
 
 @interface TrainViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong)UITableView *tableView;
+@property (nonatomic, strong)NSMutableArray *listAry;
 
 @end
 
@@ -29,14 +31,35 @@
     [self.view addSubview:self.tableView];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"TrainTableViewCell" bundle:nil] forCellReuseIdentifier:@"TrainTableViewCell"];
+    
+    self.listAry = [NSMutableArray array];
+    [self getInfoList];
+}
+
+- (void)getInfoList{
+    [[DLAPIClient sharedClient]POST:@"infoList" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        if ([responseObject[Kstatus]isEqualToString:Ksuccess]) {
+            for (NSDictionary *dic in responseObject[@"dataList"]) {
+                TrainModel *model = [TrainModel modelWithDictionary:dic];
+                [self.listAry addObject:model];
+            }
+            [self.tableView reloadData];
+        }else
+        {
+            
+        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+    }];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 20;
+    return self.listAry.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     TrainTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TrainTableViewCell"];
+    [cell showDetailWithData:self.listAry[indexPath.row]];
     return cell;
 }
 

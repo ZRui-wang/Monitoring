@@ -48,7 +48,7 @@ static NSString *HomeCollectionViewCellId = @"HomeCollectionViewCell";
     self.title = @"群防群治";
     self.bannerAry = [NSMutableArray array];
     
-    NSArray *temptAry = @[@"通知公告", @"群防任务", @"在线监督", @"在线巡逻", @"防骗培训", @"黑名单", @"志愿者管理", @"个人中心"];
+    NSArray *temptAry = @[@"通知公告", @"群防任务", @"在线监督", @"在线巡逻", @"防骗培训", @"维稳黑名单", @"志愿者管理", @"个人中心"];
     self.titleAry = temptAry;
     
     self.userTitle = [Tools getPersonData];

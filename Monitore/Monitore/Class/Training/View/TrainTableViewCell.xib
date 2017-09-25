@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -32,16 +32,29 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B7s-bC-RfJ">
+                        <rect key="frame" x="100.5" y="72" width="37.5" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="oL8-OG-0W9" secondAttribute="bottom" constant="15" id="K0g-HJ-uRg"/>
+                    <constraint firstItem="B7s-bC-RfJ" firstAttribute="bottom" secondItem="oL8-OG-0W9" secondAttribute="bottom" id="LcO-Da-JR1"/>
                     <constraint firstItem="oL8-OG-0W9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="faV-RN-Vqj"/>
+                    <constraint firstItem="B7s-bC-RfJ" firstAttribute="leading" secondItem="bhw-kE-DTL" secondAttribute="leading" id="gXa-Og-Hcq"/>
                     <constraint firstItem="bhw-kE-DTL" firstAttribute="top" secondItem="oL8-OG-0W9" secondAttribute="top" id="qYg-PJ-Idc"/>
                     <constraint firstAttribute="trailingMargin" secondItem="bhw-kE-DTL" secondAttribute="trailing" constant="15" id="qnb-5r-lg9"/>
                     <constraint firstItem="bhw-kE-DTL" firstAttribute="leading" secondItem="oL8-OG-0W9" secondAttribute="trailing" constant="10" id="tPK-O7-Q8b"/>
                     <constraint firstItem="oL8-OG-0W9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="uFZ-nD-Psi"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="img" destination="oL8-OG-0W9" id="Bym-Iu-o0C"/>
+                <outlet property="time" destination="B7s-bC-RfJ" id="AJP-84-m4A"/>
+                <outlet property="title" destination="bhw-kE-DTL" id="zyH-DT-Cvk"/>
+            </connections>
             <point key="canvasLocation" x="65.5" y="85"/>
         </tableViewCell>
     </objects>
