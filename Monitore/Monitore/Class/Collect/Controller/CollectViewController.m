@@ -14,10 +14,10 @@
 @interface CollectViewController ()<UIPickerViewDelegate, UIPickerViewDataSource, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *colour;
-@property (weak, nonatomic) IBOutlet UILabel *addressLabel;
+@property (strong, nonatomic) UILabel *addressLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *colorTitle;
-@property (weak, nonatomic) IBOutlet UILabel *addressTitle;
+@property (strong, nonatomic) UILabel *addressTitle;
 @property (weak, nonatomic) IBOutlet UIImageView *collectImageView;
 @property (weak, nonatomic) IBOutlet UIButton *takePhotoButton;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
@@ -47,9 +47,11 @@
     self.title = @"我要救援";
     [self leftCustomBarButton];
     [self rightCustomBarButton];
+    
+    self.addressLabel = [[UILabel alloc]init];
 
-    [self fuwenbenLabel:self.colorTitle FontNumber:14 AndRange:NSMakeRange(2, 1) AndColor:[UIColor redColor]];
-    [self fuwenbenLabel:self.addressTitle FontNumber:14 AndRange:NSMakeRange(4, 1) AndColor:[UIColor redColor]];
+//    [self fuwenbenLabel:self.colorTitle FontNumber:14 AndRange:NSMakeRange(2, 1) AndColor:[UIColor redColor]];
+//    [self fuwenbenLabel:self.addressTitle FontNumber:14 AndRange:NSMakeRange(4, 1) AndColor:[UIColor redColor]];
     
     colorAry = @[@"蓝色", @"黄色", @"绿色", @"黑色", @"白色"];
     
@@ -126,7 +128,7 @@
 
 - (IBAction)submitButtonAction:(id)sender {
     
-    if (!self.linkerModel) {
+    if (!self.linkerModel.urgentMobile) {
         [self showWarningMessage:@"请添加紧急联系人"];
         return;
     }
@@ -138,8 +140,7 @@
                           @"CONTENT":@"123",
                           @"ADDRESS":self.addressLabel.text,
                           @"LONGITUDE":self.lon,
-                          @"LATITUDE":self.lat,
-                          @"IMG":self.imageData};
+                          @"LATITUDE":self.lat};
     [[DLAPIClient sharedClient]POST:@"gather" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject[Kstatus]isEqualToString:Ksuccess]) {
             [self showSuccessMessage:responseObject[Kstatus]];
@@ -222,16 +223,16 @@
     self.textViewHeigh.constant = textView.bounds.size.height;
 }
 
-//设置不同字体颜色
--(void)fuwenbenLabel:(UILabel *)labell FontNumber:(NSInteger)font AndRange:(NSRange)range AndColor:(UIColor *)vaColor
-{
-    NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:labell.text];
-    //设置字号
-    [str addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:font] range:range];
-    //设置文字颜色
-    [str addAttribute:NSForegroundColorAttributeName value:vaColor range:range];
-    labell.attributedText = str;
-}
+////设置不同字体颜色
+//-(void)fuwenbenLabel:(UILabel *)labell FontNumber:(NSInteger)font AndRange:(NSRange)range AndColor:(UIColor *)vaColor
+//{
+//    NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:labell.text];
+//    //设置字号
+//    [str addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:font] range:range];
+//    //设置文字颜色
+//    [str addAttribute:NSForegroundColorAttributeName value:vaColor range:range];
+//    labell.attributedText = str;
+//}
 
 /***打开相册*/
 -(void)openPhotoLibrary{

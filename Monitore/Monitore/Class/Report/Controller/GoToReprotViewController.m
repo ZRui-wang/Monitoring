@@ -41,7 +41,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self leftCustomBarButton];
-    self.title = @"我要监督";
+    self.title = @"在线监督";
     self.classAry = [NSMutableArray array];
     self.model = [[ReportModel alloc]init];
     
@@ -224,60 +224,103 @@
 }
 
 - (IBAction)submitButtonAction:(id)sender {
-    NSDictionary *dic = @{@"USER_ID":self.model.userId,
-                          @"FIRST_ID":self.model.firstId,
-                          @"SECOND_ID":self.model.secodeId,
-                          @"CONTENT":self.model.content,
-                          @"TITLE":self.model.title,
-                          @"ADDRESS":self.model.address,
-                          @"LONGITUDE":self.model.longitude,
-                          @"LATITUDE":self.model.latitude
-                          }; //                          @"REMARK":@""
-    [[DLAPIClient sharedClient]POST:@"report" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
-        if ([responseObject[Kstatus] isEqualToString:Ksuccess]) {
-            [self showErrorMessage:@"提交成功"];
+    [self uploadInfo];
+//    NSDictionary *dic = @{@"USER_ID":self.model.userId,
+//                          @"FIRST_ID":self.model.firstId,
+//                          @"SECOND_ID":self.model.secodeId,
+//                          @"CONTENT":self.model.content,
+//                          @"TITLE":self.model.title,
+//                          @"ADDRESS":self.model.address,
+//                          @"LONGITUDE":self.model.longitude,
+//                          @"LATITUDE":self.model.latitude
+//                          }; //                          @"REMARK":@""
+//    [[DLAPIClient sharedClient]POST:@"report" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+//        if ([responseObject[Kstatus] isEqualToString:Ksuccess]) {
+//            [self showErrorMessage:@"提交成功"];
+//        }
+//        else{
+//            [self showErrorMessage:@"操作失败"];
+//        }
+//    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+//        [self showErrorMessage:@"数据错误"];
+//    }];
+}
+
+- (void)uploadInfo{
+    // 查询条件
+    NSString *url = [NSString stringWithFormat:@"http://39.108.78.69:3002/mobile/report?USER_ID=%@&FIRST_ID=%@&SECOND_ID=%@&CONTENT=%@&TITLE=%@&ADDRESS=%@&LONGITUDE=%@&LATITUDE=%@", self.model.userId, self.model.firstId, self.model.secodeId, self.model.content, self.model.title, self.model.address, self.model.longitude, self.model.latitude];
+    url = [url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    // 基于AFN3.0+ 封装的HTPPSession句柄
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.requestSerializer.timeoutInterval = 20;
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain", @"multipart/form-data", @"application/json", @"text/html", @"image/jpeg", @"image/png", @"application/octet-stream", @"text/json", nil];
+    
+    if (self.photoArray.count==1) {
+        [self showWarningMessage:@"请上传图片"];
+        return;
+    }
+    // 在parameters里存放照片以外的对象
+    [manager POST:url parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        // formData: 专门用于拼接需要上传的数据,在此位置生成一个要上传的数据体
+        // 这里的_photoArr是你存放图片的数组
+        for (int i = 0; i < self.photoArray.count-1; i++) {
+            NSData *imageData = UIImageJPEGRepresentation(self.photoArray[i], 0.5);
+            
+            // 在网络开发中，上传文件时，是文件不允许被覆盖，文件重名
+            // 要解决此问题，
+            // 可以在上传时使用当前的系统事件作为文件名
+            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+            // 设置时间格式
+            [formatter setDateFormat:@"yyyyMMddHHmmss"];
+            NSString *dateString = [formatter stringFromDate:[NSDate date]];
+            NSString *fileName = [NSString  stringWithFormat:@"%@.png", dateString];
+            /*
+             *该方法的参数
+             1. appendPartWithFileData：要上传的照片[二进制流]
+             2. name：对应网站上[upload.php中]处理文件的字段（比如upload）
+             3. fileName：要保存在服务器上的文件名
+             4. mimeType：上传的文件的类型
+             */
+            [formData appendPartWithFileData:imageData name:fileName fileName:fileName mimeType:@"image/jpeg"]; //
         }
-        else{
-            [self showErrorMessage:@"操作失败"];
-        }
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        [self showErrorMessage:@"数据错误"];
+        [self showWithStatus:@"正在提交.."];
+        
+    } progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+        NSLog(@"---上传进度--- %@",uploadProgress);
+        
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        NSLog(@"```上传成功``` %@",responseObject);
+        [self showSuccessMessage:@"提交成功"];
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        NSLog(@"xxx上传失败xxx %@", error);
+        [self showErrorMessage:@"提交失败"];
         
     }];
 }
 
+
 /***打开相册*/
 -(void)openPhotoLibrary{
     // 进入相册
-    
     if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
-        
     {
-        
         UIImagePickerController *imagePicker = [[UIImagePickerController alloc]init];
-        
         imagePicker.allowsEditing = YES;
-        
         imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-        
         imagePicker.delegate = self;
         
         [self presentViewController:imagePicker animated:YES completion:^{
-            
             NSLog(@"打开相册");
-            
         }];
-        
     }
-    
-    else
-        
-    {
-        
+    else{
         NSLog(@"不能打开相册");
-        
     }
-    
 }
 
 

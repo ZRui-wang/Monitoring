@@ -101,49 +101,37 @@
 }
 
 - (void)saveButtonAction{
-    NSDictionary *dic = @{
-        @"USER_ID":self.model.usersId,
-        @"NICKNAME":self.model.nickname,
-        @"IDCARD":self.model.idcard,
-      @"JOB":self.model.job,
-      @"ADDRESS":self.model.address,
-        @"SEX":self.model.sex,
-        @"REC_MOBILE":self.model.recMobile,
-        @"CITY_NAME":self.model.cityName,
-        @"COMPANY":self.model.company,
-        @"ICON":self.model.icon
-        };
-    [[DLAPIClient sharedClient] POST:@"updUserInfo" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
-        NSLog(@"%@", responseObject);
-        if ([responseObject[Kstatus] isEqualToString:Ksuccess]) {
-            [self showSuccessMessage:@"保存成功"];
-        }
-        else{
-            [self showWithStatus:responseObject[Kinfo]];
-        }
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        [self showErrorMessage:error.domain];
-    }];
+//    NSDictionary *dic = @{
+//        @"USER_ID":self.model.usersId,
+//        @"NICKNAME":self.model.nickname,
+//        @"IDCARD":self.model.idcard,
+//      @"JOB":self.model.job,
+//      @"ADDRESS":self.model.address,
+//        @"SEX":self.model.sex,
+//        @"REC_MOBILE":self.model.recMobile,
+//        @"CITY_NAME":self.model.cityName,
+//        @"COMPANY":self.model.company,
+//        @"ICON":self.model.icon
+//        };
+//    [[DLAPIClient sharedClient] POST:@"updUserInfo" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+//        NSLog(@"%@", responseObject);
+//        if ([responseObject[Kstatus] isEqualToString:Ksuccess]) {
+//            [self showSuccessMessage:@"保存成功"];
+//        }
+//        else{
+//            [self showWithStatus:responseObject[Kinfo]];
+//        }
+//    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+//        [self showErrorMessage:error.domain];
+//    }];
     
-//    [self uploadInfo];
+    [self uploadInfo];
 }
 
 - (void)uploadInfo{
     // 查询条件
-    self.model.nickname = @"";
-    NSDictionary *dic = @{
-                          @"USER_ID":self.model.usersId,
-                          @"NICKNAME":self.model.nickname,
-                          @"IDCARD":self.model.idcard,
-                          @"JOB":self.model.job,
-                          @"ADDRESS":self.model.address,
-                          @"SEX":self.model.sex,
-                          @"REC_MOBILE":self.model.recMobile,
-                          @"CITY_NAME":self.model.cityName,
-                          @"COMPANY":self.model.company
-                          };
-    NSString *url = [NSString stringWithFormat:@"http://39.108.78.69:3002/mobile/updUserInfo?USER_ID=%@?NICKNAME=%@?IDCARD=%@?JOB=%@?ADDRESS=%@?SEX=%@?REC_MOBILE=%@?CITY_NAME=%@?COMPANY=%@", self.model.usersId, self.model.nickname, self.model.idcard, self.model.job, self.model.address, self.model.sex, self.model.recMobile, self.model.cityName, self.model.company ];
-//    url = [url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    NSString *url = [NSString stringWithFormat:@"http://39.108.78.69:3002/mobile/updUserInfo?USER_ID=%@&NICKNAME=%@&IDCARD=%@&JOB=%@&ADDRESS=%@&SEX=%@&REC_MOBILE=%@&CITY_NAME=%@&COMPANY=%@", self.model.usersId, self.model.nickname, self.model.idcard, self.model.job, self.model.address, self.model.sex, self.model.recMobile, self.model.cityName, self.model.company ];
+    url = [url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     // 基于AFN3.0+ 封装的HTPPSession句柄
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.requestSerializer.timeoutInterval = 20;
@@ -215,12 +203,10 @@
     if (indexPath.section==0 && indexPath.row == 8) {
         PersonalPhotoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PersonalPhotoTableViewCell" forIndexPath:indexPath];
         if (self.photoImage) {
-            if (self.photoImage) {
-                cell.photo.image = self.photoImage;
-                [cell.photo setContentMode:UIViewContentModeScaleToFill];
-            }else{
-                [cell.photo sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", self.model.icon]]];
-            }
+            cell.photo.image = self.photoImage;
+            [cell.photo setContentMode:UIViewContentModeScaleToFill];
+        }else{
+            [cell.photo sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", self.model.icon]]];
         }
         return cell;
     }
