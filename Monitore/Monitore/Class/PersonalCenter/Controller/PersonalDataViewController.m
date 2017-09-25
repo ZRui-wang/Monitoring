@@ -13,8 +13,9 @@
 #import "PersonalDataHeaderView.h"
 #import "UserTitle.h"
 #import "UIImageView+WebCache.h"
+#import "SexTableViewCell.h"
 
-@interface PersonalDataViewController ()<UITableViewDelegate, UITableViewDataSource, SaveButtonDelegate, SaveInfoDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface PersonalDataViewController ()<UITableViewDelegate, UITableViewDataSource, SaveButtonDelegate, SaveInfoDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, SelectSexDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (strong, nonatomic) UIImage *photoImage;
@@ -37,6 +38,7 @@
     
     [self.tableView registerNib:[UINib nibWithNibName:@"PersonalDataTableViewCell" bundle:nil] forCellReuseIdentifier:@"PersonalDataTableViewCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"PersonalPhotoTableViewCell" bundle:nil] forCellReuseIdentifier:@"PersonalPhotoTableViewCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"SexTableViewCell" bundle:nil] forCellReuseIdentifier:@"SexTableViewCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"PersonalDataFooterView" bundle:nil] forHeaderFooterViewReuseIdentifier:@"PersonalDataFooterView"];
     [self.tableView registerNib:[UINib nibWithNibName:@"PersonalDataHeaderView" bundle:nil] forHeaderFooterViewReuseIdentifier:@"PersonalDataHeaderView"];
 
@@ -99,35 +101,36 @@
 }
 
 - (void)saveButtonAction{
-//    NSDictionary *dic = @{
-//        @"USER_ID":self.model.usersId,
-//        @"NICKNAME":self.model.nickname,
-//        @"IDCARD":self.model.idcard,
-//      @"JOB":self.model.job,
-//      @"ADDRESS":self.model.address,
-//        @"SEX":self.model.sex,
-//        @"REC_MOBILE":self.model.recMobile,
-//        @"CITY_NAME":self.model.cityName,
-//        @"COMPANY":self.model.company,
-//        @"ICON":self.model.icon
-//        };
-//    [[DLAPIClient sharedClient] POST:@"updUserInfo" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
-//        NSLog(@"%@", responseObject);
-//        if ([responseObject[Kstatus] isEqualToString:Ksuccess]) {
-//            [self showSuccessMessage:@"保存成功"];
-//        }
-//        else{
-//            [self showWithStatus:responseObject[Kinfo]];
-//        }
-//    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-//        [self showErrorMessage:error.domain];
-//    }];
+    NSDictionary *dic = @{
+        @"USER_ID":self.model.usersId,
+        @"NICKNAME":self.model.nickname,
+        @"IDCARD":self.model.idcard,
+      @"JOB":self.model.job,
+      @"ADDRESS":self.model.address,
+        @"SEX":self.model.sex,
+        @"REC_MOBILE":self.model.recMobile,
+        @"CITY_NAME":self.model.cityName,
+        @"COMPANY":self.model.company,
+        @"ICON":self.model.icon
+        };
+    [[DLAPIClient sharedClient] POST:@"updUserInfo" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"%@", responseObject);
+        if ([responseObject[Kstatus] isEqualToString:Ksuccess]) {
+            [self showSuccessMessage:@"保存成功"];
+        }
+        else{
+            [self showWithStatus:responseObject[Kinfo]];
+        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [self showErrorMessage:error.domain];
+    }];
     
-    [self uploadInfo];
+//    [self uploadInfo];
 }
 
 - (void)uploadInfo{
     // 查询条件
+    self.model.nickname = @"";
     NSDictionary *dic = @{
                           @"USER_ID":self.model.usersId,
                           @"NICKNAME":self.model.nickname,
@@ -140,13 +143,20 @@
                           @"COMPANY":self.model.company
                           };
     NSString *url = [NSString stringWithFormat:@"http://39.108.78.69:3002/mobile/updUserInfo?USER_ID=%@?NICKNAME=%@?IDCARD=%@?JOB=%@?ADDRESS=%@?SEX=%@?REC_MOBILE=%@?CITY_NAME=%@?COMPANY=%@", self.model.usersId, self.model.nickname, self.model.idcard, self.model.job, self.model.address, self.model.sex, self.model.recMobile, self.model.cityName, self.model.company ];
+//    url = [url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     // 基于AFN3.0+ 封装的HTPPSession句柄
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.requestSerializer.timeoutInterval = 20;
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain", @"multipart/form-data", @"application/json", @"text/html", @"image/jpeg", @"image/png", @"application/octet-stream", @"text/json", nil];
     // 在parameters里存放照片以外的对象
-    [manager POST:url parameters:dic constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+    [manager POST:url parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         // formData: 专门用于拼接需要上传的数据,在此位置生成一个要上传的数据体
+        
+        if (!self.photoImage) {
+            [self showWarningMessage:@"请上传图片"];
+            return;
+        }
+        
         // 这里的_photoArr是你存放图片的数组
         for (int i = 0; i < 1; i++) {
             NSData *imageData = UIImageJPEGRepresentation(self.photoImage, 0.5);
@@ -168,18 +178,22 @@
              */
             [formData appendPartWithFileData:imageData name:@"upload" fileName:fileName mimeType:@"image/jpeg"]; //
         }
+        [self showWithStatus:@"正在提交.."];
         
     } progress:^(NSProgress * _Nonnull uploadProgress) {
         
         NSLog(@"---上传进度--- %@",uploadProgress);
+
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         NSLog(@"```上传成功``` %@",responseObject);
+        [self showSuccessMessage:@"提交成功"];
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
         NSLog(@"xxx上传失败xxx %@", error);
+        [self showErrorMessage:@"提交失败"];
         
     }];
 }
@@ -201,14 +215,28 @@
     if (indexPath.section==0 && indexPath.row == 8) {
         PersonalPhotoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PersonalPhotoTableViewCell" forIndexPath:indexPath];
         if (self.photoImage) {
-            if (self.model.icon) {
-                [cell.photo sd_setImageWithURL:                [NSURL URLWithString:[NSString stringWithFormat:@"%@", self.model.icon]]];
+            if (self.model.icon.length) {
+                [cell.photo sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", self.model.icon]]];
                  }else{
                      
                      cell.photo.image = self.photoImage;
                      [cell.photo setContentMode:UIViewContentModeScaleToFill];
                  }
         }
+        return cell;
+    }
+    else if (indexPath.section == 0&&indexPath.row == 2){
+        SexTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SexTableViewCell" forIndexPath:indexPath];
+        cell.delegate = self;
+        
+        if ([self.model.sex isEqualToString:@"女"]) {
+            cell.manButton.selected = NO;
+            cell.womenButton.selected = YES;
+        }else{
+            cell.manButton.selected = YES;
+            cell.womenButton.selected = NO;
+        }
+        
         return cell;
     }
     else
@@ -277,54 +305,42 @@
     // 进入相册
     
     if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
-        
     {
-        
         UIImagePickerController *imagePicker = [[UIImagePickerController alloc]init];
-        
         imagePicker.allowsEditing = YES;
-        
         imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-        
         imagePicker.delegate = self;
-        
         [self presentViewController:imagePicker animated:YES completion:^{
-            
             NSLog(@"打开相册");
-            
         }];
-        
     }else{
         NSLog(@"不能打开相册");
     }
 }
 
-
-
 #pragma mark - UIImagePickerControllerDelegate
-
 // 拍照完成回调
-
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(nullable NSDictionary<NSString *,id> *)editingInfo NS_DEPRECATED_IOS(2_0, 3_0)
-
 {
     self.photoImage = image;
     NSSLog(@"finish..");
-    
 //    self.imageData = UIImagePNGRepresentation(image);
     [self.tableView reloadData];
-    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 //进入拍摄页面点击取消按钮
-
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
-
 {
-    
     [self dismissViewControllerAnimated:YES completion:nil];
-    
+}
+
+- (void)selectSexIsMan:(BOOL)isMan{
+    if (isMan) {
+        self.model.sex = @"男";
+    }else{
+        self.model.sex = @"女";
+    }
 }
 
 - (void)buildInfoRow:(NSInteger)row info:(NSString *)info{

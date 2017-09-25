@@ -284,6 +284,8 @@
 		84D70AD01F78902D008575F7 /* GiftListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D70ACF1F78902D008575F7 /* GiftListModel.m */; };
 		84D70AD31F78993E008575F7 /* TrainModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D70AD21F78993E008575F7 /* TrainModel.m */; };
 		84D70AD61F789C56008575F7 /* BlackModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D70AD51F789C56008575F7 /* BlackModel.m */; };
+		84D70ADA1F78C661008575F7 /* SexTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D70AD81F78C661008575F7 /* SexTableViewCell.m */; };
+		84D70ADB1F78C661008575F7 /* SexTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84D70AD91F78C661008575F7 /* SexTableViewCell.xib */; };
 		84F9275F1F25D37400B76D79 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F9275E1F25D37400B76D79 /* main.m */; };
 		84F927781F25D37400B76D79 /* MonitoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F927771F25D37400B76D79 /* MonitoreTests.m */; };
 		84F927831F25D37400B76D79 /* MonitoreUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F927821F25D37400B76D79 /* MonitoreUITests.m */; };
@@ -903,6 +905,9 @@
 		84D70AD21F78993E008575F7 /* TrainModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrainModel.m; sourceTree = "<group>"; };
 		84D70AD41F789C56008575F7 /* BlackModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlackModel.h; sourceTree = "<group>"; };
 		84D70AD51F789C56008575F7 /* BlackModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlackModel.m; sourceTree = "<group>"; };
+		84D70AD71F78C661008575F7 /* SexTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SexTableViewCell.h; sourceTree = "<group>"; };
+		84D70AD81F78C661008575F7 /* SexTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SexTableViewCell.m; sourceTree = "<group>"; };
+		84D70AD91F78C661008575F7 /* SexTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SexTableViewCell.xib; sourceTree = "<group>"; };
 		84F9275A1F25D37400B76D79 /* Monitore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Monitore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84F9275E1F25D37400B76D79 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		84F927731F25D37400B76D79 /* MonitoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MonitoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2310,6 +2315,9 @@
 				84AB54C01F3D3F8F006F7904 /* HelpCenterCollectionViewCell.h */,
 				84AB54C11F3D3F8F006F7904 /* HelpCenterCollectionViewCell.m */,
 				84AB54C21F3D3F8F006F7904 /* HelpCenterCollectionViewCell.xib */,
+				84D70AD71F78C661008575F7 /* SexTableViewCell.h */,
+				84D70AD81F78C661008575F7 /* SexTableViewCell.m */,
+				84D70AD91F78C661008575F7 /* SexTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2592,6 +2600,7 @@
 				84C7843A1F724D0D00D50E3A /* VolunteerListHeaderView.xib in Resources */,
 				84C7841C1F70B84000D50E3A /* TrainTableViewCell.xib in Resources */,
 				84C784241F70BED600D50E3A /* BlackListTableViewCell.xib in Resources */,
+				84D70ADB1F78C661008575F7 /* SexTableViewCell.xib in Resources */,
 				84F9291D1F29652B00B76D79 /* PersonalCenterTableViewCell.xib in Resources */,
 				84A1D1141F5CF6CF00BFAFC0 /* mapapi.bundle in Resources */,
 				84F929311F2968AE00B76D79 /* Info.plist in Resources */,
@@ -2861,6 +2870,7 @@
 				847ED1B41F3421F500BC710E /* NSData+YYAdd.m in Sources */,
 				846CEAA71F3F05AE00D6BF9D /* ReportAddressTableViewCell.m in Sources */,
 				847ED1E81F3421F500BC710E /* YYTextLayout.m in Sources */,
+				84D70ADA1F78C661008575F7 /* SexTableViewCell.m in Sources */,
 				847ED2051F343B4900BC710E /* SignInView.m in Sources */,
 				847ED1EF1F3421F500BC710E /* YYTextArchiver.m in Sources */,
 				847ED1B71F3421F500BC710E /* NSKeyedUnarchiver+YYAdd.m in Sources */,

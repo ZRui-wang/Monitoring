@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="58" id="KGk-i7-Jjw" customClass="SexTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="58"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="57.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="性别：" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x06-EH-YTv">
+                        <rect key="frame" x="9" y="20.5" width="93" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="93" id="1I2-0j-FlS"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X5p-np-SKO">
+                        <rect key="frame" x="104" y="18" width="30" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="lva-Y8-6TU"/>
+                            <constraint firstAttribute="width" constant="30" id="qwS-BA-2X7"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <state key="normal" title="男" image="对号灰">
+                            <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                        <state key="selected" image="对号选中"/>
+                        <connections>
+                            <action selector="manButtonAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="xcz-Q6-g9x"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nNJ-Ah-lKG">
+                        <rect key="frame" x="164" y="18" width="30" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="4yI-WG-DTF"/>
+                            <constraint firstAttribute="width" constant="30" id="JIa-yL-Olw"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <state key="normal" title="女" image="对号灰">
+                            <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                        <state key="selected" image="对号选中"/>
+                        <connections>
+                            <action selector="womenButtonAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="SpX-LP-Avf"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="nNJ-Ah-lKG" firstAttribute="centerY" secondItem="x06-EH-YTv" secondAttribute="centerY" id="BWc-u1-e07"/>
+                    <constraint firstItem="nNJ-Ah-lKG" firstAttribute="leading" secondItem="X5p-np-SKO" secondAttribute="trailing" constant="30" id="ROX-1g-qVM"/>
+                    <constraint firstItem="x06-EH-YTv" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="S5C-fI-R2h"/>
+                    <constraint firstItem="X5p-np-SKO" firstAttribute="leading" secondItem="x06-EH-YTv" secondAttribute="trailing" constant="2" id="ZvR-Oz-b3p"/>
+                    <constraint firstItem="x06-EH-YTv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="1" id="kWd-Up-JLM"/>
+                    <constraint firstItem="X5p-np-SKO" firstAttribute="centerY" secondItem="x06-EH-YTv" secondAttribute="centerY" id="rjD-1B-Gin"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="manButton" destination="X5p-np-SKO" id="35m-ps-hPz"/>
+                <outlet property="womenButton" destination="nNJ-Ah-lKG" id="WLP-ul-Nn0"/>
+            </connections>
+            <point key="canvasLocation" x="34" y="61"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="对号灰" width="16" height="16"/>
+        <image name="对号选中" width="16" height="16"/>
+    </resources>
+</document>
