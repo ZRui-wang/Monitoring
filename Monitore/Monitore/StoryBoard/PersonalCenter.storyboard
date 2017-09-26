@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -81,6 +81,53 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zr6-B6-fQr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3215" y="1143"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="iSx-dR-Frx">
+            <objects>
+                <viewController id="Dnh-0n-xr7" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fid-9j-h1f"/>
+                        <viewControllerLayoutGuide type="bottom" id="nLx-rN-ISp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="CPN-yM-flS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9G8-YX-PeS">
+                                <rect key="frame" x="26" y="40" width="268" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Tmx-tT-AyN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ch6-SN-LVj">
+                                <rect key="frame" x="26" y="71" width="268" height="243.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="98" id="aML-C7-k1k"/>
+                                </constraints>
+                                <string key="text">本协议是您与群防群治所有者之间就群防群治服务相关事宜所订立的契约， 请您仔细阅读本文注册协议， 您点击“同意并继续”按钮后， 本协议即构成双方有约束力的法律文件。\n1.本app作为一个监督平台，在使用过程中，要保证相关信息的准确性，请勿提交虚假信息。\2.app仅作为一个监督平台，若遇到危险紧急情况，请立即拨打相关救援电话。\3.在使用过程中，请遵守法律法规。</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="ch6-SN-LVj" secondAttribute="trailing" constant="10" id="Byt-Yy-D9r"/>
+                            <constraint firstItem="ch6-SN-LVj" firstAttribute="leading" secondItem="CPN-yM-flS" secondAttribute="leadingMargin" constant="10" id="Xhm-po-oZr"/>
+                            <constraint firstItem="9G8-YX-PeS" firstAttribute="top" secondItem="fid-9j-h1f" secondAttribute="bottom" constant="20" id="YMK-kF-oHw"/>
+                            <constraint firstItem="ch6-SN-LVj" firstAttribute="top" secondItem="9G8-YX-PeS" secondAttribute="bottom" constant="10" id="dD7-0M-Rfc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9G8-YX-PeS" secondAttribute="trailing" constant="10" id="hYB-L2-78d"/>
+                            <constraint firstItem="9G8-YX-PeS" firstAttribute="leading" secondItem="CPN-yM-flS" secondAttribute="leadingMargin" constant="10" id="tqa-oI-u0R"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WYX-3V-U6X" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7256.25" y="1144.0140845070423"/>
         </scene>
         <!--Regist View Controller-->
         <scene sceneID="EZj-EE-PAA">

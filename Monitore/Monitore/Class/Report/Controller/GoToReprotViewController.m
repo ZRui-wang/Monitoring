@@ -281,7 +281,7 @@
              3. fileName：要保存在服务器上的文件名
              4. mimeType：上传的文件的类型
              */
-            [formData appendPartWithFileData:imageData name:fileName fileName:fileName mimeType:@"image/jpeg"]; //
+            [formData appendPartWithFileData:imageData name:fileName fileName:fileName mimeType:@"image/png"]; //
         }
         [self showWithStatus:@"正在提交.."];
         

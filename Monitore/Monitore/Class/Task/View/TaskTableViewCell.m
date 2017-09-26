@@ -28,6 +28,8 @@
     self.distanceLabel.layer.cornerRadius = 4;
     self.distanceLabel.layer.masksToBounds = YES;
     
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
+    
     self.taskTitleLable.layer.cornerRadius = 4;
     self.taskTitleLable.layer.masksToBounds = YES;
 }

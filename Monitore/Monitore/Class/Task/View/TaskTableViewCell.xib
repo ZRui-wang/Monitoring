@@ -38,7 +38,7 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gc3-lr-8Wd">
+                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gc3-lr-8Wd">
                         <rect key="frame" x="285" y="25" width="20" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="20" id="C28-wQ-MTx"/>
