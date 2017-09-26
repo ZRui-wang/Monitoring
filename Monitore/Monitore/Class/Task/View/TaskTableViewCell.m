@@ -32,6 +32,15 @@
     self.taskTitleLable.layer.masksToBounds = YES;
 }
 
+- (void)showDetailWithData:(TaskListModel *)model{
+    self.taskTitleLable.text = model.typeName;
+    self.taskLabel.text = model.title;
+    self.taskClass.text = model.content;
+    self.distanceLabel.text = model.distance;
+    self.address.text = model.startAddress;
+    self.timeLabel.text = [NSString stringWithFormat:@"%@-%@", model.startTime, model.endTime];
+}
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 

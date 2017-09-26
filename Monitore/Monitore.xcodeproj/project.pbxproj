@@ -286,6 +286,9 @@
 		84D70AD61F789C56008575F7 /* BlackModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D70AD51F789C56008575F7 /* BlackModel.m */; };
 		84D70ADA1F78C661008575F7 /* SexTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D70AD81F78C661008575F7 /* SexTableViewCell.m */; };
 		84D70ADB1F78C661008575F7 /* SexTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84D70AD91F78C661008575F7 /* SexTableViewCell.xib */; };
+		84D70ADE1F79ECCE008575F7 /* TaskListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D70ADD1F79ECCE008575F7 /* TaskListModel.m */; };
+		84D70AE11F79FF8D008575F7 /* TaskDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D70AE01F79FF8D008575F7 /* TaskDetailViewController.m */; };
+		84D70AE41F7A013E008575F7 /* TaskDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D70AE31F7A013E008575F7 /* TaskDetailModel.m */; };
 		84F9275F1F25D37400B76D79 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F9275E1F25D37400B76D79 /* main.m */; };
 		84F927781F25D37400B76D79 /* MonitoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F927771F25D37400B76D79 /* MonitoreTests.m */; };
 		84F927831F25D37400B76D79 /* MonitoreUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F927821F25D37400B76D79 /* MonitoreUITests.m */; };
@@ -908,6 +911,12 @@
 		84D70AD71F78C661008575F7 /* SexTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SexTableViewCell.h; sourceTree = "<group>"; };
 		84D70AD81F78C661008575F7 /* SexTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SexTableViewCell.m; sourceTree = "<group>"; };
 		84D70AD91F78C661008575F7 /* SexTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SexTableViewCell.xib; sourceTree = "<group>"; };
+		84D70ADC1F79ECCE008575F7 /* TaskListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TaskListModel.h; sourceTree = "<group>"; };
+		84D70ADD1F79ECCE008575F7 /* TaskListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TaskListModel.m; sourceTree = "<group>"; };
+		84D70ADF1F79FF8D008575F7 /* TaskDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TaskDetailViewController.h; sourceTree = "<group>"; };
+		84D70AE01F79FF8D008575F7 /* TaskDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TaskDetailViewController.m; sourceTree = "<group>"; };
+		84D70AE21F7A013D008575F7 /* TaskDetailModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TaskDetailModel.h; sourceTree = "<group>"; };
+		84D70AE31F7A013E008575F7 /* TaskDetailModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TaskDetailModel.m; sourceTree = "<group>"; };
 		84F9275A1F25D37400B76D79 /* Monitore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Monitore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84F9275E1F25D37400B76D79 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		84F927731F25D37400B76D79 /* MonitoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MonitoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2390,6 +2399,8 @@
 			children = (
 				78657BBE1F41DA4200DC2AFE /* TaskViewController.h */,
 				78657BBF1F41DA4200DC2AFE /* TaskViewController.m */,
+				84D70ADF1F79FF8D008575F7 /* TaskDetailViewController.h */,
+				84D70AE01F79FF8D008575F7 /* TaskDetailViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2397,6 +2408,10 @@
 		84F929061F29652B00B76D79 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				84D70ADC1F79ECCE008575F7 /* TaskListModel.h */,
+				84D70ADD1F79ECCE008575F7 /* TaskListModel.m */,
+				84D70AE21F7A013D008575F7 /* TaskDetailModel.h */,
+				84D70AE31F7A013E008575F7 /* TaskDetailModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2689,6 +2704,7 @@
 				847F0F2D1F6B6036005340F8 /* InfoTableViewCell.m in Sources */,
 				84A1D52A1F5EA7DF00BFAFC0 /* QNHijackingDetectWrapper.m in Sources */,
 				847ED1B81F3421F500BC710E /* NSNotificationCenter+YYAdd.m in Sources */,
+				84D70AE41F7A013E008575F7 /* TaskDetailModel.m in Sources */,
 				84B7B5E21F46BDFE00C3C708 /* ConstDefine.m in Sources */,
 				84A1D4EA1F5EA65D00BFAFC0 /* QNFileRecorder.m in Sources */,
 				847ED1EE1F3421F500BC710E /* UIPasteboard+YYText.m in Sources */,
@@ -2756,6 +2772,7 @@
 				846CEAAC1F3F082900D6BF9D /* ReportImageTableViewCell.m in Sources */,
 				84A1D52E1F5EA7DF00BFAFC0 /* QNTxtResolver.m in Sources */,
 				84F929141F29652B00B76D79 /* PatrolViewController.m in Sources */,
+				84D70ADE1F79ECCE008575F7 /* TaskListModel.m in Sources */,
 				847ED1F01F3421F500BC710E /* YYTextAttribute.m in Sources */,
 				84F927BD1F25D72200B76D79 /* BaseViewController.m in Sources */,
 				84F929201F29652B00B76D79 /* PersonalDataHeaderView.m in Sources */,
@@ -2867,6 +2884,7 @@
 				847ED1EA1F3421F500BC710E /* YYTextMagnifier.m in Sources */,
 				84F927DD1F27478800B76D79 /* NSArray+LjAdd.m in Sources */,
 				84A1D5301F5EA7DF00BFAFC0 /* QNDes.m in Sources */,
+				84D70AE11F79FF8D008575F7 /* TaskDetailViewController.m in Sources */,
 				847ED1B41F3421F500BC710E /* NSData+YYAdd.m in Sources */,
 				846CEAA71F3F05AE00D6BF9D /* ReportAddressTableViewCell.m in Sources */,
 				847ED1E81F3421F500BC710E /* YYTextLayout.m in Sources */,

@@ -20,6 +20,8 @@
 
 @interface TaskHeaderView : UIView
 
+@property (weak, nonatomic) IBOutlet UILabel *addressLabel;
+
 @property (assign, nonatomic)id <TaskHeaderViewDelegate> delegate;
 
 @end

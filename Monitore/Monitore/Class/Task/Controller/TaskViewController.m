@@ -10,9 +10,14 @@
 #import "TaskTableViewCell.h"
 #import "TaskHeaderView.h"
 #import "TXTimeSelectorViewController.h"
+#import "TaskListModel.h"
+#import "TaskDetailViewController.h"
 
 @interface TaskViewController ()<UITableViewDelegate, UITableViewDataSource, TaskHeaderViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSMutableArray *listAry;
+@property (copy, nonatomic) NSString *lon;
+@property (copy, nonatomic) NSString *lat;
 
 @end
 
@@ -30,12 +35,65 @@
     headerView1.delegate = self;
     headerView1.frame = CGRectMake(0, 0, SCREEN_WIDTH, 100);
     
+    __block typeof(self) weak = self;
+    [[Tools sharedTools]getCurrentAddress:^(NSString *address) {
+        headerView1.addressLabel.text = address;
+        [weak getGeoCoedAddress:address];
+    }];
+    
     [headerView addSubview:headerView1];
     
 //    headerView.backgroundColor = [UIColor redColor];
 //    self.tableView.tableHeaderView = headerView;
     self.tableView.tableHeaderView = headerView;
     [self.tableView registerNib:[UINib nibWithNibName:@"TaskTableViewCell" bundle:nil] forCellReuseIdentifier:@"TaskTableViewCell"];
+    self.tableView.tableFooterView = [UIView new];
+    
+    _listAry = [NSMutableArray array];
+}
+
+
+
+- (void)getGeoCoedAddress:(NSString *)address{
+    CLGeocoder *myGeocoder = [[CLGeocoder alloc] init];
+    [myGeocoder geocodeAddressString:address completionHandler:^(NSArray *placemarks, NSError *error) {
+        if ([placemarks count] > 0 && error == nil) {
+            NSLog(@"Found %lu placemark(s).", (unsigned long)[placemarks count]);
+            CLPlacemark *firstPlacemark = [placemarks objectAtIndex:0];
+            NSLog(@"Longitude = %f", firstPlacemark.location.coordinate.longitude);
+            NSLog(@"Latitude = %f", firstPlacemark.location.coordinate.latitude);
+            
+            self.lon = [NSString stringWithFormat:@"%f", firstPlacemark.location.coordinate.longitude];
+            self.lat = [NSString stringWithFormat:@"%f", firstPlacemark.location.coordinate.latitude];
+            
+            [self getTaskList];
+            
+        }
+        else if ([placemarks count] == 0 && error == nil) {
+            NSLog(@"Found no placemarks.");
+        } else if (error != nil) {
+            NSLog(@"An error occurred = %@", error);
+        }
+    }];
+}
+
+
+
+- (void)getTaskList{
+    
+    NSDictionary *dic = @{@"TYPE_ID":@"GUANYUWOMEN", @"LAT":self.lon, @"LNG":self.lat};
+    
+    [[DLAPIClient sharedClient]POST:@"taskList" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+        if ([responseObject[Kstatus]isEqualToString:Ksuccess]) {
+            for (NSDictionary *dic in responseObject[@"dataList"]) {
+                TaskListModel *model = [TaskListModel modelWithDictionary:dic];
+                [self.listAry addObject:model];
+                [self.tableView reloadData];
+            }
+        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+    }];
 }
 
 
@@ -53,7 +111,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 5;
+    return self.listAry.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -62,7 +120,19 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     TaskTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TaskTableViewCell" forIndexPath:indexPath];
+    [cell showDetailWithData:self.listAry[indexPath.row]];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    TaskListModel *model = self.listAry[indexPath.row];
+    
+    TaskDetailViewController *taskDetailVc = [[UIStoryboard storyboardWithName:@"Announcement" bundle:nil]instantiateViewControllerWithIdentifier:@"TaskDetailViewController"];
+    
+    taskDetailVc.lat = self.lon;
+    taskDetailVc.lon = self.lat;
+    taskDetailVc.ID = model.taskId;
+    [self.navigationController pushViewController:taskDetailVc animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

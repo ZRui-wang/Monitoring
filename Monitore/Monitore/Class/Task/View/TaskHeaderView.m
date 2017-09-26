@@ -10,6 +10,7 @@
 
 @interface TaskHeaderView ()
 
+
 @end
 @implementation TaskHeaderView
 
@@ -18,8 +19,8 @@
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
     // Drawing code
-}
 
+}
 
 - (IBAction)allTypeButtonAction:(id)sender {
     if ([_delegate respondsToSelector:@selector(allTypeAction)]) {

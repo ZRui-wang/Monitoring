@@ -239,33 +239,18 @@
     // 进入相册
     
     if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
-        
     {
-        
         UIImagePickerController *imagePicker = [[UIImagePickerController alloc]init];
-        
         imagePicker.allowsEditing = YES;
-        
         imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-        
         imagePicker.delegate = self;
-        
         [self presentViewController:imagePicker animated:YES completion:^{
-            
             NSLog(@"打开相册");
-            
         }];
-        
     }
-    
-    else
-        
-    {
-        
+    else{
         NSLog(@"不能打开相册");
-        
     }
-    
 }
 
 
@@ -275,24 +260,19 @@
 // 拍照完成回调
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(nullable NSDictionary<NSString *,id> *)editingInfo NS_DEPRECATED_IOS(2_0, 3_0)
-
 {
     self.collectImageView.image = image;
     NSSLog(@"finish..");
     
     self.imageData = UIImagePNGRepresentation(image);
-
     [self dismissViewControllerAnimated:YES completion:nil];    
 }
 
 //进入拍摄页面点击取消按钮
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
-
 {
-    
     [self dismissViewControllerAnimated:YES completion:nil];
-    
 }
 
 - (void)buttonAction{
