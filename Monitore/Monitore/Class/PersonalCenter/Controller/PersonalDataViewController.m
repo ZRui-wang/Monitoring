@@ -276,28 +276,47 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0 && indexPath.row == 8) {
-        UIImagePickerController *picker = [[UIImagePickerController alloc]init];
-        picker.delegate = self;
-        picker.allowsEditing = NO;
+        UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"选择图片资源" message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
+        //创建取消按钮
+        UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        [alertC addAction:action1];
         
-        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-        [self presentViewController:picker animated:YES completion:nil];
+        UIAlertAction *takePhoto = [UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            UIImagePickerController *picker = [[UIImagePickerController alloc]init];
+            picker.delegate = self;
+            picker.allowsEditing = NO;
+            
+            picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+            [self presentViewController:picker animated:YES completion:nil];
+        }];
+        [alertC addAction:takePhoto];
+        
+        UIAlertAction *photoLiberary = [UIAlertAction actionWithTitle:@"进入相册" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [self openPhotoLibrary];
+        }];
+        [alertC addAction:photoLiberary];
+        
+        //显示
+        [self presentViewController:alertC animated:YES completion:nil];
     }
+    
 }
 
 /***打开相册*/
 -(void)openPhotoLibrary{
-    // 进入相册
-    
+    // 进入相册    
     if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
     {
         UIImagePickerController *imagePicker = [[UIImagePickerController alloc]init];
         imagePicker.allowsEditing = YES;
         imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
         imagePicker.delegate = self;
-        [self presentViewController:imagePicker animated:YES completion:^{
-            NSLog(@"打开相册");
-        }];
+        [self presentViewController:imagePicker animated:YES completion:nil];
+//        [self presentViewController:imagePicker animated:YES completion:^{
+//            NSLog(@"打开相册");
+//        }];
     }else{
         NSLog(@"不能打开相册");
     }
