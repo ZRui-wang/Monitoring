@@ -350,6 +350,10 @@
 		84F929721F2B1A4000B76D79 /* TextViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F929701F2B1A4000B76D79 /* TextViewTableViewCell.m */; };
 		84F929731F2B1A4000B76D79 /* TextViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F929711F2B1A4000B76D79 /* TextViewTableViewCell.xib */; };
 		84FA79FC1F6A7444006472B4 /* AddContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FA79FB1F6A7444006472B4 /* AddContactViewController.m */; };
+		84FFCEEF1F7B30F7009BA0D3 /* MyTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FFCEEE1F7B30F7009BA0D3 /* MyTaskViewController.m */; };
+		84FFCEF31F7B322D009BA0D3 /* MyTaskListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FFCEF11F7B322D009BA0D3 /* MyTaskListTableViewCell.m */; };
+		84FFCEF41F7B322D009BA0D3 /* MyTaskListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84FFCEF21F7B322D009BA0D3 /* MyTaskListTableViewCell.xib */; };
+		84FFCEF71F7B3537009BA0D3 /* MyTaskListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FFCEF61F7B3537009BA0D3 /* MyTaskListModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1022,6 +1026,13 @@
 		84F929741F2B1FD700B76D79 /* Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tools.h; sourceTree = "<group>"; };
 		84FA79FA1F6A7444006472B4 /* AddContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddContactViewController.h; sourceTree = "<group>"; };
 		84FA79FB1F6A7444006472B4 /* AddContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddContactViewController.m; sourceTree = "<group>"; };
+		84FFCEED1F7B30F7009BA0D3 /* MyTaskViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyTaskViewController.h; sourceTree = "<group>"; };
+		84FFCEEE1F7B30F7009BA0D3 /* MyTaskViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyTaskViewController.m; sourceTree = "<group>"; };
+		84FFCEF01F7B322D009BA0D3 /* MyTaskListTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyTaskListTableViewCell.h; sourceTree = "<group>"; };
+		84FFCEF11F7B322D009BA0D3 /* MyTaskListTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyTaskListTableViewCell.m; sourceTree = "<group>"; };
+		84FFCEF21F7B322D009BA0D3 /* MyTaskListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyTaskListTableViewCell.xib; sourceTree = "<group>"; };
+		84FFCEF51F7B3537009BA0D3 /* MyTaskListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyTaskListModel.h; sourceTree = "<group>"; };
+		84FFCEF61F7B3537009BA0D3 /* MyTaskListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyTaskListModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2401,6 +2412,8 @@
 				78657BBF1F41DA4200DC2AFE /* TaskViewController.m */,
 				84D70ADF1F79FF8D008575F7 /* TaskDetailViewController.h */,
 				84D70AE01F79FF8D008575F7 /* TaskDetailViewController.m */,
+				84FFCEED1F7B30F7009BA0D3 /* MyTaskViewController.h */,
+				84FFCEEE1F7B30F7009BA0D3 /* MyTaskViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2412,6 +2425,8 @@
 				84D70ADD1F79ECCE008575F7 /* TaskListModel.m */,
 				84D70AE21F7A013D008575F7 /* TaskDetailModel.h */,
 				84D70AE31F7A013E008575F7 /* TaskDetailModel.m */,
+				84FFCEF51F7B3537009BA0D3 /* MyTaskListModel.h */,
+				84FFCEF61F7B3537009BA0D3 /* MyTaskListModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2426,6 +2441,9 @@
 				78657BC61F41E52100DC2AFE /* TaskHeaderView.h */,
 				78657BC71F41E52100DC2AFE /* TaskHeaderView.m */,
 				78657BC91F41E53000DC2AFE /* TaskHeaderView.xib */,
+				84FFCEF01F7B322D009BA0D3 /* MyTaskListTableViewCell.h */,
+				84FFCEF11F7B322D009BA0D3 /* MyTaskListTableViewCell.m */,
+				84FFCEF21F7B322D009BA0D3 /* MyTaskListTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2618,6 +2636,7 @@
 				84D70ADB1F78C661008575F7 /* SexTableViewCell.xib in Resources */,
 				84F9291D1F29652B00B76D79 /* PersonalCenterTableViewCell.xib in Resources */,
 				84A1D1141F5CF6CF00BFAFC0 /* mapapi.bundle in Resources */,
+				84FFCEF41F7B322D009BA0D3 /* MyTaskListTableViewCell.xib in Resources */,
 				84F929311F2968AE00B76D79 /* Info.plist in Resources */,
 				84F929301F2968AE00B76D79 /* Assets.xcassets in Resources */,
 				84C784301F70C20400D50E3A /* AwardTableViewCell.xib in Resources */,
@@ -2855,6 +2874,7 @@
 				847ED1D51F3421F500BC710E /* CALayer+YYWebImage.m in Sources */,
 				84C784351F7237A900D50E3A /* VolunteerModel.m in Sources */,
 				847ED1B31F3421F500BC710E /* NSBundle+YYAdd.m in Sources */,
+				84FFCEF31F7B322D009BA0D3 /* MyTaskListTableViewCell.m in Sources */,
 				78657BC81F41E52100DC2AFE /* TaskHeaderView.m in Sources */,
 				7812D87D1F47E98E0041CC9C /* BrandScroll.m in Sources */,
 				84C7841B1F70B84000D50E3A /* TrainTableViewCell.m in Sources */,
@@ -2873,6 +2893,7 @@
 				847ED1EC1F3421F500BC710E /* NSAttributedString+YYText.m in Sources */,
 				84F929681F2AFDC100B76D79 /* PatrolHistoryTableViewCell.m in Sources */,
 				847ED1DB1F3421F500BC710E /* YYImage.m in Sources */,
+				84FFCEEF1F7B30F7009BA0D3 /* MyTaskViewController.m in Sources */,
 				84B7B5C91F46B2ED00C3C708 /* UIImage+WebP.m in Sources */,
 				847ED1E71F3421F500BC710E /* YYTextKeyboardManager.m in Sources */,
 				84B7B5C41F46B2ED00C3C708 /* SDWebImageManager.m in Sources */,
@@ -2893,6 +2914,7 @@
 				847ED1EF1F3421F500BC710E /* YYTextArchiver.m in Sources */,
 				847ED1B71F3421F500BC710E /* NSKeyedUnarchiver+YYAdd.m in Sources */,
 				84A1D4EB1F5EA65D00BFAFC0 /* QNConfiguration.m in Sources */,
+				84FFCEF71F7B3537009BA0D3 /* MyTaskListModel.m in Sources */,
 				847ED1F61F3421F500BC710E /* YYTextView.m in Sources */,
 				78D8A4401F66DC2300735C6A /* AnnounceListModel.m in Sources */,
 				84B7B5CE1F46B2ED00C3C708 /* SVIndefiniteAnimatedView.m in Sources */,

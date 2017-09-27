@@ -12,6 +12,7 @@
 #import "TXTimeSelectorViewController.h"
 #import "TaskListModel.h"
 #import "TaskDetailViewController.h"
+#import "MyTaskViewController.h"
 
 @interface TaskViewController ()<UITableViewDelegate, UITableViewDataSource, TaskHeaderViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -26,7 +27,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.title = @"群防任务";
     [self leftCustomBarButton];
+    [self rightCustomBarButton];
     
     UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 100)];
     
@@ -42,9 +45,7 @@
     }];
     
     [headerView addSubview:headerView1];
-    
-//    headerView.backgroundColor = [UIColor redColor];
-//    self.tableView.tableHeaderView = headerView;
+
     self.tableView.tableHeaderView = headerView;
     [self.tableView registerNib:[UINib nibWithNibName:@"TaskTableViewCell" bundle:nil] forCellReuseIdentifier:@"TaskTableViewCell"];
     self.tableView.tableFooterView = [UIView new];
@@ -52,6 +53,17 @@
     _listAry = [NSMutableArray array];
 }
 
+- (void)rightCustomBarButton{
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"我的任务" style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButtonAction)];
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
+}
+
+- (void)rightBarButtonAction{
+    MyTaskViewController *taskVc = [[UIStoryboard storyboardWithName:@"Announcement" bundle:nil]instantiateViewControllerWithIdentifier:@"MyTaskViewController"];
+    taskVc.lon = self.lon;
+    taskVc.lat = self.lat;
+    [self.navigationController pushViewController:taskVc animated:YES];
+}
 
 
 - (void)getGeoCoedAddress:(NSString *)address{
@@ -88,11 +100,13 @@
             for (NSDictionary *dic in responseObject[@"dataList"]) {
                 TaskListModel *model = [TaskListModel modelWithDictionary:dic];
                 [self.listAry addObject:model];
-                [self.tableView reloadData];
             }
+            [self.tableView reloadData];
+        }else{
+            [self showErrorMessage:responseObject[Kinfo]];
         }
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        
+        [self showErrorMessage:@"数据错误"];
     }];
 }
 
