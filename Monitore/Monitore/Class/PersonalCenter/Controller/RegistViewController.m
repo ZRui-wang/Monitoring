@@ -28,6 +28,8 @@
 
 @property (nonatomic, copy) NSString *userType;
 
+@property (nonatomic, strong)NSTimer *timer;
+
 @property (nonatomic, copy) NSString *code;
 @end
 
@@ -52,16 +54,27 @@
     self.recommendBgView.layer.masksToBounds = YES;
     self.commenUserButton.selected = YES;
     self.specialButton.selected = NO;
+    
+    __block NSInteger timeNum = 60;
+    
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1 repeats:YES block:^(NSTimer * _Nonnull timer) {
+        
+        timeNum--;
+        [self.getCodeButton setTitle:[NSString stringWithFormat:@"(%ld)获取验证码", timeNum] forState:UIControlStateNormal];
+    }];
+    
 }
 - (IBAction)getCodeButtonAction:(UIButton *)sender {
     
     NSDictionary *dic = @{@"MOBILE":self.phoneTextField.text, @"TYPE":@0};
     
+    __block typeof(self) weak = self;
     [[DLAPIClient sharedClient]POST:@"smsCode" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
         NSSLog(@"%@", responseObject);
         if ([responseObject[Kstatus]isEqualToString:Ksuccess]) {
            [self showSuccessMessage:@"验证码发送成功"];
-            self.code = responseObject[@"code"];
+            weak.code = responseObject[@"code"];
+            [weak.timer fire];
             
         }else{
            [self showWarningMessage:responseObject[Kinfo]];
