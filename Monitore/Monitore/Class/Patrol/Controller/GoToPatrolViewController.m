@@ -332,7 +332,16 @@
 
 - (void)timerAction{
     timerCount ++;
-    self.patrolTime.text = [NSString stringWithFormat:@"已执行：%lds", timerCount];
+    self.patrolTime.text = [NSString stringWithFormat:@"已执行：%@", [self timeFormatted:timerCount]];
+}
+
+- (NSString *)timeFormatted:(NSInteger)totalSeconds
+{    
+    int seconds = totalSeconds % 60;
+    int minutes = (totalSeconds / 60) % 60;
+    int hours = totalSeconds / 3600;
+    
+    return [NSString stringWithFormat:@"%02d:%02d:%02d",hours, minutes, seconds];
 }
 
 #pragma mark - BMKMapViewDelegate
