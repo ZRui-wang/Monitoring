@@ -15,6 +15,7 @@
 @property (copy, nonatomic) NSString *recMobile;
 @property (copy, nonatomic) NSString *cityName;
 @property (copy, nonatomic) NSString *usersId;
+@property (copy, nonatomic) NSString *usersname;
 @property (copy, nonatomic) NSString *score;
 @property (copy, nonatomic) NSString *idcard;
 @property (copy, nonatomic) NSString *job;

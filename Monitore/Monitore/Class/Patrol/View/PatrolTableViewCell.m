@@ -8,6 +8,7 @@
 
 #import "PatrolTableViewCell.h"
 
+
 @interface PatrolTableViewCell ()
 @property (weak, nonatomic) IBOutlet UILabel *title;
 @property (weak, nonatomic) IBOutlet UILabel *date;
@@ -24,6 +25,11 @@
     self.state.layer.borderColor = [UIColor colorWithRed:142/255.0 green:195/255.0 blue:30/255.0 alpha:1].CGColor;
     self.state.layer.masksToBounds = YES;
     self.state.layer.cornerRadius = 2;
+}
+
+- (void)showDetailWithModel:(PatrolListModel *)model{
+    self.title.text = model.startAddress;
+    self.date.text = model.startTime;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

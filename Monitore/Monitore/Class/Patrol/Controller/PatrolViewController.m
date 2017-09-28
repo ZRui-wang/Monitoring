@@ -33,9 +33,13 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"PatrolTableViewCell" bundle:nil] forCellReuseIdentifier:@"PatrolTableViewCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"PatrolTableHeaderView" bundle:nil] forHeaderFooterViewReuseIdentifier:@"PatrolTableHeaderView"];
     self.tableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     
+    [self.patrolListAry removeAllObjects];
     [self getPatrolHistory];
-    
 }
 
 - (void)getPatrolHistory{
@@ -46,8 +50,8 @@
             for (NSDictionary *dic in responseObject[@"dataList"]) {
                 PatrolListModel *model = [PatrolListModel modelWithDictionary:dic];
                 [self.patrolListAry addObject:model];
-                [self.tableView reloadData];
             }
+            [self.tableView reloadData];
         }else if ([responseObject[Kstatus] isEqualToString:@"404"]  ){
             
         }else{
@@ -76,6 +80,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     PatrolTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PatrolTableViewCell" forIndexPath:indexPath];
+    
+    [cell showDetailWithModel:self.patrolListAry[indexPath.row]];
+    
     return cell;
 }
 
@@ -88,6 +95,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     PatrolTrajectoryViewController *patrolTrajectoryVc = [[UIStoryboard storyboardWithName:@"Patrol" bundle:nil]instantiateViewControllerWithIdentifier:@"PatrolTrajectoryViewController"];
+    
+    PatrolListModel *model = self.patrolListAry[indexPath.row];
+    patrolTrajectoryVc.patrolID = model.patrolId;
     [self.navigationController pushViewController:patrolTrajectoryVc animated:YES];
 }
 

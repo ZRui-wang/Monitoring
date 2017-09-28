@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -75,16 +75,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="巡逻标题*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ow9-GY-EGe">
-                                <rect key="frame" x="5" y="25" width="365" height="21"/>
+                                <rect key="frame" x="5" y="25" width="70" height="35"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="CXV-MT-kF0"/>
+                                    <constraint firstAttribute="height" constant="35" id="CXV-MT-kF0"/>
+                                    <constraint firstAttribute="width" constant="70" id="uLP-zi-yTp"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="已执行：时间" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FWm-pd-sVY">
-                                <rect key="frame" x="5" y="54" width="365" height="21"/>
+                                <rect key="frame" x="5" y="68" width="365" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="rii-t4-Xe2"/>
                                 </constraints>
@@ -93,14 +94,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QlW-r3-htB">
-                                <rect key="frame" x="0.0" y="48" width="375" height="1"/>
+                                <rect key="frame" x="0.0" y="62" width="375" height="1"/>
                                 <color key="backgroundColor" red="0.94121348859999998" green="0.9450295568" blue="0.94902777670000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="s9B-I2-6y9"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e6k-Jd-fZf">
-                                <rect key="frame" x="0.0" y="77" width="375" height="535"/>
+                                <rect key="frame" x="0.0" y="91" width="375" height="521"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nYF-OK-Xve">
@@ -116,16 +117,23 @@
                                     <action selector="finishPatrolButtonAction:" destination="IvR-tR-vdt" eventType="touchUpInside" id="Lgf-BD-vYy"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cxf-ey-JNR">
+                                <rect key="frame" x="80" y="27.5" width="285" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="cxf-ey-JNR" firstAttribute="leading" secondItem="ow9-GY-EGe" secondAttribute="trailing" constant="5" id="1lX-Zw-XP1"/>
                             <constraint firstItem="ow9-GY-EGe" firstAttribute="top" secondItem="rKT-Pd-ZjE" secondAttribute="bottom" constant="5" id="7xA-pF-z7k"/>
                             <constraint firstItem="e6k-Jd-fZf" firstAttribute="top" secondItem="FWm-pd-sVY" secondAttribute="bottom" constant="2" id="9Ck-ol-YrA"/>
-                            <constraint firstAttribute="trailing" secondItem="ow9-GY-EGe" secondAttribute="trailing" constant="5" id="9ke-MQ-uhs"/>
                             <constraint firstItem="nYF-OK-Xve" firstAttribute="leading" secondItem="ATv-To-C1T" secondAttribute="leading" constant="50" id="Awl-9Q-oNi"/>
                             <constraint firstAttribute="trailing" secondItem="QlW-r3-htB" secondAttribute="trailing" id="Eyl-Qa-gDN"/>
                             <constraint firstItem="6gv-X8-kab" firstAttribute="top" secondItem="nYF-OK-Xve" secondAttribute="bottom" constant="5" id="Fa1-9B-MUP"/>
                             <constraint firstItem="6gv-X8-kab" firstAttribute="top" secondItem="e6k-Jd-fZf" secondAttribute="bottom" constant="55" id="IPM-cH-EuF"/>
+                            <constraint firstAttribute="trailing" secondItem="cxf-ey-JNR" secondAttribute="trailing" constant="10" id="MuK-eu-dim"/>
                             <constraint firstItem="QlW-r3-htB" firstAttribute="leading" secondItem="ATv-To-C1T" secondAttribute="leading" id="TAt-W5-FRY"/>
                             <constraint firstAttribute="trailing" secondItem="e6k-Jd-fZf" secondAttribute="trailing" id="Ume-G0-zLX"/>
                             <constraint firstItem="e6k-Jd-fZf" firstAttribute="leading" secondItem="ATv-To-C1T" secondAttribute="leading" id="VYG-xi-dGH"/>
@@ -133,6 +141,7 @@
                             <constraint firstAttribute="trailing" secondItem="nYF-OK-Xve" secondAttribute="trailing" constant="50" id="eBb-WG-YeK"/>
                             <constraint firstAttribute="trailing" secondItem="FWm-pd-sVY" secondAttribute="trailing" constant="5" id="gju-SE-vmq"/>
                             <constraint firstItem="FWm-pd-sVY" firstAttribute="leading" secondItem="ATv-To-C1T" secondAttribute="leading" constant="5" id="jfC-NA-hgT"/>
+                            <constraint firstItem="cxf-ey-JNR" firstAttribute="centerY" secondItem="ow9-GY-EGe" secondAttribute="centerY" id="lvu-2c-nMZ"/>
                             <constraint firstItem="FWm-pd-sVY" firstAttribute="top" secondItem="QlW-r3-htB" secondAttribute="bottom" constant="5" id="pVb-eX-oJm"/>
                             <constraint firstItem="QlW-r3-htB" firstAttribute="top" secondItem="ow9-GY-EGe" secondAttribute="bottom" constant="2" id="vTv-ot-977"/>
                         </constraints>
@@ -141,6 +150,7 @@
                         <outlet property="mapBagView" destination="e6k-Jd-fZf" id="AOe-oa-91w"/>
                         <outlet property="patrolAddress" destination="ow9-GY-EGe" id="0VN-Ti-wZ3"/>
                         <outlet property="patrolTime" destination="FWm-pd-sVY" id="IYk-kH-XdP"/>
+                        <outlet property="patrolTitle" destination="cxf-ey-JNR" id="6UR-jq-gnL"/>
                         <outlet property="startButton" destination="nYF-OK-Xve" id="vtB-oG-Nqm"/>
                     </connections>
                 </viewController>

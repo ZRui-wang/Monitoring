@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PatrolListModel.h"
 
 @interface PatrolTableViewCell : UITableViewCell
+
+- (void)showDetailWithModel:(PatrolListModel *)model;
 
 @end

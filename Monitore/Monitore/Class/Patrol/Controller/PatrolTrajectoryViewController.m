@@ -9,6 +9,7 @@
 #import "PatrolTrajectoryViewController.h"
 #import "JSONKit.h"
 #import "PatrolHistoryModel.h"
+#import "UserTitle.h"
 
 // 运动结点信息类
 @interface BMKSportNode : NSObject
@@ -110,6 +111,8 @@
     // 定位选项设置
     [[BTKAction sharedInstance]setLocationAttributeWithActivityType:CLActivityTypeOther desiredAccuracy:kCLLocationAccuracyBest distanceFilter:kCLDistanceFilterNone];
     [[BTKAction sharedInstance] changeGatherAndPackIntervals:1 packInterval:10 delegate:self];
+    
+    [self getPatrolDetail];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -117,8 +120,6 @@
     
     [self.mapView viewWillAppear];
     self.mapView.delegate = self;
-    
-
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
@@ -148,6 +149,20 @@
     BTKQueryHistoryTrackRequest *request = [[BTKQueryHistoryTrackRequest alloc] initWithEntityName:@"entityB" startTime:endTime - 86300 endTime:endTime isProcessed:TRUE processOption:nil supplementMode:BTK_TRACK_PROCESS_OPTION_SUPPLEMENT_MODE_WALKING outputCoordType:BTK_COORDTYPE_BD09LL sortType:BTK_TRACK_SORT_TYPE_DESC pageIndex:1 pageSize:10 serviceID:145266 tag:13];
     // 发起查询请求
     [[BTKTrackAction sharedInstance] queryHistoryTrackWith:request delegate:self];
+}
+
+- (void)getPatrolDetail{
+    UserTitle *title = [Tools getPersonData];
+    NSDictionary *dic = @{@"ID":self.patrolID, @"USER_ID":title.usersId};
+    [[DLAPIClient sharedClient]POST:@"patrolDetail" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+        if ([responseObject[Kstatus]isEqualToString:Ksuccess]) {
+            
+        }else{
+            
+        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+    }];
 }
 
 //初始化轨迹点

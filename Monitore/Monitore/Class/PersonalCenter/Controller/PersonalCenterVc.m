@@ -80,6 +80,11 @@
         if ([responseObject[Kstatus]isEqualToString:Ksuccess]) {
             self.model = [UserModel modelWithDictionary:responseObject[@"user"]];
             self.model.mobile = self.userTitle.mobile;
+            self.userName.text = self.model.nickname;
+            self.address.text = self.model.address;
+            self.stars.text = self.model.stars;
+            self.score.text = self.model.score;
+            self.phoneNo.text = self.model.mobile;
         }else{
             
         }

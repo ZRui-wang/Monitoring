@@ -10,11 +10,12 @@
 #import "StartPatrolModel.h"
 #import "UserTitle.h"
 
-@interface GoToPatrolViewController ()<BMKMapViewDelegate, BMKLocationServiceDelegate, BTKTraceDelegate, BTKTrackDelegate, DLAlertViewDelegate>
+@interface GoToPatrolViewController ()<BMKMapViewDelegate, BMKLocationServiceDelegate, BTKTraceDelegate, BTKTrackDelegate, DLAlertViewDelegate, UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *patrolAddress;
 @property (weak, nonatomic) IBOutlet UILabel *patrolTime;
 @property (weak, nonatomic) IBOutlet UIView *mapBagView;
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
+@property (weak, nonatomic) IBOutlet UITextField *patrolTitle;
 
 @property (strong, nonatomic) StartPatrolModel *model;
 
@@ -33,6 +34,12 @@
 // 中间变量->location 类型(地理位置)
 @property (strong, nonatomic)CLLocation *currentLocation;
 
+@property (copy, nonatomic) NSString *address;
+@property (copy, nonatomic) NSString *lon;
+@property (copy, nonatomic) NSString *lat;
+@property (copy, nonatomic) NSString *patrolId;
+@property (assign, nonatomic) BOOL isPatroling;
+
 @end
 
 @implementation GoToPatrolViewController{
@@ -40,9 +47,8 @@
 }
 
 - (void)dealloc{
-    if ([_timer isValid]) {
-        [_timer invalidate];
-    }
+    [_timer invalidate];
+    _timer = nil;
 }
 
 - (void)viewDidLoad {
@@ -50,13 +56,46 @@
     // Do any additional setup after loading the view.
     [self leftCustomBarButton];
     self.title = @"我要巡逻";
+
+    [self setConfigView];
+    [self refreshAddress];
+    [self initMapSdk];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     
+    [self.mapView viewWillAppear];
+    self.mapView.delegate = self;
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [self.mapView viewWillDisappear];
+    self.mapView.delegate = nil;
+    
+    [[BTKAction sharedInstance] stopGather:self];
+    [[BTKAction sharedInstance] stopService:self];
+}
+
+- (void)setConfigView{
     timerCount = 0;
     
     UserTitle *userTitle = [Tools getPersonData];
     self.model = [[StartPatrolModel alloc]init];
     self.model.userId = userTitle.usersId;
-    
+    self.patrolTitle.delegate = self;
+}
+
+- (void)refreshAddress{
+    __weak GoToPatrolViewController *weakSelf = self;
+    [[Tools sharedTools]getCurrentAddress:^(NSString *address) {
+        weakSelf.patrolTitle.text = address;
+        weakSelf.address = address;
+        [weakSelf getGeoCoedAddress:address];
+    }];
+}
+
+- (void)initMapSdk{
     self.mapView = [[BMKMapView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-60)];
     self.mapView.userTrackingMode = BMKUserTrackingModeFollow;
     // 地图样式
@@ -64,7 +103,6 @@
     self.mapView.showsUserLocation = YES;
     [self.mapView setZoomLevel:18];
     [self.mapBagView addSubview:self.mapView];
-
     
     self.locService = [[BMKLocationService alloc]init];
     self.locService.delegate = self;
@@ -88,7 +126,7 @@
     processOption.mapMatch = TRUE;
     processOption.radiusThreshold = 10;
     processOption.transportMode = BTK_TRACK_PROCESS_OPTION_SUPPLEMENT_MODE_STRAIGHT;
-
+    
     // 构造请求对象
     BTKQueryTrackLatestPointRequest *request = [[BTKQueryTrackLatestPointRequest alloc] initWithEntityName:@"entityB" processOption: processOption outputCootdType:BTK_COORDTYPE_BD09LL serviceID:145266 tag:11];
     // 发起查询请求
@@ -103,28 +141,6 @@
     
     // 轨迹采集
     [[BTKAction sharedInstance] startGather:self];
-}
-
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    
-    [self.mapView viewWillAppear];
-    self.mapView.delegate = self;
-}
-
-- (void)viewWillDisappear:(BOOL)animated{
-    [self.mapView viewWillDisappear];
-    self.mapView.delegate = nil;
-    
-    [[BTKAction sharedInstance] stopGather:self];
-    [[BTKAction sharedInstance] stopService:self];
-}
-
--(void)alertView:(DLAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if (buttonIndex == 1) {
-        [self.timer invalidate];
-        [self.navigationController popViewControllerAnimated:YES];
-    }
 }
 
 // 开始采集回调
@@ -200,11 +216,6 @@
     free(pointArray);
 }
 
-
-- (void)setConfig{
-    
-}
-
 //实现相关delegate 处理位置信息更新
 //处理方向变更信息
 - (void)didUpdateUserHeading:(BMKUserLocation *)userLocation
@@ -240,8 +251,7 @@
     
     if (sender.selected) {
         // 开始
- //       [self startPatrol];
-        return;
+        [self startPatrol];
         
         [self.startButton setTitle:@"结束巡逻" forState:UIControlStateNormal];
         self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerAction) userInfo:nil repeats:YES];
@@ -251,45 +261,73 @@
         [self startTrajectory];
     }else{
         // 结束
-        [self endPatrol];
-        return;
         DLAlertView *alertView = [[DLAlertView alloc]initWithTitle:@"提示" message:@"确定要结束巡逻？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+        alertView.tag = 101;
         [alertView show];
     }
 }
 
 - (void)startPatrol{
     NSDictionary *dic = @{@"USER_ID":self.model.userId,
-                          @"TITLE":@"巡逻",
+                          @"TITLE":self.patrolTitle.text,
                           @"NAME":@"小三",
-                          @"START_LONGITUDE":@"121.444569",
-                          @"START_LATITUDE":@"31.252137",
-                          @"START_ADDRESS":@"美国"};
+                          @"START_LONGITUDE":self.lon,
+                          @"START_LATITUDE":self.lat,
+                          @"START_ADDRESS":self.address};
     
     [[DLAPIClient sharedClient]POST:@"patrol" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
         NSLog(@"%@", responseObject);
+        if ([responseObject[Kstatus]isEqualToString:Ksuccess]) {
+            [self showSuccessMessage:@"开始巡逻"];
+            self.isPatroling = YES;
+            self.patrolId = [responseObject[@"data"] objectForKey:@"patrolId"];
+        }
+        else{
+            [self showErrorMessage:responseObject[Kinfo]];
+        }
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        
+        [self showErrorMessage:@"网络错误，稍后再试"];
     }];
 }
 
 - (void)endPatrol{
+    __weak GoToPatrolViewController *weakSelf = self;
+    [[Tools sharedTools]getCurrentAddress:^(NSString *address) {
+        weakSelf.patrolTitle.text = address;
+        weakSelf.address = address;
+        [weakSelf getGeoCoedAddress:address];
+    }];
+    
     NSDictionary *dic = @{@"USER_ID":self.model.userId,
                       @"ID":@"c7bd7180485a42c8ae8e4866204e5e07",
-                          @"END_LONGITUDE":@"121.444569",
-                          @"END_LATITUDE":@"31.252137",
-                          @"END_ADDRESS":@"美国"};
+                          @"END_LONGITUDE":self.lon,
+                          @"END_LATITUDE":self.lat,
+                          @"END_ADDRESS":self.address};
     
     [[DLAPIClient sharedClient]POST:@"endPatrol" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
         NSLog(@"%@", responseObject);
+        if ([responseObject[Kstatus]isEqualToString:Ksuccess]) {
+            [self showSuccessMessage:responseObject[Kinfo]];
+            self.isPatroling = NO;
+            [self.timer invalidate];
+            [self leftBarButtonAction1];
+        }else{
+            [self showErrorMessage:responseObject[Kinfo]];
+        }
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        
+        [self showErrorMessage:@"网络错误"];
     }];
 }
 
 - (void)leftBarButtonAction1{
-    DLAlertView *alertView = [[DLAlertView alloc]initWithTitle:@"提示" message:@"确定要结束巡逻？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
-    [alertView show];
+    if (self.isPatroling) {
+        DLAlertView *alertView = [[DLAlertView alloc]initWithTitle:@"提示" message:@"确定要结束巡逻？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+        alertView.tag = 100;
+        [alertView show];
+    }else{
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+
 }
 
 - (void)timerAction{
@@ -315,8 +353,48 @@
 }
 
 
+
+- (void)textFieldDidEndEditing:(UITextField *)textField{
+    self.patrolTitle.text = textField.text;
+}
+
+
 - (void)mapView:(BMKMapView *)mapView didAddAnnotationViews:(NSArray *)views {
 //    [self running];
+}
+
+
+-(void)alertView:(DLAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (alertView.tag == 100) {
+        if (buttonIndex == 1) {
+            [self.timer invalidate];
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    }
+    
+    if (alertView.tag == 101) {
+        [self endPatrol];
+    }
+}
+
+- (void)getGeoCoedAddress:(NSString *)address{
+    CLGeocoder *myGeocoder = [[CLGeocoder alloc] init];
+    [myGeocoder geocodeAddressString:address completionHandler:^(NSArray *placemarks, NSError *error) {
+        if ([placemarks count] > 0 && error == nil) {
+            NSLog(@"Found %lu placemark(s).", (unsigned long)[placemarks count]);
+            CLPlacemark *firstPlacemark = [placemarks objectAtIndex:0];
+            NSLog(@"Longitude = %f", firstPlacemark.location.coordinate.longitude);
+            NSLog(@"Latitude = %f", firstPlacemark.location.coordinate.latitude);
+            
+            self.lon = [NSString stringWithFormat:@"%f", firstPlacemark.location.coordinate.longitude];
+            self.lat = [NSString stringWithFormat:@"%f", firstPlacemark.location.coordinate.latitude];
+        }
+        else if ([placemarks count] == 0 && error == nil) {
+            NSLog(@"Found no placemarks.");
+        } else if (error != nil) {
+            NSLog(@"An error occurred = %@", error);
+        }
+    }];
 }
 
 
