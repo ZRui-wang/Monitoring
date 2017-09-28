@@ -62,6 +62,7 @@
     
     [self.tableView registerNib:[UINib nibWithNibName:@"AnnouncementTableViewCell" bundle:nil] forCellReuseIdentifier:@"AnnouncementTableViewCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"AnnouncementVcHeaderView" bundle:nil] forHeaderFooterViewReuseIdentifier:@"AnnouncementVcHeaderView"];
+    self.tableView.tableFooterView = [UIView new];
     
     [self getNetWorkData];
 }
@@ -71,24 +72,30 @@
     NSDictionary *dic = @{@"TYPE_ID":@"1", @"STATE":@"0", @"currentPage":@1, @"showCount":@"10"};
     
     [[DLAPIClient sharedClient]POST:@"infoList" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
-        
         NSLog(@"%@", responseObject);
-        AnnounceListModel *model = [AnnounceListModel modelWithDictionary:responseObject];
-        
-        [self.dataListAry addObjectsFromArray:model.dataList];
-        [self.categoryListAry addObjectsFromArray:model.categoryList];
+        if ([responseObject[Kstatus]isEqualToString:Ksuccess]) {
+
+            AnnounceListModel *model = [AnnounceListModel modelWithDictionary:responseObject];
+            [self.dataListAry addObjectsFromArray:model.dataList];
+            [self.categoryListAry addObjectsFromArray:model.categoryList];
+            
+            [self.tableView reloadData];
+        }else{
+            [self showErrorMessage:responseObject[Kinfo]];
+        }
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"%@", error);
+        [self showErrorMessage:@"网络错误"];
     }];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if (tableView.tag == 100) {
-        return 5;
+        return self.categoryListAry.count;
     }
     else{
-        return 30;
+        return self.dataListAry.count;
     }
 }
 
@@ -119,6 +126,7 @@
     }
     else{
         AnnouncementTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AnnouncementTableViewCell" forIndexPath:indexPath];
+        [cell showDetailWithData:self.dataListAry[indexPath.row]];
         return cell;
     }
 

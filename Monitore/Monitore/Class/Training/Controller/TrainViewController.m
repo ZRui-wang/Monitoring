@@ -9,6 +9,7 @@
 #import "TrainViewController.h"
 #import "TrainTableViewCell.h"
 #import "TrainModel.h"
+#import "DetailViewController.h"
 
 @interface TrainViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -22,7 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"防诈骗培训";
+    self.title = @"防骗培训";
     [self leftCustomBarButton];
     
     self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStyleGrouped];
@@ -46,10 +47,10 @@
             [self.tableView reloadData];
         }else
         {
-            
+            [self showErrorMessage:responseObject[Kinfo]];
         }
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        
+        [self showErrorMessage:@"网络错误"];
     }];
 }
 
@@ -69,6 +70,17 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return 0.01;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    DetailViewController *detailVc = [[UIStoryboard storyboardWithName:@"Announcement" bundle:nil] instantiateViewControllerWithIdentifier:@"DetailViewController"];
+    
+    TrainModel *model = self.listAry[indexPath.row];
+    
+    detailVc.infoId = model.newsId;
+    
+    [self.navigationController pushViewController:detailVc animated:YES];
 }
 
 

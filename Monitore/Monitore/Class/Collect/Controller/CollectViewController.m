@@ -17,11 +17,11 @@
 @property (strong, nonatomic) UILabel *addressLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *colorTitle;
-@property (strong, nonatomic) UILabel *addressTitle;
 @property (weak, nonatomic) IBOutlet UIImageView *collectImageView;
 @property (weak, nonatomic) IBOutlet UIButton *takePhotoButton;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *textViewHeigh;
+@property (weak, nonatomic) IBOutlet UILabel *addressTitle;
 
 @property (strong, nonatomic)DIYPickView *selectColorView;
 @property (strong, nonatomic)UIView *pickBgView;
@@ -58,6 +58,7 @@
     __block typeof(self) weak = self;
     [[Tools sharedTools]getCurrentAddress:^(NSString *address) {
         weak.addressLabel.text = address;
+        weak.addressTitle.text = [NSString stringWithFormat:@"救援地址:%@", address];
         [weak getGeoCoedAddress:address];
     }];
 

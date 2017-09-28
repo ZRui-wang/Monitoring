@@ -25,7 +25,11 @@
 //    self.title.text = @"asfasjf a\n";
 }
 
-
+- (void)showDetailWithData:(AnnounceModel *)model{
+    self.title.text = model.title;
+    self.date.text = model.createtime;
+    [self.titleImage sd_setImageWithURL:[NSURL URLWithString:model.icon] placeholderImage:[UIImage imageNamed:@"新闻标题"]];
+}
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

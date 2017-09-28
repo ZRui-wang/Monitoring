@@ -143,6 +143,8 @@
     
     TaskDetailViewController *taskDetailVc = [[UIStoryboard storyboardWithName:@"Announcement" bundle:nil]instantiateViewControllerWithIdentifier:@"TaskDetailViewController"];
     
+    taskDetailVc.isMyTask = NO;
+    
     taskDetailVc.lat = self.lon;
     taskDetailVc.lon = self.lat;
     taskDetailVc.ID = model.taskId;

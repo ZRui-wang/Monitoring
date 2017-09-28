@@ -85,7 +85,7 @@
     TaskListModel *model = self.listAry[indexPath.row];
     
     TaskDetailViewController *taskDetailVc = [[UIStoryboard storyboardWithName:@"Announcement" bundle:nil]instantiateViewControllerWithIdentifier:@"TaskDetailViewController"];
-    
+    taskDetailVc.isMyTask = YES;
     taskDetailVc.lat = self.lon;
     taskDetailVc.lon = self.lat;
     taskDetailVc.ID = model.taskId;

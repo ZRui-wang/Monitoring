@@ -8,6 +8,7 @@
 
 #import "TaskDetailViewController.h"
 #import "TaskDetailModel.h"
+#import "UserTitle.h"
 
 @interface TaskDetailViewController ()
 
@@ -26,6 +27,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *myAddress;
 @property (weak, nonatomic) IBOutlet UILabel *tastAddress1;
 @property (weak, nonatomic) IBOutlet UILabel *taskEndAddress1;
+@property (weak, nonatomic) IBOutlet UIButton *getButton;
 
 @property (strong, nonatomic) TaskDetailModel *model;
 @end
@@ -43,7 +45,35 @@
         weak.tastAddress1.text = [NSString stringWithFormat:@"当前位置:%@", address];
     }];
     
+    if (_isMyTask) {
+        self.getButton.hidden = YES;
+    }else{
+        self.getButton.hidden = NO;
+    }
+    
+    
     [self getTaskDetail];
+}
+
+
+
+
+- (IBAction)getTaskData:(id)sender {
+    
+    UserTitle *title = [Tools getPersonData];
+    
+    NSDictionary *dic = @{@"USER_ID":title.usersId, @"LAT":self.lat, @"LNG":self.lon, @"ID":self.ID};
+    [[DLAPIClient sharedClient]POST:@"taskAdd" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+        if ([responseObject[Kstatus]isEqualToString:Ksuccess]) {
+            [self showSuccessMessage:responseObject[Kinfo]];
+        }else{
+            [self showErrorMessage:responseObject[Kinfo]];
+        }
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [self showErrorMessage:@"领取失败"];
+    }];
+    
 }
 
 - (void)getTaskDetail{
@@ -65,9 +95,11 @@
             self.distance.text = [NSString stringWithFormat:@"距我%@", self.model.distance];
             self.myAddress.text = [NSString stringWithFormat:@"任务开始地址:%@", self.model.startAddress];
             self.taskEndAddress1.text = [NSString stringWithFormat:@"任务结束地址:%@", self.model.endAddress];
+        }else{
+            [self showErrorMessage:responseObject[Kinfo]];
         }
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        
+        [self showErrorMessage:@"数据错误"];
     }];
 }
 

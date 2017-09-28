@@ -9,6 +9,11 @@
 #import "DetailViewController.h"
 
 @interface DetailViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+@property (weak, nonatomic) IBOutlet UIView *bgView;
+
+@property (nonatomic, strong)YYTextView *textView;
 
 @end
 
@@ -18,8 +23,31 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self leftCustomBarButton];
-    self.title = @"公告详情";
+    self.title = @"详情";
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    self.textView = [[YYTextView alloc]initWithFrame:CGRectMake(10, 0, SCREEN_WIDTH-20, SCREEN_HEIGHT-125)];
+    [self.bgView addSubview:self.textView];
+    
+    [self getInfoDetail];
+    
+}
+
+- (void)getInfoDetail{
+    NSDictionary *dic = @{@"ID":self.infoId};
+    [[DLAPIClient sharedClient]POST:@"infoDetail" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+        if ([responseObject[Kstatus]isEqualToString:Ksuccess]) {
+            NSString *htmlStr = [responseObject[@"data"]objectForKey:@"detail"];
+            NSAttributedString *atterStr = [[NSAttributedString alloc]initWithData:[htmlStr dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
+            self.textView.attributedText = atterStr;
+            self.titleLabel.text = [responseObject[@"data"]objectForKey:@"title"];
+            self.timeLabel.text = [NSString stringWithFormat:@"%@  作者：%@", [responseObject[@"data"]objectForKey:@"createtime"], [responseObject[@"data"]objectForKey:@"author"]];
+        }else{
+            [self showErrorMessage:responseObject[Kinfo]];
+        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [self showErrorMessage:@"网络错误"];
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

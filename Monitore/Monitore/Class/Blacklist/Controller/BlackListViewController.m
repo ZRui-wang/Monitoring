@@ -9,6 +9,7 @@
 #import "BlackListViewController.h"
 #import "BlackListTableViewCell.h"
 #import "BlackModel.h"
+#import "DetailViewController.h"
 
 @interface BlackListViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -69,6 +70,17 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return 0.01;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    DetailViewController *detailVc = [[UIStoryboard storyboardWithName:@"Announcement" bundle:nil] instantiateViewControllerWithIdentifier:@"DetailViewController"];
+    
+    BlackModel *model = self.listAry[indexPath.row];
+    
+    detailVc.infoId = model.newsId;
+    
+    [self.navigationController pushViewController:detailVc animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

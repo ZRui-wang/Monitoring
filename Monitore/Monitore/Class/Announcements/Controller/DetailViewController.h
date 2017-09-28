@@ -10,4 +10,6 @@
 
 @interface DetailViewController : BaseViewController
 
+@property (copy, nonatomic) NSString *infoId;
+
 @end

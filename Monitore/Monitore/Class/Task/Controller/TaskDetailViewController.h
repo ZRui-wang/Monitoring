@@ -14,4 +14,6 @@
 @property (copy, nonatomic) NSString *lat;
 @property (copy, nonatomic) NSString *lon;
 
+@property (assign, nonatomic) BOOL isMyTask;
+
 @end

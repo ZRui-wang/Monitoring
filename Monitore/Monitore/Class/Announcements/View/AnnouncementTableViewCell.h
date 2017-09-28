@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AnnounceListModel.h"
 
 @interface AnnouncementTableViewCell : UITableViewCell
+
+- (void)showDetailWithData:(AnnounceModel *)model;
 
 @end
