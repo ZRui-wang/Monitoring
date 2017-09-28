@@ -670,7 +670,7 @@
                                     <constraint firstAttribute="trailing" secondItem="qgI-mR-RxW" secondAttribute="trailing" constant="10" id="zqY-qG-I9P"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G9O-mS-NtI">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G9O-mS-NtI">
                                 <rect key="frame" x="209" y="115" width="91" height="40"/>
                                 <color key="backgroundColor" red="0.68240070340000003" green="0.68238765000000001" blue="0.68239653109999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
