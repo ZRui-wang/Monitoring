@@ -10,6 +10,7 @@
 #import "DIYPickView.h"
 #import "AddContactViewController.h"
 #import "LinkerModel.h"
+#import "WCLRecordVideoVC.h"
 
 @interface CollectViewController ()<UIPickerViewDelegate, UIPickerViewDataSource, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate>
 
@@ -129,6 +130,36 @@
 
 - (IBAction)submitButtonAction:(id)sender {
     
+    //创建AlertController对象 preferredStyle可以设置是AlertView样式或者ActionSheet样式
+    UIAlertController *alertC = [UIAlertController alertControllerWithTitle:nil message:@"方式" preferredStyle:UIAlertControllerStyleActionSheet];
+    //创建取消按钮
+    UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    [alertC addAction:action1];
+    
+    UIAlertAction *photos = [UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIImagePickerController *picker = [[UIImagePickerController alloc]init];
+        picker.delegate = self;
+        picker.allowsEditing = NO;
+        
+        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        [self presentViewController:picker animated:YES completion:nil];
+    }];
+    [alertC addAction:photos];
+    
+    UIAlertAction *video = [UIAlertAction actionWithTitle:@"视频" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        WCLRecordVideoVC *video = [[UIStoryboard storyboardWithName:@"Report" bundle:nil]instantiateViewControllerWithIdentifier:@"WCLRecordVideoVC"];
+        [self presentViewController:video animated:YES completion:nil];
+    }];
+    [alertC addAction:video];
+    
+    //显示
+    [self presentViewController:alertC animated:YES completion:nil];
+    
+    
+    return;
+
     if (!self.linkerModel.urgentMobile) {
         [self showWarningMessage:@"请添加紧急联系人"];
         return;

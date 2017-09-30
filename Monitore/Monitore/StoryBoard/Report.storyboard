@@ -270,11 +270,162 @@
             </objects>
             <point key="canvasLocation" x="2101.875" y="41.197183098591552"/>
         </scene>
+        <!--Record VideoVC-->
+        <scene sceneID="Y9w-lK-ZsQ">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WVr-KH-cB4" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="WCLRecordVideoVC" id="j4y-gL-gfF" customClass="WCLRecordVideoVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OQS-SB-dFv"/>
+                        <viewControllerLayoutGuide type="bottom" id="CKf-kV-YK5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5o7-8W-ckz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view alpha="0.30000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0bO-8H-edK">
+                                <rect key="frame" x="0.0" y="422" width="320" height="146"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="146" id="MIc-BQ-eIK"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SYY-dj-H40">
+                                <rect key="frame" x="120" y="455" width="80" height="80"/>
+                                <state key="normal" image="videoRecord"/>
+                                <state key="selected" image="videoPause"/>
+                                <connections>
+                                    <action selector="recordAction:" destination="j4y-gL-gfF" eventType="touchUpInside" id="V45-Mo-Eei"/>
+                                </connections>
+                            </button>
+                            <view alpha="0.30000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5gw-tg-OIK">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="6SN-pM-ro1"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wXM-Z6-HwH">
+                                <rect key="frame" x="268" y="20" width="52" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="52" id="NFP-Xn-6bX"/>
+                                    <constraint firstAttribute="height" constant="44" id="cD3-yh-aIG"/>
+                                </constraints>
+                                <state key="normal" image="videoNext"/>
+                                <state key="highlighted" image="videoNext#"/>
+                                <connections>
+                                    <action selector="recordNextAction:" destination="j4y-gL-gfF" eventType="touchUpInside" id="OQW-0l-jin"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="syO-Pr-Oeu">
+                                <rect key="frame" x="96" y="22" width="49" height="34"/>
+                                <state key="normal" image="changeCamera"/>
+                                <connections>
+                                    <action selector="changeCameraAction:" destination="j4y-gL-gfF" eventType="touchUpInside" id="txB-f7-aTI"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tQr-w7-hDy" customClass="WCLRecordProgressView">
+                                <rect key="frame" x="0.0" y="417" width="320" height="5"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="5" id="qvC-XE-RQ1"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="progressBgColor">
+                                        <color key="value" red="0.72799396510000003" green="0.72797214980000002" blue="0.72798454759999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="progressColor">
+                                        <color key="value" red="0.972296834" green="0.1877550781" blue="0.17929968239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="progress">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uhR-nv-Paj">
+                                <rect key="frame" x="0.0" y="20" width="52" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="52" id="Qdi-dV-r1Q"/>
+                                    <constraint firstAttribute="height" constant="44" id="f4N-6h-vrk"/>
+                                </constraints>
+                                <state key="normal" image="closeVideo"/>
+                                <state key="highlighted" image="closeVideo#"/>
+                                <connections>
+                                    <action selector="dismissAction:" destination="j4y-gL-gfF" eventType="touchUpInside" id="tXB-Zc-QEc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bxi-fl-p1p">
+                                <rect key="frame" x="175" y="22" width="49" height="34"/>
+                                <state key="normal" image="flashlightOff"/>
+                                <state key="selected" image="flashlightOn"/>
+                                <connections>
+                                    <action selector="flashLightAction:" destination="j4y-gL-gfF" eventType="touchUpInside" id="FeU-al-8Cy"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="voH-UP-Nhn">
+                                <rect key="frame" x="246" y="460" width="70" height="70"/>
+                                <state key="normal" image="locationVideo"/>
+                                <connections>
+                                    <action selector="locationVideoAction:" destination="j4y-gL-gfF" eventType="touchUpInside" id="UUh-eX-jFb"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="syO-Pr-Oeu" firstAttribute="centerX" secondItem="5gw-tg-OIK" secondAttribute="centerX" constant="-39.5" id="3Ta-To-mRM"/>
+                            <constraint firstItem="uhR-nv-Paj" firstAttribute="leading" secondItem="5gw-tg-OIK" secondAttribute="leading" id="4iR-fa-n6X"/>
+                            <constraint firstItem="SYY-dj-H40" firstAttribute="centerX" secondItem="0bO-8H-edK" secondAttribute="centerX" id="4wr-FE-gXM"/>
+                            <constraint firstItem="0bO-8H-edK" firstAttribute="top" secondItem="tQr-w7-hDy" secondAttribute="bottom" id="7gw-9f-acM"/>
+                            <constraint firstItem="0bO-8H-edK" firstAttribute="leading" secondItem="5o7-8W-ckz" secondAttribute="leading" id="GHI-Ok-GdE"/>
+                            <constraint firstAttribute="trailing" secondItem="0bO-8H-edK" secondAttribute="trailing" id="Jrg-FL-3x8"/>
+                            <constraint firstItem="SYY-dj-H40" firstAttribute="centerY" secondItem="0bO-8H-edK" secondAttribute="centerY" id="OpV-9S-YAq"/>
+                            <constraint firstItem="5gw-tg-OIK" firstAttribute="top" secondItem="5o7-8W-ckz" secondAttribute="top" id="PAC-o2-SJf"/>
+                            <constraint firstAttribute="trailing" secondItem="tQr-w7-hDy" secondAttribute="trailing" id="SLG-hy-zfn"/>
+                            <constraint firstItem="voH-UP-Nhn" firstAttribute="leading" secondItem="SYY-dj-H40" secondAttribute="trailing" constant="46" id="T8u-je-DzQ"/>
+                            <constraint firstItem="voH-UP-Nhn" firstAttribute="centerY" secondItem="SYY-dj-H40" secondAttribute="centerY" id="aVN-PV-4fl"/>
+                            <constraint firstItem="wXM-Z6-HwH" firstAttribute="trailing" secondItem="5gw-tg-OIK" secondAttribute="trailing" id="atL-5M-MWY"/>
+                            <constraint firstItem="bxi-fl-p1p" firstAttribute="centerX" secondItem="5gw-tg-OIK" secondAttribute="centerX" constant="39.5" id="bSt-NL-F4u"/>
+                            <constraint firstAttribute="trailing" secondItem="5gw-tg-OIK" secondAttribute="trailing" id="cnG-jR-AIm"/>
+                            <constraint firstItem="wXM-Z6-HwH" firstAttribute="bottom" secondItem="5gw-tg-OIK" secondAttribute="bottom" id="f15-QB-Dbb"/>
+                            <constraint firstItem="CKf-kV-YK5" firstAttribute="top" secondItem="0bO-8H-edK" secondAttribute="bottom" id="fs2-nv-f9w"/>
+                            <constraint firstItem="tQr-w7-hDy" firstAttribute="leading" secondItem="5o7-8W-ckz" secondAttribute="leading" id="jBk-IN-6TS"/>
+                            <constraint firstItem="uhR-nv-Paj" firstAttribute="bottom" secondItem="5gw-tg-OIK" secondAttribute="bottom" id="jH7-TQ-01G"/>
+                            <constraint firstItem="syO-Pr-Oeu" firstAttribute="centerY" secondItem="5gw-tg-OIK" secondAttribute="centerY" constant="7" id="jx1-gG-7t6"/>
+                            <constraint firstItem="bxi-fl-p1p" firstAttribute="centerY" secondItem="5gw-tg-OIK" secondAttribute="centerY" constant="7" id="kK1-PZ-AWJ"/>
+                            <constraint firstItem="0bO-8H-edK" firstAttribute="top" secondItem="tQr-w7-hDy" secondAttribute="bottom" id="ryh-Ke-zqu"/>
+                            <constraint firstItem="5gw-tg-OIK" firstAttribute="leading" secondItem="5o7-8W-ckz" secondAttribute="leading" id="wso-kN-HOo"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="rff-nK-V0O"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="changeCameraBT" destination="syO-Pr-Oeu" id="2BS-mM-J1m"/>
+                        <outlet property="flashLightBT" destination="bxi-fl-p1p" id="zG4-c0-TBd"/>
+                        <outlet property="locationVideoBT" destination="voH-UP-Nhn" id="PGW-4s-sdy"/>
+                        <outlet property="progressView" destination="tQr-w7-hDy" id="jLc-uP-xzj"/>
+                        <outlet property="recordBt" destination="SYY-dj-H40" id="5lU-wK-YYG"/>
+                        <outlet property="recordNextBT" destination="wXM-Z6-HwH" id="aXw-rc-QB6"/>
+                        <outlet property="topViewTop" destination="PAC-o2-SJf" id="LvV-Iw-XPk"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="3248" y="41"/>
+        </scene>
     </scenes>
     <resources>
         <image name="110" width="91" height="112"/>
         <image name="119" width="97" height="118"/>
         <image name="120" width="97" height="118"/>
+        <image name="changeCamera" width="49" height="34"/>
+        <image name="closeVideo" width="18" height="18"/>
+        <image name="closeVideo#" width="16" height="16"/>
+        <image name="flashlightOff" width="49" height="34"/>
+        <image name="flashlightOn" width="16" height="16"/>
+        <image name="locationVideo" width="70" height="70"/>
+        <image name="videoNext" width="11" height="21"/>
+        <image name="videoNext#" width="11" height="21"/>
+        <image name="videoPause" width="80" height="80"/>
+        <image name="videoRecord" width="80" height="80"/>
         <image name="救援" width="294" height="177"/>
     </resources>
 </document>
