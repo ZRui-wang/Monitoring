@@ -165,6 +165,12 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W3v-6M-ijS">
+                                        <rect key="frame" x="194.5" y="20" width="35.5" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
@@ -173,6 +179,7 @@
                                     <constraint firstItem="JJo-6t-LVc" firstAttribute="leading" secondItem="mYU-aB-6T5" secondAttribute="leading" constant="50" id="DTD-vW-hCB"/>
                                     <constraint firstItem="Lpe-0e-SiI" firstAttribute="centerX" secondItem="mYU-aB-6T5" secondAttribute="centerX" multiplier="0.5" id="GZ8-Oi-6CA"/>
                                     <constraint firstItem="E6S-gN-0iW" firstAttribute="top" secondItem="JJo-6t-LVc" secondAttribute="bottom" constant="15" id="IqT-1C-fIG"/>
+                                    <constraint firstItem="W3v-6M-ijS" firstAttribute="centerY" secondItem="UIN-aH-CEF" secondAttribute="centerY" id="L5c-OT-xfv"/>
                                     <constraint firstItem="j6S-Pk-IhC" firstAttribute="leading" secondItem="UIN-aH-CEF" secondAttribute="leading" id="Md4-2o-Nyy"/>
                                     <constraint firstItem="bBm-mN-8Lt" firstAttribute="leading" secondItem="UIN-aH-CEF" secondAttribute="leading" id="N6x-VD-l0u"/>
                                     <constraint firstItem="lcJ-ei-Mco" firstAttribute="leading" secondItem="JJo-6t-LVc" secondAttribute="trailing" constant="10" id="OsW-Xa-s60"/>
@@ -185,6 +192,7 @@
                                     <constraint firstAttribute="trailing" secondItem="Afk-d7-aCy" secondAttribute="trailing" id="c7E-EW-BC3"/>
                                     <constraint firstItem="jNm-Pd-aDX" firstAttribute="centerY" secondItem="E6S-gN-0iW" secondAttribute="centerY" id="cwU-9o-KGg"/>
                                     <constraint firstItem="Afk-d7-aCy" firstAttribute="top" secondItem="mYU-aB-6T5" secondAttribute="top" id="dLM-rv-Eg3"/>
+                                    <constraint firstItem="W3v-6M-ijS" firstAttribute="leading" secondItem="UIN-aH-CEF" secondAttribute="trailing" constant="5" id="fGF-EH-OxW"/>
                                     <constraint firstItem="j6S-Pk-IhC" firstAttribute="top" secondItem="D6p-Zs-1Wc" secondAttribute="bottom" constant="5" id="got-c8-a41"/>
                                     <constraint firstAttribute="trailing" secondItem="zxY-ZZ-Nks" secondAttribute="trailing" constant="50" id="hcg-D3-68B"/>
                                     <constraint firstItem="jNm-Pd-aDX" firstAttribute="centerX" secondItem="zxY-ZZ-Nks" secondAttribute="centerX" id="kBc-VI-9PA"/>
@@ -232,6 +240,7 @@
                         <outlet property="Name" destination="UIN-aH-CEF" id="HEM-0Q-DV9"/>
                         <outlet property="address" destination="j6S-Pk-IhC" id="hVZ-5K-oEV"/>
                         <outlet property="headerImageView" destination="Lpe-0e-SiI" id="rGb-Ep-L56"/>
+                        <outlet property="nameLabel" destination="W3v-6M-ijS" id="i9q-0L-XG9"/>
                         <outlet property="phoneNo" destination="bBm-mN-8Lt" id="BA5-k8-8oq"/>
                         <outlet property="scores" destination="jNm-Pd-aDX" id="m4V-fK-q4q"/>
                         <outlet property="starLeval" destination="E6S-gN-0iW" id="bhi-0K-Nm1"/>

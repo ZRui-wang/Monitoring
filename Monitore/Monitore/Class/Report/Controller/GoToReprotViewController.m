@@ -173,7 +173,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row == 0) {
         //创建AlertController对象 preferredStyle可以设置是AlertView样式或者ActionSheet样式
-        UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"分类" message:@"举报类型" preferredStyle:UIAlertControllerStyleActionSheet];
+        UIAlertController *alertC = [UIAlertController alertControllerWithTitle:nil message:@"监督类型" preferredStyle:UIAlertControllerStyleActionSheet];
         //创建取消按钮
         UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
             

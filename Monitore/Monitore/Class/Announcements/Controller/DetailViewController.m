@@ -35,8 +35,10 @@
 
 - (void)getInfoDetail{
     NSDictionary *dic = @{@"ID":self.infoId};
+    [self showWithStatus:@"加载中..."];
     [[DLAPIClient sharedClient]POST:@"infoDetail" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject[Kstatus]isEqualToString:Ksuccess]) {
+            [self removeLoadingHUD];
             NSString *htmlStr = [responseObject[@"data"]objectForKey:@"detail"];
             NSAttributedString *atterStr = [[NSAttributedString alloc]initWithData:[htmlStr dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
             self.textView.attributedText = atterStr;

@@ -23,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *stars;
 @property (weak, nonatomic) IBOutlet UILabel *scores;
 @property (nonatomic, strong)NSArray *titleAry;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 
 @property (nonatomic, strong) UserTitle *userTitle;
 @property (nonatomic, strong) UserModel *model;
@@ -85,6 +86,7 @@
             self.stars.text = self.model.stars;
             self.score.text = self.model.score;
             self.phoneNo.text = self.model.mobile;
+            self.nameLabel.text = self.model.nickname;
         }else{
             
         }

@@ -40,6 +40,8 @@
     // 七牛
     self.upManager = [[QNUploadManager alloc]init];
     
+    [NSThread sleepForTimeInterval:3];
+    
     return YES;
 }
 
