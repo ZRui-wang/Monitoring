@@ -214,6 +214,8 @@
 		84A1D5461F5EA8D500BFAFC0 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A1D53F1F5EA8D500BFAFC0 /* AFURLResponseSerialization.m */; };
 		84A1D5471F5EA8D500BFAFC0 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A1D5411F5EA8D500BFAFC0 /* AFURLSessionManager.m */; };
 		84A1D5491F5EA95900BFAFC0 /* libresolv.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A1D5481F5EA95900BFAFC0 /* libresolv.9.tbd */; };
+		84A5E5581F8CAF8800D06556 /* categoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A5E5571F8CAF8800D06556 /* categoryModel.m */; };
+		84A5E55B1F8CB99C00D06556 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A5E55A1F8CB99C00D06556 /* InfoViewController.m */; };
 		84AB54BF1F3C2D8D006F7904 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AB54BE1F3C2D8D006F7904 /* DetailViewController.m */; };
 		84AB54C31F3D3F8F006F7904 /* HelpCenterCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AB54C11F3D3F8F006F7904 /* HelpCenterCollectionViewCell.m */; };
 		84AB54C41F3D3F8F006F7904 /* HelpCenterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84AB54C21F3D3F8F006F7904 /* HelpCenterCollectionViewCell.xib */; };
@@ -782,6 +784,10 @@
 		84A1D5401F5EA8D500BFAFC0 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		84A1D5411F5EA8D500BFAFC0 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
 		84A1D5481F5EA95900BFAFC0 /* libresolv.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.9.tbd; path = usr/lib/libresolv.9.tbd; sourceTree = SDKROOT; };
+		84A5E5561F8CAF8800D06556 /* categoryModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = categoryModel.h; sourceTree = "<group>"; };
+		84A5E5571F8CAF8800D06556 /* categoryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = categoryModel.m; sourceTree = "<group>"; };
+		84A5E5591F8CB99C00D06556 /* InfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
+		84A5E55A1F8CB99C00D06556 /* InfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
 		84AB54BD1F3C2D8D006F7904 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		84AB54BE1F3C2D8D006F7904 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		84AB54C01F3D3F8F006F7904 /* HelpCenterCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpCenterCollectionViewCell.h; sourceTree = "<group>"; };
@@ -2373,6 +2379,8 @@
 				78EB07DC1F3B51EC00C64587 /* HelpCenterViewController.m */,
 				78EB07DE1F3C9EB200C64587 /* UserFeedbackViewController.h */,
 				78EB07DF1F3C9EB200C64587 /* UserFeedbackViewController.m */,
+				84A5E5591F8CB99C00D06556 /* InfoViewController.h */,
+				84A5E55A1F8CB99C00D06556 /* InfoViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2507,6 +2515,8 @@
 				84D70AE31F7A013E008575F7 /* TaskDetailModel.m */,
 				84FFCEF51F7B3537009BA0D3 /* MyTaskListModel.h */,
 				84FFCEF61F7B3537009BA0D3 /* MyTaskListModel.m */,
+				84A5E5561F8CAF8800D06556 /* categoryModel.h */,
+				84A5E5571F8CAF8800D06556 /* categoryModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2909,6 +2919,7 @@
 				8497E8581F662735001ABBEA /* UIProgressView+AFNetworking.m in Sources */,
 				84A1D5271F5EA7DF00BFAFC0 /* QNRecord.m in Sources */,
 				84A1D5461F5EA8D500BFAFC0 /* AFURLResponseSerialization.m in Sources */,
+				84A5E55B1F8CB99C00D06556 /* InfoViewController.m in Sources */,
 				84F9291B1F29652B00B76D79 /* PersonalDataViewController.m in Sources */,
 				84F929351F2971F500B76D79 /* GoToPatrolViewController.m in Sources */,
 				84B7B5C21F46B2ED00C3C708 /* SDWebImageDownloader.m in Sources */,
@@ -2955,6 +2966,7 @@
 				84F929151F29652B00B76D79 /* PatrolTableHeaderView.m in Sources */,
 				847ED1D61F3421F500BC710E /* MKAnnotationView+YYWebImage.m in Sources */,
 				847ED1ED1F3421F500BC710E /* NSParagraphStyle+YYText.m in Sources */,
+				84A5E5581F8CAF8800D06556 /* categoryModel.m in Sources */,
 				84F9295B1F29E24900B76D79 /* AnnouncementTableViewCell.m in Sources */,
 				84A1D52F1F5EA7DF00BFAFC0 /* QNRefresher.m in Sources */,
 				84B7B5811F45644100C3C708 /* MYPresentAnimationManager.m in Sources */,

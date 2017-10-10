@@ -14,5 +14,6 @@
 @property (copy, nonatomic) NSString *icon;
 @property (copy, nonatomic) NSString *title;
 @property (copy, nonatomic) NSString *newsId;
+@property (copy, nonatomic) NSString *remark;
 
 @end

@@ -26,7 +26,12 @@
 
 - (void)showDetailWithData:(BlackModel *)model{
     [self.img sd_setImageWithURL:[NSURL URLWithString:model.icon]placeholderImage:[UIImage imageNamed:@"维稳黑名单"]];
-    self.title.text = model.title;
+    if (model.title) {
+        self.title.text = model.title;
+    }else{
+        self.title.text = model.remark;
+    }
+    
     self.time.text = model.createtime;
 }
 

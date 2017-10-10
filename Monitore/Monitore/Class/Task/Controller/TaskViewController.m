@@ -13,10 +13,12 @@
 #import "TaskListModel.h"
 #import "TaskDetailViewController.h"
 #import "MyTaskViewController.h"
+#import "categoryModel.h"
 
 @interface TaskViewController ()<UITableViewDelegate, UITableViewDataSource, TaskHeaderViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *listAry;
+@property (strong, nonatomic) NSMutableArray *categoryList;
 @property (copy, nonatomic) NSString *lon;
 @property (copy, nonatomic) NSString *lat;
 
@@ -51,6 +53,7 @@
     self.tableView.tableFooterView = [UIView new];
     
     _listAry = [NSMutableArray array];
+    _categoryList = [NSMutableArray array];
 }
 
 - (void)rightCustomBarButton{
@@ -101,6 +104,12 @@
                 TaskListModel *model = [TaskListModel modelWithDictionary:dic];
                 [self.listAry addObject:model];
             }
+            
+            for (NSDictionary *dic in responseObject[@"categoryList"]) {
+                categoryModel *model = [categoryModel modelWithDictionary:dic];
+                [self.categoryList addObject:model];
+            }
+            
             [self.tableView reloadData];
         }else{
             [self showErrorMessage:responseObject[Kinfo]];
@@ -110,6 +119,30 @@
     }];
 }
 
+- (void)allTypeAction{
+    //创建AlertController对象 preferredStyle可以设置是AlertView样式或者ActionSheet样式
+    UIAlertController *alertC = [UIAlertController alertControllerWithTitle:nil message:@"任务类型" preferredStyle:UIAlertControllerStyleActionSheet];
+    //创建取消按钮
+    UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    
+    [alertC addAction:action1];
+    
+    for (int i=0; i<self.categoryList.count; i++) {
+        categoryModel *model = self.categoryList[i];
+        UIAlertAction *action2 = [UIAlertAction actionWithTitle:model.name style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//            self.model.firstId = model.categoryId;
+//            self.model.secodeId = model.categoryId;
+//            self.model.firstTitle = model.name;
+            [self.tableView reloadData];
+        }];
+        [alertC addAction:action2];
+    }
+    
+    //显示
+    [self presentViewController:alertC animated:YES completion:nil];
+}
 
 - (void)startTimeAction{
     [self creatPickView];

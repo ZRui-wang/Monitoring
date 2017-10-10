@@ -15,6 +15,7 @@
 #import "UserFeedbackViewController.h"
 #import "UserTitle.h"
 #import "UserModel.h"
+#import "InfoViewController.h"
 
 @interface PersonalCenterVc ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -131,6 +132,9 @@
     else if (indexPath.row == 2)
     {
         // 消息中心
+        InfoViewController *infoVc = [[InfoViewController alloc]init];
+        [self.navigationController pushViewController:infoVc animated:YES];
+        
     }
     else if (indexPath.row == 3)
     {
