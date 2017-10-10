@@ -184,12 +184,9 @@
         for (int i=0; i<self.classAry.count; i++) {
             ClassModel *model = self.classAry[i];
             UIAlertAction *action2 = [UIAlertAction actionWithTitle:model.name style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                
-                if (i==0) {
-                    self.model.firstId = model.categoryId;
-                    self.model.secodeId = model.categoryId;
-                    self.model.firstTitle = model.name;
-                }
+                self.model.firstId = model.categoryId;
+                self.model.secodeId = model.categoryId;
+                self.model.firstTitle = model.name;
                 [self.tableView reloadData];
                 
                 

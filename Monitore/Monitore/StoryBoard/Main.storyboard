@@ -123,7 +123,7 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="131*****" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bBm-mN-8Lt">
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="131*****" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bBm-mN-8Lt">
                                         <rect key="frame" x="159" y="41" width="49.5" height="16"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -159,28 +159,29 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地址" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j6S-Pk-IhC">
-                                        <rect key="frame" x="159" y="87" width="27" height="16"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W3v-6M-ijS">
                                         <rect key="frame" x="194.5" y="20" width="35.5" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地址" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j6S-Pk-IhC">
+                                        <rect key="frame" x="201" y="67" width="27" height="16"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstItem="j6S-Pk-IhC" firstAttribute="leading" secondItem="D6p-Zs-1Wc" secondAttribute="trailing" constant="2" id="2gX-CW-sJ1"/>
                                     <constraint firstItem="lcJ-ei-Mco" firstAttribute="centerX" secondItem="mYU-aB-6T5" secondAttribute="centerX" id="65p-lv-ZjM"/>
                                     <constraint firstItem="UIN-aH-CEF" firstAttribute="leading" secondItem="Lpe-0e-SiI" secondAttribute="trailing" constant="30" id="BIF-NV-kIW"/>
                                     <constraint firstItem="JJo-6t-LVc" firstAttribute="leading" secondItem="mYU-aB-6T5" secondAttribute="leading" constant="50" id="DTD-vW-hCB"/>
                                     <constraint firstItem="Lpe-0e-SiI" firstAttribute="centerX" secondItem="mYU-aB-6T5" secondAttribute="centerX" multiplier="0.5" id="GZ8-Oi-6CA"/>
                                     <constraint firstItem="E6S-gN-0iW" firstAttribute="top" secondItem="JJo-6t-LVc" secondAttribute="bottom" constant="15" id="IqT-1C-fIG"/>
+                                    <constraint firstItem="j6S-Pk-IhC" firstAttribute="centerY" secondItem="D6p-Zs-1Wc" secondAttribute="centerY" id="Kj3-rX-bRd"/>
                                     <constraint firstItem="W3v-6M-ijS" firstAttribute="centerY" secondItem="UIN-aH-CEF" secondAttribute="centerY" id="L5c-OT-xfv"/>
-                                    <constraint firstItem="j6S-Pk-IhC" firstAttribute="leading" secondItem="UIN-aH-CEF" secondAttribute="leading" id="Md4-2o-Nyy"/>
                                     <constraint firstItem="bBm-mN-8Lt" firstAttribute="leading" secondItem="UIN-aH-CEF" secondAttribute="leading" id="N6x-VD-l0u"/>
                                     <constraint firstItem="lcJ-ei-Mco" firstAttribute="leading" secondItem="JJo-6t-LVc" secondAttribute="trailing" constant="10" id="OsW-Xa-s60"/>
                                     <constraint firstAttribute="bottom" secondItem="Afk-d7-aCy" secondAttribute="bottom" id="RTl-7y-GbW"/>
@@ -193,7 +194,6 @@
                                     <constraint firstItem="jNm-Pd-aDX" firstAttribute="centerY" secondItem="E6S-gN-0iW" secondAttribute="centerY" id="cwU-9o-KGg"/>
                                     <constraint firstItem="Afk-d7-aCy" firstAttribute="top" secondItem="mYU-aB-6T5" secondAttribute="top" id="dLM-rv-Eg3"/>
                                     <constraint firstItem="W3v-6M-ijS" firstAttribute="leading" secondItem="UIN-aH-CEF" secondAttribute="trailing" constant="5" id="fGF-EH-OxW"/>
-                                    <constraint firstItem="j6S-Pk-IhC" firstAttribute="top" secondItem="D6p-Zs-1Wc" secondAttribute="bottom" constant="5" id="got-c8-a41"/>
                                     <constraint firstAttribute="trailing" secondItem="zxY-ZZ-Nks" secondAttribute="trailing" constant="50" id="hcg-D3-68B"/>
                                     <constraint firstItem="jNm-Pd-aDX" firstAttribute="centerX" secondItem="zxY-ZZ-Nks" secondAttribute="centerX" id="kBc-VI-9PA"/>
                                     <constraint firstItem="Afk-d7-aCy" firstAttribute="leading" secondItem="mYU-aB-6T5" secondAttribute="leading" id="lBT-Qi-69s"/>
@@ -371,7 +371,7 @@
                                     <constraint firstAttribute="height" constant="40" id="eal-lN-sFM"/>
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="-134" maxY="0.0"/>
-                                <state key="normal" title="志愿者" image="下拉选中">
+                                <state key="normal" title="志愿者分布">
                                     <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -383,7 +383,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="iQQ-pK-bI6"/>
                                 </constraints>
-                                <state key="normal" title="志愿者分布">
+                                <state key="normal" title="附近志愿者">
                                     <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -700,7 +700,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="下拉选中" width="8" height="5"/>
         <image name="个人中心图层" width="375" height="165"/>
         <image name="个人资料" width="18" height="19"/>
         <image name="大按钮" width="300" height="41"/>
