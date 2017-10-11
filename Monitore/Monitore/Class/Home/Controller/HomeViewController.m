@@ -55,6 +55,7 @@ static NSString *HomeCollectionViewCellId = @"HomeCollectionViewCell";
     
     [self bannerUrl];
     [self creatCollectionView];
+    [self getQNToken];
 }
 
 - (void)creatCollectionView{
@@ -217,6 +218,21 @@ static NSString *HomeCollectionViewCellId = @"HomeCollectionViewCell";
         [self.navigationController pushViewController:personalCenterVc animated:YES];
     }
 
+}
+
+- (void)getQNToken{
+    UserTitle *title = [Tools getPersonData];
+    NSDictionary *dic = @{@"USER_ID":title.usersId};
+    [[DLAPIClient sharedClient]POST:@"getQiNiuToken" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+        if ([responseObject[Kstatus]isEqualToString:Ksuccess]) {
+            
+            NSDictionary *dic = responseObject[@"data"];
+            
+            [[NSUserDefaults standardUserDefaults]setObject:dic[@"token"] forKey:@"qntoken"];
+        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+    }];
 }
 
 

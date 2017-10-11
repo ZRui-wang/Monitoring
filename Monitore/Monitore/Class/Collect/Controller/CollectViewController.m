@@ -11,6 +11,10 @@
 #import "AddContactViewController.h"
 #import "LinkerModel.h"
 #import "WCLRecordVideoVC.h"
+#import "VolunterManagerViewController.h"
+//#import "QNUploadManager.h"
+//#import "QNConfiguration.h"
+#import "QiniuSDK.h"
 
 @interface CollectViewController ()<UIPickerViewDelegate, UIPickerViewDataSource, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate>
 
@@ -23,6 +27,8 @@
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *textViewHeigh;
 @property (weak, nonatomic) IBOutlet UILabel *addressTitle;
+
+@property (strong, nonatomic) UIImagePickerController *picker;
 
 @property (strong, nonatomic)DIYPickView *selectColorView;
 @property (strong, nonatomic)UIView *pickBgView;
@@ -139,18 +145,21 @@
     [alertC addAction:action1];
     
     UIAlertAction *photos = [UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        UIImagePickerController *picker = [[UIImagePickerController alloc]init];
-        picker.delegate = self;
-        picker.allowsEditing = NO;
         
-        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-        [self presentViewController:picker animated:YES completion:nil];
+        self.picker.allowsEditing = NO;
+        
+        self.picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        [self presentViewController:self.picker animated:YES completion:nil];
     }];
     [alertC addAction:photos];
     
     UIAlertAction *video = [UIAlertAction actionWithTitle:@"视频" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        WCLRecordVideoVC *video = [[UIStoryboard storyboardWithName:@"Report" bundle:nil]instantiateViewControllerWithIdentifier:@"WCLRecordVideoVC"];
-        [self presentViewController:video animated:YES completion:nil];
+        self.picker.delegate = self;
+        self.picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        self.picker.mediaTypes = @[(NSString *)kUTTypeMovie];
+        self.picker.videoMaximumDuration = 10;
+        self.picker.videoQuality = UIImagePickerControllerQualityTypeHigh;
+        [self presentViewController:self.picker animated:YES completion:nil];
     }];
     [alertC addAction:video];
     
@@ -291,13 +300,39 @@
 
 // 拍照完成回调
 
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(nullable NSDictionary<NSString *,id> *)editingInfo NS_DEPRECATED_IOS(2_0, 3_0)
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
 {
-    self.collectImageView.image = image;
-    NSSLog(@"finish..");
+    NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
+    if ([mediaType isEqualToString:(NSString *)kUTTypeImage]){
+        
+        UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+        self.collectImageView.image = image;
+        NSSLog(@"finish..");
+        
+        self.imageData = UIImagePNGRepresentation(image);
+    }
+    else if ([mediaType isEqualToString:(NSString *)kUTTypeMovie]){
+        NSURL *url = [info objectForKey:UIImagePickerControllerMediaURL];
+        NSString *urlStr = [url path];
+        
+        NSString *token = [[NSUserDefaults standardUserDefaults]objectForKey:@"qntoken"];
+        
+        QNConfiguration *config = [QNConfiguration build:^(QNConfigurationBuilder *builder) {
+            builder.zone = [QNFixedZone zone1];
+        }];
+        QNUploadManager *upManager = [[QNUploadManager alloc]initWithConfiguration:config];
+
+        [upManager putFile:urlStr key:nil token:token complete:^(QNResponseInfo *info, NSString *key, NSDictionary *resp) {
+
+        } option:nil];
+        
+        
+    }
     
-    self.imageData = UIImagePNGRepresentation(image);
-    [self dismissViewControllerAnimated:YES completion:nil];    
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+  
 }
 
 //进入拍摄页面点击取消按钮
@@ -322,6 +357,14 @@
     AddContactViewController *goToReprotVc = [[UIStoryboard storyboardWithName:@"Report" bundle:nil]instantiateViewControllerWithIdentifier:@"AddContactViewController"];
     goToReprotVc.linkerModel = self.linkerModel;
     [self.navigationController pushViewController:goToReprotVc animated:YES];
+}
+
+- (UIImagePickerController *)picker{
+    if (_picker == nil) {
+        _picker = [[UIImagePickerController alloc]init];
+        _picker.delegate = self;
+    }
+    return _picker;
 }
 
 /*

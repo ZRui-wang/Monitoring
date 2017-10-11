@@ -7,12 +7,12 @@
 //
 
 #import "AppDelegate.h"
-#import "QNUploadManager.h"
+//#import "QNUploadManager.h"
 
 
 @interface AppDelegate ()
 
-@property QNUploadManager *upManager;
+//@property QNUploadManager *upManager;
 
 @end
 
@@ -38,7 +38,7 @@
     }
     
     // 七牛
-    self.upManager = [[QNUploadManager alloc]init];
+//    self.upManager = [[QNUploadManager alloc]init];
     
     [NSThread sleepForTimeInterval:3];
     
