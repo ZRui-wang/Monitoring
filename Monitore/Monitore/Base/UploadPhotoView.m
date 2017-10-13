@@ -47,6 +47,10 @@
     cell.block = ^(NSInteger cellRow){
         [weakSelf.photoArray removeObjectAtIndex:cellRow];
         [weakSelf.collectionView reloadData];
+        
+        NSDictionary *dic = @{@"row":[NSNumber numberWithInteger:cellRow]};
+        
+        [[NSNotificationCenter defaultCenter]postNotificationName:@"delectPhoto" object:nil userInfo:dic];
     };
     
     if (self.photoArray.count) {

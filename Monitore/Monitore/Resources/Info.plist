@@ -75,5 +75,7 @@
 			</dict>
 		</dict>
 	</dict>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>microphoneDesciption</string>
 </dict>
 </plist>

@@ -14,6 +14,8 @@
 #import "UploadPhotoView.h"
 #import "ClassModel.h"
 #import "ReportModel.h"
+#import "QiniuSDK.h"
+#import <AVFoundation/AVFoundation.h>
 
 @interface GoToReprotViewController ()<UITableViewDataSource, UITableViewDelegate, UITextViewDelegate, textViewDidFinishEidedDelegate, TakePhotosDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, AddressDelegate>
 
@@ -25,9 +27,12 @@
 @property (strong, nonatomic)NSArray *themeAry;
 @property (strong, nonatomic)NSMutableArray *photoArray;
 @property (strong, nonatomic)NSMutableArray *classAry;
-
+@property (strong, nonatomic) UIImagePickerController *picker;
 @property (strong, nonatomic)UploadPhotoView *uploadPhoto;
 @property (strong, nonatomic)ReportModel *model;
+@property (copy, nonatomic)NSString *videoUrl;
+
+@property (assign, nonatomic)BOOL isTakeVideo;
 
 @end
 
@@ -35,6 +40,10 @@
 {
     CGFloat titleHeigh;
     CGFloat detailHeigh;
+}
+
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
 }
 
 - (void)viewDidLoad {
@@ -60,10 +69,19 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"ReportAddressTableViewCell" bundle:nil] forCellReuseIdentifier:@"ReportAddressTableViewCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"UploadPhotoView" bundle:nil] forHeaderFooterViewReuseIdentifier:@"UploadPhotoView"];
 
+    self.isTakeVideo = YES;
     
     titleHeigh = 50;
     detailHeigh = 80;
     [self getClass];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(drawUnderlin:) name:@"delectPhoto" object:nil];
+    
+}
+
+- (void)drawUnderlin:(NSNotification *)notification{
+    NSInteger rowcell = [[notification.userInfo objectForKey:@"row"] integerValue];
+    [self.photoArray removeObjectAtIndex:rowcell];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -94,12 +112,51 @@
 
 
 - (void)takePhotos{
-    UIImagePickerController *picker = [[UIImagePickerController alloc]init];
-    picker.delegate = self;
-    picker.allowsEditing = NO;
     
-    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-    [self presentViewController:picker animated:YES completion:nil];
+    if (self.isTakeVideo) {
+        //创建AlertController对象 preferredStyle可以设置是AlertView样式或者ActionSheet样式
+        UIAlertController *alertC = [UIAlertController alertControllerWithTitle:nil message:@"证据类型" preferredStyle:UIAlertControllerStyleActionSheet];
+        //创建取消按钮
+        UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        [alertC addAction:action1];
+        
+        UIAlertAction *photos = [UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+            self.picker.allowsEditing = NO;
+            
+            self.picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+            [self presentViewController:self.picker animated:YES completion:nil];
+        }];
+        [alertC addAction:photos];
+        
+        UIAlertAction *video = [UIAlertAction actionWithTitle:@"视频" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            self.picker.delegate = self;
+            self.picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+            self.picker.mediaTypes = @[(NSString *)kUTTypeMovie];
+            self.picker.videoMaximumDuration = 10;
+            self.picker.videoQuality = UIImagePickerControllerQualityTypeLow;
+            [self presentViewController:self.picker animated:YES completion:nil];
+        }];
+        [alertC addAction:video];
+        
+        //显示
+        [self presentViewController:alertC animated:YES completion:nil];
+        
+        UIImagePickerController *picker = [[UIImagePickerController alloc]init];
+        picker.delegate = self;
+        picker.allowsEditing = NO;
+        
+        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        [self presentViewController:picker animated:YES completion:nil];
+    }else{
+        
+        self.picker.allowsEditing = NO;
+        
+        self.picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        [self presentViewController:self.picker animated:YES completion:nil];
+    }
 }
 
 - (void)finishEditHeigh:(CGFloat)heigh row:(NSInteger)row{
@@ -245,7 +302,7 @@
 
 - (void)uploadInfo{
     // 查询条件
-    NSString *url = [NSString stringWithFormat:@"http://39.108.78.69:3002/mobile/report?USER_ID=%@&FIRST_ID=%@&SECOND_ID=%@&CONTENT=%@&TITLE=%@&ADDRESS=%@&LONGITUDE=%@&LATITUDE=%@", self.model.userId, self.model.firstId, self.model.secodeId, self.model.content, self.model.title, self.model.address, self.model.longitude, self.model.latitude];
+    NSString *url = [NSString stringWithFormat:@"http://39.108.78.69:3002/mobile/report?USER_ID=%@&FIRST_ID=%@&SECOND_ID=%@&CONTENT=%@&TITLE=%@&ADDRESS=%@&LONGITUDE=%@&LATITUDE=%@&VIDEO_URL=%@", self.model.userId, self.model.firstId, self.model.secodeId, self.model.content, self.model.title, self.model.address, self.model.longitude, self.model.latitude, self.videoUrl];
     url = [url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     // 基于AFN3.0+ 封装的HTPPSession句柄
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
@@ -323,34 +380,62 @@
 
 
 #pragma mark - UIImagePickerControllerDelegate
-
 // 拍照完成回调
 
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(nullable NSDictionary<NSString *,id> *)editingInfo NS_DEPRECATED_IOS(2_0, 3_0)
-
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
 {
-    
-    NSSLog(@"finish..");
-    [self.photoArray insertObject:image atIndex:self.photoArray.count-1];
-    [self.tableView reloadData];
-    
-//    self.collectImageView.image = image;
-    
-    //    if(picker.sourceType == UIImagePickerControllerSourceTypeCamera)
-    //
-    //    {
-    //
-    //        //图片存入相册
-    //
-    //        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
-    //
-    //    }
-    
-    
-    
+    NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
+    if ([mediaType isEqualToString:(NSString *)kUTTypeImage]){
+        self.isTakeVideo = NO;
+        UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+        [self.photoArray insertObject:image atIndex:self.photoArray.count-1];
+        [self.tableView reloadData];
+    }
+    else if ([mediaType isEqualToString:(NSString *)kUTTypeMovie]){
+        NSURL *url = [info objectForKey:UIImagePickerControllerMediaURL];
+        NSString *urlStr = [url path];
+        
+        NSString *token = [[NSUserDefaults standardUserDefaults]objectForKey:@"qntoken"];
+        
+        QNConfiguration *config = [QNConfiguration build:^(QNConfigurationBuilder *builder) {
+            builder.zone = [QNFixedZone zone1];
+        }];
+        QNUploadManager *upManager = [[QNUploadManager alloc]initWithConfiguration:config];
+        
+        [upManager putFile:urlStr key:nil token:token complete:^(QNResponseInfo *info, NSString *key, NSDictionary *resp) {
+            self.videoUrl = resp[@"key"];
+        } option:nil];
+        
+        
+        UIImage *image = [self thumbnailImageForVideo:url atTime:1];
+        
+        [self.photoArray insertObject:image atIndex:self.photoArray.count-1];
+        [self.tableView reloadData];
+    }
     [self dismissViewControllerAnimated:YES completion:nil];
-    
 }
+
+- (UIImage*) thumbnailImageForVideo:(NSURL *)videoURL atTime:(NSTimeInterval)time {
+    
+    AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:videoURL options:nil];
+    NSParameterAssert(asset);
+    AVAssetImageGenerator *assetImageGenerator =[[AVAssetImageGenerator alloc] initWithAsset:asset];
+    assetImageGenerator.appliesPreferredTrackTransform = YES;
+    assetImageGenerator.apertureMode = AVAssetImageGeneratorApertureModeEncodedPixels;
+    
+    CGImageRef thumbnailImageRef = NULL;
+    CFTimeInterval thumbnailImageTime = time;
+    NSError *thumbnailImageGenerationError = nil;
+    thumbnailImageRef = [assetImageGenerator copyCGImageAtTime:CMTimeMake(thumbnailImageTime, 60)actualTime:NULL error:&thumbnailImageGenerationError];
+    
+    if(!thumbnailImageRef)
+        NSLog(@"thumbnailImageGenerationError %@",thumbnailImageGenerationError);
+    
+    UIImage*thumbnailImage = thumbnailImageRef ? [[UIImage alloc]initWithCGImage: thumbnailImageRef] : nil;
+    
+    return thumbnailImage;
+}
+
 
 //进入拍摄页面点击取消按钮
 
@@ -373,6 +458,14 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (UIImagePickerController *)picker{
+    if (_picker == nil) {
+        _picker = [[UIImagePickerController alloc]init];
+        _picker.delegate = self;
+    }
+    return _picker;
 }
 
 /*

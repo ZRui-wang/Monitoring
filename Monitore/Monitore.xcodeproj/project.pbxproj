@@ -631,14 +631,6 @@
 		847F0F271F6B6036005340F8 /* InfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoTableViewCell.h; sourceTree = "<group>"; };
 		847F0F281F6B6036005340F8 /* InfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoTableViewCell.m; sourceTree = "<group>"; };
 		847F0F291F6B6036005340F8 /* InfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoTableViewCell.xib; sourceTree = "<group>"; };
-		8482F1971F7F953E0049855C /* WCLRecordProgressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WCLRecordProgressView.h; sourceTree = "<group>"; };
-		8482F1981F7F953E0049855C /* WCLRecordProgressView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WCLRecordProgressView.m; sourceTree = "<group>"; };
-		8482F19B1F7F953E0049855C /* WCLRecordEncoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WCLRecordEncoder.h; sourceTree = "<group>"; };
-		8482F19C1F7F953E0049855C /* WCLRecordEncoder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WCLRecordEncoder.m; sourceTree = "<group>"; };
-		8482F19E1F7F953E0049855C /* WCLRecordEngine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WCLRecordEngine.h; sourceTree = "<group>"; };
-		8482F19F1F7F953E0049855C /* WCLRecordEngine.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WCLRecordEngine.m; sourceTree = "<group>"; };
-		8482F1A01F7F954F0049855C /* WCLRecordVideoVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WCLRecordVideoVC.h; sourceTree = "<group>"; };
-		8482F1A11F7F954F0049855C /* WCLRecordVideoVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WCLRecordVideoVC.m; sourceTree = "<group>"; };
 		848ED8321F4A8651002A5EC6 /* ForgetPassWordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPassWordViewController.h; sourceTree = "<group>"; };
 		848ED8331F4A8651002A5EC6 /* ForgetPassWordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPassWordViewController.m; sourceTree = "<group>"; };
 		848EF7911F58FC08007D65CF /* HomeHeaderView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HomeHeaderView.mm; sourceTree = "<group>"; };
@@ -1499,51 +1491,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		8482F1951F7F95200049855C /* TakeVideo */ = {
-			isa = PBXGroup;
-			children = (
-				8482F1961F7F953E0049855C /* WCLRecordProgressView */,
-				8482F1991F7F953E0049855C /* WCLRecordVideo */,
-			);
-			path = TakeVideo;
-			sourceTree = "<group>";
-		};
-		8482F1961F7F953E0049855C /* WCLRecordProgressView */ = {
-			isa = PBXGroup;
-			children = (
-				8482F1971F7F953E0049855C /* WCLRecordProgressView.h */,
-				8482F1981F7F953E0049855C /* WCLRecordProgressView.m */,
-			);
-			path = WCLRecordProgressView;
-			sourceTree = "<group>";
-		};
-		8482F1991F7F953E0049855C /* WCLRecordVideo */ = {
-			isa = PBXGroup;
-			children = (
-				8482F19A1F7F953E0049855C /* WCLRecordEncoder */,
-				8482F19D1F7F953E0049855C /* WCLRecordEngine */,
-			);
-			path = WCLRecordVideo;
-			sourceTree = "<group>";
-		};
-		8482F19A1F7F953E0049855C /* WCLRecordEncoder */ = {
-			isa = PBXGroup;
-			children = (
-				8482F19B1F7F953E0049855C /* WCLRecordEncoder.h */,
-				8482F19C1F7F953E0049855C /* WCLRecordEncoder.m */,
-			);
-			path = WCLRecordEncoder;
-			sourceTree = "<group>";
-		};
-		8482F19D1F7F953E0049855C /* WCLRecordEngine */ = {
-			isa = PBXGroup;
-			children = (
-				8482F19E1F7F953E0049855C /* WCLRecordEngine.h */,
-				8482F19F1F7F953E0049855C /* WCLRecordEngine.m */,
-			);
-			path = WCLRecordEngine;
-			sourceTree = "<group>";
-		};
 		8497E83D1F662735001ABBEA /* UIKit+AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
@@ -2161,9 +2108,6 @@
 		84F928BD1F29652B00B76D79 /* Class */ = {
 			isa = PBXGroup;
 			children = (
-				8482F1951F7F95200049855C /* TakeVideo */,
-				8482F1A01F7F954F0049855C /* WCLRecordVideoVC.h */,
-				8482F1A11F7F954F0049855C /* WCLRecordVideoVC.m */,
 				84C784251F70C1CC00D50E3A /* Award */,
 				847F0F1D1F6B6036005340F8 /* Volunter */,
 				847ED20C1F34415300BC710E /* Collect */,

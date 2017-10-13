@@ -10,7 +10,6 @@
 #import "DIYPickView.h"
 #import "AddContactViewController.h"
 #import "LinkerModel.h"
-#import "WCLRecordVideoVC.h"
 #import "VolunterManagerViewController.h"
 //#import "QNUploadManager.h"
 //#import "QNConfiguration.h"
@@ -71,7 +70,10 @@
 
     self.textView.delegate = self;
     self.textView.scrollEnabled = NO;
-    
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
     [self getUngentLink];
 }
 
@@ -136,8 +138,13 @@
 
 - (IBAction)submitButtonAction:(id)sender {
     
+    if (!self.linkerModel.urgentMobile) {
+        [self showWarningMessage:@"请添加紧急联系人"];
+        return;
+    }
+    
     //创建AlertController对象 preferredStyle可以设置是AlertView样式或者ActionSheet样式
-    UIAlertController *alertC = [UIAlertController alertControllerWithTitle:nil message:@"方式" preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertController *alertC = [UIAlertController alertControllerWithTitle:nil message:@"请上传救援现场的视频" preferredStyle:UIAlertControllerStyleActionSheet];
     //创建取消按钮
     UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         
@@ -151,14 +158,14 @@
         self.picker.sourceType = UIImagePickerControllerSourceTypeCamera;
         [self presentViewController:self.picker animated:YES completion:nil];
     }];
-    [alertC addAction:photos];
+//    [alertC addAction:photos];
     
     UIAlertAction *video = [UIAlertAction actionWithTitle:@"视频" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         self.picker.delegate = self;
         self.picker.sourceType = UIImagePickerControllerSourceTypeCamera;
         self.picker.mediaTypes = @[(NSString *)kUTTypeMovie];
         self.picker.videoMaximumDuration = 10;
-        self.picker.videoQuality = UIImagePickerControllerQualityTypeHigh;
+        self.picker.videoQuality = UIImagePickerControllerQualityTypeLow;
         [self presentViewController:self.picker animated:YES completion:nil];
     }];
     [alertC addAction:video];
@@ -168,31 +175,6 @@
     
     
     return;
-
-    if (!self.linkerModel.urgentMobile) {
-        [self showWarningMessage:@"请添加紧急联系人"];
-        return;
-    }
-    
-    NSDictionary *dic = @{@"USER_ID":self.userTitle.usersId,
-                          @"CAR_NUM":self.userTitle.usersId,
-                          @"CAR_COLOR":self.userTitle.usersId,
-                          @"ADDRESS":self.userTitle.usersId,
-                          @"CONTENT":@"123",
-                          @"ADDRESS":self.addressLabel.text,
-                          @"LONGITUDE":self.lon,
-                          @"LATITUDE":self.lat};
-    [[DLAPIClient sharedClient]POST:@"gather" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
-        if ([responseObject[Kstatus]isEqualToString:Ksuccess]) {
-            [self showSuccessMessage:responseObject[Kstatus]];
-        }else
-        {
-            [self showErrorMessage:responseObject[Kinfo]];
-        }
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        [self showErrorMessage:@"数据错误"];
-        NSLog(@"%@", error);
-    }];
 }
 
 - (IBAction)takePhotoButtonAction:(UIButton *)sender {
@@ -323,16 +305,39 @@
         QNUploadManager *upManager = [[QNUploadManager alloc]initWithConfiguration:config];
 
         [upManager putFile:urlStr key:nil token:token complete:^(QNResponseInfo *info, NSString *key, NSDictionary *resp) {
-
+            
+            NSLog(@"七牛回调-%@", info);
+            NSLog(@"七牛-%@", resp);
+            
+            NSDictionary *dic = @{@"USER_ID":self.userTitle.usersId,
+//                                  @"CAR_NUM":self.userTitle.usersId,
+//                                  @"CAR_COLOR":self.userTitle.usersId,
+//                                  @"ADDRESS":self.userTitle.usersId,
+//                                  @"CONTENT":@"123",
+//                                  @"ADDRESS":self.addressLabel.text,
+                                  @"LONGITUDE":self.lon,
+                                  @"LATITUDE":self.lat,
+                                  @"VIDEO_URL":resp[@"key"]
+                                  };
+            [[DLAPIClient sharedClient]POST:@"gather" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+                if ([responseObject[Kstatus]isEqualToString:Ksuccess]) {
+                    [self showSuccessMessage:responseObject[info]];
+                    
+                    NSMutableString *str=[[NSMutableString alloc] initWithFormat:@"tel:%@",self.linkerModel.urgentMobile];
+                    UIWebView *callWebview = [[UIWebView alloc] init];
+                    [callWebview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:str]]];
+                    [self.view addSubview:callWebview];
+                }else
+                {
+                    [self showErrorMessage:responseObject[Kinfo]];
+                }
+            } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                [self showErrorMessage:@"数据错误"];
+                NSLog(@"%@", error);
+            }];
         } option:nil];
-        
-        
     }
-    
-    
     [self dismissViewControllerAnimated:YES completion:nil];
-    
-  
 }
 
 //进入拍摄页面点击取消按钮
