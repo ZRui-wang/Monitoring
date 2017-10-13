@@ -55,7 +55,21 @@ static NSString *HomeCollectionViewCellId = @"HomeCollectionViewCell";
     
     [self bannerUrl];
     [self creatCollectionView];
-    [self getQNToken];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    
+    UserTitle *userTitle = [Tools getPersonData];
+    if (userTitle == nil) {
+        LoginViewController *login = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]instantiateViewControllerWithIdentifier:@"LoginViewController"];
+        [self presentViewController:login animated:NO completion:nil];
+    }else{
+        
+        [self getQNToken];
+    }
+
 }
 
 - (void)creatCollectionView{

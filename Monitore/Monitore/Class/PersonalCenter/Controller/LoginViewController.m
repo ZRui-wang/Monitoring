@@ -72,9 +72,8 @@
             [archiver finishEncoding];
             
             [[NSUserDefaults standardUserDefaults]setObject:data forKey:@"userTitle"];
-                        
-            HomeViewController *homeVc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"HomeViewController"];
-            [self.navigationController pushViewController:homeVc animated:YES];
+
+            [self dismissViewControllerAnimated:YES completion:nil];
         }else{
             [self showWarningMessage:responseObject[Kinfo]];
         }

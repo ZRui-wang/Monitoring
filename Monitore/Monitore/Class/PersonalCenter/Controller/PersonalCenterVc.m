@@ -16,6 +16,7 @@
 #import "UserTitle.h"
 #import "UserModel.h"
 #import "InfoViewController.h"
+#import "LoginViewController.h"
 
 @interface PersonalCenterVc ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -160,7 +161,15 @@
 
 
 - (IBAction)quitButtonAction:(id)sender {
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"userTitle"];
+    
+    LoginViewController *login = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]instantiateViewControllerWithIdentifier:@"LoginViewController"];
+    [self presentViewController:login animated:YES completion:^{
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
+//    [self presentViewController:login animated:YES completion:nil];
+    
 }
 
 - (void)didReceiveMemoryWarning {
