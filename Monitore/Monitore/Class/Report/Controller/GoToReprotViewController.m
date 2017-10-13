@@ -80,8 +80,16 @@
 }
 
 - (void)drawUnderlin:(NSNotification *)notification{
+    [self.photoArray insertObject:[UIImage imageNamed:@"加号"] atIndex:self.photoArray.count-1];
     NSInteger rowcell = [[notification.userInfo objectForKey:@"row"] integerValue];
     [self.photoArray removeObjectAtIndex:rowcell];
+    
+    if (self.photoArray.count == 1) {
+        self.isTakeVideo = YES;
+    }else{
+        self.isTakeVideo = NO;
+    }
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -348,6 +356,7 @@
         
         NSLog(@"```上传成功``` %@",responseObject);
         [self showSuccessMessage:@"提交成功"];
+        [self.navigationController popViewControllerAnimated:YES];
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
@@ -392,6 +401,8 @@
         [self.tableView reloadData];
     }
     else if ([mediaType isEqualToString:(NSString *)kUTTypeMovie]){
+        self.isTakeVideo = YES;
+        
         NSURL *url = [info objectForKey:UIImagePickerControllerMediaURL];
         NSString *urlStr = [url path];
         
@@ -410,6 +421,7 @@
         UIImage *image = [self thumbnailImageForVideo:url atTime:1];
         
         [self.photoArray insertObject:image atIndex:self.photoArray.count-1];
+//        [self.photoArray addObject:[UIImage imageNamed:@"dd"]];
         [self.tableView reloadData];
     }
     [self dismissViewControllerAnimated:YES completion:nil];
