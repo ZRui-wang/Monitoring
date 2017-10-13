@@ -165,8 +165,11 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地址" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j6S-Pk-IhC">
-                                        <rect key="frame" x="201" y="67" width="27" height="16"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="地址" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j6S-Pk-IhC">
+                                        <rect key="frame" x="201" y="67" width="164" height="16"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="16" id="7i9-8U-L0f"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -184,6 +187,7 @@
                                     <constraint firstItem="W3v-6M-ijS" firstAttribute="centerY" secondItem="UIN-aH-CEF" secondAttribute="centerY" id="L5c-OT-xfv"/>
                                     <constraint firstItem="bBm-mN-8Lt" firstAttribute="leading" secondItem="UIN-aH-CEF" secondAttribute="leading" id="N6x-VD-l0u"/>
                                     <constraint firstItem="lcJ-ei-Mco" firstAttribute="leading" secondItem="JJo-6t-LVc" secondAttribute="trailing" constant="10" id="OsW-Xa-s60"/>
+                                    <constraint firstAttribute="trailing" secondItem="j6S-Pk-IhC" secondAttribute="trailing" constant="10" id="Oxu-C8-nwd"/>
                                     <constraint firstAttribute="bottom" secondItem="Afk-d7-aCy" secondAttribute="bottom" id="RTl-7y-GbW"/>
                                     <constraint firstItem="UIN-aH-CEF" firstAttribute="top" secondItem="Lpe-0e-SiI" secondAttribute="top" id="S6C-oq-Cg8"/>
                                     <constraint firstItem="lcJ-ei-Mco" firstAttribute="top" secondItem="JJo-6t-LVc" secondAttribute="top" id="Sln-nV-uTY"/>

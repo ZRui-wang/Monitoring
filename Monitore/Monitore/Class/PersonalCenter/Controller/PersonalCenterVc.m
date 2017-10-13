@@ -88,6 +88,7 @@
             self.score.text = self.model.score;
             self.phoneNo.text = self.model.mobile;
             self.nameLabel.text = self.model.nickname;
+            [self.userHeader sd_setImageWithURL:[NSURL URLWithString:self.model.icon]];
         }else{
             
         }
