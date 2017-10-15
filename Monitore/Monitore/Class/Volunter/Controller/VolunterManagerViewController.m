@@ -12,6 +12,7 @@
 #import "InfoTableViewCell.h"
 #import "DIYPickView.h"
 
+
 @interface VolunterManagerViewController ()<UIScrollViewDelegate>
 
 @property (strong, nonatomic)VolunteersListViewController *volunteerVc;
@@ -38,8 +39,6 @@
     
     [self configureScrollView];
     [self.scrollView.panGestureRecognizer requireGestureRecognizerToFail:self.navigationController.interactivePopGestureRecognizer];
-    
-    colorAry = @[@"尧沟", @"南郝", @"城关", @"朱刘", @"五图", @"红河", @"马宋"];
 }
 
 - (void)configureScrollView
@@ -68,8 +67,6 @@
     sender.selected = true;
     self.listLine.backgroundColor = kDefaultGreenColor;
     [self.scrollView setContentOffset:CGPointMake(0, 0) animated:true];
-    
-
 }
 
 

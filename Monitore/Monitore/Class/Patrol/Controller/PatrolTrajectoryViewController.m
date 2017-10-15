@@ -39,9 +39,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *patrolTime;
 @property (weak, nonatomic) IBOutlet UILabel *patrolLength;
 @property (weak, nonatomic) IBOutlet UILabel *startAddress;
-@property (weak, nonatomic) IBOutlet UILabel *startTime;
+@property (weak, nonatomic) IBOutlet UILabel *startTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *endAddress;
-@property (weak, nonatomic) IBOutlet UILabel *endTime;
+@property (weak, nonatomic) IBOutlet UILabel *endTimeLabel;
 @property (weak, nonatomic) IBOutlet UIView *mapBgView;
 
 @property (strong, nonatomic)BMKMapView *mapView;
@@ -145,16 +145,29 @@
 //    [[BTKTrackAction sharedInstance] queryTrackLatestPointWith:request delegate:self];
     
     // 构造请求对象
-    NSUInteger endTime = [[NSDate date] timeIntervalSince1970] - 86300 *2;
-    BTKQueryHistoryTrackRequest *request = [[BTKQueryHistoryTrackRequest alloc] initWithEntityName:@"entityB" startTime:endTime - 86300 endTime:endTime isProcessed:TRUE processOption:nil supplementMode:BTK_TRACK_PROCESS_OPTION_SUPPLEMENT_MODE_WALKING outputCoordType:BTK_COORDTYPE_BD09LL sortType:BTK_TRACK_SORT_TYPE_DESC pageIndex:1 pageSize:10 serviceID:145266 tag:13];
+    NSUInteger endTime =[self changeTimeToTimeSp:self.endTime];
+        NSUInteger startTime =[self changeTimeToTimeSp:self.startTime];
+    BTKQueryHistoryTrackRequest *request = [[BTKQueryHistoryTrackRequest alloc] initWithEntityName:@"entityB" startTime:startTime endTime:endTime isProcessed:TRUE processOption:nil supplementMode:BTK_TRACK_PROCESS_OPTION_SUPPLEMENT_MODE_WALKING outputCoordType:BTK_COORDTYPE_BD09LL sortType:BTK_TRACK_SORT_TYPE_DESC pageIndex:1 pageSize:10 serviceID:145266 tag:13];
     // 发起查询请求
     [[BTKTrackAction sharedInstance] queryHistoryTrackWith:request delegate:self];
+}
+
+-(long)changeTimeToTimeSp:(NSString *)timeStr
+{
+    long time;
+    NSDateFormatter *format=[[NSDateFormatter alloc] init];
+    [format setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSDate *fromdate=[format dateFromString:timeStr];
+    time= (long)[fromdate timeIntervalSince1970];
+    NSLog(@"%ld",time);
+    return time;
 }
 
 - (void)getPatrolDetail{
     UserTitle *title = [Tools getPersonData];
     NSDictionary *dic = @{@"ID":self.patrolID, @"USER_ID":title.usersId};
     [[DLAPIClient sharedClient]POST:@"patrolDetail" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"轨迹=%@", responseObject);
         if ([responseObject[Kstatus]isEqualToString:Ksuccess]) {
             
         }else{
@@ -168,6 +181,10 @@
 //初始化轨迹点
 - (void)initSportNodes {
     sportNodes = [[NSMutableArray alloc] init];
+    if (!self.model.points.count) {
+        [self showErrorMessage:@"没有查到轨迹"];
+        return;
+    }
 
     if (self.patrolData) {
         
@@ -222,6 +239,10 @@
 
 //runing
 - (void)running {
+    if (!sportNodes.count) {
+        [self showErrorMessage:@"没有查到轨迹"];
+        return;
+    }
     BMKSportNode *node = [sportNodes objectAtIndex:currentIndex % sportNodeNum];
     sportAnnotationView.imageView.transform = CGAffineTransformMakeRotation(node.angle);
     [UIView animateWithDuration:1 animations:^{

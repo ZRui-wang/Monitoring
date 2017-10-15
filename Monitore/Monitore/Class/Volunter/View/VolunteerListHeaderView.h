@@ -17,6 +17,7 @@
 @interface VolunteerListHeaderView : UITableViewHeaderFooterView
 
 @property (weak, nonatomic) IBOutlet UILabel *title;
+@property (weak, nonatomic) IBOutlet UIButton *expandBtn;
 
 @property (assign, nonatomic) NSInteger headerSecction;
 

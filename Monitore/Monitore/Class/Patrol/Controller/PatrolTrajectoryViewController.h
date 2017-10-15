@@ -11,5 +11,7 @@
 @interface PatrolTrajectoryViewController : BaseViewController
 
 @property (copy, nonatomic) NSString *patrolID;
+@property (copy, nonatomic) NSString *startTime;
+@property (copy, nonatomic) NSString *endTime;
 
 @end

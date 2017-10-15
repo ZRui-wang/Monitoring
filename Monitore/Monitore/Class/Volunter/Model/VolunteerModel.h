@@ -11,6 +11,10 @@
 @interface VolModel : NSObject
 
 @property (copy, nonatomic) NSString *name;
+@property (copy, nonatomic) NSString *icon;
+@property (copy, nonatomic) NSString *latitude;
+@property (copy, nonatomic) NSString *longitude;
+
 
 
 
@@ -19,9 +23,9 @@
 
 @interface VolunteerModel : NSObject
 
-@property (strong, nonatomic) NSArray *volunteer;
-@property (copy, nonatomic) NSString *towns;
-
+@property (strong, nonatomic) NSArray *childList;
+@property (copy, nonatomic) NSString *name;
+@property (assign, nonatomic) BOOL isExpand;
 
 
 @end

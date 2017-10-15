@@ -252,13 +252,6 @@
     if (sender.selected) {
         // 开始
         [self startPatrol];
-        
-        [self.startButton setTitle:@"结束巡逻" forState:UIControlStateNormal];
-        self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerAction) userInfo:nil repeats:YES];
-        
-        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[[UIImage imageNamed:@"back"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStyleDone target:self action:@selector(leftBarButtonAction1)];
-        
-        [self startTrajectory];
     }else{
         // 结束
         DLAlertView *alertView = [[DLAlertView alloc]initWithTitle:@"提示" message:@"确定要结束巡逻？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
@@ -281,6 +274,15 @@
             [self showSuccessMessage:@"开始巡逻"];
             self.isPatroling = YES;
             self.patrolId = [responseObject[@"data"] objectForKey:@"patrolId"];
+            
+            
+            [self.startButton setTitle:@"结束巡逻" forState:UIControlStateNormal];
+            self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerAction) userInfo:nil repeats:YES];
+            
+            self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[[UIImage imageNamed:@"back"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStyleDone target:self action:@selector(leftBarButtonAction1)];
+            
+            [self startTrajectory];
+            
         }
         else{
             [self showErrorMessage:responseObject[Kinfo]];

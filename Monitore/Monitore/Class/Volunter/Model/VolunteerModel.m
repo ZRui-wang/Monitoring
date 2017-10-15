@@ -17,7 +17,7 @@
 
 + (NSDictionary *)modelContainerPropertyGenericClass {
     return @{
-             @"volunteer" : [VolModel class]
+             @"childList" : [VolModel class]
              };
 }
 

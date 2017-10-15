@@ -665,6 +665,12 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="主管单位 永城市社会治安综合治理委员会" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5B9-2y-Ba8">
+                                <rect key="frame" x="85" y="633.5" width="206" height="13.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.044792525469999997" green="0.41356065869999997" blue="0.68762081860000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -676,7 +682,9 @@
                             <constraint firstAttribute="trailingMargin" secondItem="5O7-Eg-InY" secondAttribute="trailing" constant="50" id="Fr2-nE-PFI"/>
                             <constraint firstItem="tOn-kh-6jm" firstAttribute="centerX" secondItem="wSQ-A0-I2A" secondAttribute="centerX" id="GUY-sq-Ypj"/>
                             <constraint firstItem="nix-4g-E70" firstAttribute="top" secondItem="tOn-kh-6jm" secondAttribute="bottom" constant="40" id="Kns-qx-1x2"/>
+                            <constraint firstItem="5B9-2y-Ba8" firstAttribute="centerX" secondItem="wSQ-A0-I2A" secondAttribute="centerX" id="Obg-kX-4Gp"/>
                             <constraint firstItem="7iE-Im-FsA" firstAttribute="centerY" secondItem="ny1-gT-Mu8" secondAttribute="centerY" id="P4w-WL-MMi"/>
+                            <constraint firstItem="rTM-JP-7BX" firstAttribute="top" secondItem="5B9-2y-Ba8" secondAttribute="bottom" constant="20" id="TWH-tl-Fzr"/>
                             <constraint firstItem="7iE-Im-FsA" firstAttribute="leading" secondItem="ny1-gT-Mu8" secondAttribute="trailing" id="UcF-LZ-7D7"/>
                             <constraint firstItem="5oG-vy-bHs" firstAttribute="top" secondItem="5O7-Eg-InY" secondAttribute="bottom" constant="50" id="aaQ-6a-w9F"/>
                             <constraint firstItem="1md-1m-RLk" firstAttribute="centerY" secondItem="ny1-gT-Mu8" secondAttribute="centerY" id="bTF-4w-5an"/>

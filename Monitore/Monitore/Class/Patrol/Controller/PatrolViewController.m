@@ -98,6 +98,8 @@
     
     PatrolListModel *model = self.patrolListAry[indexPath.row];
     patrolTrajectoryVc.patrolID = model.patrolId;
+    patrolTrajectoryVc.startTime = model.startTime;
+    patrolTrajectoryVc.endTime = model.endTime;
     [self.navigationController pushViewController:patrolTrajectoryVc animated:YES];
 }
 

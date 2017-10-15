@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -20,7 +20,7 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BEd-Ug-n6X">
-                    <rect key="frame" x="15" y="10" width="469" height="28"/>
+                    <rect key="frame" x="15" y="10" width="494" height="28"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -32,12 +32,12 @@
                         <constraint firstAttribute="height" constant="1" id="RHO-4r-6Hm"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FhB-6m-caS">
-                    <rect key="frame" x="514" y="10" width="50" height="28"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FhB-6m-caS">
+                    <rect key="frame" x="539" y="16.5" width="20" height="15"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="50" id="9eE-eO-y9N"/>
+                        <constraint firstAttribute="width" constant="20" id="9eE-eO-y9N"/>
+                        <constraint firstAttribute="height" constant="15" id="acF-on-cga"/>
                     </constraints>
-                    <state key="normal" title="Button"/>
                     <connections>
                         <action selector="expandButtonAction:" destination="E3k-Xw-kaD" eventType="touchUpInside" id="ByP-aJ-yMw"/>
                     </connections>
@@ -58,22 +58,22 @@
                 <constraint firstItem="sWZ-OH-0yQ" firstAttribute="leading" secondItem="E3k-Xw-kaD" secondAttribute="leading" id="7Ne-F0-yCZ"/>
                 <constraint firstAttribute="trailing" secondItem="JXH-q1-z8g" secondAttribute="trailing" id="8Oa-1T-CCl"/>
                 <constraint firstItem="ZVv-rM-ied" firstAttribute="leading" secondItem="E3k-Xw-kaD" secondAttribute="leading" id="GTm-ft-eYi"/>
-                <constraint firstItem="FhB-6m-caS" firstAttribute="top" secondItem="E3k-Xw-kaD" secondAttribute="top" constant="10" id="I05-2V-2Nh"/>
                 <constraint firstAttribute="bottom" secondItem="BEd-Ug-n6X" secondAttribute="bottom" constant="10" id="LbS-Ts-LMo"/>
                 <constraint firstItem="JXH-q1-z8g" firstAttribute="top" secondItem="E3k-Xw-kaD" secondAttribute="top" id="MWc-mM-u1h"/>
                 <constraint firstAttribute="bottom" secondItem="ZVv-rM-ied" secondAttribute="bottom" id="RHj-pP-mgG"/>
                 <constraint firstAttribute="bottom" secondItem="sWZ-OH-0yQ" secondAttribute="bottom" id="UPM-Pk-Pdk"/>
                 <constraint firstAttribute="trailing" secondItem="ZVv-rM-ied" secondAttribute="trailing" id="ciU-pf-zZs"/>
                 <constraint firstItem="JXH-q1-z8g" firstAttribute="leading" secondItem="E3k-Xw-kaD" secondAttribute="leading" id="d1f-Qa-FjK"/>
-                <constraint firstAttribute="trailing" secondItem="FhB-6m-caS" secondAttribute="trailing" constant="10" id="dYj-82-oo7"/>
-                <constraint firstAttribute="bottom" secondItem="FhB-6m-caS" secondAttribute="bottom" constant="10" id="jBV-6E-1NF"/>
+                <constraint firstAttribute="trailing" secondItem="FhB-6m-caS" secondAttribute="trailing" constant="15" id="dYj-82-oo7"/>
+                <constraint firstItem="FhB-6m-caS" firstAttribute="centerY" secondItem="E3k-Xw-kaD" secondAttribute="centerY" id="f0t-4Y-fx0"/>
                 <constraint firstItem="BEd-Ug-n6X" firstAttribute="top" secondItem="E3k-Xw-kaD" secondAttribute="top" constant="10" id="n1J-EQ-Kbe"/>
                 <constraint firstItem="BEd-Ug-n6X" firstAttribute="leading" secondItem="E3k-Xw-kaD" secondAttribute="leading" constant="15" id="o7R-yF-9BY"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="title" destination="BEd-Ug-n6X" id="ews-hA-fRQ"/>
+                <outlet property="expandBtn" destination="FhB-6m-caS" id="yD9-q0-tgP"/>
+                <outlet property="title" destination="BEd-Ug-n6X" id="XT9-I6-bEl"/>
             </connections>
             <point key="canvasLocation" x="69" y="52"/>
         </view>

@@ -17,5 +17,6 @@
 @property (nonatomic, copy) NSString *userId;
 @property (nonatomic, copy) NSString *state;
 @property (nonatomic, copy) NSString *patrolId;
+@property (nonatomic, copy) NSString *endTime;
 
 @end

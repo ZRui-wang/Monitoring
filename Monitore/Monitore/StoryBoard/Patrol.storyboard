@@ -282,12 +282,12 @@
                     <connections>
                         <outlet property="address" destination="d2X-K9-Dun" id="IXH-9f-Zvi"/>
                         <outlet property="endAddress" destination="7Dd-v9-6EA" id="GeP-Pv-o6p"/>
-                        <outlet property="endTime" destination="rmS-mg-Qxv" id="6mg-iW-Nwa"/>
+                        <outlet property="endTimeLabel" destination="rmS-mg-Qxv" id="Kqa-fS-JGr"/>
                         <outlet property="mapBgView" destination="tLn-VX-8Ci" id="4w6-2x-CTm"/>
                         <outlet property="patrolLength" destination="m4h-Hu-4t8" id="OBt-5c-b6q"/>
                         <outlet property="patrolTime" destination="vUy-M1-ZEt" id="LwM-vq-2mh"/>
                         <outlet property="startAddress" destination="04p-FR-cSV" id="WLA-ll-Xqb"/>
-                        <outlet property="startTime" destination="uGG-Pa-40c" id="0rM-Hg-WmS"/>
+                        <outlet property="startTimeLabel" destination="uGG-Pa-40c" id="vT1-kN-YDD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lfL-HY-hzu" userLabel="First Responder" sceneMemberID="firstResponder"/>
