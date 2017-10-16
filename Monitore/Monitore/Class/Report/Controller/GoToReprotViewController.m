@@ -77,6 +77,8 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(drawUnderlin:) name:@"delectPhoto" object:nil];
     
+    self.userTitle = [Tools getPersonData];
+    
 }
 
 - (void)drawUnderlin:(NSNotification *)notification{

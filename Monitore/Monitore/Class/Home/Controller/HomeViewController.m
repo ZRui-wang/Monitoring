@@ -28,7 +28,6 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *layouT;
 @property (strong, nonatomic) NSArray *titleAry;
-@property (nonatomic, strong) UserTitle *userTitle;
 @property (nonatomic, strong) NSMutableArray *bannerAry;
 @end
 
@@ -51,8 +50,6 @@ static NSString *HomeCollectionViewCellId = @"HomeCollectionViewCell";
     NSArray *temptAry = @[@"通知公告", @"群防任务", @"在线监督", @"义务巡逻", @"防骗培训", @"维稳黑名单", @"志愿者管理", @"个人中心"];
     self.titleAry = temptAry;
     
-    self.userTitle = [Tools getPersonData];
-    
     [self bannerUrl];
     [self creatCollectionView];
 }
@@ -70,6 +67,10 @@ static NSString *HomeCollectionViewCellId = @"HomeCollectionViewCell";
         [self getQNToken];
     }
 
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
 }
 
 - (void)creatCollectionView{
@@ -99,8 +100,10 @@ static NSString *HomeCollectionViewCellId = @"HomeCollectionViewCell";
 }
 
 - (void)signInBtnAction:(UIButton *)button{
+    
+    UserTitle *userTitle = [Tools getPersonData];
     // 每日签到
-    NSDictionary *dic = @{@"USER_ID":self.userTitle.usersId};
+    NSDictionary *dic = @{@"USER_ID":userTitle.usersId};
     
     [[DLAPIClient sharedClient]POST:@"userSign" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
         NSSLog(@"%@", responseObject);
@@ -130,7 +133,6 @@ static NSString *HomeCollectionViewCellId = @"HomeCollectionViewCell";
 - (void)collectionBtnAction:(UIButton *)button{
     // 我要采集
     CollectViewController *collectVc = [[UIStoryboard storyboardWithName:@"Report" bundle:nil] instantiateViewControllerWithIdentifier:@"CollectViewController"];
-    collectVc.userTitle = self.userTitle;
     [self.navigationController pushViewController:collectVc animated:YES];
 }
 
@@ -195,14 +197,12 @@ static NSString *HomeCollectionViewCellId = @"HomeCollectionViewCell";
     {
         // 在线举报
         GoToReprotViewController *reportVc = [[UIStoryboard storyboardWithName:@"Report" bundle:nil] instantiateViewControllerWithIdentifier:@"GoToReprotViewController"];
-        reportVc.userTitle = self.userTitle;
         [self.navigationController pushViewController:reportVc animated:YES];
     }
     else if (indexPath.item == 3)
     {
         // 在线巡逻
         PatrolViewController *patrolVc = [[UIStoryboard storyboardWithName:@"Patrol" bundle:nil] instantiateViewControllerWithIdentifier:@"PatrolViewController"];
-        patrolVc.userTitle = self.userTitle;
         [self.navigationController pushViewController:patrolVc animated:YES];
         
     }

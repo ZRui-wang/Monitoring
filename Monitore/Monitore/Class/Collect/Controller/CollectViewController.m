@@ -70,6 +70,8 @@
 
     self.textView.delegate = self;
     self.textView.scrollEnabled = NO;
+    
+    self.userTitle = [Tools getPersonData];
 }
 
 - (void)viewDidAppear:(BOOL)animated{

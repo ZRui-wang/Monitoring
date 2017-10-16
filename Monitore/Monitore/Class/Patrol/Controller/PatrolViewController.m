@@ -33,6 +33,8 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"PatrolTableViewCell" bundle:nil] forCellReuseIdentifier:@"PatrolTableViewCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"PatrolTableHeaderView" bundle:nil] forHeaderFooterViewReuseIdentifier:@"PatrolTableHeaderView"];
     self.tableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
+        
+    self.userTitle = [Tools getPersonData];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
