@@ -54,8 +54,11 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="商品介绍" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rFC-4Y-Nq5">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="商品介绍" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rFC-4Y-Nq5">
                         <rect key="frame" x="78.5" y="35" width="176.5" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="16" id="CSP-26-cGk"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.41568627450000001" green="0.41568627450000001" blue="0.41568627450000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <nil key="highlightedColor"/>
@@ -80,6 +83,7 @@
             <connections>
                 <outlet property="awardImage" destination="XqM-Yt-NaK" id="GEF-9Z-emq"/>
                 <outlet property="awardName" destination="A0E-9o-Wxv" id="ihs-Pw-my9"/>
+                <outlet property="detail" destination="rFC-4Y-Nq5" id="oKO-ip-cQQ"/>
                 <outlet property="score" destination="Twj-w2-nXx" id="pxK-lH-Q1x"/>
             </connections>
             <point key="canvasLocation" x="45" y="74"/>

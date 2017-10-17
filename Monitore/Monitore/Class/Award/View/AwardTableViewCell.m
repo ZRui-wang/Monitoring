@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *awardImage;
 @property (weak, nonatomic) IBOutlet UILabel *awardName;
 @property (weak, nonatomic) IBOutlet UILabel *score;
+@property (weak, nonatomic) IBOutlet UILabel *detail;
 
 @end
 
@@ -34,7 +35,8 @@
 - (void)showDetailWithData:(GiftListModel *)model{
     [self.awardImage sd_setImageWithURL:[NSURL URLWithString:model.img]];
     self.awardName.text = model.title;
-    self.score.text = model.credit;
+    self.detail.text = model.shl;
+    self.score.text = [NSString stringWithFormat:@"积分：%@", model.credit];
 }
 
 @end

@@ -13,7 +13,7 @@
 @property (copy, nonatomic) NSString *createtime;
 @property (copy, nonatomic) NSString *title;
 @property (copy, nonatomic) NSString *img;
-@property (copy, nonatomic) NSString *giftit;
+@property (copy, nonatomic) NSString *giftId;
 @property (copy, nonatomic) NSString *shl;
 @property (copy, nonatomic) NSString *credit;
 

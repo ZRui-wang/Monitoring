@@ -92,7 +92,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     GiftListModel *model = self.listAry[indexPath.row];
     UserTitle *userTitle = [Tools getPersonData];
-    NSDictionary *dic = @{@"USER_ID":userTitle.usersId, @"GIFT_ID":model.credit};
+    NSDictionary *dic = @{@"USER_ID":userTitle.usersId, @"GIFT_ID":model.giftId};
     [[DLAPIClient sharedClient]POST:@"duihuan" parameters:dic     success:^(NSURLSessionDataTask *task, id responseObject) {
         NSLog(@"%@", responseObject);
         if ([responseObject[Kstatus]isEqualToString:Ksuccess]) {
