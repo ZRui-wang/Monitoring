@@ -46,6 +46,7 @@
     UserTitle *title = [Tools getPersonData];
     
     [[DLAPIClient sharedClient] POST:@"giftList" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"奖品=%@", responseObject);
         if ([responseObject[Kstatus]isEqualToString:Ksuccess]) {
             for (NSDictionary *dic in responseObject[@"dataList"]) {
                 GiftListModel *model = [GiftListModel modelWithDictionary:dic];
@@ -86,6 +87,22 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return 0.01;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    GiftListModel *model = self.listAry[indexPath.row];
+    UserTitle *userTitle = [Tools getPersonData];
+    NSDictionary *dic = @{@"USER_ID":userTitle.usersId, @"GIFT_ID":model.credit};
+    [[DLAPIClient sharedClient]POST:@"duihuan" parameters:dic     success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"%@", responseObject);
+        if ([responseObject[Kstatus]isEqualToString:Ksuccess]) {
+            [self showSuccessMessage:responseObject[Kinfo]];
+        }else{
+            [self showWarningMessage:responseObject[Kinfo]];
+        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [self showWarningMessage:@"数据错误"];
+    }];
 }
 
 

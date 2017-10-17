@@ -128,7 +128,7 @@
     processOption.transportMode = BTK_TRACK_PROCESS_OPTION_SUPPLEMENT_MODE_STRAIGHT;
     
     // 构造请求对象
-    BTKQueryTrackLatestPointRequest *request = [[BTKQueryTrackLatestPointRequest alloc] initWithEntityName:@"entityB" processOption: processOption outputCootdType:BTK_COORDTYPE_BD09LL serviceID:145266 tag:11];
+    BTKQueryTrackLatestPointRequest *request = [[BTKQueryTrackLatestPointRequest alloc] initWithEntityName:@"entityB" processOption: processOption outputCootdType:BTK_COORDTYPE_BD09LL serviceID:145266 tag:13];
     // 发起查询请求
     [[BTKTrackAction sharedInstance] queryTrackLatestPointWith:request delegate:self];
 }
@@ -301,13 +301,13 @@
     }];
     
     NSDictionary *dic = @{@"USER_ID":self.model.userId,
-                      @"ID":@"c7bd7180485a42c8ae8e4866204e5e07",
+                      @"ID":self.patrolId,
                           @"END_LONGITUDE":self.lon,
                           @"END_LATITUDE":self.lat,
                           @"END_ADDRESS":self.address};
     
     [[DLAPIClient sharedClient]POST:@"endPatrol" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
-        NSLog(@"%@", responseObject);
+        NSLog(@"结束 = %@", responseObject);
         if ([responseObject[Kstatus]isEqualToString:Ksuccess]) {
             [self showSuccessMessage:responseObject[Kinfo]];
             self.isPatroling = NO;

@@ -21,6 +21,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
     self.state.layer.borderWidth = 1;
     self.state.layer.borderColor = [UIColor colorWithRed:142/255.0 green:195/255.0 blue:30/255.0 alpha:1].CGColor;
     self.state.layer.masksToBounds = YES;

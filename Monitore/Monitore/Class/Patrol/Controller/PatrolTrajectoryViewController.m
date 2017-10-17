@@ -144,6 +144,8 @@
 //    // 发起查询请求
 //    [[BTKTrackAction sharedInstance] queryTrackLatestPointWith:request delegate:self];
     
+    NSTimeInterval endtime = [[NSDate date]timeIntervalSince1970];
+    
     // 构造请求对象
     NSUInteger endTime =[self changeTimeToTimeSp:self.endTime];
         NSUInteger startTime =[self changeTimeToTimeSp:self.startTime];

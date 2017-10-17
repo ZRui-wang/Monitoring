@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UIView *bgView;
 
 @property (nonatomic, strong)YYTextView *textView;
+@property (nonatomic, strong)UIWebView *webView;
 
 @end
 
@@ -26,8 +27,10 @@
     self.title = @"详情";
     self.view.backgroundColor = [UIColor whiteColor];
     
-    self.textView = [[YYTextView alloc]initWithFrame:CGRectMake(10, 0, SCREEN_WIDTH-20, SCREEN_HEIGHT-125)];
-    [self.bgView addSubview:self.textView];
+    self.webView = [[UIWebView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, self.bgView.frame.size.height)];
+    
+//    self.textView = [[YYTextView alloc]initWithFrame:CGRectMake(10, 0, SCREEN_WIDTH-20, SCREEN_HEIGHT-125)];
+    [self.bgView addSubview:self.webView];
     
     [self getInfoDetail];
     
@@ -41,7 +44,8 @@
             [self removeLoadingHUD];
             NSString *htmlStr = [responseObject[@"data"]objectForKey:@"detail"];
             NSAttributedString *atterStr = [[NSAttributedString alloc]initWithData:[htmlStr dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
-            self.textView.attributedText = atterStr;
+//            self.textView.attributedText = atterStr;
+            [self.webView loadHTMLString:htmlStr baseURL:nil];
             self.titleLabel.text = [responseObject[@"data"]objectForKey:@"title"];
             self.timeLabel.text = [NSString stringWithFormat:@"%@  作者：%@", [responseObject[@"data"]objectForKey:@"createtime"], [responseObject[@"data"]objectForKey:@"author"]];
         }else{
