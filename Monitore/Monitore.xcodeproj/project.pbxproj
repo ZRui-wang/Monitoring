@@ -24,6 +24,7 @@
 		7898F4791F773BB400FD2029 /* LinkerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7898F4781F773BB400FD2029 /* LinkerModel.m */; };
 		7898F47C1F7745AC00FD2029 /* BannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7898F47B1F7745AC00FD2029 /* BannerModel.m */; };
 		78A29FDD1F2F77B50086F388 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A29FDC1F2F77B50086F388 /* LoginViewController.m */; };
+		78B3DA5D1F96506F00B31345 /* NSDictionary+XHLogHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 78B3DA5C1F964F5F00B31345 /* NSDictionary+XHLogHelper.m */; };
 		78D8A4401F66DC2300735C6A /* AnnounceListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 78D8A43F1F66DC2300735C6A /* AnnounceListModel.m */; };
 		78E26AB11F29FEC2007A96F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78E26AB01F29FEC2007A96F6 /* Main.storyboard */; };
 		78E26AB61F2A2540007A96F6 /* Announcement.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78E26AB51F2A2540007A96F6 /* Announcement.storyboard */; };
@@ -421,6 +422,8 @@
 		7898F47B1F7745AC00FD2029 /* BannerModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BannerModel.m; sourceTree = "<group>"; };
 		78A29FDB1F2F77B50086F388 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		78A29FDC1F2F77B50086F388 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		78B3DA5B1F964F5F00B31345 /* NSDictionary+XHLogHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+XHLogHelper.h"; sourceTree = "<group>"; };
+		78B3DA5C1F964F5F00B31345 /* NSDictionary+XHLogHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+XHLogHelper.m"; sourceTree = "<group>"; };
 		78D8A43E1F66DC2300735C6A /* AnnounceListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnounceListModel.h; sourceTree = "<group>"; };
 		78D8A43F1F66DC2300735C6A /* AnnounceListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnounceListModel.m; sourceTree = "<group>"; };
 		78E26AB01F29FEC2007A96F6 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -1118,6 +1121,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		78B3DA5A1F964F5F00B31345 /* XHLogHelper */ = {
+			isa = PBXGroup;
+			children = (
+				78B3DA5B1F964F5F00B31345 /* NSDictionary+XHLogHelper.h */,
+				78B3DA5C1F964F5F00B31345 /* NSDictionary+XHLogHelper.m */,
+			);
+			path = XHLogHelper;
+			sourceTree = "<group>";
+		};
 		8473C5C81F32B9BC009F4B42 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1408,14 +1420,14 @@
 			path = Utility;
 			sourceTree = "<group>";
 		};
-		847ED20C1F34415300BC710E /* Collect */ = {
+		847ED20C1F34415300BC710E /* jiuyuan */ = {
 			isa = PBXGroup;
 			children = (
 				847ED20D1F34415300BC710E /* Controller */,
 				847ED20E1F34415300BC710E /* Model */,
 				847ED20F1F34415300BC710E /* View */,
 			);
-			path = Collect;
+			path = jiuyuan;
 			sourceTree = "<group>";
 		};
 		847ED20D1F34415300BC710E /* Controller */ = {
@@ -2033,6 +2045,7 @@
 		84F927A11F25D51E00B76D79 /* Vender */ = {
 			isa = PBXGroup;
 			children = (
+				78B3DA5A1F964F5F00B31345 /* XHLogHelper */,
 				84A5E6561F8DE15E00D06556 /* QiniuSDK */,
 				84A5E5961F8DC28100D06556 /* AFNetworking */,
 				84FFCEF81F7C90E8009BA0D3 /* MLeaksFinder */,
@@ -2110,7 +2123,7 @@
 			children = (
 				84C784251F70C1CC00D50E3A /* Award */,
 				847F0F1D1F6B6036005340F8 /* Volunter */,
-				847ED20C1F34415300BC710E /* Collect */,
+				847ED20C1F34415300BC710E /* jiuyuan */,
 				84F928BE1F29652B00B76D79 /* Announcements */,
 				84F928C21F29652B00B76D79 /* Blacklist */,
 				84F928C61F29652B00B76D79 /* Home */,
@@ -2760,6 +2773,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78B3DA5D1F96506F00B31345 /* NSDictionary+XHLogHelper.m in Sources */,
 				84B7B60E1F46F39600C3C708 /* IQKeyboardManager.m in Sources */,
 				847ED1FF1F3421F500BC710E /* YYThreadSafeDictionary.m in Sources */,
 				84B7B5871F45644100C3C708 /* TXTimeSelectorViewController.m in Sources */,

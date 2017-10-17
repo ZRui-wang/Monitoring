@@ -24,4 +24,6 @@ typedef void(^AddressBlock)(NSString *);
 + (void)savePersonData:(UserTitle *)userTitle;
 
 + (UserTitle *)getPersonData;
+
++ (BOOL)checkLimitLocation;
 @end

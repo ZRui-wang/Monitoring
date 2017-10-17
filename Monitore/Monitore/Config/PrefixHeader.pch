@@ -26,6 +26,7 @@
 #import "DLAlertView.h"
 #include "IQKeyboardManager.h"
 #import "DLAPIClient.h"
+#import <CoreLocation/CLLocationManager.h>
 
 #import "AFNetworking.h"
 #import "UIKit+AFNetworking.h"

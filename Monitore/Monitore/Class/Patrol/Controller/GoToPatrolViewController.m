@@ -261,6 +261,14 @@
 }
 
 - (void)startPatrol{
+    
+    if ([Tools checkLimitLocation]) {
+        
+    }else{
+        [self showWarningMessage:@"定位失败，检查是否有定位权限"];
+        return;
+    }
+    
     NSDictionary *dic = @{@"USER_ID":self.model.userId,
                           @"TITLE":self.patrolTitle.text,
                           @"NAME":@"小三",

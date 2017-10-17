@@ -130,4 +130,20 @@
     return userTitle;
 }
 
++ (BOOL)checkLimitLocation{
+    if ([CLLocationManager locationServicesEnabled] && ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedWhenInUse || [CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined || [CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorized)) {
+        
+        //定位功能可用
+        return YES;
+        
+    }else if ([CLLocationManager authorizationStatus] ==kCLAuthorizationStatusDenied) {
+        
+        //定位不能用
+        return NO;
+        
+    }else{
+        return NO;
+    }
+}
+
 @end

@@ -140,6 +140,13 @@
 
 - (IBAction)submitButtonAction:(id)sender {
     
+    if ([Tools checkLimitLocation]) {
+        
+    }else{
+        [self showWarningMessage:@"定位失败，检查是否有定位权限"];
+        return;
+    }
+    
     if (!self.linkerModel.urgentMobile) {
         [self showWarningMessage:@"请添加紧急联系人"];
         return;
