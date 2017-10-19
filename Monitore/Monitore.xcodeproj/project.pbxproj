@@ -33,6 +33,8 @@
 		8410478E1F749DF400DF5D0D /* ReportModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8410478D1F749DF400DF5D0D /* ReportModel.m */; };
 		845C67011F9869950065C75F /* AwardHistoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 845C66FF1F9869950065C75F /* AwardHistoryTableViewCell.m */; };
 		845C67021F9869950065C75F /* AwardHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845C67001F9869950065C75F /* AwardHistoryTableViewCell.xib */; };
+		845C670D1F98A51A0065C75F /* BaiduTraceSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 845C670C1F98A51A0065C75F /* BaiduTraceSDK.framework */; };
+		845C670E1F98A51A0065C75F /* BaiduTraceSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 845C670C1F98A51A0065C75F /* BaiduTraceSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		846CEAA71F3F05AE00D6BF9D /* ReportAddressTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 846CEAA51F3F05AE00D6BF9D /* ReportAddressTableViewCell.m */; };
 		846CEAA81F3F05AE00D6BF9D /* ReportAddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846CEAA61F3F05AE00D6BF9D /* ReportAddressTableViewCell.xib */; };
 		846CEAAC1F3F082900D6BF9D /* ReportImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 846CEAAA1F3F082900D6BF9D /* ReportImageTableViewCell.m */; };
@@ -148,14 +150,11 @@
 		8497E8611F6656B7001ABBEA /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8497E8601F6656B7001ABBEA /* UserModel.m */; };
 		8497E8641F665A64001ABBEA /* UserTitle.m in Sources */ = {isa = PBXBuildFile; fileRef = 8497E8631F665A64001ABBEA /* UserTitle.m */; };
 		849C97161F3064AB00B38C64 /* RegistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849C97151F3064AB00B38C64 /* RegistViewController.m */; };
-		84A1D0F51F5CF51600BFAFC0 /* BaiduTraceSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A1D0F41F5CF51600BFAFC0 /* BaiduTraceSDK.framework */; };
-		84A1D0F61F5CF51600BFAFC0 /* BaiduTraceSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 84A1D0F41F5CF51600BFAFC0 /* BaiduTraceSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		84A1D1001F5CF5B000BFAFC0 /* BaiduMapAPI_Base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A1D0F81F5CF5B000BFAFC0 /* BaiduMapAPI_Base.framework */; };
 		84A1D1011F5CF5B000BFAFC0 /* BaiduMapAPI_Location.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A1D0F91F5CF5B000BFAFC0 /* BaiduMapAPI_Location.framework */; };
 		84A1D1021F5CF5B000BFAFC0 /* BaiduMapAPI_Map.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A1D0FA1F5CF5B000BFAFC0 /* BaiduMapAPI_Map.framework */; };
 		84A1D1031F5CF5B000BFAFC0 /* BaiduMapAPI_Search.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A1D0FB1F5CF5B000BFAFC0 /* BaiduMapAPI_Search.framework */; };
 		84A1D1041F5CF5B000BFAFC0 /* BaiduMapAPI_Utils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A1D0FC1F5CF5B000BFAFC0 /* BaiduMapAPI_Utils.framework */; };
-		84A1D1051F5CF5B000BFAFC0 /* BaiduTraceSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A1D0FD1F5CF5B000BFAFC0 /* BaiduTraceSDK.framework */; };
 		84A1D1081F5CF5FB00BFAFC0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8473C5C91F32B9BC009F4B42 /* CoreLocation.framework */; };
 		84A1D1091F5CF60500BFAFC0 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8473C5CB1F32B9C7009F4B42 /* QuartzCore.framework */; };
 		84A1D10A1F5CF60E00BFAFC0 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8473C5CD1F32B9D0009F4B42 /* OpenGLES.framework */; };
@@ -386,7 +385,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				84A1D0F61F5CF51600BFAFC0 /* BaiduTraceSDK.framework in Embed Frameworks */,
+				845C670E1F98A51A0065C75F /* BaiduTraceSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -439,6 +438,7 @@
 		845C66FE1F9869950065C75F /* AwardHistoryTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AwardHistoryTableViewCell.h; sourceTree = "<group>"; };
 		845C66FF1F9869950065C75F /* AwardHistoryTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AwardHistoryTableViewCell.m; sourceTree = "<group>"; };
 		845C67001F9869950065C75F /* AwardHistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AwardHistoryTableViewCell.xib; sourceTree = "<group>"; };
+		845C670C1F98A51A0065C75F /* BaiduTraceSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduTraceSDK.framework; sourceTree = "<group>"; };
 		846CEAA41F3F05AE00D6BF9D /* ReportAddressTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportAddressTableViewCell.h; sourceTree = "<group>"; };
 		846CEAA51F3F05AE00D6BF9D /* ReportAddressTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportAddressTableViewCell.m; sourceTree = "<group>"; };
 		846CEAA61F3F05AE00D6BF9D /* ReportAddressTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReportAddressTableViewCell.xib; sourceTree = "<group>"; };
@@ -673,7 +673,6 @@
 		8497E8631F665A64001ABBEA /* UserTitle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserTitle.m; sourceTree = "<group>"; };
 		849C97141F3064AB00B38C64 /* RegistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistViewController.h; sourceTree = "<group>"; };
 		849C97151F3064AB00B38C64 /* RegistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistViewController.m; sourceTree = "<group>"; };
-		84A1D0F41F5CF51600BFAFC0 /* BaiduTraceSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduTraceSDK.framework; sourceTree = "<group>"; };
 		84A1D0F81F5CF5B000BFAFC0 /* BaiduMapAPI_Base.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Base.framework; sourceTree = "<group>"; };
 		84A1D0F91F5CF5B000BFAFC0 /* BaiduMapAPI_Location.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Location.framework; sourceTree = "<group>"; };
 		84A1D0FA1F5CF5B000BFAFC0 /* BaiduMapAPI_Map.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Map.framework; sourceTree = "<group>"; };
@@ -1094,6 +1093,7 @@
 				84A1D1121F5CF67900BFAFC0 /* libssl.a in Frameworks */,
 				84A1D1101F5CF64F00BFAFC0 /* libstdc++.6.0.9.tbd in Frameworks */,
 				84A1D10F1F5CF64400BFAFC0 /* CoreTelephony.framework in Frameworks */,
+				845C670D1F98A51A0065C75F /* BaiduTraceSDK.framework in Frameworks */,
 				84A1D10E1F5CF63A00BFAFC0 /* libsqlite3.0.tbd in Frameworks */,
 				84A1D10C1F5CF62200BFAFC0 /* CoreGraphics.framework in Frameworks */,
 				84A1D10A1F5CF60E00BFAFC0 /* OpenGLES.framework in Frameworks */,
@@ -1101,9 +1101,7 @@
 				84A1D1081F5CF5FB00BFAFC0 /* CoreLocation.framework in Frameworks */,
 				84A1D1021F5CF5B000BFAFC0 /* BaiduMapAPI_Map.framework in Frameworks */,
 				84A1D1031F5CF5B000BFAFC0 /* BaiduMapAPI_Search.framework in Frameworks */,
-				84A1D0F51F5CF51600BFAFC0 /* BaiduTraceSDK.framework in Frameworks */,
 				84A1D1041F5CF5B000BFAFC0 /* BaiduMapAPI_Utils.framework in Frameworks */,
-				84A1D1051F5CF5B000BFAFC0 /* BaiduTraceSDK.framework in Frameworks */,
 				84A1D1001F5CF5B000BFAFC0 /* BaiduMapAPI_Base.framework in Frameworks */,
 				84A1D1011F5CF5B000BFAFC0 /* BaiduMapAPI_Location.framework in Frameworks */,
 			);
@@ -1989,8 +1987,8 @@
 		84F927511F25D37400B76D79 = {
 			isa = PBXGroup;
 			children = (
+				845C670C1F98A51A0065C75F /* BaiduTraceSDK.framework */,
 				84A1D1131F5CF6CF00BFAFC0 /* mapapi.bundle */,
-				84A1D0F41F5CF51600BFAFC0 /* BaiduTraceSDK.framework */,
 				84F9275C1F25D37400B76D79 /* Monitore */,
 				84F927761F25D37400B76D79 /* MonitoreTests */,
 				84F927811F25D37400B76D79 /* MonitoreUITests */,
