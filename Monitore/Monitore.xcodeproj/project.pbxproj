@@ -35,6 +35,17 @@
 		845C67021F9869950065C75F /* AwardHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845C67001F9869950065C75F /* AwardHistoryTableViewCell.xib */; };
 		845C670D1F98A51A0065C75F /* BaiduTraceSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 845C670C1F98A51A0065C75F /* BaiduTraceSDK.framework */; };
 		845C670E1F98A51A0065C75F /* BaiduTraceSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 845C670C1F98A51A0065C75F /* BaiduTraceSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		845C670F1F98B71E0065C75F /* MLeakedObjectProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FFCEFA1F7C90E8009BA0D3 /* MLeakedObjectProxy.m */; };
+		845C67101F98B71E0065C75F /* MLeaksMessenger.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FFCEFD1F7C90E8009BA0D3 /* MLeaksMessenger.m */; };
+		845C67111F98B71E0065C75F /* NSObject+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FFCEFF1F7C90E8009BA0D3 /* NSObject+MemoryLeak.m */; };
+		845C67121F98B71E0065C75F /* UIApplication+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FFCF011F7C90E8009BA0D3 /* UIApplication+MemoryLeak.m */; };
+		845C67131F98B71E0065C75F /* UINavigationController+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FFCF031F7C90E9009BA0D3 /* UINavigationController+MemoryLeak.m */; };
+		845C67141F98B71E0065C75F /* UIPageViewController+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FFCF051F7C90E9009BA0D3 /* UIPageViewController+MemoryLeak.m */; };
+		845C67151F98B71E0065C75F /* UISplitViewController+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FFCF071F7C90E9009BA0D3 /* UISplitViewController+MemoryLeak.m */; };
+		845C67161F98B71E0065C75F /* UITabBarController+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FFCF091F7C90E9009BA0D3 /* UITabBarController+MemoryLeak.m */; };
+		845C67171F98B71E0065C75F /* UITouch+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FFCF0B1F7C90E9009BA0D3 /* UITouch+MemoryLeak.m */; };
+		845C67181F98B71E0065C75F /* UIView+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FFCF0D1F7C90E9009BA0D3 /* UIView+MemoryLeak.m */; };
+		845C67191F98B71E0065C75F /* UIViewController+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FFCF0F1F7C90E9009BA0D3 /* UIViewController+MemoryLeak.m */; };
 		846CEAA71F3F05AE00D6BF9D /* ReportAddressTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 846CEAA51F3F05AE00D6BF9D /* ReportAddressTableViewCell.m */; };
 		846CEAA81F3F05AE00D6BF9D /* ReportAddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846CEAA61F3F05AE00D6BF9D /* ReportAddressTableViewCell.xib */; };
 		846CEAAC1F3F082900D6BF9D /* ReportImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 846CEAAA1F3F082900D6BF9D /* ReportImageTableViewCell.m */; };
@@ -2780,6 +2791,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				845C670F1F98B71E0065C75F /* MLeakedObjectProxy.m in Sources */,
+				845C67101F98B71E0065C75F /* MLeaksMessenger.m in Sources */,
+				845C67111F98B71E0065C75F /* NSObject+MemoryLeak.m in Sources */,
+				845C67121F98B71E0065C75F /* UIApplication+MemoryLeak.m in Sources */,
+				845C67131F98B71E0065C75F /* UINavigationController+MemoryLeak.m in Sources */,
+				845C67141F98B71E0065C75F /* UIPageViewController+MemoryLeak.m in Sources */,
+				845C67151F98B71E0065C75F /* UISplitViewController+MemoryLeak.m in Sources */,
+				845C67161F98B71E0065C75F /* UITabBarController+MemoryLeak.m in Sources */,
+				845C67171F98B71E0065C75F /* UITouch+MemoryLeak.m in Sources */,
+				845C67181F98B71E0065C75F /* UIView+MemoryLeak.m in Sources */,
+				845C67191F98B71E0065C75F /* UIViewController+MemoryLeak.m in Sources */,
 				78B3DA5D1F96506F00B31345 /* NSDictionary+XHLogHelper.m in Sources */,
 				84B7B60E1F46F39600C3C708 /* IQKeyboardManager.m in Sources */,
 				847ED1FF1F3421F500BC710E /* YYThreadSafeDictionary.m in Sources */,
