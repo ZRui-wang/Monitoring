@@ -36,12 +36,13 @@
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pjo-qq-Ef5">
                         <rect key="frame" x="265" y="26" width="67" height="30"/>
+                        <color key="backgroundColor" red="0.1147677377" green="0.53270661829999999" blue="0.90224438910000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="hjl-cL-nbm"/>
                             <constraint firstAttribute="width" constant="67" id="ybR-Dq-meX"/>
                         </constraints>
                         <state key="normal" title="兑换">
-                            <color key="titleColor" red="0.1849888116" green="0.42891159649999999" blue="0.71379959579999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="200积分" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Twj-w2-nXx">
@@ -83,6 +84,7 @@
             <connections>
                 <outlet property="awardImage" destination="XqM-Yt-NaK" id="GEF-9Z-emq"/>
                 <outlet property="awardName" destination="A0E-9o-Wxv" id="ihs-Pw-my9"/>
+                <outlet property="checkButton" destination="Pjo-qq-Ef5" id="FbN-ro-nIM"/>
                 <outlet property="detail" destination="rFC-4Y-Nq5" id="oKO-ip-cQQ"/>
                 <outlet property="score" destination="Twj-w2-nXx" id="pxK-lH-Q1x"/>
             </connections>

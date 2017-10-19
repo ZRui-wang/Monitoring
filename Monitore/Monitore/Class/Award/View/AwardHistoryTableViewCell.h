@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HistoryModel.h"
 
 @interface AwardHistoryTableViewCell : UITableViewCell
+
+- (void)showDetailWithModel:(HistoryModel *)model;
 
 @end

@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *score;
 @property (weak, nonatomic) IBOutlet UILabel *detail;
 
+
 @end
 
 @implementation AwardTableViewCell
@@ -24,6 +25,10 @@
     [super awakeFromNib];
     // Initialization code
     self.selectionStyle = UITableViewCellSelectionStyleNone;
+    self.checkButton.layer.cornerRadius = 15;
+    self.checkButton.layer.masksToBounds = YES;
+    
+    self.checkButton.tag = self.row;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -32,8 +37,9 @@
     // Configure the view for the selected state
 }
 
+
 - (void)showDetailWithData:(GiftListModel *)model{
-    [self.awardImage sd_setImageWithURL:[NSURL URLWithString:model.img]];
+    [self.awardImage sd_setImageWithURL:[NSURL URLWithString:model.img]placeholderImage:[UIImage imageNamed:@"jiangli"]];
     self.awardName.text = model.title;
     self.detail.text = model.shl;
     self.score.text = [NSString stringWithFormat:@"积分：%@", model.credit];

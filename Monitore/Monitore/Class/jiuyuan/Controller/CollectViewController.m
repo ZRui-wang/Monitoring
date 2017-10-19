@@ -85,12 +85,13 @@
     
     NSDictionary *dic = @{@"ID":userTitle.usersId};
     
+    __block typeof(self) weak = self;
     [[DLAPIClient sharedClient]POST:@"getUngentLink" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
         
         NSLog(@"紧急联系人=%@", responseObject);
         
         if ([responseObject[Kstatus]isEqualToString:Ksuccess]) {
-            self.linkerModel = [LinkerModel modelWithDictionary:responseObject[@"user"]];
+            weak.linkerModel = [LinkerModel modelWithDictionary:responseObject[@"user"]];
         }
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
@@ -160,22 +161,23 @@
     }];
     [alertC addAction:action1];
     
+    __block typeof(self) weak = self;
     UIAlertAction *photos = [UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
-        self.picker.allowsEditing = NO;
+        weak.picker.allowsEditing = NO;
         
-        self.picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-        [self presentViewController:self.picker animated:YES completion:nil];
+        weak.picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        [weak presentViewController:self.picker animated:YES completion:nil];
     }];
 //    [alertC addAction:photos];
     
     UIAlertAction *video = [UIAlertAction actionWithTitle:@"视频" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        self.picker.delegate = self;
-        self.picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-        self.picker.mediaTypes = @[(NSString *)kUTTypeMovie];
-        self.picker.videoMaximumDuration = 10;
-        self.picker.videoQuality = UIImagePickerControllerQualityTypeLow;
-        [self presentViewController:self.picker animated:YES completion:nil];
+        weak.picker.delegate = self;
+        weak.picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        weak.picker.mediaTypes = @[(NSString *)kUTTypeMovie];
+        weak.picker.videoMaximumDuration = 10;
+        weak.picker.videoQuality = UIImagePickerControllerQualityTypeLow;
+        [weak presentViewController:self.picker animated:YES completion:nil];
     }];
     [alertC addAction:video];
     

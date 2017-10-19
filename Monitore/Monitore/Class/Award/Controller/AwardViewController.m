@@ -12,7 +12,7 @@
 #import "UserTitle.h"
 #import "GiftListModel.h"
 
-@interface AwardViewController ()<UITableViewDataSource, UITableViewDelegate>
+@interface AwardViewController ()<UITableViewDataSource, UITableViewDelegate, DLAlertViewDelegate>
 
 @property (nonatomic, strong)UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *listAry;
@@ -20,7 +20,9 @@
 
 @end
 
-@implementation AwardViewController
+@implementation AwardViewController{
+    NSInteger row;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -37,14 +39,12 @@
     [self.view addSubview:self.tableView];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"AwardTableViewCell" bundle:nil] forCellReuseIdentifier:@"AwardTableViewCell"];
+    self.tableView.tableFooterView = [UIView new];
     
     [self gitGiftList];
 }
 
 - (void)gitGiftList{
-    
-    UserTitle *title = [Tools getPersonData];
-    
     [[DLAPIClient sharedClient] POST:@"giftList" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         NSLog(@"奖品=%@", responseObject);
         if ([responseObject[Kstatus]isEqualToString:Ksuccess]) {
@@ -67,8 +67,8 @@
 }
 
 - (void)rightBarButtonAction{
-    ArardHistoryViewController *awardHistoryVc = [[ArardHistoryViewController alloc]init];
-    [self.navigationController pushViewController:awardHistoryVc animated:YES];
+    ArardHistoryViewController *collectVc = [[UIStoryboard storyboardWithName:@"Report" bundle:nil] instantiateViewControllerWithIdentifier:@"ArardHistoryViewController"];
+    [self.navigationController pushViewController:collectVc animated:YES];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -78,6 +78,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     AwardTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AwardTableViewCell"];
     [cell showDetailWithData:self.listAry[indexPath.row]];
+    
+    [cell.checkButton addTarget:self action:@selector(checkButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    
     return cell;
 }
 
@@ -90,7 +93,17 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    GiftListModel *model = self.listAry[indexPath.row];
+
+}
+
+- (void)checkButtonAction:(UIButton *)button{
+   row = button.tag;
+    DLAlertView *alertView = [[DLAlertView alloc]initWithTitle:@"提示" message:@"确定要兑换？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"兑换", nil];
+    [alertView show];
+}
+
+- (void)alertView:(DLAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    GiftListModel *model = self.listAry[row];
     UserTitle *userTitle = [Tools getPersonData];
     NSDictionary *dic = @{@"USER_ID":userTitle.usersId, @"GIFT_ID":model.giftId};
     [[DLAPIClient sharedClient]POST:@"duihuan" parameters:dic     success:^(NSURLSessionDataTask *task, id responseObject) {

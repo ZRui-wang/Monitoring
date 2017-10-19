@@ -11,6 +11,7 @@
 		780C57C61F76004A00C5721A /* StartPatrolModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 780C57C51F76004A00C5721A /* StartPatrolModel.m */; };
 		7812D87A1F47E7D80041CC9C /* CarouselFigure.m in Sources */ = {isa = PBXBuildFile; fileRef = 7812D8791F47E7D80041CC9C /* CarouselFigure.m */; };
 		7812D87D1F47E98E0041CC9C /* BrandScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = 7812D87C1F47E98E0041CC9C /* BrandScroll.m */; };
+		785145111F98EF3E006B2922 /* HistoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 785145101F98EF3E006B2922 /* HistoryModel.m */; };
 		78657BC01F41DA4200DC2AFE /* TaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78657BBF1F41DA4200DC2AFE /* TaskViewController.m */; };
 		78657BC41F41DA6F00DC2AFE /* TaskTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 78657BC21F41DA6F00DC2AFE /* TaskTableViewCell.m */; };
 		78657BC51F41DA6F00DC2AFE /* TaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78657BC31F41DA6F00DC2AFE /* TaskTableViewCell.xib */; };
@@ -412,6 +413,8 @@
 		7812D8791F47E7D80041CC9C /* CarouselFigure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarouselFigure.m; sourceTree = "<group>"; };
 		7812D87B1F47E98E0041CC9C /* BrandScroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrandScroll.h; sourceTree = "<group>"; };
 		7812D87C1F47E98E0041CC9C /* BrandScroll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrandScroll.m; sourceTree = "<group>"; };
+		7851450F1F98EF3E006B2922 /* HistoryModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HistoryModel.h; sourceTree = "<group>"; };
+		785145101F98EF3E006B2922 /* HistoryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HistoryModel.m; sourceTree = "<group>"; };
 		78657BBE1F41DA4200DC2AFE /* TaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskViewController.h; sourceTree = "<group>"; };
 		78657BBF1F41DA4200DC2AFE /* TaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskViewController.m; sourceTree = "<group>"; };
 		78657BC11F41DA6F00DC2AFE /* TaskTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskTableViewCell.h; sourceTree = "<group>"; };
@@ -1978,6 +1981,8 @@
 			children = (
 				84D70ACE1F78902D008575F7 /* GiftListModel.h */,
 				84D70ACF1F78902D008575F7 /* GiftListModel.m */,
+				7851450F1F98EF3E006B2922 /* HistoryModel.h */,
+				785145101F98EF3E006B2922 /* HistoryModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2986,6 +2991,7 @@
 				847ED1D11F3421F500BC710E /* YYDiskCache.m in Sources */,
 				847ED1C41F3421F500BC710E /* UIBezierPath+YYAdd.m in Sources */,
 				84D70AD01F78902D008575F7 /* GiftListModel.m in Sources */,
+				785145111F98EF3E006B2922 /* HistoryModel.m in Sources */,
 				84A5E6971F8DE15E00D06556 /* QNResponseInfo.m in Sources */,
 				8497E8591F662735001ABBEA /* UIRefreshControl+AFNetworking.m in Sources */,
 				847ED1F41F3421F500BC710E /* YYTextUtilities.m in Sources */,

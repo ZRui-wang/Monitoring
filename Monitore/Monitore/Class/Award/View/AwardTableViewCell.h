@@ -11,6 +11,8 @@
 
 @interface AwardTableViewCell : UITableViewCell
 
+@property (assign, nonatomic)NSInteger row;
+@property (weak, nonatomic) IBOutlet UIButton *checkButton;
 - (void)showDetailWithData:(GiftListModel *)model;
 
 @end

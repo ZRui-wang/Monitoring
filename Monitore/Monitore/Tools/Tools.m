@@ -58,8 +58,8 @@
     self.geocodesearch = [[BMKGeoCodeSearch alloc]init];
     self.geocodesearch.delegate = self;
     
-    
-    self.addressBlock = ^(NSString *address){
+    __block typeof(self) weak = self;
+    weak.addressBlock = ^(NSString *address){
         addressBlock(address);
     };
 }
@@ -89,14 +89,14 @@
     
     BOOL flag = [_geocodesearch reverseGeoCode:reverseGeocodeSearchOption];
     if(flag) NSLog(@"反geo检索发送成功");
-
 }
 
 // 实现反编码的delegate
 -(void) onGetReverseGeoCodeResult:(BMKGeoCodeSearch *)searcher result:(BMKReverseGeoCodeResult *)result errorCode:(BMKSearchErrorCode)error {
     self.currentAddress = [NSString stringWithFormat:@"%@, %@, %@, %@", result.addressDetail.city, result.addressDetail.district, result.addressDetail.streetName, result.addressDetail.streetNumber];
     
-    self.addressBlock(self.currentAddress);
+    __block typeof(self) weak = self;
+    weak.addressBlock(weak.currentAddress);
     [self.service stopUserLocationService];
     self.service.delegate = nil;
     self.geocodesearch.delegate = nil;
@@ -113,6 +113,8 @@
     
     // 编码完成
     [archiver finishEncoding];
+    
+    
 }
 
 + (UserTitle *)getPersonData{
