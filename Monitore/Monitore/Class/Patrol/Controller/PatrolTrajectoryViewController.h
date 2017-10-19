@@ -13,5 +13,9 @@
 @property (copy, nonatomic) NSString *patrolID;
 @property (copy, nonatomic) NSString *startTime;
 @property (copy, nonatomic) NSString *endTime;
+@property (copy, nonatomic) NSString *startAddr;
+@property (copy, nonatomic) NSString *endAddr;
+@property (copy, nonatomic) NSString *patrolTitle;
+@property (copy, nonatomic) NSString *name;
 
 @end

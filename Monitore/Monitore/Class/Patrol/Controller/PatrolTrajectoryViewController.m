@@ -87,6 +87,10 @@
     NSInteger currentIndex;//当前结点
 }
 
+- (void)dealloc{
+    
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -120,6 +124,12 @@
     
     [self.mapView viewWillAppear];
     self.mapView.delegate = self;
+    
+    self.address.text = [NSString stringWithFormat:@"标题：%@", self.patrolTitle];
+    self.endTimeLabel.text = [NSString stringWithFormat:@"结束时间：%@", self.endTime];
+    self.startTimeLabel.text = [NSString stringWithFormat:@"开始时间：%@", self.startTime];
+    self.endAddress.text = [NSString stringWithFormat:@"结束地址：%@", self.startAddr];
+    self.startAddress.text = [NSString stringWithFormat:@"开始地址：%@", self.startAddr];//
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
@@ -144,14 +154,24 @@
 //    // 发起查询请求
 //    [[BTKTrackAction sharedInstance] queryTrackLatestPointWith:request delegate:self];
     
-    NSTimeInterval endtime = [[NSDate date]timeIntervalSince1970];
-    
     // 构造请求对象
     NSUInteger endTime =[self changeTimeToTimeSp:self.endTime];
         NSUInteger startTime =[self changeTimeToTimeSp:self.startTime];
+    
+    self.patrolTime.text = [NSString stringWithFormat:@"巡逻时长：%@", [self timeFormatted:(endTime-startTime)]];
+    
     BTKQueryHistoryTrackRequest *request = [[BTKQueryHistoryTrackRequest alloc] initWithEntityName:@"entityB" startTime:startTime endTime:endTime isProcessed:TRUE processOption:nil supplementMode:BTK_TRACK_PROCESS_OPTION_SUPPLEMENT_MODE_WALKING outputCoordType:BTK_COORDTYPE_BD09LL sortType:BTK_TRACK_SORT_TYPE_DESC pageIndex:1 pageSize:10 serviceID:145266 tag:13];
     // 发起查询请求
     [[BTKTrackAction sharedInstance] queryHistoryTrackWith:request delegate:self];
+}
+
+- (NSString *)timeFormatted:(NSInteger)totalSeconds
+{
+    int seconds = totalSeconds % 60;
+    int minutes = (totalSeconds / 60) % 60;
+    int hours = totalSeconds / 3600;
+    
+    return [NSString stringWithFormat:@"%02d:%02d:%02d",hours, minutes, seconds];
 }
 
 -(long)changeTimeToTimeSp:(NSString *)timeStr
@@ -171,6 +191,15 @@
     [[DLAPIClient sharedClient]POST:@"patrolDetail" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
         NSLog(@"轨迹=%@", responseObject);
         if ([responseObject[Kstatus]isEqualToString:Ksuccess]) {
+            NSDictionary *dic = responseObject[@"data"];
+            
+//            self.address.text = [NSString stringWithFormat:@"标题：%@", responseObject[@"title"]];
+//            self.startAddress.text = [NSString stringWithFormat:@"开始地址：%@", dic[@"startAddress"]];
+//            self.startTimeLabel.text = [NSString stringWithFormat:@"开始时间：%@", dic[@"startTime"]];
+//            self.endAddress.text = [NSString stringWithFormat:@"结束地址：%@", dic[@"endAddress"]];
+//            self.startAddress.text = [NSString stringWithFormat:@"结束时间：%@", self.endTime];
+            
+            
             
         }else{
             
@@ -212,6 +241,7 @@
     
     self.model = [PatrolHistoryModel modelWithDictionary:dict];
     
+    self.patrolLength.text = [NSString stringWithFormat:@"巡逻距离：%.2f米", [self.model.distance floatValue]];
     
     self.mapView.centerCoordinate = CLLocationCoordinate2DMake([self.model.start_point.latitude doubleValue], [self.model.start_point.longitude doubleValue]);
     //初始化轨迹点

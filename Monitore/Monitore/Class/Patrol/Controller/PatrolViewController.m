@@ -102,6 +102,9 @@
     patrolTrajectoryVc.patrolID = model.patrolId;
     patrolTrajectoryVc.startTime = model.startTime;
     patrolTrajectoryVc.endTime = model.endTime;
+    patrolTrajectoryVc.startAddr = model.startAddress;
+    patrolTrajectoryVc.title = model.title;
+    patrolTrajectoryVc.name = model.name;
     [self.navigationController pushViewController:patrolTrajectoryVc animated:YES];
 }
 
