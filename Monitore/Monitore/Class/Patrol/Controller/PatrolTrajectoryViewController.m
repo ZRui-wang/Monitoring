@@ -105,7 +105,7 @@
     [self.locService startUserLocationService];
     
     // 配置鹰眼基本信息
-    BTKServiceOption *sop = [[BTKServiceOption alloc]initWithAK:@"3hYyfdDODjd421keGGoZw2gHLaUBE2zx" mcode:@"com.dualens.optical" serviceID:145266 keepAlive:YES];
+    BTKServiceOption *sop = [[BTKServiceOption alloc]initWithAK:@"3hYyfdDODjd421keGGoZw2gHLaUBE2zx" mcode:@"com.monitor.optional" serviceID:145266 keepAlive:YES];
     [[BTKAction sharedInstance] initInfo:sop];
     
     // 定位选项设置

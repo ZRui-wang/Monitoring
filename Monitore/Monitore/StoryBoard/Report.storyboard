@@ -273,7 +273,6 @@
         <!--Record VideoVC-->
         <scene sceneID="Y9w-lK-ZsQ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WVr-KH-cB4" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="WCLRecordVideoVC" id="j4y-gL-gfF" customClass="WCLRecordVideoVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OQS-SB-dFv"/>
@@ -408,8 +407,86 @@
                         <outlet property="topViewTop" destination="PAC-o2-SJf" id="LvV-Iw-XPk"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WVr-KH-cB4" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3248" y="41"/>
+        </scene>
+        <!--Arard History View Controller-->
+        <scene sceneID="D2F-sN-IP6">
+            <objects>
+                <viewController storyboardIdentifier="ArardHistoryViewController" id="xqO-G9-bUk" customClass="ArardHistoryViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="F7R-Vh-OJ6"/>
+                        <viewControllerLayoutGuide type="bottom" id="TPs-KD-251"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gDe-Ds-FXP">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ykz-cQ-pho">
+                                <rect key="frame" x="0.0" y="20" width="106.5" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="oEP-o0-m99"/>
+                                </constraints>
+                                <state key="normal" title="待领取">
+                                    <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="waitButtonAction:" destination="xqO-G9-bUk" eventType="touchUpInside" id="yrC-00-WLU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ddb-RN-GcW">
+                                <rect key="frame" x="106.5" y="20" width="107" height="30"/>
+                                <state key="normal" title="已完成">
+                                    <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="finishButton:" destination="xqO-G9-bUk" eventType="touchUpInside" id="QVq-jn-Gm2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rFQ-32-QCM">
+                                <rect key="frame" x="213.5" y="20" width="106.5" height="30"/>
+                                <state key="normal" title="作废">
+                                    <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="invalidButton:" destination="xqO-G9-bUk" eventType="touchUpInside" id="O5S-Go-pmR"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bZG-yy-yPk">
+                                <rect key="frame" x="0.0" y="50" width="320" height="518"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ddb-RN-GcW" firstAttribute="height" secondItem="ykz-cQ-pho" secondAttribute="height" id="6dH-y3-yUb"/>
+                            <constraint firstItem="rFQ-32-QCM" firstAttribute="centerY" secondItem="ykz-cQ-pho" secondAttribute="centerY" id="87d-HO-NVh"/>
+                            <constraint firstItem="rFQ-32-QCM" firstAttribute="height" secondItem="ykz-cQ-pho" secondAttribute="height" id="DGE-kZ-1gt"/>
+                            <constraint firstItem="ddb-RN-GcW" firstAttribute="centerY" secondItem="ykz-cQ-pho" secondAttribute="centerY" id="H1F-jZ-1Se"/>
+                            <constraint firstItem="rFQ-32-QCM" firstAttribute="leading" secondItem="ddb-RN-GcW" secondAttribute="trailing" id="Lxo-OW-8vb"/>
+                            <constraint firstItem="bZG-yy-yPk" firstAttribute="top" secondItem="ykz-cQ-pho" secondAttribute="bottom" id="OmC-qu-cvP"/>
+                            <constraint firstAttribute="trailing" secondItem="bZG-yy-yPk" secondAttribute="trailing" id="Pee-5i-LmR"/>
+                            <constraint firstItem="ddb-RN-GcW" firstAttribute="leading" secondItem="ykz-cQ-pho" secondAttribute="trailing" id="Zsf-Uw-tCp"/>
+                            <constraint firstItem="ykz-cQ-pho" firstAttribute="leading" secondItem="gDe-Ds-FXP" secondAttribute="leading" id="aTE-As-0Ca"/>
+                            <constraint firstItem="ykz-cQ-pho" firstAttribute="top" secondItem="F7R-Vh-OJ6" secondAttribute="bottom" id="fdQ-wV-unh"/>
+                            <constraint firstItem="bZG-yy-yPk" firstAttribute="leading" secondItem="gDe-Ds-FXP" secondAttribute="leading" id="gqf-ej-HZa"/>
+                            <constraint firstItem="ddb-RN-GcW" firstAttribute="width" secondItem="ykz-cQ-pho" secondAttribute="width" id="gsj-uf-m0H"/>
+                            <constraint firstItem="rFQ-32-QCM" firstAttribute="width" secondItem="ykz-cQ-pho" secondAttribute="width" id="kT0-Bd-c3E"/>
+                            <constraint firstAttribute="trailing" secondItem="rFQ-32-QCM" secondAttribute="trailing" id="mP6-vV-ID5"/>
+                            <constraint firstItem="TPs-KD-251" firstAttribute="top" secondItem="bZG-yy-yPk" secondAttribute="bottom" id="y4P-5w-7TT"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="finishButton" destination="ddb-RN-GcW" id="UKz-ex-kHd"/>
+                        <outlet property="invalidButton" destination="rFQ-32-QCM" id="a6O-lX-bpI"/>
+                        <outlet property="tableView" destination="bZG-yy-yPk" id="reG-EN-DJf"/>
+                        <outlet property="waitButton" destination="ykz-cQ-pho" id="wdW-g2-4s8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cvu-Pc-gJN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4575" y="87.676056338028175"/>
         </scene>
     </scenes>
     <resources>

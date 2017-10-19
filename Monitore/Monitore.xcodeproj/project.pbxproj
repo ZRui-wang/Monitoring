@@ -31,6 +31,8 @@
 		78EB07DD1F3B51EC00C64587 /* HelpCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78EB07DC1F3B51EC00C64587 /* HelpCenterViewController.m */; };
 		78EB07E01F3C9EB200C64587 /* UserFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78EB07DF1F3C9EB200C64587 /* UserFeedbackViewController.m */; };
 		8410478E1F749DF400DF5D0D /* ReportModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8410478D1F749DF400DF5D0D /* ReportModel.m */; };
+		845C67011F9869950065C75F /* AwardHistoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 845C66FF1F9869950065C75F /* AwardHistoryTableViewCell.m */; };
+		845C67021F9869950065C75F /* AwardHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845C67001F9869950065C75F /* AwardHistoryTableViewCell.xib */; };
 		846CEAA71F3F05AE00D6BF9D /* ReportAddressTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 846CEAA51F3F05AE00D6BF9D /* ReportAddressTableViewCell.m */; };
 		846CEAA81F3F05AE00D6BF9D /* ReportAddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846CEAA61F3F05AE00D6BF9D /* ReportAddressTableViewCell.xib */; };
 		846CEAAC1F3F082900D6BF9D /* ReportImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 846CEAAA1F3F082900D6BF9D /* ReportImageTableViewCell.m */; };
@@ -434,6 +436,9 @@
 		78EB07DF1F3C9EB200C64587 /* UserFeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserFeedbackViewController.m; sourceTree = "<group>"; };
 		8410478C1F749DF400DF5D0D /* ReportModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReportModel.h; sourceTree = "<group>"; };
 		8410478D1F749DF400DF5D0D /* ReportModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReportModel.m; sourceTree = "<group>"; };
+		845C66FE1F9869950065C75F /* AwardHistoryTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AwardHistoryTableViewCell.h; sourceTree = "<group>"; };
+		845C66FF1F9869950065C75F /* AwardHistoryTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AwardHistoryTableViewCell.m; sourceTree = "<group>"; };
+		845C67001F9869950065C75F /* AwardHistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AwardHistoryTableViewCell.xib; sourceTree = "<group>"; };
 		846CEAA41F3F05AE00D6BF9D /* ReportAddressTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportAddressTableViewCell.h; sourceTree = "<group>"; };
 		846CEAA51F3F05AE00D6BF9D /* ReportAddressTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportAddressTableViewCell.m; sourceTree = "<group>"; };
 		846CEAA61F3F05AE00D6BF9D /* ReportAddressTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReportAddressTableViewCell.xib; sourceTree = "<group>"; };
@@ -1974,6 +1979,9 @@
 				84C7842C1F70C20400D50E3A /* AwardTableViewCell.h */,
 				84C7842D1F70C20400D50E3A /* AwardTableViewCell.m */,
 				84C7842E1F70C20400D50E3A /* AwardTableViewCell.xib */,
+				845C66FE1F9869950065C75F /* AwardHistoryTableViewCell.h */,
+				845C66FF1F9869950065C75F /* AwardHistoryTableViewCell.m */,
+				845C67001F9869950065C75F /* AwardHistoryTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2747,6 +2755,7 @@
 				84F929181F29652B00B76D79 /* PatrolTableViewCell.xib in Resources */,
 				847ED2171F345BDA00BC710E /* DIYPickView.xib in Resources */,
 				84F929691F2AFDC100B76D79 /* PatrolHistoryTableViewCell.xib in Resources */,
+				845C67021F9869950065C75F /* AwardHistoryTableViewCell.xib in Resources */,
 				788297691F3FDC720062EA65 /* UploadPhotoCollectionViewCell.xib in Resources */,
 				84F929251F29652B00B76D79 /* PersonalPhotoTableViewCell.xib in Resources */,
 			);
@@ -2833,6 +2842,7 @@
 				84B7B5C11F46B2ED00C3C708 /* SDWebImageDecoder.m in Sources */,
 				847ED2011F3421F500BC710E /* YYTransaction.m in Sources */,
 				847ED1DC1F3421F500BC710E /* YYImageCache.m in Sources */,
+				845C67011F9869950065C75F /* AwardHistoryTableViewCell.m in Sources */,
 				84B7B5831F45644100C3C708 /* MYPresentedController.m in Sources */,
 				7898F4791F773BB400FD2029 /* LinkerModel.m in Sources */,
 				847ED1D81F3421F500BC710E /* UIImageView+YYWebImage.m in Sources */,

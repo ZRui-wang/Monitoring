@@ -9,6 +9,10 @@
 #import "ArardHistoryViewController.h"
 
 @interface ArardHistoryViewController ()
+@property (weak, nonatomic) IBOutlet UIButton *waitButton;
+@property (weak, nonatomic) IBOutlet UIButton *finishButton;
+@property (weak, nonatomic) IBOutlet UIButton *invalidButton;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -20,6 +24,14 @@
     self.title = @"兑换记录";
     [self leftCustomBarButton];
     self.view.backgroundColor = [UIColor whiteColor];
+}
+
+- (IBAction)waitButtonAction:(UIButton *)sender {
+}
+
+- (IBAction)finishButton:(UIButton *)sender {
+}
+- (IBAction)invalidButton:(UIButton *)sender {
 }
 
 - (void)didReceiveMemoryWarning {
