@@ -47,7 +47,7 @@ static NSString *HomeCollectionViewCellId = @"HomeCollectionViewCell";
     self.title = @"群防群治平安志愿者协会";
     self.bannerAry = [NSMutableArray array];
     
-    NSArray *temptAry = @[@"通知公告", @"群防任务", @"在线监督", @"义务巡逻", @"防骗培训", @"维稳黑名单", @"志愿者管理", @"个人中心"];
+    NSArray *temptAry = @[@"邻里守望", @"群防任务", @"在线监督", @"义务巡逻", @"防骗培训", @"维稳黑名单", @"志愿者管理", @"个人中心"];
     self.titleAry = temptAry;
     
     [self bannerUrl];
@@ -145,7 +145,7 @@ static NSString *HomeCollectionViewCellId = @"HomeCollectionViewCell";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     HomeCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:HomeCollectionViewCellId forIndexPath:indexPath];
-    [cell displayCellWithData:[self.titleAry objectAtIndexCheck:indexPath.item]];
+    [cell displayCellWithData:[self.titleAry objectOrNilAtIndex:indexPath.item]];
     return cell;
 }
 

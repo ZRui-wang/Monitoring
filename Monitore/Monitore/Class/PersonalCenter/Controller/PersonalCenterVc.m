@@ -112,7 +112,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     PersonalCenterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PersonalCenterTableViewCell" forIndexPath:indexPath];
-    [cell displyCellDetailWithData:[self.titleAry objectAtIndexCheck:indexPath.row]];
+    [cell displyCellDetailWithData:[self.titleAry objectOrNilAtIndex:indexPath.row]];
     return cell;
 }
 

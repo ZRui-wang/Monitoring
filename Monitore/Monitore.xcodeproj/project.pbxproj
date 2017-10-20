@@ -315,7 +315,6 @@
 		84F927C51F25DA6000B76D79 /* MNavigationItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F927C41F25DA6000B76D79 /* MNavigationItem.xib */; };
 		84F927C81F25DD8100B76D79 /* UIView+LjAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F927C71F25DD8100B76D79 /* UIView+LjAdd.m */; };
 		84F927CE1F25E8D400B76D79 /* MNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F927CD1F25E8D400B76D79 /* MNavigationController.m */; };
-		84F927DD1F27478800B76D79 /* NSArray+LjAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F927DC1F27478800B76D79 /* NSArray+LjAdd.m */; };
 		84F928481F2898FF00B76D79 /* CustomeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F928471F2898FF00B76D79 /* CustomeLabel.m */; };
 		84F9290C1F29652B00B76D79 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F928C91F29652B00B76D79 /* HomeViewController.m */; };
 		84F9290D1F29652B00B76D79 /* HomeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F928CD1F29652B00B76D79 /* HomeCollectionViewCell.m */; };
@@ -974,8 +973,6 @@
 		84F927CD1F25E8D400B76D79 /* MNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNavigationController.m; sourceTree = "<group>"; };
 		84F927D41F25FF1D00B76D79 /* Define.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Define.h; sourceTree = "<group>"; };
 		84F927D51F26011800B76D79 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		84F927DB1F27478800B76D79 /* NSArray+LjAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+LjAdd.h"; sourceTree = "<group>"; };
-		84F927DC1F27478800B76D79 /* NSArray+LjAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+LjAdd.m"; sourceTree = "<group>"; };
 		84F928461F2898FE00B76D79 /* CustomeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomeLabel.h; sourceTree = "<group>"; };
 		84F928471F2898FF00B76D79 /* CustomeLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomeLabel.m; sourceTree = "<group>"; };
 		84F928C81F29652B00B76D79 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
@@ -2098,8 +2095,6 @@
 				84F927C41F25DA6000B76D79 /* MNavigationItem.xib */,
 				84F927C61F25DD8100B76D79 /* UIView+LjAdd.h */,
 				84F927C71F25DD8100B76D79 /* UIView+LjAdd.m */,
-				84F927DB1F27478800B76D79 /* NSArray+LjAdd.h */,
-				84F927DC1F27478800B76D79 /* NSArray+LjAdd.m */,
 				84F928461F2898FE00B76D79 /* CustomeLabel.h */,
 				84F928471F2898FF00B76D79 /* CustomeLabel.m */,
 				84F929621F29E72500B76D79 /* UILabel+VerticalAlign.h */,
@@ -3031,7 +3026,6 @@
 				84B7B5801F45644100C3C708 /* MYColorBackView.m in Sources */,
 				84D70AD61F789C56008575F7 /* BlackModel.m in Sources */,
 				847ED1EA1F3421F500BC710E /* YYTextMagnifier.m in Sources */,
-				84F927DD1F27478800B76D79 /* NSArray+LjAdd.m in Sources */,
 				84A1D5301F5EA7DF00BFAFC0 /* QNDes.m in Sources */,
 				84D70AE11F79FF8D008575F7 /* TaskDetailViewController.m in Sources */,
 				847ED1B41F3421F500BC710E /* NSData+YYAdd.m in Sources */,

@@ -40,7 +40,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self leftCustomBarButton];
-    self.title = @"通知公告";
+    self.title = @"邻里守望公告";
     
     self.bgView = [[UIView alloc]initWithFrame:CGRectMake(0, 55, SCREEN_WIDTH, 0)];
     self.bgView.backgroundColor = [UIColor blackColor];

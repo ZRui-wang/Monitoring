@@ -14,7 +14,6 @@
 
 #import "Define.h"
 #import "ConstDefine.h"
-#import "NSArray+LjAdd.h"
 #import "UIView+LjAdd.h"
 #import "CustomeLabel.h"
 #import "UILabel+VerticalAlign.h"
