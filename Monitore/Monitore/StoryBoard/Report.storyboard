@@ -467,19 +467,29 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bZG-yy-yPk">
-                                <rect key="frame" x="0.0" y="70" width="320" height="498"/>
+                                <rect key="frame" x="0.0" y="72" width="320" height="496"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jHi-Ys-V36">
+                                <rect key="frame" x="16" y="70" width="288" height="2"/>
+                                <color key="backgroundColor" red="0.1843137255" green="0.42745098040000001" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="rdR-mp-0Iu"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ddb-RN-GcW" firstAttribute="height" secondItem="ykz-cQ-pho" secondAttribute="height" id="6dH-y3-yUb"/>
                             <constraint firstItem="rFQ-32-QCM" firstAttribute="centerY" secondItem="ykz-cQ-pho" secondAttribute="centerY" id="87d-HO-NVh"/>
                             <constraint firstItem="rFQ-32-QCM" firstAttribute="height" secondItem="ykz-cQ-pho" secondAttribute="height" id="DGE-kZ-1gt"/>
+                            <constraint firstItem="jHi-Ys-V36" firstAttribute="leading" secondItem="gDe-Ds-FXP" secondAttribute="leadingMargin" id="FBc-IJ-FyF"/>
                             <constraint firstItem="ddb-RN-GcW" firstAttribute="centerY" secondItem="ykz-cQ-pho" secondAttribute="centerY" id="H1F-jZ-1Se"/>
+                            <constraint firstItem="jHi-Ys-V36" firstAttribute="top" secondItem="ykz-cQ-pho" secondAttribute="bottom" id="KyF-WT-7aF"/>
                             <constraint firstItem="rFQ-32-QCM" firstAttribute="leading" secondItem="ddb-RN-GcW" secondAttribute="trailing" id="Lxo-OW-8vb"/>
-                            <constraint firstItem="bZG-yy-yPk" firstAttribute="top" secondItem="ykz-cQ-pho" secondAttribute="bottom" id="OmC-qu-cvP"/>
                             <constraint firstAttribute="trailing" secondItem="bZG-yy-yPk" secondAttribute="trailing" id="Pee-5i-LmR"/>
+                            <constraint firstItem="bZG-yy-yPk" firstAttribute="top" secondItem="jHi-Ys-V36" secondAttribute="bottom" id="T2u-qX-fsz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jHi-Ys-V36" secondAttribute="trailing" id="ZgN-4f-SzV"/>
                             <constraint firstItem="ddb-RN-GcW" firstAttribute="leading" secondItem="ykz-cQ-pho" secondAttribute="trailing" id="Zsf-Uw-tCp"/>
                             <constraint firstItem="ykz-cQ-pho" firstAttribute="leading" secondItem="gDe-Ds-FXP" secondAttribute="leading" id="aTE-As-0Ca"/>
                             <constraint firstItem="ykz-cQ-pho" firstAttribute="top" secondItem="F7R-Vh-OJ6" secondAttribute="bottom" id="fdQ-wV-unh"/>
