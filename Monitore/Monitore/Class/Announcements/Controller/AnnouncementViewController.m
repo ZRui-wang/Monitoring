@@ -19,8 +19,6 @@
 
 @property (strong, nonatomic)UITableView *pullTableView;
 
-@property (strong, nonatomic)NSArray *pullTableViewTitleAry;
-
 @property (strong, nonatomic)UIView *bgView;
 
 @property (strong, nonatomic)UIButton *typeBtn;
@@ -34,7 +32,9 @@
 
 @end
 
-@implementation AnnouncementViewController
+@implementation AnnouncementViewController{
+    NSString *categoryId;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -42,7 +42,11 @@
     [self leftCustomBarButton];
     self.title = @"邻里守望公告";
     
-    self.bgView = [[UIView alloc]initWithFrame:CGRectMake(0, 55, SCREEN_WIDTH, 0)];
+    self.dataListAry = [NSMutableArray array];
+    self.categoryListAry = [NSMutableArray array];
+    categoryId = @"1";
+    
+    self.bgView = [[UIView alloc]initWithFrame:CGRectMake(0, 55, SCREEN_WIDTH, SCREEN_HEIGHT)];
     self.bgView.backgroundColor = [UIColor blackColor];
     self.bgView.alpha = 0.3;
     [self.view addSubview:self.bgView];
@@ -51,15 +55,13 @@
     
     
     
-    self.pullTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 55, SCREEN_WIDTH, 0) style:UITableViewStylePlain];
+    self.pullTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 55, SCREEN_WIDTH, 100) style:UITableViewStylePlain];
     [self.pullTableView registerNib:[UINib nibWithNibName:@"PullTableViewCell" bundle:nil] forCellReuseIdentifier:@"PullTableViewCell"];
     self.pullTableView.delegate = self;
     self.pullTableView.dataSource = self;
     self.pullTableView.tag = 100;
     [self.view addSubview:self.pullTableView];
-    NSArray *ary = @[@"全部", @"群防新闻", @"线索征集", @"招募信息", @"培训通知"];
-    self.pullTableViewTitleAry = ary;
-    
+//
     [self.tableView registerNib:[UINib nibWithNibName:@"AnnouncementTableViewCell" bundle:nil] forCellReuseIdentifier:@"AnnouncementTableViewCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"AnnouncementVcHeaderView" bundle:nil] forHeaderFooterViewReuseIdentifier:@"AnnouncementVcHeaderView"];
     self.tableView.tableFooterView = [UIView new];
@@ -69,16 +71,16 @@
 
 - (void)getNetWorkData{
     
-    NSDictionary *dic = @{@"TYPE_ID":@"1", @"STATE":@"0", @"currentPage":@1, @"showCount":@"10"};
+    NSDictionary *dic = @{@"TYPE_ID":categoryId, @"STATE":@"0", @"currentPage":@1, @"showCount":@"10"};
     
     [[DLAPIClient sharedClient]POST:@"infoList" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
         NSLog(@"%@", responseObject);
-        if ([responseObject[Kstatus]isEqualToString:Ksuccess]) {
+        if ([responseObject[Kstatus]isEqualToString:@"202"]) {
 
             AnnounceListModel *model = [AnnounceListModel modelWithDictionary:responseObject];
             [self.dataListAry addObjectsFromArray:model.dataList];
             [self.categoryListAry addObjectsFromArray:model.categoryList];
-            
+            [self.pullTableView reloadData];
             [self.tableView reloadData];
         }else{
             [self showErrorMessage:responseObject[Kinfo]];
@@ -92,10 +94,10 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if (tableView.tag == 100) {
-        return self.categoryListAry.count;
+        return  self.categoryListAry.count;
     }
     else{
-        return self.dataListAry.count;
+        return   self.dataListAry.count;
     }
 }
 
@@ -121,7 +123,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (tableView.tag == 100) {
         PullTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PullTableViewCell" forIndexPath:indexPath];
-        cell.title.text = self.pullTableViewTitleAry[indexPath.row];
+        CategoryModel *model = [self.categoryListAry objectOrNilAtIndex:indexPath.row];
+        cell.title.text = model.name;
         return cell;
     }
     else{
@@ -154,27 +157,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (tableView.tag == 100) {
-        if (indexPath.row == 0) {
-            // 全部
-            [self.typeBtn setTitle:@"全部" forState:UIControlStateNormal];
-            [self.typeBtn setTitleColor:[UIColor colorWithRed:47/255.0 green:109/255.0 blue:182/255.0 alpha:1] forState:UIControlStateNormal];
-        }
-        else if (indexPath.row == 1){
-            // 群防新闻
-            [self.typeBtn setTitle:@"群防新闻" forState:UIControlStateNormal];
-        }
-        else if (indexPath.row == 2){
-            // 线索征集
-            [self.typeBtn setTitle:@"线索征集" forState:UIControlStateNormal];
-        }
-        else if (indexPath.row == 3){
-            // 招募信息
-            [self.typeBtn setTitle:@"招募信息" forState:UIControlStateNormal];
-        }
-        else if (indexPath.row == 4){
-            // 培训通知
-            [self.typeBtn setTitle:@"培训通知" forState:UIControlStateNormal];
-        }
+        CategoryModel *model = [self.categoryListAry objectOrNilAtIndex:indexPath.row];
+        categoryId = model.categoryId;
+        [self getNetWorkData];
         [self hidenBgView];
     }
     else{
@@ -194,6 +179,7 @@
             self.pullTableView.frame = CGRectMake(0, 55, SCREEN_WIDTH, 200);
             self.bgView.frame = CGRectMake(0, 55, SCREEN_WIDTH, SCREEN_HEIGHT-55);
         }];
+        [self.pullTableView reloadData];
     }
     else{
         [self hidenBgView];

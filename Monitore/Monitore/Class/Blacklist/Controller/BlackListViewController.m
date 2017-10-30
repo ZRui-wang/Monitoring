@@ -18,7 +18,12 @@
 
 @end
 
-@implementation BlackListViewController
+@implementation BlackListViewController{
+    int dataPage;
+    BOOL isNoMoreData;
+    BOOL moreData;
+    BOOL isDownLoading;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -33,14 +38,34 @@
     [self.view addSubview:self.tableView];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"BlackListTableViewCell" bundle:nil] forCellReuseIdentifier:@"BlackListTableViewCell"];
+
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refresh)];
+    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMore)];
+
     
     self.listAry  = [NSMutableArray array];
+    dataPage = 1;
     [self getBlackListData];
 }
 
 - (void)getBlackListData{
-    [[DLAPIClient sharedClient]POST:@"hmdList" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+    [[DLAPIClient sharedClient]POST:[NSString stringWithFormat:@"hmdList?currentPage=%d&showCount=10", dataPage] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject[Kstatus]isEqualToString:Ksuccess]) {
+            
+            if (dataPage == 1) {
+                [self.listAry removeAllObjects];
+            }
+            
+            dataPage ++;
+            
+            if ([[responseObject[@"page"] objectForKey:@"totalPage"] intValue] <= dataPage) {
+                isNoMoreData = NO;
+            }else{
+                isNoMoreData = YES;
+            }
+            
+            
+            
             for (NSDictionary *dic in responseObject[@"dataList"]) {
                 BlackModel *model = [BlackModel modelWithDictionary:dic];
                 [self.listAry addObject:model];
@@ -49,8 +74,9 @@
         }else{
             
         }
+        [self endRefresh];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        
+        [self endRefresh];
     }];
 }
 
@@ -81,6 +107,31 @@
     detailVc.infoId = model.newsId;
     
     [self.navigationController pushViewController:detailVc animated:YES];
+}
+
+- (void)refresh{
+    if (isDownLoading) {
+        return;
+    }
+    dataPage = 1;
+    isDownLoading = YES;
+    [self getBlackListData];
+}
+
+- (void)endRefresh {
+    isDownLoading = NO;
+    [self.tableView.mj_header endRefreshing];
+    [self.tableView.mj_footer endRefreshing];
+}
+
+- (void)loadMore{
+    if (isDownLoading) {
+        return;
+    }
+    
+    if (isNoMoreData) {
+       [self getBlackListData];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
