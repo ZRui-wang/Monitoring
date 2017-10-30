@@ -11,6 +11,11 @@
 
 @interface AwardHistoryTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UIButton *cancelButton;
+@property (weak, nonatomic) IBOutlet UIButton *collectButton;
+
+@property (assign, nonatomic) BOOL rowtag;
+
 - (void)showDetailWithModel:(HistoryModel *)model;
 
 @end

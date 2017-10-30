@@ -20,6 +20,7 @@
 
 @implementation ArardHistoryViewController{
     NSInteger state;
+    NSString *giftId;
 }
 
 - (void)viewDidLoad {
@@ -58,15 +59,46 @@
     }];
 }
 
+- (void)cancelRequest{
+    UserTitle *title = [Tools getPersonData];
+    NSString *url = [NSString stringWithFormat:@"quxiao?USER_ID=%@&GIFTUSER_ID=%@", title.usersId, giftId];
+    
+    [[DLAPIClient sharedClient]POST:url parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"%@", responseObject);
+        if ([responseObject[Kstatus]isEqualToString:Ksuccess]) {
+            
+        }else{
+            [self showErrorMessage:responseObject[Kinfo]];
+        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+    }];
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.modelArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     AwardHistoryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AwardHistoryTableViewCell" forIndexPath:indexPath];
+    cell.rowtag = indexPath.row;
+    [cell.collectButton addTarget:self action:@selector(collectionButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [cell.cancelButton addTarget:self action:@selector(cancelButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     HistoryModel *model = self.modelArray[indexPath.row];
     [cell showDetailWithModel:model];
     return cell;
+}
+
+- (void)collectionButtonAction:(UIButton *)button{
+    HistoryModel *model = self.modelArray[button.tag];
+    giftId = model.giftId;
+    [self showWarningMessage:@"没有领取接口"];
+}
+
+- (void)cancelButtonAction:(UIButton *)button{
+   HistoryModel *model = self.modelArray[button.tag];
+    giftId = model.giftId;
+    [self cancelRequest];
 }
 
 - (IBAction)waitButtonAction:(UIButton *)sender {

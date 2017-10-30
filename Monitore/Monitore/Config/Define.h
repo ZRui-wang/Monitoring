@@ -42,7 +42,7 @@ blue:((float)(hexValue & 0xFF))/255.0 alpha:1]
 #if DEBUG
 #define NSSLog(FORMAT, ...) fprintf(stderr,"[%s:%d行] %s\n",[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String], __LINE__, [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String])
 #else
-#define NSLog(FORMAT, ...) nil
+#define NSSLog(FORMAT, ...)
 
 #endif
 

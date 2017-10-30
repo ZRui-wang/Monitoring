@@ -327,7 +327,7 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(nullable NSDictionary<NSString *,id> *)editingInfo NS_DEPRECATED_IOS(2_0, 3_0)
 {
     self.photoImage = image;
-    NSSLog(@"finish..");
+    NSLog(@"finish..");
 //    self.imageData = UIImagePNGRepresentation(image);
     [self.tableView reloadData];
     [self dismissViewControllerAnimated:YES completion:nil];

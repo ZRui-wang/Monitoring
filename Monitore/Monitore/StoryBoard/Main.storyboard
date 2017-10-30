@@ -557,7 +557,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" restorationIdentifier="LoginViewController" translatesAutoresizingMaskIntoConstraints="NO" id="nix-4g-E70">
-                                <rect key="frame" x="66" y="202.5" width="243" height="45"/>
+                                <rect key="frame" x="66" y="198.5" width="243" height="45"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="个人资料" translatesAutoresizingMaskIntoConstraints="NO" id="26F-0e-7V6">
                                         <rect key="frame" x="20" y="12.5" width="20" height="20"/>
@@ -588,7 +588,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5O7-Eg-InY">
-                                <rect key="frame" x="66" y="267.5" width="243" height="45"/>
+                                <rect key="frame" x="66" y="263.5" width="243" height="45"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="锁" translatesAutoresizingMaskIntoConstraints="NO" id="5IK-VM-chL">
                                         <rect key="frame" x="20" y="12.5" width="20" height="20"/>
@@ -619,7 +619,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5oG-vy-bHs">
-                                <rect key="frame" x="97.5" y="362.5" width="180" height="40"/>
+                                <rect key="frame" x="97.5" y="358.5" width="180" height="40"/>
                                 <color key="backgroundColor" red="0.0093592563640000001" green="0.24532222749999999" blue="0.56570589540000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="180" id="15J-YP-N3Z"/>
@@ -631,7 +631,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ny1-gT-Mu8">
-                                <rect key="frame" x="50" y="426.5" width="133" height="29"/>
+                                <rect key="frame" x="50" y="422.5" width="133" height="29"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
                                 <state key="normal" title="忘记密码 "/>
                                 <connections>
@@ -639,7 +639,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1md-1m-RLk">
-                                <rect key="frame" x="192" y="426.5" width="133" height="29"/>
+                                <rect key="frame" x="192" y="422.5" width="133" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <state key="normal" title="新用户注册">
                                     <color key="titleColor" red="0.915810287" green="0.87280303240000001" blue="0.2647365928" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -649,14 +649,13 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="群防群治" translatesAutoresizingMaskIntoConstraints="NO" id="tOn-kh-6jm">
-                                <rect key="frame" x="112.5" y="130" width="150" height="32.5"/>
+                                <rect key="frame" x="45" y="130" width="285" height="28.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="GWi-5L-y9q"/>
-                                    <constraint firstAttribute="width" secondItem="tOn-kh-6jm" secondAttribute="height" multiplier="125:27" id="b0P-hd-XKz"/>
+                                    <constraint firstAttribute="width" secondItem="tOn-kh-6jm" secondAttribute="height" multiplier="10:1" id="b0P-hd-XKz"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7iE-Im-FsA">
-                                <rect key="frame" x="183" y="432.5" width="9" height="17"/>
+                                <rect key="frame" x="183" y="428.5" width="9" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="17" id="BgE-VJ-56l"/>
                                     <constraint firstAttribute="width" constant="9" id="k5t-2L-xt5"/>
@@ -716,7 +715,7 @@
         <image name="个人中心图层" width="375" height="165"/>
         <image name="个人资料" width="18" height="19"/>
         <image name="大按钮" width="300" height="41"/>
-        <image name="群防群治" width="124" height="26"/>
+        <image name="群防群治" width="285" height="27"/>
         <image name="锁" width="20" height="21"/>
     </resources>
 </document>

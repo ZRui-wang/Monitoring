@@ -33,7 +33,7 @@
     NSDictionary *dic = @{@"MOBILE":self.phoneNumber.text, @"TYPE":@1};
     
     [[DLAPIClient sharedClient]POST:@"smsCode" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
-        NSSLog(@"%@", responseObject);
+        NSLog(@"%@", responseObject);
         if ([responseObject[Kstatus]isEqualToString:Ksuccess]) {
             [self showSuccessMessage:@"验证码发送成功"];
             self.code = responseObject[@"code"];

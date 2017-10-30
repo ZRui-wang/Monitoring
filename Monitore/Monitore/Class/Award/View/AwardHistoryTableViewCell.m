@@ -13,8 +13,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *goodsImage;
 @property (weak, nonatomic) IBOutlet UILabel *detailLabel;
-@property (weak, nonatomic) IBOutlet UIButton *cancelButton;
-@property (weak, nonatomic) IBOutlet UIButton *collectButton;
+
 
 @end
 
@@ -24,6 +23,17 @@
     [super awakeFromNib];
     // Initialization code
     self.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    self.cancelButton.tag = self.rowtag;
+    self.collectButton.tag = self.rowtag;
+    
+    self.cancelButton.layer.borderWidth = 1;
+    self.cancelButton.layer.borderColor = [UIColor colorWithRed:234/255.0 green:223/255.0 blue:68/255.0 alpha:1].CGColor;
+    
+    self.collectButton.layer.borderWidth = 1;
+    self.collectButton.layer.borderColor = [UIColor colorWithRed:29/255.0 green:136/255.0 blue:230/255.0 alpha:1].CGColor;
+    
+    
 }
 
 - (void)showDetailWithModel:(HistoryModel *)model{
