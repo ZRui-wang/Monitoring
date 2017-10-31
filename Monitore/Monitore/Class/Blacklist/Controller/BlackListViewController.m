@@ -59,12 +59,10 @@
             dataPage ++;
             
             if ([[responseObject[@"page"] objectForKey:@"totalPage"] intValue] <= dataPage) {
-                isNoMoreData = NO;
-            }else{
                 isNoMoreData = YES;
+            }else{
+                isNoMoreData = NO;
             }
-            
-            
             
             for (NSDictionary *dic in responseObject[@"dataList"]) {
                 BlackModel *model = [BlackModel modelWithDictionary:dic];
@@ -129,7 +127,7 @@
         return;
     }
     
-    if (isNoMoreData) {
+    if (!isNoMoreData) {
        [self getBlackListData];
     }
 }

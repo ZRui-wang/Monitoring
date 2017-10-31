@@ -18,7 +18,11 @@
 
 @end
 
-@implementation TrainViewController
+@implementation TrainViewController{
+    int pageIndex;
+    BOOL isNoMoreData;
+    BOOL isLoadingMore;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -26,20 +30,37 @@
     self.title = @"防骗培训";
     [self leftCustomBarButton];
     
-    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStyleGrouped];
+    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-64) style:UITableViewStyleGrouped];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.view addSubview:self.tableView];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"TrainTableViewCell" bundle:nil] forCellReuseIdentifier:@"TrainTableViewCell"];
     
+    self.tableView.mj_header = [MJRefreshGifHeader headerWithRefreshingTarget:self refreshingAction:@selector(refresh)];
+    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMore)];
+    
     self.listAry = [NSMutableArray array];
+    pageIndex = 1;
     [self getInfoList];
 }
 
 - (void)getInfoList{
-    [[DLAPIClient sharedClient]POST:@"infoList" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+    [[DLAPIClient sharedClient]POST:[NSString stringWithFormat:@"fppxList?currentPage=%d&showCount=10", pageIndex] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject[Kstatus]isEqualToString:Ksuccess]) {
+            
+            if (pageIndex==1) {
+                [self.listAry removeAllObjects];
+            }
+            
+            pageIndex++;
+            
+            if (pageIndex<=[[responseObject[@"page"]objectForKey:@"totalPage"]intValue]) {
+                isNoMoreData = NO;
+            }else{
+                isNoMoreData = YES;
+            }
+            
             for (NSDictionary *dic in responseObject[@"dataList"]) {
                 TrainModel *model = [TrainModel modelWithDictionary:dic];
                 [self.listAry addObject:model];
@@ -49,8 +70,10 @@
         {
             [self showErrorMessage:responseObject[Kinfo]];
         }
+        [self endRefresh];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         [self showErrorMessage:@"网络错误"];
+        [self endRefresh];
     }];
 }
 
@@ -81,6 +104,32 @@
     detailVc.infoId = model.newsId;
     
     [self.navigationController pushViewController:detailVc animated:YES];
+}
+
+- (void)refresh{
+    if (isLoadingMore) {
+        return;
+    }
+    pageIndex = 1;
+    [self getInfoList];
+}
+
+- (void)loadMore{
+    if (isLoadingMore) {
+        return;
+    }
+    
+    if (!isNoMoreData) {
+        [self getInfoList];
+    }else{
+        [self endRefresh];
+    }
+}
+
+- (void)endRefresh{
+    isLoadingMore = NO;
+    [self.tableView.mj_header endRefreshing];
+    [self.tableView.mj_footer endRefreshing];
 }
 
 
