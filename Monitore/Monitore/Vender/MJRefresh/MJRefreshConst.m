@@ -23,10 +23,10 @@ NSString *const MJRefreshAutoFooterIdleText = @"松开立即加载更多";
 NSString *const MJRefreshAutoFooterRefreshingText = @"上拉加载更多";
 NSString *const MJRefreshAutoFooterNoMoreDataText = @"没有数据";
 
-NSString *const MJRefreshBackFooterIdleText = @"MJRefreshBackFooterIdleText";
-NSString *const MJRefreshBackFooterPullingText = @"MJRefreshBackFooterPullingText";
-NSString *const MJRefreshBackFooterRefreshingText = @"MJRefreshBackFooterRefreshingText";
-NSString *const MJRefreshBackFooterNoMoreDataText = @"MJRefreshBackFooterNoMoreDataText";
+NSString *const MJRefreshBackFooterIdleText = @"上拉加载更多";
+NSString *const MJRefreshBackFooterPullingText = @"松开立即加载更多";
+NSString *const MJRefreshBackFooterRefreshingText = @"上拉加载更多";
+NSString *const MJRefreshBackFooterNoMoreDataText = @"没有更多数据";
 
 NSString *const MJRefreshHeaderLastTimeText = @"最近更新";
 NSString *const MJRefreshHeaderDateTodayText = @"今天";

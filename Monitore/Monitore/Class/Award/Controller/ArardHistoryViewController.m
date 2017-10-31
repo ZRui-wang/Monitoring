@@ -21,6 +21,9 @@
 @implementation ArardHistoryViewController{
     NSInteger state;
     NSString *giftId;
+    BOOL isMoreData;
+    BOOL isLoading;
+    int pageIndex;
 }
 
 - (void)viewDidLoad {
@@ -40,6 +43,36 @@
     
     [self.tableView registerNib:[UINib nibWithNibName:@"AwardHistoryTableViewCell" bundle:nil] forCellReuseIdentifier:@"AwardHistoryTableViewCell"];
     self.tableView.tableFooterView = [UIView new];
+    self.tableView.mj_header = [MJRefreshGifHeader headerWithRefreshingTarget:self refreshingAction:@selector(refresh)];
+    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMore)];
+}
+
+- (void)refresh{
+    
+    if (isLoading) {
+        return;
+    }
+    isLoading = YES;
+    pageIndex = 1;
+    
+    [self requestDats];
+}
+
+- (void)loadMore{
+    if (!isMoreData) {
+        return;
+    }
+    if (isLoading) {
+        return;
+    }
+    isLoading = YES;
+    [self requestDats];
+}
+
+- (void)endRefresh{
+    isLoading = NO;
+    [self.tableView.mj_footer endRefreshing];
+    [self.tableView.mj_header endRefreshing];
 }
 
 - (void)requestDats{
@@ -47,6 +80,19 @@
     NSString *url = [NSString stringWithFormat:@"userGiftList?USER_ID=%@&STATE=%ld", title.usersId, state];
     [[DLAPIClient sharedClient]POST:url parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         NSLog(@"%@", responseObject);
+        
+        if (pageIndex==1) {
+            [self.modelArray removeAllObjects];
+        }
+        
+        pageIndex++;
+        
+        if ([[responseObject[@"page"]objectForKey:@"totalPage"] intValue] > pageIndex) {
+            isMoreData = YES;
+        }else{
+            isMoreData = NO;
+        }
+        
         if ([responseObject[Kstatus]isEqualToString:Ksuccess]) {
             for (NSDictionary *dic in responseObject[@"dataList"]) {
                 HistoryModel *model = [HistoryModel modelWithDictionary:dic];
@@ -54,8 +100,9 @@
             }
             [self.tableView reloadData];
         }
+        [self endRefresh];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        
+        [self endRefresh];
     }];
 }
 

@@ -22,6 +22,9 @@
 
 @implementation AwardViewController{
     NSInteger row;
+    BOOL isMoreData;
+    BOOL isLoading;
+    int pageIndex;
 }
 
 - (void)viewDidLoad {
@@ -33,20 +36,67 @@
     
     self.listAry = [NSMutableArray array];
     
-    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStyleGrouped];
+    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-64) style:UITableViewStyleGrouped];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.view addSubview:self.tableView];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"AwardTableViewCell" bundle:nil] forCellReuseIdentifier:@"AwardTableViewCell"];
     self.tableView.tableFooterView = [UIView new];
+    self.tableView.mj_header = [MJRefreshGifHeader headerWithRefreshingTarget:self refreshingAction:@selector(refresh)];
+    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMore)];
     
     [self gitGiftList];
+}
+
+
+- (void)refresh{
+    
+    if (isLoading) {
+        return;
+    }
+    isLoading = YES;
+    pageIndex = 1;
+    
+    [self gitGiftList];
+}
+
+- (void)loadMore{
+    if (!isMoreData) {
+        [self endRefresh];
+        return;
+    }
+    if (isLoading) {
+        [self endRefresh];
+        return;
+    }
+    isLoading = YES;
+    [self gitGiftList];
+}
+
+- (void)endRefresh{
+    isLoading = NO;
+    [self.tableView.mj_footer endRefreshing];
+    [self.tableView.mj_header endRefreshing];
 }
 
 - (void)gitGiftList{
     [[DLAPIClient sharedClient] POST:@"giftList" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         NSLog(@"奖品=%@", responseObject);
+                
+        
+        if (pageIndex==1) {
+            [self.listAry removeAllObjects];
+        }
+        
+        pageIndex++;
+        
+        if ([[responseObject[@"page"]objectForKey:@"totalPage"] intValue] > pageIndex) {
+            isMoreData = YES;
+        }else{
+            isMoreData = NO;
+        }
+        
         if ([responseObject[Kstatus]isEqualToString:Ksuccess]) {
             for (NSDictionary *dic in responseObject[@"dataList"]) {
                 GiftListModel *model = [GiftListModel modelWithDictionary:dic];
@@ -56,8 +106,10 @@
         }else{
             [self showWarningMessage:@"数据错误"];
         }
+        [self endRefresh];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         [self showErrorMessage:@"网络错误"];
+        [self endRefresh];
     }];
 }
 
