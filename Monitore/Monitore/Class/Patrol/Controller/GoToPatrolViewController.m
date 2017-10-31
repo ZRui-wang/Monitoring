@@ -44,6 +44,7 @@
 
 @implementation GoToPatrolViewController{
     NSInteger timerCount;
+    NSString *nickName;
 }
 
 - (void)dealloc{
@@ -83,6 +84,7 @@
     UserTitle *userTitle = [Tools getPersonData];
     self.model = [[StartPatrolModel alloc]init];
     self.model.userId = userTitle.usersId;
+    nickName = userTitle.mobile;
     self.patrolTitle.delegate = self;
 }
 
@@ -128,14 +130,14 @@
     processOption.transportMode = BTK_TRACK_PROCESS_OPTION_SUPPLEMENT_MODE_STRAIGHT;
     
     // 构造请求对象
-    BTKQueryTrackLatestPointRequest *request = [[BTKQueryTrackLatestPointRequest alloc] initWithEntityName:@"entityB" processOption: processOption outputCootdType:BTK_COORDTYPE_BD09LL serviceID:145266 tag:13];
+    BTKQueryTrackLatestPointRequest *request = [[BTKQueryTrackLatestPointRequest alloc] initWithEntityName:nickName processOption: processOption outputCootdType:BTK_COORDTYPE_BD09LL serviceID:145266 tag:13];
     // 发起查询请求
     [[BTKTrackAction sharedInstance] queryTrackLatestPointWith:request delegate:self];
 }
 
 - (void)startTrajectory{
     // 开启轨迹服务
-    BTKStartServiceOption *op = [[BTKStartServiceOption alloc] initWithEntityName:@"entityB"];
+    BTKStartServiceOption *op = [[BTKStartServiceOption alloc] initWithEntityName:nickName];
     // 开启服务
     [[BTKAction sharedInstance] startService:op delegate:self];
     

@@ -160,7 +160,9 @@
     
     self.patrolTime.text = [NSString stringWithFormat:@"巡逻时长：%@", [self timeFormatted:(endTime-startTime)]];
     
-    BTKQueryHistoryTrackRequest *request = [[BTKQueryHistoryTrackRequest alloc] initWithEntityName:@"entityB" startTime:startTime endTime:endTime isProcessed:TRUE processOption:nil supplementMode:BTK_TRACK_PROCESS_OPTION_SUPPLEMENT_MODE_WALKING outputCoordType:BTK_COORDTYPE_BD09LL sortType:BTK_TRACK_SORT_TYPE_DESC pageIndex:1 pageSize:10 serviceID:145266 tag:13];
+    UserTitle *userTitle = [Tools getPersonData];
+    
+    BTKQueryHistoryTrackRequest *request = [[BTKQueryHistoryTrackRequest alloc] initWithEntityName:userTitle.mobile startTime:startTime endTime:endTime isProcessed:TRUE processOption:nil supplementMode:BTK_TRACK_PROCESS_OPTION_SUPPLEMENT_MODE_WALKING outputCoordType:BTK_COORDTYPE_BD09LL sortType:BTK_TRACK_SORT_TYPE_DESC pageIndex:1 pageSize:5000 serviceID:145266 tag:13];
     // 发起查询请求
     [[BTKTrackAction sharedInstance] queryHistoryTrackWith:request delegate:self];
 }
@@ -265,7 +267,7 @@
     sportAnnotation = [[BMKPointAnnotation alloc]init];
     sportAnnotation.coordinate = paths[0];
     sportAnnotation.title = @"test";
-    [_mapView addAnnotation:sportAnnotation];
+//    [_mapView addAnnotation:sportAnnotation];
     currentIndex = 0;
 }
 
@@ -283,7 +285,12 @@
         sportAnnotation.coordinate = node.coordinate;
     } completion:^(BOOL finished) {
         [self running];
+        
+        if (currentIndex>=sportNodeNum) {
+            [self.view.layer removeAllAnimations];
+        }
     }];
+
 }
 
 #pragma mark - BMKMapViewDelegate
@@ -299,7 +306,7 @@
     {
         BMKPolygonView* polygonView = [[BMKPolygonView alloc] initWithOverlay:overlay];
         polygonView.strokeColor = [[UIColor alloc] initWithRed:0.0 green:0.5 blue:0.0 alpha:0.6];
-        polygonView.lineWidth = 3.0;
+        polygonView.lineWidth = 5.0;
         return polygonView;
     }
     return nil;
