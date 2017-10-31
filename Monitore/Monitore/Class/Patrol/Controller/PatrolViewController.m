@@ -20,7 +20,11 @@
 
 @end
 
-@implementation PatrolViewController
+@implementation PatrolViewController{
+    int pageIndex;
+    BOOL isMoreData;
+    BOOL isLoading;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -29,12 +33,43 @@
     self.title = @"巡逻记录";
     
     self.patrolListAry = [NSMutableArray array];
+    pageIndex = 1;
     
     [self.tableView registerNib:[UINib nibWithNibName:@"PatrolTableViewCell" bundle:nil] forCellReuseIdentifier:@"PatrolTableViewCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"PatrolTableHeaderView" bundle:nil] forHeaderFooterViewReuseIdentifier:@"PatrolTableHeaderView"];
     self.tableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
+    self.tableView.mj_header = [MJRefreshGifHeader headerWithRefreshingTarget:self refreshingAction:@selector(refresh)];
+    self.tableView.mj_footer = [MJRefreshBackGifFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMore)];
         
     self.userTitle = [Tools getPersonData];
+}
+
+- (void)refresh{
+    
+    if (isLoading) {
+        return;
+    }
+    isLoading = YES;
+    pageIndex = 1;
+    
+    [self getPatrolHistory];
+}
+
+- (void)loadMore{
+    if (!isMoreData) {
+        return;
+    }
+    if (isLoading) {
+        return;
+    }
+    isLoading = YES;
+    [self getPatrolHistory];
+}
+
+- (void)endRefresh{
+    isLoading = NO;
+    [self.tableView.mj_footer endRefreshing];
+    [self.tableView.mj_header endRefreshing];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -45,9 +80,21 @@
 }
 
 - (void)getPatrolHistory{
-    NSDictionary *dic = @{@"USER_ID":self.userTitle.usersId};
-    [[DLAPIClient sharedClient]POST:@"userPatrol" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+    [[DLAPIClient sharedClient]POST:[NSString stringWithFormat:@"userPatrol?USER_ID=%@&currentPage=%d&showCount=10", self.userTitle.usersId, pageIndex] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         NSLog(@"%@", responseObject);
+        
+        if (pageIndex==1) {
+            [self.patrolListAry removeAllObjects];
+        }
+        
+        pageIndex++;
+        
+        if ([[responseObject[@"page"]objectForKey:@"totalPage"] intValue] > pageIndex) {
+            isMoreData = YES;
+        }else{
+            isMoreData = NO;
+        }
+        
         if ([responseObject[Kstatus] isEqualToString:Ksuccess]) {
             for (NSDictionary *dic in responseObject[@"dataList"]) {
                 PatrolListModel *model = [PatrolListModel modelWithDictionary:dic];
@@ -59,8 +106,9 @@
         }else{
             
         }
+        [self endRefresh];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        
+        [self endRefresh];
     }];
 }
 

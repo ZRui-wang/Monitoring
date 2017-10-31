@@ -125,7 +125,7 @@
     [self.mapView viewWillAppear];
     self.mapView.delegate = self;
     
-    self.address.text = [NSString stringWithFormat:@"标题：%@", self.patrolTitle];
+//    self.address.text = [NSString stringWithFormat:@"标题：%@", self.patrolTitle];
     self.endTimeLabel.text = [NSString stringWithFormat:@"结束时间：%@", self.endTime];
     self.startTimeLabel.text = [NSString stringWithFormat:@"开始时间：%@", self.startTime];
     self.endAddress.text = [NSString stringWithFormat:@"结束地址：%@", self.startAddr];
@@ -195,7 +195,7 @@
         if ([responseObject[Kstatus]isEqualToString:Ksuccess]) {
             NSDictionary *dic = responseObject[@"data"];
             
-//            self.address.text = [NSString stringWithFormat:@"标题：%@", responseObject[@"title"]];
+            self.address.text = [NSString stringWithFormat:@"标题：%@", dic[@"title"]];
 //            self.startAddress.text = [NSString stringWithFormat:@"开始地址：%@", dic[@"startAddress"]];
 //            self.startTimeLabel.text = [NSString stringWithFormat:@"开始时间：%@", dic[@"startTime"]];
 //            self.endAddress.text = [NSString stringWithFormat:@"结束地址：%@", dic[@"endAddress"]];
