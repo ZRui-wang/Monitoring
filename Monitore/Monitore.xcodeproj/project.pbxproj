@@ -2301,7 +2301,7 @@
 				84F928C61F29652B00B76D79 /* Home */,
 				84F928DB1F29652B00B76D79 /* Patrol */,
 				84F928E71F29652B00B76D79 /* PersonalCenter */,
-				84F929001F29652B00B76D79 /* Report */,
+				84F929001F29652B00B76D79 /* 监督 */,
 				84F929041F29652B00B76D79 /* Task */,
 				84F929081F29652B00B76D79 /* Training */,
 			);
@@ -2571,14 +2571,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		84F929001F29652B00B76D79 /* Report */ = {
+		84F929001F29652B00B76D79 /* 监督 */ = {
 			isa = PBXGroup;
 			children = (
 				84F929011F29652B00B76D79 /* Controller */,
 				84F929021F29652B00B76D79 /* Model */,
 				84F929031F29652B00B76D79 /* View */,
 			);
-			path = Report;
+			path = "监督";
 			sourceTree = "<group>";
 		};
 		84F929011F29652B00B76D79 /* Controller */ = {

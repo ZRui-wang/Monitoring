@@ -321,11 +321,6 @@
             NSLog(@"七牛-%@", resp);
             
             NSDictionary *dic = @{@"USER_ID":self.userTitle.usersId,
-//                                  @"CAR_NUM":self.userTitle.usersId,
-//                                  @"CAR_COLOR":self.userTitle.usersId,
-//                                  @"ADDRESS":self.userTitle.usersId,
-//                                  @"CONTENT":@"123",
-//                                  @"ADDRESS":self.addressLabel.text,
                                   @"LONGITUDE":self.lon,
                                   @"LATITUDE":self.lat,
                                   @"VIDEO_URL":resp[@"key"]
