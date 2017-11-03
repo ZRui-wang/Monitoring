@@ -13,6 +13,7 @@
 #import "PullTableViewCell.h"
 #import "DetailViewController.h"
 #import "AnnounceListModel.h"
+#import "PublishedViewController.h"
 
 @interface AnnouncementViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -53,7 +54,8 @@
 }
 
 - (void)rightBarButtonAction{
-
+    PublishedViewController *publishedVc = [[UIStoryboard storyboardWithName:@"Announcement" bundle:nil]instantiateViewControllerWithIdentifier:@"PublishedViewController"];
+    [self.navigationController pushViewController:publishedVc animated:YES];
 }
 
 - (void)getNetWorkData{

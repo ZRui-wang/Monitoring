@@ -181,6 +181,7 @@
 		849F4F311FA70F8200AAFD53 /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 849F4F1C1FA6EEE600AAFD53 /* UIScrollView+MJExtension.m */; };
 		849F4F321FA70F8200AAFD53 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 849F4F1E1FA6EEE600AAFD53 /* UIScrollView+MJRefresh.m */; };
 		849F4F331FA70F8200AAFD53 /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 849F4F201FA6EEE600AAFD53 /* UIView+MJExtension.m */; };
+		849F4F361FAC5F1400AAFD53 /* PublishedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849F4F351FAC5F1400AAFD53 /* PublishedViewController.m */; };
 		84A1D1001F5CF5B000BFAFC0 /* BaiduMapAPI_Base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A1D0F81F5CF5B000BFAFC0 /* BaiduMapAPI_Base.framework */; };
 		84A1D1011F5CF5B000BFAFC0 /* BaiduMapAPI_Location.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A1D0F91F5CF5B000BFAFC0 /* BaiduMapAPI_Location.framework */; };
 		84A1D1021F5CF5B000BFAFC0 /* BaiduMapAPI_Map.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A1D0FA1F5CF5B000BFAFC0 /* BaiduMapAPI_Map.framework */; };
@@ -745,6 +746,8 @@
 		849F4F1E1FA6EEE600AAFD53 /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
 		849F4F1F1FA6EEE600AAFD53 /* UIView+MJExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+MJExtension.h"; sourceTree = "<group>"; };
 		849F4F201FA6EEE600AAFD53 /* UIView+MJExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJExtension.m"; sourceTree = "<group>"; };
+		849F4F341FAC5F1400AAFD53 /* PublishedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublishedViewController.h; sourceTree = "<group>"; };
+		849F4F351FAC5F1400AAFD53 /* PublishedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublishedViewController.m; sourceTree = "<group>"; };
 		84A1D0F81F5CF5B000BFAFC0 /* BaiduMapAPI_Base.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Base.framework; sourceTree = "<group>"; };
 		84A1D0F91F5CF5B000BFAFC0 /* BaiduMapAPI_Location.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Location.framework; sourceTree = "<group>"; };
 		84A1D0FA1F5CF5B000BFAFC0 /* BaiduMapAPI_Map.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Map.framework; sourceTree = "<group>"; };
@@ -2325,6 +2328,8 @@
 				84F929511F29DF0B00B76D79 /* AnnouncementViewController.m */,
 				84AB54BD1F3C2D8D006F7904 /* DetailViewController.h */,
 				84AB54BE1F3C2D8D006F7904 /* DetailViewController.m */,
+				849F4F341FAC5F1400AAFD53 /* PublishedViewController.h */,
+				849F4F351FAC5F1400AAFD53 /* PublishedViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -3133,6 +3138,7 @@
 				847ED1E61F3421F500BC710E /* YYTextInput.m in Sources */,
 				84C7842B1F70C1EC00D50E3A /* AwardViewController.m in Sources */,
 				8497E8521F662735001ABBEA /* AFAutoPurgingImageCache.m in Sources */,
+				849F4F361FAC5F1400AAFD53 /* PublishedViewController.m in Sources */,
 				847ED1CF1F3421F500BC710E /* UIView+YYAdd.m in Sources */,
 				84B7B5D81F46B52900C3C708 /* DLAlertView.m in Sources */,
 				84F9275F1F25D37400B76D79 /* main.m in Sources */,
