@@ -54,7 +54,9 @@
     self.classAry = [NSMutableArray array];
     self.model = [[ReportModel alloc]init];
     
-    self.model.userId = self.userTitle.usersId;
+    UserTitle *userTitle = [Tools getPersonData];
+    
+    self.model.userId = userTitle.usersId;
     
     [[IQKeyboardManager sharedManager] setEnable:NO];
     

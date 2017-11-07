@@ -176,7 +176,7 @@
         weak.picker.sourceType = UIImagePickerControllerSourceTypeCamera;
         weak.picker.mediaTypes = @[(NSString *)kUTTypeMovie];
         weak.picker.videoMaximumDuration = 10;
-        weak.picker.videoQuality = UIImagePickerControllerQualityTypeLow;
+        weak.picker.videoQuality = UIImagePickerControllerQualityTypeMedium;
         [weak presentViewController:self.picker animated:YES completion:nil];
     }];
     [alertC addAction:video];
@@ -305,6 +305,7 @@
         self.imageData = UIImagePNGRepresentation(image);
     }
     else if ([mediaType isEqualToString:(NSString *)kUTTypeMovie]){
+        [self showWithStatus:@"正在上传视频..."];
         NSURL *url = [info objectForKey:UIImagePickerControllerMediaURL];
         NSString *urlStr = [url path];
         

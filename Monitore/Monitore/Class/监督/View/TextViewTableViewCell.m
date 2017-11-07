@@ -32,11 +32,11 @@
     self.title.text = title;
     
     if ([title isEqualToString:@"主题"]) {
-        self.plaseholdLabel.text = @"限制20个汉字";
+        self.plaseholdLabel.text = @"";
         self.plaseholdHeigh.constant = 21;
     }
     else{
-        self.plaseholdLabel.text = @"为提高您提交的线索举报被采纳的可能性, 请尽可能详细的描述举报内容， 建议提交图片或视频以协助核查";
+        self.plaseholdLabel.text = @"";
         self.plaseholdHeigh.constant = [Tools heightForTextWith:self.plaseholdLabel.text fontSize:14 width:SCREEN_WIDTH-15-10-8-40-15];
     }
 }

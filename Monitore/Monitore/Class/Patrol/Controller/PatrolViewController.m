@@ -89,7 +89,7 @@
         
         pageIndex++;
         
-        if ([[responseObject[@"page"]objectForKey:@"totalPage"] intValue] > pageIndex) {
+        if ([[responseObject[@"page"]objectForKey:@"totalPage"] intValue] >= pageIndex) {
             isMoreData = YES;
         }else{
             isMoreData = NO;
@@ -131,7 +131,7 @@
 {
     PatrolTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PatrolTableViewCell" forIndexPath:indexPath];
     
-    [cell showDetailWithModel:self.patrolListAry[indexPath.row]];
+    [cell showDetailWithModel:[self.patrolListAry objectOrNilAtIndex:indexPath.row]];
     
     return cell;
 }

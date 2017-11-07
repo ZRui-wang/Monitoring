@@ -125,7 +125,6 @@
     [self.mapView viewWillAppear];
     self.mapView.delegate = self;
     
-//    self.address.text = [NSString stringWithFormat:@"标题：%@", self.patrolTitle];
     self.endTimeLabel.text = [NSString stringWithFormat:@"结束时间：%@", self.endTime];
     self.startTimeLabel.text = [NSString stringWithFormat:@"开始时间：%@", self.startTime];
     self.endAddress.text = [NSString stringWithFormat:@"结束地址：%@", self.startAddr];
@@ -150,10 +149,6 @@
     option.vacuate = YES;
     option.radiusThreshold = 20;
     
-//    BTKQueryTrackLatestPointRequest *request = [[BTKQueryTrackLatestPointRequest alloc] initWithEntityName:@"entityA" processOption: option outputCootdType:BTK_COORDTYPE_BD09LL serviceID:145266 tag:11];
-//    // 发起查询请求
-//    [[BTKTrackAction sharedInstance] queryTrackLatestPointWith:request delegate:self];
-    
     // 构造请求对象
     NSUInteger endTime =[self changeTimeToTimeSp:self.endTime];
         NSUInteger startTime =[self changeTimeToTimeSp:self.startTime];
@@ -161,8 +156,8 @@
     self.patrolTime.text = [NSString stringWithFormat:@"巡逻时长：%@", [self timeFormatted:(endTime-startTime)]];
     
     UserTitle *userTitle = [Tools getPersonData];
-    
-    BTKQueryHistoryTrackRequest *request = [[BTKQueryHistoryTrackRequest alloc] initWithEntityName:userTitle.mobile startTime:startTime endTime:endTime isProcessed:TRUE processOption:nil supplementMode:BTK_TRACK_PROCESS_OPTION_SUPPLEMENT_MODE_WALKING outputCoordType:BTK_COORDTYPE_BD09LL sortType:BTK_TRACK_SORT_TYPE_DESC pageIndex:1 pageSize:5000 serviceID:145266 tag:13];
+    // userTitle.mobile
+    BTKQueryHistoryTrackRequest *request = [[BTKQueryHistoryTrackRequest alloc] initWithEntityName:@"entityB" startTime:startTime endTime:endTime isProcessed:TRUE processOption:nil supplementMode:BTK_TRACK_PROCESS_OPTION_SUPPLEMENT_MODE_WALKING outputCoordType:BTK_COORDTYPE_BD09LL sortType:BTK_TRACK_SORT_TYPE_DESC pageIndex:1 pageSize:5000 serviceID:145266 tag:13];
     // 发起查询请求
     [[BTKTrackAction sharedInstance] queryHistoryTrackWith:request delegate:self];
 }
@@ -194,15 +189,7 @@
         NSLog(@"轨迹=%@", responseObject);
         if ([responseObject[Kstatus]isEqualToString:Ksuccess]) {
             NSDictionary *dic = responseObject[@"data"];
-            
             self.address.text = [NSString stringWithFormat:@"标题：%@", dic[@"title"]];
-//            self.startAddress.text = [NSString stringWithFormat:@"开始地址：%@", dic[@"startAddress"]];
-//            self.startTimeLabel.text = [NSString stringWithFormat:@"开始时间：%@", dic[@"startTime"]];
-//            self.endAddress.text = [NSString stringWithFormat:@"结束地址：%@", dic[@"endAddress"]];
-//            self.startAddress.text = [NSString stringWithFormat:@"结束时间：%@", self.endTime];
-            
-            
-            
         }else{
             
         }
@@ -241,11 +228,16 @@
     
     NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingAllowFragments error:nil];
     
+    if ([[dict objectForKey:@"status"] intValue]==2) {
+        return;
+    }
+    
     self.model = [PatrolHistoryModel modelWithDictionary:dict];
     
     self.patrolLength.text = [NSString stringWithFormat:@"巡逻距离：%.2f米", [self.model.distance floatValue]];
     
     self.mapView.centerCoordinate = CLLocationCoordinate2DMake([self.model.start_point.latitude doubleValue], [self.model.start_point.longitude doubleValue]);
+    
     //初始化轨迹点
     [self initSportNodes];
     
@@ -255,19 +247,23 @@
 
 //开始
 - (void)start {
+    
     CLLocationCoordinate2D paths[sportNodes.count];
+
     for (NSInteger i = 0; i < sportNodes.count; i++) {
         BMKSportNode *node = sportNodes[i];
         paths[i] = node.coordinate;
     }
     
+    // 轨迹线
     pathPloygon = [BMKPolygon polygonWithCoordinates:paths count:sportNodes.count];
     [self.mapView addOverlay:pathPloygon];
     
+    // 定位圆圈
     sportAnnotation = [[BMKPointAnnotation alloc]init];
     sportAnnotation.coordinate = paths[0];
     sportAnnotation.title = @"test";
-//    [_mapView addAnnotation:sportAnnotation];
+    [_mapView addAnnotation:sportAnnotation];
     currentIndex = 0;
 }
 
@@ -296,7 +292,7 @@
 #pragma mark - BMKMapViewDelegate
 
 - (void)mapViewDidFinishLoading:(BMKMapView *)mapView {
-//    [self start];
+//po    [self start];
 }
 
 //根据overlay生成对应的View
@@ -304,7 +300,7 @@
 {
     if ([overlay isKindOfClass:[BMKPolygon class]])
     {
-        BMKPolygonView* polygonView = [[BMKPolygonView alloc] initWithOverlay:overlay];
+        BMKPolygonView *polygonView = [[BMKPolygonView alloc] initWithOverlay:overlay];
         polygonView.strokeColor = [[UIColor alloc] initWithRed:0.0 green:0.5 blue:0.0 alpha:0.6];
         polygonView.lineWidth = 5.0;
         return polygonView;
@@ -318,12 +314,9 @@
 {
     if (sportAnnotationView == nil) {
         sportAnnotationView = [[SportAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"sportsAnnotation"];
-        
-        
         sportAnnotationView.draggable = NO;
         BMKSportNode *node = [sportNodes firstObject];
         sportAnnotationView.imageView.transform = CGAffineTransformMakeRotation(node.angle);
-        
     }
     return sportAnnotationView;
 }
