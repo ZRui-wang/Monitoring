@@ -8,6 +8,7 @@
 
 #import "HelpCenterViewController.h"
 #import "HelpCenterCollectionViewCell.h"
+#import "HelpDetailViewController.h"
 
 @interface HelpCenterViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -53,6 +54,12 @@
 
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
     return UIEdgeInsetsMake(10, 15, 10, 15);
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{    
+    HelpDetailViewController *helpDetailVc = [[UIStoryboard storyboardWithName:@"PersonalCenter" bundle:nil]instantiateViewControllerWithIdentifier:@"HelpDetailViewController"];
+    helpDetailVc.helpId = indexPath.row+1;
+    [self.navigationController pushViewController:helpDetailVc animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

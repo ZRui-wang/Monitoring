@@ -144,6 +144,7 @@
 		847F0F2C1F6B6036005340F8 /* VolunterMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 847F0F241F6B6036005340F8 /* VolunterMapViewController.m */; };
 		847F0F2D1F6B6036005340F8 /* InfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 847F0F281F6B6036005340F8 /* InfoTableViewCell.m */; };
 		847F0F2E1F6B6036005340F8 /* InfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847F0F291F6B6036005340F8 /* InfoTableViewCell.xib */; };
+		8480B1B61FB2CDB0006627F0 /* HelpDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8480B1B51FB2CDB0006627F0 /* HelpDetailViewController.m */; };
 		848ED8341F4A8651002A5EC6 /* ForgetPassWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 848ED8331F4A8651002A5EC6 /* ForgetPassWordViewController.m */; };
 		848EF7921F58FC08007D65CF /* HomeHeaderView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 848EF7911F58FC08007D65CF /* HomeHeaderView.mm */; };
 		848EF7941F58FC27007D65CF /* Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 848EF7931F58FC27007D65CF /* Tools.m */; };
@@ -672,6 +673,8 @@
 		847F0F271F6B6036005340F8 /* InfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoTableViewCell.h; sourceTree = "<group>"; };
 		847F0F281F6B6036005340F8 /* InfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoTableViewCell.m; sourceTree = "<group>"; };
 		847F0F291F6B6036005340F8 /* InfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoTableViewCell.xib; sourceTree = "<group>"; };
+		8480B1B41FB2CDB0006627F0 /* HelpDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelpDetailViewController.h; sourceTree = "<group>"; };
+		8480B1B51FB2CDB0006627F0 /* HelpDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelpDetailViewController.m; sourceTree = "<group>"; };
 		848ED8321F4A8651002A5EC6 /* ForgetPassWordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPassWordViewController.h; sourceTree = "<group>"; };
 		848ED8331F4A8651002A5EC6 /* ForgetPassWordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPassWordViewController.m; sourceTree = "<group>"; };
 		848EF7911F58FC08007D65CF /* HomeHeaderView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HomeHeaderView.mm; sourceTree = "<group>"; };
@@ -2523,6 +2526,8 @@
 				848ED8331F4A8651002A5EC6 /* ForgetPassWordViewController.m */,
 				78EB07DB1F3B51EC00C64587 /* HelpCenterViewController.h */,
 				78EB07DC1F3B51EC00C64587 /* HelpCenterViewController.m */,
+				8480B1B41FB2CDB0006627F0 /* HelpDetailViewController.h */,
+				8480B1B51FB2CDB0006627F0 /* HelpDetailViewController.m */,
 				78EB07DE1F3C9EB200C64587 /* UserFeedbackViewController.h */,
 				78EB07DF1F3C9EB200C64587 /* UserFeedbackViewController.m */,
 				84A5E5591F8CB99C00D06556 /* InfoViewController.h */,
@@ -3190,6 +3195,7 @@
 				84F9294A1F29914300B76D79 /* GoToReprotViewController.m in Sources */,
 				847ED1D31F3421F500BC710E /* YYMemoryCache.m in Sources */,
 				84B7B60C1F46F39600C3C708 /* IQUIViewController+Additions.m in Sources */,
+				8480B1B61FB2CDB0006627F0 /* HelpDetailViewController.m in Sources */,
 				84A5E68E1F8DE15E00D06556 /* QNALAssetFile.m in Sources */,
 				84A5E68F1F8DE15E00D06556 /* QNAsyncRun.m in Sources */,
 				84B7B5BF1F46B2ED00C3C708 /* SDImageCacheConfig.m in Sources */,

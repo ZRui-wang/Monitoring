@@ -34,7 +34,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.modelArray = [NSMutableArray array];
     
-    state = 1;
+    state = 2;
     [self requestDats];
     self.finishButton.selected = YES;
     
@@ -98,8 +98,8 @@
                 HistoryModel *model = [HistoryModel modelWithDictionary:dic];
                 [self.modelArray addObject:model];
             }
-            [self.tableView reloadData];
         }
+        [self.tableView reloadData];
         [self endRefresh];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         [self endRefresh];
@@ -149,27 +149,36 @@
 }
 
 - (IBAction)waitButtonAction:(UIButton *)sender {
+    if (sender.isSelected) {
+        return;
+    }
     sender.selected = !sender.isSelected;
     self.finishButton.selected = NO;
-    self.invalidButton.selected = NO;
-    state = 0;
-    [self.modelArray removeAllObjects];
-    [self requestDats];
-}
-
-- (IBAction)finishButton:(UIButton *)sender {
-    sender.selected = !sender.isSelected;
-    self.waitButton.selected = NO;
     self.invalidButton.selected = NO;
     state = 1;
     [self.modelArray removeAllObjects];
     [self requestDats];
 }
+
+- (IBAction)finishButton:(UIButton *)sender {
+    if (sender.isSelected) {
+        return;
+    }
+    sender.selected = !sender.isSelected;
+    self.waitButton.selected = NO;
+    self.invalidButton.selected = NO;
+    state = 2;
+    [self.modelArray removeAllObjects];
+    [self requestDats];
+}
 - (IBAction)invalidButton:(UIButton *)sender {
+    if (sender.isSelected) {
+        return;
+    }
     sender.selected = !sender.isSelected;
     self.waitButton.selected = NO;
     self.finishButton.selected = NO;
-    state = 2;
+    state = 3;
     [self.modelArray removeAllObjects];
     [self requestDats];
 }

@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *detailLabel;
 
 
+
 @end
 
 @implementation AwardHistoryTableViewCell
@@ -40,6 +41,18 @@
     self.timeLabel.text = [NSString stringWithFormat:@"兑换时间：%@", model.createtime];
     [self.goodsImage sd_setImageWithURL:[NSURL URLWithString:model.img] placeholderImage:[UIImage imageNamed:@"jiangli"]];
     self.detailLabel.text = model.title;
+    if ([model.state intValue] == 1) {
+        self.cancelButton.hidden = NO;
+        self.collectButton.hidden = NO;
+    }
+    else if([model.state intValue] == 2){
+        self.cancelButton.hidden = NO;
+        self.collectButton.hidden = YES;
+    }
+    else{
+        self.cancelButton.hidden = YES;
+        self.collectButton.hidden = YES;
+    }
 }
 
 
