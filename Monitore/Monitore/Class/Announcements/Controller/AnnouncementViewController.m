@@ -42,7 +42,10 @@
     self.tableView.estimatedRowHeight = 50;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.tableFooterView = [UIView new];
-    
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];    
     [self getNetWorkData];
 }
 

@@ -67,7 +67,7 @@
         CategoryModel *model3 = model.imgList[2];
         [self.image1 sd_setImageWithURL:[NSURL URLWithString:model3.img]];
     }else{
-        self.yposition.constant = -100;
+        self.yposition.constant = -70;
         self.image1.hidden = YES;
         self.image2.hidden = YES;
         self.image3.hidden = YES;

@@ -326,9 +326,15 @@
         return;
     }
     // 在parameters里存放照片以外的对象
+    
+    [self showWithStatus:@"正在提交.."];
+
+    
     [manager POST:url parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         // formData: 专门用于拼接需要上传的数据,在此位置生成一个要上传的数据体
         // 这里的_photoArr是你存放图片的数组
+        
+        NSString *name = nil;
         for (int i = 0; i < self.photoArray.count-1; i++) {
             NSData *imageData = UIImageJPEGRepresentation(self.photoArray[i], 0.5);
             
@@ -336,10 +342,26 @@
             // 要解决此问题，
             // 可以在上传时使用当前的系统事件作为文件名
             NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+            
+            
+            switch (i) {
+                case 0:
+                    name = @"aaaaa";
+                    break;
+                case 1:
+                    name = @"bbbbb";
+                    break;
+                case 2:
+                    name = @"ccccc";
+                    break;
+                    
+                default:
+                    break;
+            }
             // 设置时间格式
             [formatter setDateFormat:@"yyyyMMddHHmmss"];
             NSString *dateString = [formatter stringFromDate:[NSDate date]];
-            NSString *fileName = [NSString  stringWithFormat:@"%@.png", dateString];
+            NSString *fileName = [NSString  stringWithFormat:@"%@%@.png", dateString, name];
             /*
              *该方法的参数
              1. appendPartWithFileData：要上传的照片[二进制流]
@@ -349,7 +371,6 @@
              */
             [formData appendPartWithFileData:imageData name:fileName fileName:fileName mimeType:@"image/png"]; //
         }
-        [self showWithStatus:@"正在提交.."];
         
     } progress:^(NSProgress * _Nonnull uploadProgress) {
         

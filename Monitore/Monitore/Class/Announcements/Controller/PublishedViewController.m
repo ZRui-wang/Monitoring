@@ -10,11 +10,16 @@
 
 @interface PublishedViewController()<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
-@property (weak, nonatomic) IBOutlet UITextField *contents;
+
+@property (weak, nonatomic) IBOutlet UITextView *contents;
 @property (weak, nonatomic) IBOutlet UIImageView *image1;
 @property (weak, nonatomic) IBOutlet UIImageView *image2;
 @property (weak, nonatomic) IBOutlet UIImageView *image3;
 @property (strong, nonatomic) UIImage *photoImage;
+@property (strong, nonatomic) NSMutableArray *imageArray;
+@property (strong, nonatomic) UIButton *delectBtn1;
+@property (strong, nonatomic) UIButton *delectBtn2;
+@property (strong, nonatomic) UIButton *delectBtn3;
 @end
 
 @implementation PublishedViewController
@@ -25,18 +30,68 @@
     [self leftCustomBarButton];
     
     self.image1.image = [UIImage imageNamed:@"加号"];
+    self.imageArray = [NSMutableArray array];
+    self.contents.layer.borderWidth = 1;
+    self.contents.layer.borderColor = [UIColor lightGrayColor].CGColor;
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapAction:)];
     [self.image1 addGestureRecognizer:tap];
     self.image1.userInteractionEnabled = YES;
     
+    self.delectBtn1 = [[UIButton alloc]initWithFrame:CGRectMake(self.image1.frame.size.width-10, 0, 35, 35)];
+    [self.delectBtn1 setImage:[UIImage imageNamed:@"删除"] forState:UIControlStateNormal];
+    [self.delectBtn1 addTarget:self action:@selector(delectBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+    self.delectBtn1.hidden = YES;
+    self.delectBtn1.tag = 1;
+    [self.image1 addSubview:self.delectBtn1];
+    
+    
     UITapGestureRecognizer *tap1 = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapAction:)];
     [self.image2 addGestureRecognizer:tap1];
     self.image2.userInteractionEnabled = YES;
     
+    self.delectBtn2 = [[UIButton alloc]initWithFrame:CGRectMake(self.image1.frame.size.width-10, 0, 35, 35)];
+    [self.delectBtn2 setImage:[UIImage imageNamed:@"删除"] forState:UIControlStateNormal];
+    [self.delectBtn2 addTarget:self action:@selector(delectBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+    self.delectBtn2.hidden = YES;
+    self.delectBtn2.tag = 2;
+    [self.image2 addSubview:self.delectBtn2];
+    
+    
     UITapGestureRecognizer *tap2 = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapAction:)];
     [self.image3 addGestureRecognizer:tap2];
     self.image3.userInteractionEnabled = YES;
+    
+    self.delectBtn3 = [[UIButton alloc]initWithFrame:CGRectMake(self.image1.frame.size.width-10, 0, 35, 35)];
+    [self.delectBtn3 setImage:[UIImage imageNamed:@"删除"] forState:UIControlStateNormal];
+    [self.delectBtn3 addTarget:self action:@selector(delectBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+    self.delectBtn3.hidden = YES;
+    self.delectBtn3.tag = 3;
+    [self.image3 addSubview:self.delectBtn3];
+}
+
+- (void)delectBtnAction:(UIButton *)button{
+    if (button.tag==1) {
+        self.delectBtn1.hidden = YES;
+        self.delectBtn2.hidden = YES;
+        self.delectBtn3.hidden = YES;
+        self.image1.image = [UIImage imageNamed:@"加号"];
+        self.image2.hidden = YES;
+        
+    }
+    if (button.tag==2) {
+        self.delectBtn1.hidden = NO;
+        self.delectBtn2.hidden = YES;
+        self.delectBtn3.hidden = YES;
+        self.image2.image = [UIImage imageNamed:@"加号"];
+        self.image3.hidden = YES;
+    }
+    if (button.tag==3) {
+        self.delectBtn1.hidden = YES;
+        self.delectBtn2.hidden = NO;
+        self.delectBtn3.hidden = YES;
+        self.image3.image = [UIImage imageNamed:@"加号"];
+    }
 }
 
 - (void)tapAction:(UITapGestureRecognizer *)tap{
@@ -89,8 +144,28 @@
 // 拍照完成回调
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(nullable NSDictionary<NSString *,id> *)editingInfo NS_DEPRECATED_IOS(2_0, 3_0)
 {
-    self.image1.image = image;
-    self.photoImage = image;
+    [self.imageArray addObject:image];
+    
+    if(self.imageArray.count==1){
+        self.image1.image = self.imageArray[0];
+        self.image2.image = [UIImage imageNamed:@"加号"];
+        self.delectBtn1.hidden = NO;
+    }
+    
+    if(self.imageArray.count==2){
+        self.image2.image = self.imageArray[1];
+        self.image3.image = [UIImage imageNamed:@"加号"];
+        self.delectBtn1.hidden = YES;
+        self.delectBtn2.hidden = NO;
+    }
+    
+    if(self.imageArray.count==3){
+        self.image3.image = self.imageArray[2];
+        self.delectBtn1.hidden = YES;
+        self.delectBtn2.hidden = YES;
+        self.delectBtn3.hidden = NO;
+    }
+
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -101,6 +176,7 @@
 }
 
 - (IBAction)publishButtonAction:(UIButton *)sender {
+    [self showWithStatus:@"正在提交.."];
     [self uploadInfo];
 }
 
@@ -127,17 +203,33 @@
 //        }
         
         // 这里的_photoArr是你存放图片的数组
-        for (int i = 0; i < 1; i++) {
-            NSData *imageData = UIImageJPEGRepresentation(self.photoImage, 0.3);
+        NSString *name = nil;
+        for (int i = 0; i < self.imageArray.count; i++) {
+            NSData *imageData = UIImageJPEGRepresentation(self.imageArray[i], 0.3);
             
             // 在网络开发中，上传文件时，是文件不允许被覆盖，文件重名
             // 要解决此问题，
             // 可以在上传时使用当前的系统事件作为文件名
             NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+            
+            switch (i) {
+                case 0:
+                    name = @"aaaaa";
+                    break;
+                case 1:
+                    name = @"bbbbb";
+                    break;
+                case 2:
+                    name = @"ccccc";
+                    break;
+                    
+                default:
+                    break;
+            }
             // 设置时间格式
             [formatter setDateFormat:@"yyyyMMddHHmmss"];
             NSString *dateString = [formatter stringFromDate:[NSDate date]];
-            NSString *fileName = [NSString  stringWithFormat:@"%@.png", dateString];
+            NSString *fileName = [NSString  stringWithFormat:@"%@%@.png", dateString, name];
             /*
              *该方法的参数
              1. appendPartWithFileData：要上传的照片[二进制流]
@@ -147,8 +239,6 @@
              */
             [formData appendPartWithFileData:imageData name:@"upload" fileName:fileName mimeType:@"image/jpeg"]; //
         }
-        [self showWithStatus:@"正在提交.."];
-        
     } progress:^(NSProgress * _Nonnull uploadProgress) {
         
         NSLog(@"---上传进度--- %@",uploadProgress);
