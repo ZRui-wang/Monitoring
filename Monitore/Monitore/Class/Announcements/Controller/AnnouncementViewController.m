@@ -20,8 +20,6 @@
 
 @property (strong, nonatomic)NSMutableArray *dataListAry;
 
-@property (strong, nonatomic)NSMutableArray *categoryListAry;
-
 
 @end
 
@@ -37,7 +35,7 @@
     [self rightCustomBarButton];
     
     self.dataListAry = [NSMutableArray array];
-    self.categoryListAry = [NSMutableArray array];
+
     categoryId = @"1";
 
     [self.tableView registerNib:[UINib nibWithNibName:@"AnnouncementTableViewCell" bundle:nil] forCellReuseIdentifier:@"AnnouncementTableViewCell"];
@@ -62,13 +60,12 @@
     
     NSDictionary *dic = @{@"TYPE_ID":categoryId, @"STATE":@"0", @"currentPage":@1, @"showCount":@"10"};
     
-    [[DLAPIClient sharedClient]POST:@"infoList" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+    [[DLAPIClient sharedClient]POST:@"userCircleList" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         NSLog(@"%@", responseObject);
-        if ([responseObject[Kstatus]isEqualToString:@"202"]) {
+        if ([responseObject[Kstatus]isEqualToString:@"200"]) {
 
             AnnounceListModel *model = [AnnounceListModel modelWithDictionary:responseObject];
             [self.dataListAry addObjectsFromArray:model.dataList];
-            [self.categoryListAry addObjectsFromArray:model.categoryList];
             [self.tableView reloadData];
         }else{
             [self showErrorMessage:responseObject[Kinfo]];
@@ -81,28 +78,21 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return   5;
+    return   self.dataListAry.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     AnnouncementTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AnnouncementTableViewCell" forIndexPath:indexPath];
-    //        [cell showDetailWithData:self.dataListAry[indexPath.row]];
+    [cell showDetailWithData:self.dataListAry[indexPath.row]];
     return cell;
 
 }
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (tableView.tag == 100) {
-        CategoryModel *model = [self.categoryListAry objectOrNilAtIndex:indexPath.row];
-        categoryId = model.categoryId;
-        [self getNetWorkData];
-    }
-    else{
-        DetailViewController *detailVc = [[DetailViewController alloc]init];
-        [self.navigationController pushViewController:detailVc animated:YES];
-    }
+    DetailViewController *detailVc = [[DetailViewController alloc]init];
+    [self.navigationController pushViewController:detailVc animated:YES];
 }
 
 

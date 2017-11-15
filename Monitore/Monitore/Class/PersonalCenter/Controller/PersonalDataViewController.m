@@ -130,7 +130,7 @@
 
 - (void)uploadInfo{
     // 查询条件
-    NSString *url = [NSString stringWithFormat:@"http://39.108.78.69:3002/mobile/updUserInfo?USER_ID=%@&NICKNAME=%@&IDCARD=%@&JOB=%@&ADDRESS=%@&SEX=%@&REC_MOBILE=%@&CITY_NAME=%@&COMPANY=%@", self.model.usersId, self.model.nickname, self.model.idcard, self.model.job, self.model.address, self.model.sex, self.model.recMobile, self.model.cityName, self.model.company ];
+    NSString *url = [NSString stringWithFormat:@"http://39.108.78.69:3002/mobile/updUserInfo?USER_ID=%@&NICKNAME=%@&IDCARD=%@&JOB=%@&ADDRESS=%@&SEX=%@&REC_MOBILE=%@&CITY_NAME=%@&COMPANY=%@&COUNTY_ID=ABC&COUNTY_NAME=ABC", self.model.usersId, self.model.nickname, self.model.idcard, self.model.job, self.model.address, self.model.sex, self.model.recMobile, self.model.cityName, self.model.company ];
     url = [url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     // 基于AFN3.0+ 封装的HTPPSession句柄
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
@@ -140,8 +140,12 @@
     [manager POST:url parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         // formData: 专门用于拼接需要上传的数据,在此位置生成一个要上传的数据体
         
-        if (!self.photoImage) {
+        if (!self.model.icon) {
             [self showWarningMessage:@"请上传图片"];
+            return;
+        }
+        if (!self.photoImage) {
+//            [self showWarningMessage:@"请上传图片"];
             return;
         }
         

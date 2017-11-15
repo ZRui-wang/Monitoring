@@ -15,6 +15,12 @@
 
 @implementation AnnounceModel
 
++ (NSDictionary *)modelContainerPropertyGenericClass {
+    return @{
+             @"imgList" : [CategoryModel class]
+             };
+}
+
 @end
 
 @implementation AnnounceListModel

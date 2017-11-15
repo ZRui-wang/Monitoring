@@ -51,6 +51,9 @@
                                     <constraint firstAttribute="height" constant="40" id="2o0-dh-3zD"/>
                                 </constraints>
                                 <state key="normal" title="发表"/>
+                                <connections>
+                                    <action selector="publishButtonAction:" destination="6Z8-gO-a0E" eventType="touchUpInside" id="6Z9-wh-fNo"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -74,6 +77,12 @@
                             <constraint firstItem="Qfh-lw-Ne9" firstAttribute="width" secondItem="Ngt-mi-zRw" secondAttribute="width" id="xBX-yd-QWB"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="contents" destination="Rrx-Cb-h7D" id="oWb-S7-v1T"/>
+                        <outlet property="image1" destination="Ngt-mi-zRw" id="Av9-Cr-f77"/>
+                        <outlet property="image2" destination="kmB-YW-lOL" id="sad-tm-FnT"/>
+                        <outlet property="image3" destination="Qfh-lw-Ne9" id="rDo-yN-YBb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RdV-MN-KuP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

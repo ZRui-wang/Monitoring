@@ -11,18 +11,23 @@
 
 @interface CategoryModel : NSObject
 
-@property (nonatomic, copy) NSString *name;
-@property (nonatomic, copy) NSString *categoryId;
+@property (nonatomic, copy) NSString *img;
 
 @end
 
 
 @interface AnnounceModel : NSObject
-
+@property (nonatomic, copy) NSString *ckCount;
 @property (nonatomic, copy) NSString *createtime;
+@property (nonatomic, copy) NSString *detail;
 @property (nonatomic, copy) NSString *icon;
-@property (nonatomic, copy) NSString *title;
-@property (nonatomic, copy) NSString *newsId;
+@property (nonatomic, strong) NSArray *imgList;
+@property (nonatomic, copy) NSString *isDel;
+@property (nonatomic, copy) NSString *remark;
+@property (nonatomic, copy) NSString *state;
+@property (nonatomic, copy) NSString *userId;
+@property (nonatomic, copy) NSString *userName;
+@property (nonatomic, copy) NSString *usercircleId;
 
 @end
 

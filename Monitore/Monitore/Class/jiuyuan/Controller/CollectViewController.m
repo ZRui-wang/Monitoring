@@ -324,6 +324,7 @@
             NSDictionary *dic = @{@"USER_ID":self.userTitle.usersId,
                                   @"LONGITUDE":self.lon,
                                   @"LATITUDE":self.lat,
+                                  @"ADDRESS":self.addressLabel.text,
                                   @"VIDEO_URL":resp[@"key"]
                                   };
             [[DLAPIClient sharedClient]POST:@"gather" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
