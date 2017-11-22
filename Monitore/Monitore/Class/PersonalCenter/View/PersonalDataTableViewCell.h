@@ -20,6 +20,7 @@
 @property (nonatomic, copy)NSString *mobile;
 @property (nonatomic, copy)NSString *titleValue;
 @property (nonatomic, assign) id<SaveInfoDelegate> delegate;
+@property (weak, nonatomic) IBOutlet UITextField *textField;
 
 - (void)displayCellWithData:(NSDictionary *)dic andIndexpath:(NSIndexPath *)indexPath;
 

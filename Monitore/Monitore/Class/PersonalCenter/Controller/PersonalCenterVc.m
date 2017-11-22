@@ -29,6 +29,7 @@
 
 @property (nonatomic, strong) UserTitle *userTitle;
 @property (nonatomic, strong) UserModel *model;
+@property (nonatomic, strong) NSArray *addressAry;
 
 @end
 
@@ -53,8 +54,7 @@
     [unArchiver finishDecoding];
 
     self.userName.text = self.userTitle.mobile;
-    self.stars.text = [NSString stringWithFormat:@"%ld", self.userTitle.stars];
-    self.scores.text = [NSString stringWithFormat:@"%ld", self.userTitle.score];
+
     
     [self.tableView registerNib:[UINib nibWithNibName:@"PersonalCenterTableViewCell" bundle:nil] forCellReuseIdentifier:@"PersonalCenterTableViewCell"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
@@ -72,6 +72,15 @@
                           @{@"titleImage":@"设置",
                             @"title":@"设置"}];
     self.titleAry = titleTemptAry;
+    self.addressAry = [NSArray array];
+    
+    self.userHeader.layer.cornerRadius = self.userHeader.frame.size.width/2.0;
+    self.userHeader.layer.masksToBounds = YES;
+
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     
     [self requestNetWork];
 }
@@ -82,6 +91,7 @@
         NSLog(@"%@", responseObject);
         if ([responseObject[Kstatus]isEqualToString:Ksuccess]) {
             self.model = [UserModel modelWithDictionary:responseObject[@"user"]];
+            self.addressAry = responseObject[@"countryList"];
             self.model.mobile = self.userTitle.mobile;
             self.userName.text = self.model.nickname;
             self.address.text = self.model.address;
@@ -90,6 +100,9 @@
             self.phoneNo.text = self.model.mobile;
             self.nameLabel.text = self.model.nickname;
             [self.userHeader sd_setImageWithURL:[NSURL URLWithString:self.model.icon]];
+            
+            self.stars.text = [NSString stringWithFormat:@"%@", self.model.stars];
+            self.scores.text = [NSString stringWithFormat:@"%@", self.model.score];
         }else{
             
         }
@@ -123,6 +136,7 @@
         // 个人资料
         PersonalDataViewController *personalDataVc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]instantiateViewControllerWithIdentifier:@"PersonalDataViewController"];
         personalDataVc.model = self.model;
+        personalDataVc.addressAry = self.addressAry;
         [self.navigationController pushViewController:personalDataVc animated:YES];
     }
     else if (indexPath.row == 1)

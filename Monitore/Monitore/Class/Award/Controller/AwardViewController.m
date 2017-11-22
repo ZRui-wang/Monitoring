@@ -155,19 +155,22 @@
 }
 
 - (void)alertView:(DLAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    GiftListModel *model = self.listAry[row];
-    UserTitle *userTitle = [Tools getPersonData];
-    NSDictionary *dic = @{@"USER_ID":userTitle.usersId, @"GIFT_ID":model.giftId};
-    [[DLAPIClient sharedClient]POST:@"duihuan" parameters:dic     success:^(NSURLSessionDataTask *task, id responseObject) {
-        NSLog(@"%@", responseObject);
-        if ([responseObject[Kstatus]isEqualToString:Ksuccess]) {
-            [self showSuccessMessage:responseObject[Kinfo]];
-        }else{
-            [self showWarningMessage:responseObject[Kinfo]];
-        }
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        [self showWarningMessage:@"数据错误"];
-    }];
+    
+    if (buttonIndex==1) {
+        GiftListModel *model = self.listAry[row];
+        UserTitle *userTitle = [Tools getPersonData];
+        NSDictionary *dic = @{@"USER_ID":userTitle.usersId, @"GIFT_ID":model.giftId};
+        [[DLAPIClient sharedClient]POST:@"duihuan" parameters:dic     success:^(NSURLSessionDataTask *task, id responseObject) {
+            NSLog(@"%@", responseObject);
+            if ([responseObject[Kstatus]isEqualToString:Ksuccess]) {
+                [self showSuccessMessage:responseObject[Kinfo]];
+            }else{
+                [self showWarningMessage:responseObject[Kinfo]];
+            }
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            [self showWarningMessage:@"数据错误"];
+        }];
+    }
 }
 
 

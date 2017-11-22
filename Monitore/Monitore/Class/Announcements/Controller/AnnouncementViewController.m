@@ -25,6 +25,11 @@
 
 @implementation AnnouncementViewController{
     NSString *categoryId;
+    
+    int dataPage;
+    BOOL isNoMoreData;
+    BOOL moreData;
+    BOOL isDownLoading;
 }
 
 - (void)viewDidLoad {
@@ -42,6 +47,11 @@
     self.tableView.estimatedRowHeight = 50;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.tableFooterView = [UIView new];
+    
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refresh)];
+    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMore)];
+
+    dataPage = 1;
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -60,12 +70,21 @@
 }
 
 - (void)getNetWorkData{
-    
-    NSDictionary *dic = @{@"TYPE_ID":categoryId, @"STATE":@"0", @"currentPage":@1, @"showCount":@"10"};
-    
-    [[DLAPIClient sharedClient]POST:@"userCircleList" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+    [[DLAPIClient sharedClient]POST:[NSString stringWithFormat:@"userCircleList?currentPage=%d&showCount=10", dataPage] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         NSLog(@"%@", responseObject);
         if ([responseObject[Kstatus]isEqualToString:@"200"]) {
+            
+            if (dataPage == 1) {
+                [self.dataListAry removeAllObjects];
+            }
+            
+            dataPage ++;
+            
+            if ([[responseObject[@"page"] objectForKey:@"totalPage"] intValue] < dataPage) {
+                isNoMoreData = YES;
+            }else{
+                isNoMoreData = NO;
+            }
 
             AnnounceListModel *model = [AnnounceListModel modelWithDictionary:responseObject];
             [self.dataListAry addObjectsFromArray:model.dataList];
@@ -73,10 +92,11 @@
         }else{
             [self showErrorMessage:responseObject[Kinfo]];
         }
-        
+        [self endRefresh];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"%@", error);
         [self showErrorMessage:@"网络错误"];
+        [self endRefresh];
     }];
 }
 
@@ -96,6 +116,36 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     DetailViewController *detailVc = [[DetailViewController alloc]init];
     [self.navigationController pushViewController:detailVc animated:YES];
+}
+
+
+- (void)refresh{
+    if (isDownLoading) {
+        return;
+    }
+    dataPage = 1;
+    isDownLoading = YES;
+    [self getNetWorkData];
+}
+
+- (void)endRefresh {
+    isDownLoading = NO;
+    [self.tableView.mj_header endRefreshing];
+    [self.tableView.mj_footer endRefreshing];
+}
+
+- (void)loadMore{
+    if (isDownLoading) {
+        [self endRefresh];
+        return;
+    }
+    
+    if (!isNoMoreData) {
+        [self getNetWorkData];
+    }
+    else{
+        [self endRefresh];
+    }
 }
 
 

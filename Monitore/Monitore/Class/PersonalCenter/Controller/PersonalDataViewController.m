@@ -14,11 +14,15 @@
 #import "UserTitle.h"
 #import "UIImageView+WebCache.h"
 #import "SexTableViewCell.h"
+#import "DIYPickView.h"
 
-@interface PersonalDataViewController ()<UITableViewDelegate, UITableViewDataSource, SaveButtonDelegate, SaveInfoDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, SelectSexDelegate>
+@interface PersonalDataViewController ()<UITableViewDelegate, UITableViewDataSource, SaveButtonDelegate, SaveInfoDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, SelectSexDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (strong, nonatomic) UIImage *photoImage;
+@property (strong, nonatomic) UIView *pickBgView;
+@property (strong, nonatomic)  DIYPickView *selectColorView;
+@property (strong, nonatomic)NSDictionary *value;
 
 @end
 
@@ -44,6 +48,56 @@
 
 //    self.tableView.tableFooterView = [PersonalDataFooterView xibView];
 }
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
+    return 5;
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+    return [self.addressAry[row] objectForKey:@"name"];
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+    //self.addressAry.count
+}
+
+- (void)creatPickerView{
+    self.pickBgView = [[UIView alloc]initWithFrame:CGRectMake(0, SCREEN_HEIGHT-200-64, SCREEN_WIDTH, 200)];
+    [self.view addSubview:_pickBgView];
+    
+    self.selectColorView = [DIYPickView xibView];
+    self.selectColorView.size = _pickBgView.size;
+    [_pickBgView addSubview: self.selectColorView];
+    self.selectColorView.pickerView.delegate = self;
+    self.selectColorView.pickerView.dataSource = self;
+    [self.selectColorView.pickerView selectRow:0 inComponent:0 animated:YES];
+    
+    [self.selectColorView.cancelButton addTarget:self action:@selector(buttonAction) forControlEvents:UIControlEventTouchUpInside];
+    [self.selectColorView.confirmButton addTarget:self action:@selector(confirmAction) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)buttonAction{
+    [self.pickBgView removeFromSuperview];
+}
+
+
+- (void)confirmAction{
+    //获取选中的列中的所在的行
+    NSInteger row=[self.selectColorView.pickerView selectedRowInComponent:0];
+    //然后是获取这个行中的值，就是数组中的值
+    self.value=[self.addressAry objectAtIndex:row];
+    
+    NSIndexPath *index = [NSIndexPath indexPathForRow:0 inSection:1];
+    
+    PersonalDataTableViewCell *cell = [self.tableView cellForRowAtIndexPath:index];
+    cell.textField.text = [self.value objectForKey:@"name"];
+    [self.pickBgView removeFromSuperview];
+}
+
 
 #pragma mark - UITableDatasource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -130,7 +184,7 @@
 
 - (void)uploadInfo{
     // 查询条件
-    NSString *url = [NSString stringWithFormat:@"http://39.108.78.69:3002/mobile/updUserInfo?USER_ID=%@&NICKNAME=%@&IDCARD=%@&JOB=%@&ADDRESS=%@&SEX=%@&REC_MOBILE=%@&CITY_NAME=%@&COMPANY=%@&COUNTY_ID=ABC&COUNTY_NAME=ABC", self.model.usersId, self.model.nickname, self.model.idcard, self.model.job, self.model.address, self.model.sex, self.model.recMobile, self.model.cityName, self.model.company ];
+    NSString *url = [NSString stringWithFormat:@"http://39.108.78.69:3002/mobile/updUserInfo?USER_ID=%@&NICKNAME=%@&IDCARD=%@&JOB=%@&ADDRESS=%@&SEX=%@&REC_MOBILE=%@&CITY_NAME=%@&COMPANY=%@&COUNTY_ID=%@&COUNTY_NAME=%@", self.model.usersId, self.model.nickname, self.model.idcard, self.model.job, self.model.address, self.model.sex, self.model.recMobile, self.model.cityName, self.model.company, [self.value objectForKey:@"id"], [self.value objectForKey:@"name"]];
     url = [url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     // 基于AFN3.0+ 封装的HTPPSession句柄
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
@@ -266,6 +320,7 @@
         if (indexPath.section == 1) {
             if (indexPath.row == 0){
                 cell.titleValue = self.model.cityName;
+                cell.textField.userInteractionEnabled = NO;
             }
             else if (indexPath.row == 1){
                 cell.titleValue = self.model.address;
@@ -304,6 +359,10 @@
         
         //显示
         [self presentViewController:alertC animated:YES completion:nil];
+    }
+    
+    if (indexPath.section==1 && indexPath.row==0) {
+        [self creatPickerView];
     }
     
 }

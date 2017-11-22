@@ -11,4 +11,5 @@
 
 @interface PersonalDataViewController : BaseViewController
 @property (nonatomic, strong) UserModel *model;
+@property (nonatomic, strong) NSArray *addressAry;
 @end

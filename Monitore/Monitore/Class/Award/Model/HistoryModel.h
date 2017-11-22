@@ -17,6 +17,7 @@
 @property (copy, nonatomic) NSString *shl;
 @property (copy, nonatomic) NSString *state;
 @property (copy, nonatomic) NSString *title;
+@property (copy, nonatomic) NSString *giftuserId;
 
 
 @end

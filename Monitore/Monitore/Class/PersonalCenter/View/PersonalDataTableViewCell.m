@@ -12,7 +12,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *title;
 @property (weak, nonatomic) IBOutlet UILabel *skipTitle;
 @property (weak, nonatomic) IBOutlet UIImageView *skipImage;
-@property (weak, nonatomic) IBOutlet UITextField *textField;
+
 
 @property (strong, nonatomic)NSArray *titleAry;
 
@@ -73,7 +73,12 @@
     {
         self.title.text = self.titleAry[indexPath.row + 10];
         self.textField.text = self.titleValue;
-        self.textField.userInteractionEnabled = YES;
+        if (indexPath.row==0) {
+           self.textField.userInteractionEnabled = NO;
+        }else{
+            self.textField.userInteractionEnabled = YES;
+        }
+        
         if (indexPath.row == 1) {
             self.skipTitle.text = @"修改";
             self.skipTitle.hidden = YES;

@@ -34,9 +34,9 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.modelArray = [NSMutableArray array];
     
-    state = 2;
+    state = 1;
     [self requestDats];
-    self.finishButton.selected = YES;
+    self.waitButton.selected = YES;
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -107,19 +107,30 @@
 }
 
 - (void)cancelRequest{
-    UserTitle *title = [Tools getPersonData];
-    NSString *url = [NSString stringWithFormat:@"quxiao?USER_ID=%@&GIFTUSER_ID=%@", title.usersId, giftId];
     
-    [[DLAPIClient sharedClient]POST:url parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-        NSLog(@"%@", responseObject);
-        if ([responseObject[Kstatus]isEqualToString:Ksuccess]) {
-            
-        }else{
-            [self showErrorMessage:responseObject[Kinfo]];
-        }
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+    DLAlertView *alertView = [[DLAlertView alloc]initWithTitle:@"提示" message:@"确定要兑换？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"兑换", nil];
+    [alertView show];
+
+}
+
+- (void)alertView:(DLAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if(buttonIndex == 1){
         
-    }];
+        UserTitle *title = [Tools getPersonData];
+        NSString *url = [NSString stringWithFormat:@"quxiao?USER_ID=%@&GIFTUSER_ID=%@", title.usersId, giftId];
+        
+        [[DLAPIClient sharedClient]POST:url parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+            NSLog(@"%@", responseObject);
+            if ([responseObject[Kstatus]isEqualToString:Ksuccess]) {
+                [self requestDats];
+                
+            }else{
+                [self showErrorMessage:responseObject[Kinfo]];
+            }
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            
+        }];
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -138,13 +149,12 @@
 
 - (void)collectionButtonAction:(UIButton *)button{
     HistoryModel *model = self.modelArray[button.tag];
-    giftId = model.giftId;
-    [self showWarningMessage:@"没有领取接口"];
+    giftId = model.giftuserId;
 }
 
 - (void)cancelButtonAction:(UIButton *)button{
    HistoryModel *model = self.modelArray[button.tag];
-    giftId = model.giftId;
+    giftId = model.giftuserId;
     [self cancelRequest];
 }
 

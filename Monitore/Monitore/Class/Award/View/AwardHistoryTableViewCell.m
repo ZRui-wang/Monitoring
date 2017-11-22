@@ -28,8 +28,8 @@
     self.cancelButton.tag = self.rowtag;
     self.collectButton.tag = self.rowtag;
     
-    self.cancelButton.layer.borderWidth = 1;
-    self.cancelButton.layer.borderColor = [UIColor colorWithRed:234/255.0 green:223/255.0 blue:68/255.0 alpha:1].CGColor;
+    self.cancelButton.layer.cornerRadius = self.cancelButton.size.height/2.0;
+    self.cancelButton.layer.masksToBounds = YES;
     
     self.collectButton.layer.borderWidth = 1;
     self.collectButton.layer.borderColor = [UIColor colorWithRed:29/255.0 green:136/255.0 blue:230/255.0 alpha:1].CGColor;
