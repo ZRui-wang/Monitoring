@@ -63,6 +63,9 @@
                             <constraint firstAttribute="height" constant="20" id="YyP-Yr-xZj"/>
                         </constraints>
                         <state key="normal" title="点赞"/>
+                        <connections>
+                            <action selector="dianzan:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="mH9-l6-z3y"/>
+                        </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AZH-4d-ey9">
                         <rect key="frame" x="10" y="331.5" width="42" height="21"/>
@@ -73,13 +76,26 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wMQ-7h-nhK">
+                        <rect key="frame" x="291" y="325.5" width="60" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="f8s-HL-pm3"/>
+                            <constraint firstAttribute="width" constant="60" id="okS-ry-ERj"/>
+                        </constraints>
+                        <state key="normal" title="删除"/>
+                        <connections>
+                            <action selector="delectAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="VDm-vJ-mQO"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="4tD-2m-M5m" firstAttribute="width" secondItem="y2e-EJ-0Hq" secondAttribute="width" id="4Mi-AV-1pN"/>
                     <constraint firstItem="M6X-ne-Tnj" firstAttribute="width" secondItem="y2e-EJ-0Hq" secondAttribute="width" id="Bup-uB-F5H"/>
+                    <constraint firstItem="ny8-2h-h2F" firstAttribute="leading" secondItem="wMQ-7h-nhK" secondAttribute="trailing" constant="30" id="CbR-AU-66s"/>
                     <constraint firstItem="psn-aN-F3k" firstAttribute="top" secondItem="qOu-yo-JQl" secondAttribute="top" id="GvB-He-116"/>
                     <constraint firstItem="4tD-2m-M5m" firstAttribute="leading" secondItem="y2e-EJ-0Hq" secondAttribute="trailing" constant="5" id="IiX-tb-DU7"/>
                     <constraint firstItem="qOu-yo-JQl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Kec-7F-lxL"/>
+                    <constraint firstItem="ny8-2h-h2F" firstAttribute="top" secondItem="wMQ-7h-nhK" secondAttribute="top" id="PUh-lg-XPn"/>
                     <constraint firstAttribute="bottom" secondItem="AZH-4d-ey9" secondAttribute="bottom" constant="5" id="Q53-1e-qqy"/>
                     <constraint firstAttribute="trailing" secondItem="psn-aN-F3k" secondAttribute="trailing" constant="20" id="Qgv-Oh-jPT"/>
                     <constraint firstItem="M6X-ne-Tnj" firstAttribute="height" secondItem="y2e-EJ-0Hq" secondAttribute="height" id="TmO-mC-Z5n"/>
@@ -103,6 +119,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="contents" destination="4yz-fU-vQY" id="2kA-c5-NkT"/>
+                <outlet property="delectButton" destination="wMQ-7h-nhK" id="NAi-C6-iX7"/>
                 <outlet property="header" destination="qOu-yo-JQl" id="fcM-ZG-d1X"/>
                 <outlet property="image1" destination="y2e-EJ-0Hq" id="I28-mJ-oxf"/>
                 <outlet property="image2" destination="4tD-2m-M5m" id="Hi0-TR-82u"/>

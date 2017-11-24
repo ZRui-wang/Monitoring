@@ -74,7 +74,7 @@ static NSString *HomeCollectionViewCellId = @"HomeCollectionViewCell";
 }
 
 - (void)creatCollectionView{
-    self.layouT.headerReferenceSize = CGSizeMake(SCREEN_WIDTH, SCREEN_WIDTH/3.0*2+40);
+    self.layouT.headerReferenceSize = CGSizeMake(SCREEN_WIDTH, SCREEN_HEIGHT/2.0);
     self.layouT.itemSize = CGSizeMake((SCREEN_WIDTH-3)/4.0, SCREEN_WIDTH/3.0);
     [self.collectionView registerNib:[UINib nibWithNibName:@"HomeCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:HomeCollectionViewCellId];
     [self.collectionView registerNib:[UINib nibWithNibName:@"HomeHeaderView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:HomeHeaderViewId];

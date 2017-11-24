@@ -54,7 +54,7 @@
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
-    return 5;
+    return self.addressAry.count;
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
@@ -235,6 +235,7 @@
         
         NSLog(@"```上传成功``` %@",responseObject);
         [self showSuccessMessage:@"提交成功"];
+        [self.navigationController popViewControllerAnimated:YES];
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
@@ -319,7 +320,7 @@
         
         if (indexPath.section == 1) {
             if (indexPath.row == 0){
-                cell.titleValue = self.model.cityName;
+                cell.titleValue = self.model.countyName;
                 cell.textField.userInteractionEnabled = NO;
             }
             else if (indexPath.row == 1){

@@ -15,7 +15,7 @@
 #import "AnnounceListModel.h"
 #import "PublishedViewController.h"
 
-@interface AnnouncementViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface AnnouncementViewController ()<UITableViewDelegate, UITableViewDataSource, DelectDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (strong, nonatomic)NSMutableArray *dataListAry;
@@ -30,6 +30,7 @@
     BOOL isNoMoreData;
     BOOL moreData;
     BOOL isDownLoading;
+    NSString *userCircleID;
 }
 
 - (void)viewDidLoad {
@@ -51,11 +52,11 @@
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refresh)];
     self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMore)];
 
-    dataPage = 1;
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];    
+    dataPage = 1;
     [self getNetWorkData];
 }
 
@@ -108,14 +109,31 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     AnnouncementTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AnnouncementTableViewCell" forIndexPath:indexPath];
     [cell showDetailWithData:self.dataListAry[indexPath.row]];
+    cell.delegate = self;
+//    [cell.delectButton addTarget:self action:@selector(delectButtonAction) forControlEvents:UIControlEventTouchUpInside];
     return cell;
 
 }
 
+- (void)delectId:(NSString *)userid{
+    DLAlertView *alert = [[DLAlertView alloc]initWithTitle:@"提示" message:@"确定要删除吗？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    userCircleID = userid;
+    [alert show];
+}
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    DetailViewController *detailVc = [[DetailViewController alloc]init];
-    [self.navigationController pushViewController:detailVc animated:YES];
+-(void)alertView:(DLAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex==1) {
+        [[DLAPIClient sharedClient]POST:[NSString stringWithFormat:@"userCircleDel?USERCIRCLE_ID=%@", userCircleID] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+            [self.tableView reloadData];
+            [self showSuccessMessage:@"删除成功"];
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            [self showErrorMessage:@"删除失败"];
+        }];
+    }
+}
+
+- (void)dianzan{
+    [self showWarningMessage:@"没有点赞接口"];
 }
 
 

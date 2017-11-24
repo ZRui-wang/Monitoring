@@ -108,7 +108,7 @@
 
 - (void)cancelRequest{
     
-    DLAlertView *alertView = [[DLAlertView alloc]initWithTitle:@"提示" message:@"确定要兑换？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"兑换", nil];
+    DLAlertView *alertView = [[DLAlertView alloc]initWithTitle:@"提示" message:@"确定要取消？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"兑换", nil];
     [alertView show];
 
 }
@@ -122,6 +122,7 @@
         [[DLAPIClient sharedClient]POST:url parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
             NSLog(@"%@", responseObject);
             if ([responseObject[Kstatus]isEqualToString:Ksuccess]) {
+                pageIndex = 1;
                 [self requestDats];
                 
             }else{
@@ -140,6 +141,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     AwardHistoryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AwardHistoryTableViewCell" forIndexPath:indexPath];
     cell.rowtag = indexPath.row;
+    cell.cancelButton.tag = indexPath.row;
     [cell.collectButton addTarget:self action:@selector(collectionButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [cell.cancelButton addTarget:self action:@selector(cancelButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     HistoryModel *model = self.modelArray[indexPath.row];

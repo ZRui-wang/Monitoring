@@ -77,6 +77,8 @@
         self.delectBtn3.hidden = YES;
         self.image1.image = [UIImage imageNamed:@"加号"];
         self.image2.hidden = YES;
+        self.image3.hidden = YES;
+        [self.imageArray removeLastObject];
         
     }
     if (button.tag==2) {
@@ -84,13 +86,19 @@
         self.delectBtn2.hidden = YES;
         self.delectBtn3.hidden = YES;
         self.image2.image = [UIImage imageNamed:@"加号"];
+        self.image2.hidden = NO;
         self.image3.hidden = YES;
+        [self.imageArray removeLastObject];
     }
     if (button.tag==3) {
         self.delectBtn1.hidden = YES;
         self.delectBtn2.hidden = NO;
         self.delectBtn3.hidden = YES;
         self.image3.image = [UIImage imageNamed:@"加号"];
+        self.image1.hidden = NO;
+        self.image2.hidden = NO;
+        self.image3.hidden = NO;
+        [self.imageArray removeLastObject];
     }
 }
 
@@ -149,11 +157,13 @@
     if(self.imageArray.count==1){
         self.image1.image = self.imageArray[0];
         self.image2.image = [UIImage imageNamed:@"加号"];
+        self.image3.hidden = YES;
         self.delectBtn1.hidden = NO;
     }
     
     if(self.imageArray.count==2){
         self.image2.image = self.imageArray[1];
+        self.image3.hidden = NO;
         self.image3.image = [UIImage imageNamed:@"加号"];
         self.delectBtn1.hidden = YES;
         self.delectBtn2.hidden = NO;
@@ -237,7 +247,7 @@
              3. fileName：要保存在服务器上的文件名
              4. mimeType：上传的文件的类型
              */
-            [formData appendPartWithFileData:imageData name:@"upload" fileName:fileName mimeType:@"image/jpeg"]; //
+            [formData appendPartWithFileData:imageData name:fileName fileName:fileName mimeType:@"image/jpeg"]; //
         }
     } progress:^(NSProgress * _Nonnull uploadProgress) {
         

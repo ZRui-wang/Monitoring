@@ -75,7 +75,7 @@
     VolunteerModel *model = self.listArray[indexPath.section];
     VolModel *volModel = model.childList[indexPath.row];
     cell.info.text = volModel.name;
-    [cell.titleImage sd_setImageWithURL:[NSURL URLWithString:@"volModel.icon"] placeholderImage:[UIImage imageNamed:@"个人资料"]];
+    [cell.titleImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",volModel.icon]] placeholderImage:[UIImage imageNamed:@"个人资料"]];
     return cell;
 }
 

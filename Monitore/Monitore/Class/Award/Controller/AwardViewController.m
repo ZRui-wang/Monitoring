@@ -130,7 +130,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     AwardTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AwardTableViewCell"];
     [cell showDetailWithData:self.listAry[indexPath.row]];
-    
+    cell.checkButton.tag = indexPath.row;
     [cell.checkButton addTarget:self action:@selector(checkButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     
     return cell;
