@@ -28,13 +28,16 @@
     
     self.layout.itemSize = CGSizeMake((SCREEN_WIDTH-60)/3.0, (SCREEN_WIDTH-60)/3.0);
     [self.collectionView registerNib:[UINib nibWithNibName:@"HelpCenterCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"HelpCenterCollectionViewCell"];
+//
+//    self.titleAry = @[@"下载APP", @"账号注册", @"登录激活", @"群防任务", @"线索举报", @"通知公告"];
+//    self.imageAry = @[@"下载APP", @"账号注册", @"登录激活", @"任务", @"举报", @"公告"];
     
-    self.titleAry = @[@"下载APP", @"账号注册", @"登录激活", @"群防任务", @"线索举报", @"通知公告"];
-    self.imageAry = @[@"下载APP", @"账号注册", @"登录激活", @"任务", @"举报", @"公告"];
+    self.titleAry = @[@"群防任务", @"线索举报", @"通知公告"];
+    self.imageAry = @[@"任务", @"举报", @"公告"];
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 6;
+    return 3;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -58,7 +61,7 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{    
     HelpDetailViewController *helpDetailVc = [[UIStoryboard storyboardWithName:@"PersonalCenter" bundle:nil]instantiateViewControllerWithIdentifier:@"HelpDetailViewController"];
-    helpDetailVc.helpId = indexPath.row+1;
+    helpDetailVc.helpId = indexPath.row+4;
     [self.navigationController pushViewController:helpDetailVc animated:YES];
 }
 
