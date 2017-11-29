@@ -131,19 +131,21 @@
     
     if ([model.is_ck integerValue]) {
         [self.likeButton setTitleColor:[UIColor colorWithRed:47/255.0 green:109/255.0 blue:182/255.0 alpha:1] forState:UIControlStateNormal];
+        [self.likeButton setTitle:[NSString stringWithFormat:@"点赞(%@)", model.ckCount] forState:UIControlStateNormal];
 //        self.likeButton.userInteractionEnabled = YES;
         
     }else{
         [self.likeButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+        [self.likeButton setTitle:[NSString stringWithFormat:@"取消(%@)", model.ckCount] forState:UIControlStateNormal];
 //        self.likeButton.userInteractionEnabled = NO;
     }
     
-    if ([model.ckCount integerValue]) {
-        [self.likeButton setTitle:[NSString stringWithFormat:@"点赞(%@)", model.ckCount] forState:UIControlStateNormal];
-    }
-    else{
-        [self.likeButton setTitle:@"点赞" forState:UIControlStateNormal];
-    }
+//    if ([model.ckCount integerValue]) {
+//        [self.likeButton setTitle:[NSString stringWithFormat:@"点赞(%@)", model.ckCount] forState:UIControlStateNormal];
+//    }
+//    else{
+//        [self.likeButton setTitle:@"点赞" forState:UIControlStateNormal];
+//    }
     
     UserTitle *userTitle = [Tools getPersonData];
     if ([userTitle.usersId isEqualToString:model.userId]) {

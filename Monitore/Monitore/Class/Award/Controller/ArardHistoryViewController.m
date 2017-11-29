@@ -108,7 +108,7 @@
 
 - (void)cancelRequest{
     
-    DLAlertView *alertView = [[DLAlertView alloc]initWithTitle:@"提示" message:@"确定要取消？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"兑换", nil];
+    DLAlertView *alertView = [[DLAlertView alloc]initWithTitle:@"提示" message:@"确定要取消？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
     [alertView show];
 
 }

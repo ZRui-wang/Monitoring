@@ -90,6 +90,8 @@
     NSInteger row=[self.selectColorView.pickerView selectedRowInComponent:0];
     //然后是获取这个行中的值，就是数组中的值
     self.value=[self.addressAry objectAtIndex:row];
+    self.model.countyId = [self.value objectForKey:@"id"];
+    self.model.countyName = [self.value objectForKey:@"name"];
     
     NSIndexPath *index = [NSIndexPath indexPathForRow:0 inSection:1];
     
@@ -184,7 +186,7 @@
 
 - (void)uploadInfo{
     // 查询条件
-    NSString *url = [NSString stringWithFormat:@"http://39.108.78.69:3002/mobile/updUserInfo?USER_ID=%@&NICKNAME=%@&IDCARD=%@&JOB=%@&ADDRESS=%@&SEX=%@&REC_MOBILE=%@&CITY_NAME=%@&COMPANY=%@&COUNTY_ID=%@&COUNTY_NAME=%@", self.model.usersId, self.model.nickname, self.model.idcard, self.model.job, self.model.address, self.model.sex, self.model.recMobile, self.model.cityName, self.model.company, [self.value objectForKey:@"id"], [self.value objectForKey:@"name"]];
+    NSString *url = [NSString stringWithFormat:@"http://39.108.78.69:3002/mobile/updUserInfo?USER_ID=%@&NICKNAME=%@&IDCARD=%@&JOB=%@&ADDRESS=%@&SEX=%@&REC_MOBILE=%@&CITY_NAME=%@&COMPANY=%@&COUNTY_ID=%@&COUNTY_NAME=%@", self.model.usersId, self.model.nickname, self.model.idcard, self.model.job, self.model.address, self.model.sex, self.model.recMobile, self.model.cityName, self.model.company, self.model.countyId, self.model.countyName];
     url = [url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     // 基于AFN3.0+ 封装的HTPPSession句柄
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];

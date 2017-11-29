@@ -37,7 +37,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self leftCustomBarButton];
-    self.title = @"邻里守望公告";
+    self.title = @"邻里守望";
     [self rightCustomBarButton];
     
     self.dataListAry = [NSMutableArray array];

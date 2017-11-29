@@ -30,6 +30,7 @@
 @property (copy, nonatomic) NSString *sex;
 @property (copy, nonatomic) NSString *type;
 @property (copy, nonatomic) NSString *company;
+@property (copy, nonatomic) NSString *countyId;
 
 
 @end
