@@ -28,6 +28,7 @@
 @property (nonatomic, copy) NSString *userId;
 @property (nonatomic, copy) NSString *userName;
 @property (nonatomic, copy) NSString *usercircleId;
+@property (nonatomic, copy) NSString *is_ck;
 
 @end
 

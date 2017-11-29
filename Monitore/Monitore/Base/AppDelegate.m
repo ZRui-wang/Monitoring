@@ -31,7 +31,7 @@
     [[IQKeyboardManager sharedManager] setToolbarDoneBarButtonItemText:@"完成"];
     
     BMKMapManager *mapManager = [[BMKMapManager alloc]init];
-    BOOL ret = [mapManager start:@"3hYyfdDODjd421keGGoZw2gHLaUBE2zx" generalDelegate:nil];
+    BOOL ret = [mapManager start:@"hNEAx1pNsQXZ3F9HPyReVcGD58KhEhep" generalDelegate:nil];
     
     if (!ret) {
         NSLog(@"地图启动失败");

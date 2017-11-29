@@ -25,6 +25,7 @@
 
 @implementation AnnouncementTableViewCell{
     NSString *usercircleId;
+    BOOL isLike;
 }
 
 - (void)awakeFromNib {
@@ -126,6 +127,17 @@
     self.time.text = model.createtime;
     usercircleId = model.usercircleId;
     
+    isLike = [model.is_ck integerValue];
+    
+    if ([model.is_ck integerValue]) {
+        [self.likeButton setTitleColor:[UIColor colorWithRed:47/255.0 green:109/255.0 blue:182/255.0 alpha:1] forState:UIControlStateNormal];
+//        self.likeButton.userInteractionEnabled = YES;
+        
+    }else{
+        [self.likeButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+//        self.likeButton.userInteractionEnabled = NO;
+    }
+    
     if ([model.ckCount integerValue]) {
         [self.likeButton setTitle:[NSString stringWithFormat:@"点赞(%@)", model.ckCount] forState:UIControlStateNormal];
     }
@@ -184,8 +196,8 @@
 
 
 - (IBAction)dianzan:(id)sender {
-    if ([self.delegate respondsToSelector:@selector(dianzan)]) {
-        [_delegate dianzan];
+    if ([self.delegate respondsToSelector:@selector(dianzan:isLike:)]) {
+        [_delegate dianzan:usercircleId isLike:isLike];
     }
 }
 

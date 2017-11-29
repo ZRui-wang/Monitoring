@@ -71,7 +71,8 @@
 }
 
 - (void)getNetWorkData{
-    [[DLAPIClient sharedClient]POST:[NSString stringWithFormat:@"userCircleList?currentPage=%d&showCount=10", dataPage] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+    UserTitle *title = [Tools getPersonData];
+    [[DLAPIClient sharedClient]POST:[NSString stringWithFormat:@"userCircleList?currentPage=%d&showCount=10&USER_ID=%@", dataPage, title.usersId] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         NSLog(@"%@", responseObject);
         if ([responseObject[Kstatus]isEqualToString:@"200"]) {
             
@@ -124,7 +125,7 @@
 -(void)alertView:(DLAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex==1) {
         [[DLAPIClient sharedClient]POST:[NSString stringWithFormat:@"userCircleDel?USERCIRCLE_ID=%@", userCircleID] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-            [self.tableView reloadData];
+            [self refresh];
             [self showSuccessMessage:@"删除成功"];
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
             [self showErrorMessage:@"删除失败"];
@@ -132,8 +133,36 @@
     }
 }
 
-- (void)dianzan{
-    [self showWarningMessage:@"没有点赞接口"];
+- (void)dianzan:(NSString *)detailId isLike:(BOOL)isLike{
+        UserTitle *title = [Tools getPersonData];
+    if (isLike) {
+        [[DLAPIClient sharedClient]POST:[NSString stringWithFormat:@"clickUp?USER_ID=%@&USERCIRCLE_ID=%@", title.usersId, detailId] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+            if ([responseObject[Kstatus]isEqualToString:Ksuccess]) {
+                [self showSuccessMessage:@"点赞"];
+                [self refresh];
+            }
+            else{
+                [self showWarningMessage:responseObject[@"info"]];
+            }
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            
+        }];
+    }
+    else{
+        [[DLAPIClient sharedClient]POST:[NSString stringWithFormat:@"clickDown?USER_ID=%@&USERCIRCLE_ID=%@", title.usersId, detailId] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+            if ([responseObject[Kstatus]isEqualToString:Ksuccess]) {
+                [self showSuccessMessage:@"取消"];
+                [self refresh];
+            }
+            else{
+                [self showWarningMessage:responseObject[@"info"]];
+            }
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            
+        }];
+    }
+
+
 }
 
 

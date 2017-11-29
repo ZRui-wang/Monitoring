@@ -109,7 +109,7 @@
     [self.locService startUserLocationService];
     
     // 配置鹰眼基本信息
-    BTKServiceOption *sop = [[BTKServiceOption alloc]initWithAK:@"3hYyfdDODjd421keGGoZw2gHLaUBE2zx" mcode:@"com.monitor.optional" serviceID:145266 keepAlive:YES];
+    BTKServiceOption *sop = [[BTKServiceOption alloc]initWithAK:@"hNEAx1pNsQXZ3F9HPyReVcGD58KhEhep" mcode:@"com.monitor.optional" serviceID:155052 keepAlive:YES];
     [[BTKAction sharedInstance] initInfo:sop];
     
     // 定位选项设置
@@ -157,7 +157,7 @@
     
     UserTitle *userTitle = [Tools getPersonData];
     // userTitle.mobile
-    BTKQueryHistoryTrackRequest *request = [[BTKQueryHistoryTrackRequest alloc] initWithEntityName:@"entityB" startTime:startTime endTime:endTime isProcessed:TRUE processOption:nil supplementMode:BTK_TRACK_PROCESS_OPTION_SUPPLEMENT_MODE_WALKING outputCoordType:BTK_COORDTYPE_BD09LL sortType:BTK_TRACK_SORT_TYPE_DESC pageIndex:1 pageSize:5000 serviceID:145266 tag:13];
+    BTKQueryHistoryTrackRequest *request = [[BTKQueryHistoryTrackRequest alloc] initWithEntityName:userTitle.mobile startTime:startTime endTime:endTime isProcessed:TRUE processOption:nil supplementMode:BTK_TRACK_PROCESS_OPTION_SUPPLEMENT_MODE_WALKING outputCoordType:BTK_COORDTYPE_BD09LL sortType:BTK_TRACK_SORT_TYPE_DESC pageIndex:1 pageSize:5000 serviceID:155052 tag:13];
     // 发起查询请求
     [[BTKTrackAction sharedInstance] queryHistoryTrackWith:request delegate:self];
 }
@@ -185,6 +185,10 @@
 - (void)getPatrolDetail{
     UserTitle *title = [Tools getPersonData];
     NSDictionary *dic = @{@"ID":self.patrolID, @"USER_ID":title.usersId};
+    if (!self.patrolID) {
+        [self showWarningMessage:@"缺少参数"];
+        return;
+    }
     [[DLAPIClient sharedClient]POST:@"patrolDetail" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
         NSLog(@"轨迹=%@", responseObject);
         if ([responseObject[Kstatus]isEqualToString:Ksuccess]) {

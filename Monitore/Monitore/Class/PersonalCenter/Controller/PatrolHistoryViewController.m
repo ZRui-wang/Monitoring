@@ -8,9 +8,13 @@
 
 #import "PatrolHistoryViewController.h"
 #import "PatrolHistoryTableViewCell.h"
+#import "HistoryPatrolModel.h"
 
 @interface PatrolHistoryViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *distanceLabel;
+@property (strong, nonatomic) HistoryPatrolModel *model;
 
 @end
 
@@ -25,11 +29,37 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"PatrolHistoryTableViewCell" bundle:nil] forCellReuseIdentifier:@"PatrolHistoryTableViewCell"];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tableView.tableFooterView = [UIView new];
+    
+    [self getData];
+}
+
+- (void)getData{
+    
+    UserTitle *title = [Tools getPersonData];
+    
+    [[DLAPIClient sharedClient]POST:[NSString stringWithFormat:@"userPatrol?USER_ID=%@", title.usersId] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        if ([responseObject[Kstatus]isEqualToString:@"202"]) {
+            [self showWarningMessage:@"无数据"];
+            self.nameLabel.hidden = YES;
+            self.distanceLabel.hidden = YES;
+        }
+        
+        if ([responseObject[Kstatus]isEqualToString:Ksuccess]) {
+            self.model = [HistoryPatrolModel modelWithDictionary:responseObject];
+            self.nameLabel.text = self.model.name;
+            self.distanceLabel.text = self.model.allDistance;
+            [self.tableView reloadData];
+        }
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+    }];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return self.model.dataList.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -40,6 +70,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     PatrolHistoryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PatrolHistoryTableViewCell" forIndexPath:indexPath];
+    [cell showDetailModel:self.model.dataList[indexPath.row]];
     return cell;
 }
 

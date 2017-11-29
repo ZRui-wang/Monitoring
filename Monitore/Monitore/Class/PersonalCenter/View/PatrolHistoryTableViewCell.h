@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HistoryPatrolModel.h"
 
 @interface PatrolHistoryTableViewCell : UITableViewCell
+
+- (void)showDetailModel:(PatrolDetailModel *)model;
 
 @end

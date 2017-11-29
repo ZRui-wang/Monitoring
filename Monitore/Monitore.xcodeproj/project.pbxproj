@@ -33,6 +33,7 @@
 		78EB07E01F3C9EB200C64587 /* UserFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78EB07DF1F3C9EB200C64587 /* UserFeedbackViewController.m */; };
 		840B2EBB1FBECF3D0071FCF3 /* AddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 840B2EBA1FBECF3D0071FCF3 /* AddressModel.m */; };
 		8410478E1F749DF400DF5D0D /* ReportModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8410478D1F749DF400DF5D0D /* ReportModel.m */; };
+		84454A6C1FCD43EE0073A01E /* HistoryPatrolModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84454A6A1FCD43EE0073A01E /* HistoryPatrolModel.m */; };
 		845C67011F9869950065C75F /* AwardHistoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 845C66FF1F9869950065C75F /* AwardHistoryTableViewCell.m */; };
 		845C67021F9869950065C75F /* AwardHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845C67001F9869950065C75F /* AwardHistoryTableViewCell.xib */; };
 		845C670D1F98A51A0065C75F /* BaiduTraceSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 845C670C1F98A51A0065C75F /* BaiduTraceSDK.framework */; };
@@ -461,6 +462,8 @@
 		840B2EBA1FBECF3D0071FCF3 /* AddressModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddressModel.m; sourceTree = "<group>"; };
 		8410478C1F749DF400DF5D0D /* ReportModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReportModel.h; sourceTree = "<group>"; };
 		8410478D1F749DF400DF5D0D /* ReportModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReportModel.m; sourceTree = "<group>"; };
+		84454A6A1FCD43EE0073A01E /* HistoryPatrolModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HistoryPatrolModel.m; sourceTree = "<group>"; };
+		84454A6B1FCD43EE0073A01E /* HistoryPatrolModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HistoryPatrolModel.h; sourceTree = "<group>"; };
 		845C66FE1F9869950065C75F /* AwardHistoryTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AwardHistoryTableViewCell.h; sourceTree = "<group>"; };
 		845C66FF1F9869950065C75F /* AwardHistoryTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AwardHistoryTableViewCell.m; sourceTree = "<group>"; };
 		845C67001F9869950065C75F /* AwardHistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AwardHistoryTableViewCell.xib; sourceTree = "<group>"; };
@@ -2507,6 +2510,8 @@
 		84F928EF1F29652B00B76D79 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				84454A6B1FCD43EE0073A01E /* HistoryPatrolModel.h */,
+				84454A6A1FCD43EE0073A01E /* HistoryPatrolModel.m */,
 				8497E85F1F6656B7001ABBEA /* UserModel.h */,
 				8497E8601F6656B7001ABBEA /* UserModel.m */,
 				8497E8621F665A64001ABBEA /* UserTitle.h */,
@@ -2964,6 +2969,7 @@
 				84C784231F70BED600D50E3A /* BlackListTableViewCell.m in Sources */,
 				847F0F2A1F6B6036005340F8 /* VolunteersListViewController.m in Sources */,
 				847ED1DF1F3421F500BC710E /* YYWebImageManager.m in Sources */,
+				84454A6C1FCD43EE0073A01E /* HistoryPatrolModel.m in Sources */,
 				84F927C31F25DA3F00B76D79 /* MNavigationItem.m in Sources */,
 				84A1D5331F5EA7DF00BFAFC0 /* QNIP.m in Sources */,
 				847ED1DA1F3421F500BC710E /* YYFrameImage.m in Sources */,

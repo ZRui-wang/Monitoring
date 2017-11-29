@@ -12,7 +12,7 @@
 @protocol DelectDelegate <NSObject>
 
 - (void)delectId:(NSString *)userid;
-- (void)dianzan;
+- (void)dianzan:(NSString *)userid isLike:(BOOL)isLike;
 
 
 @end

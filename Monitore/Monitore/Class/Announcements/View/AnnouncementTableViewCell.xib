@@ -62,7 +62,9 @@
                             <constraint firstAttribute="width" constant="60" id="JzW-5T-x5y"/>
                             <constraint firstAttribute="height" constant="20" id="YyP-Yr-xZj"/>
                         </constraints>
-                        <state key="normal" title="点赞"/>
+                        <state key="normal" title="点赞">
+                            <color key="titleColor" red="0.1843137255" green="0.42745098040000001" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </state>
                         <connections>
                             <action selector="dianzan:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="mH9-l6-z3y"/>
                         </connections>

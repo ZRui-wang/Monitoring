@@ -8,12 +8,23 @@
 
 #import "PatrolHistoryTableViewCell.h"
 
+@interface PatrolHistoryTableViewCell()
+@property (weak, nonatomic) IBOutlet UILabel *startTime;
+@property (weak, nonatomic) IBOutlet UILabel *detail;
+
+@end
+
 @implementation PatrolHistoryTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
     self.selectionStyle = UITableViewCellSelectionStyleNone;
+}
+
+- (void)showDetailModel:(PatrolDetailModel *)model{
+    self.startTime.text = model.startTime;
+    self.detail.text = model.remark;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

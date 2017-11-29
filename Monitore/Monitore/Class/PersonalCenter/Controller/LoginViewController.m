@@ -61,6 +61,8 @@
             
             UserTitle *userTitle = [UserTitle modelWithDictionary:responseObject[@"user"]];
             
+            [[DLAPIClient sharedClient].requestSerializer setValue:userTitle.usersId forHTTPHeaderField:@"USER_ID"];
+            
             // 创建一个可变data 初始化归档对象
             NSMutableData *data = [NSMutableData data];
             // 创建一个归档对象

@@ -25,25 +25,51 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LEV-pr-11J">
-                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                                <rect key="frame" x="0.0" y="87" width="320" height="481"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nhz-XN-Fgt">
+                                <rect key="frame" x="20" y="35" width="280" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="slF-iO-vlK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A6n-SB-j4A">
+                                <rect key="frame" x="20" y="61" width="280" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="5wu-Y3-AHi"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="nhz-XN-Fgt" firstAttribute="leading" secondItem="2zT-mQ-AbL" secondAttribute="leading" constant="20" id="8jY-fd-4Ad"/>
+                            <constraint firstItem="LEV-pr-11J" firstAttribute="top" secondItem="A6n-SB-j4A" secondAttribute="bottom" constant="5" id="9zJ-Kf-GJj"/>
+                            <constraint firstItem="A6n-SB-j4A" firstAttribute="leading" secondItem="2zT-mQ-AbL" secondAttribute="leading" constant="20" id="HIA-Nm-qab"/>
+                            <constraint firstAttribute="trailing" secondItem="nhz-XN-Fgt" secondAttribute="trailing" constant="20" id="KuU-PQ-4DZ"/>
                             <constraint firstItem="LEV-pr-11J" firstAttribute="leading" secondItem="2zT-mQ-AbL" secondAttribute="leading" id="Ndh-73-NQC"/>
+                            <constraint firstItem="nhz-XN-Fgt" firstAttribute="top" secondItem="gjr-WY-yJH" secondAttribute="bottom" constant="15" id="OIH-YC-VDz"/>
                             <constraint firstItem="MO4-Wz-gEn" firstAttribute="top" secondItem="LEV-pr-11J" secondAttribute="bottom" id="aXo-7W-gXK"/>
-                            <constraint firstItem="LEV-pr-11J" firstAttribute="top" secondItem="gjr-WY-yJH" secondAttribute="bottom" id="w6f-1s-Ofy"/>
+                            <constraint firstItem="A6n-SB-j4A" firstAttribute="top" secondItem="nhz-XN-Fgt" secondAttribute="bottom" constant="5" id="aZt-v9-BSi"/>
+                            <constraint firstAttribute="trailing" secondItem="A6n-SB-j4A" secondAttribute="trailing" constant="20" id="cJW-sC-fFr"/>
                             <constraint firstAttribute="trailing" secondItem="LEV-pr-11J" secondAttribute="trailing" id="zDu-KU-WXz"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="distanceLabel" destination="A6n-SB-j4A" id="zt3-Ph-kot"/>
+                        <outlet property="nameLabel" destination="nhz-XN-Fgt" id="gtp-wc-mWL"/>
                         <outlet property="tableView" destination="LEV-pr-11J" id="3q1-QL-v8h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wBK-qv-XVO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2538" y="1146"/>
+            <point key="canvasLocation" x="2536.875" y="1145.0704225352113"/>
         </scene>
         <!--Setting View Controller-->
         <scene sceneID="ZO6-hX-KnD">

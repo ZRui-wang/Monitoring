@@ -114,7 +114,7 @@
     [self.locService startUserLocationService];
     
     // 配置鹰眼基本信息
-    BTKServiceOption *sop = [[BTKServiceOption alloc]initWithAK:@"3hYyfdDODjd421keGGoZw2gHLaUBE2zx" mcode:@"com.monitor.optional" serviceID:145266 keepAlive:YES];
+    BTKServiceOption *sop = [[BTKServiceOption alloc]initWithAK:@"hNEAx1pNsQXZ3F9HPyReVcGD58KhEhep" mcode:@"com.monitor.optional" serviceID:145266 keepAlive:YES];
     [[BTKAction sharedInstance] initInfo:sop];
     
     // 定位选项设置
@@ -130,7 +130,7 @@
     processOption.transportMode = BTK_TRACK_PROCESS_OPTION_SUPPLEMENT_MODE_STRAIGHT;
     
     // 构造请求对象
-    BTKQueryTrackLatestPointRequest *request = [[BTKQueryTrackLatestPointRequest alloc] initWithEntityName:nickName processOption: processOption outputCootdType:BTK_COORDTYPE_BD09LL serviceID:145266 tag:13];
+    BTKQueryTrackLatestPointRequest *request = [[BTKQueryTrackLatestPointRequest alloc] initWithEntityName:nickName processOption: processOption outputCootdType:BTK_COORDTYPE_BD09LL serviceID:155052 tag:13];
     // 发起查询请求
     [[BTKTrackAction sharedInstance] queryTrackLatestPointWith:request delegate:self];
 }
