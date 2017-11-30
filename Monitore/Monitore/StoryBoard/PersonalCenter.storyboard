@@ -24,6 +24,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pnE-CV-Pgc">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="87"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LEV-pr-11J">
                                 <rect key="frame" x="0.0" y="87" width="320" height="481"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -51,6 +55,7 @@
                         <constraints>
                             <constraint firstItem="nhz-XN-Fgt" firstAttribute="leading" secondItem="2zT-mQ-AbL" secondAttribute="leading" constant="20" id="8jY-fd-4Ad"/>
                             <constraint firstItem="LEV-pr-11J" firstAttribute="top" secondItem="A6n-SB-j4A" secondAttribute="bottom" constant="5" id="9zJ-Kf-GJj"/>
+                            <constraint firstItem="pnE-CV-Pgc" firstAttribute="leading" secondItem="2zT-mQ-AbL" secondAttribute="leading" id="ENG-qu-hYS"/>
                             <constraint firstItem="A6n-SB-j4A" firstAttribute="leading" secondItem="2zT-mQ-AbL" secondAttribute="leading" constant="20" id="HIA-Nm-qab"/>
                             <constraint firstAttribute="trailing" secondItem="nhz-XN-Fgt" secondAttribute="trailing" constant="20" id="KuU-PQ-4DZ"/>
                             <constraint firstItem="LEV-pr-11J" firstAttribute="leading" secondItem="2zT-mQ-AbL" secondAttribute="leading" id="Ndh-73-NQC"/>
@@ -58,6 +63,9 @@
                             <constraint firstItem="MO4-Wz-gEn" firstAttribute="top" secondItem="LEV-pr-11J" secondAttribute="bottom" id="aXo-7W-gXK"/>
                             <constraint firstItem="A6n-SB-j4A" firstAttribute="top" secondItem="nhz-XN-Fgt" secondAttribute="bottom" constant="5" id="aZt-v9-BSi"/>
                             <constraint firstAttribute="trailing" secondItem="A6n-SB-j4A" secondAttribute="trailing" constant="20" id="cJW-sC-fFr"/>
+                            <constraint firstItem="LEV-pr-11J" firstAttribute="top" secondItem="pnE-CV-Pgc" secondAttribute="bottom" id="cS7-4o-w3h"/>
+                            <constraint firstItem="pnE-CV-Pgc" firstAttribute="top" secondItem="2zT-mQ-AbL" secondAttribute="top" id="fVR-gj-hcX"/>
+                            <constraint firstAttribute="trailing" secondItem="pnE-CV-Pgc" secondAttribute="trailing" id="obq-et-S4h"/>
                             <constraint firstAttribute="trailing" secondItem="LEV-pr-11J" secondAttribute="trailing" id="zDu-KU-WXz"/>
                         </constraints>
                     </view>

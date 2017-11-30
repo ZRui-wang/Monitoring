@@ -27,6 +27,19 @@
 }
 
 - (IBAction)commitButtonAction:(UIButton *)sender {
+    if (!self.textView.text.length) {
+        [self showWarningMessage:@"请输入反馈的内容"];
+        return;
+    }
+    UserTitle *title = [Tools getPersonData];
+    NSString *url = [NSString stringWithFormat:@"feedback?USER_ID=%@&CONTENT=%@", title.usersId, self.textView.text];
+    url = [url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    [[DLAPIClient sharedClient]POST: url parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        [self showSuccessMessage:@"提交成功"];
+        [self.navigationController popViewControllerAnimated:YES];
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

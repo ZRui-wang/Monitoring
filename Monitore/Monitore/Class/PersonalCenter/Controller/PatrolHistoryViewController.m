@@ -47,8 +47,8 @@
         
         if ([responseObject[Kstatus]isEqualToString:Ksuccess]) {
             self.model = [HistoryPatrolModel modelWithDictionary:responseObject];
-            self.nameLabel.text = self.model.name;
-            self.distanceLabel.text = self.model.allDistance;
+            self.nameLabel.text = [NSString stringWithFormat:@"姓名：%@", self.model.name];
+            self.distanceLabel.text = [NSString stringWithFormat:@"总里程数：%@km", self.model.allDistance];
             [self.tableView reloadData];
         }
         

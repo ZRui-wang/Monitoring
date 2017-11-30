@@ -90,7 +90,6 @@ static NSString *HomeCollectionViewCellId = @"HomeCollectionViewCell";
             for (NSDictionary *dic in responseObject[@"dataList"]) {
                 BannerModel *bannerModel = [BannerModel modelWithDictionary:dic];
                 [self.bannerAry addObject:bannerModel];
-                [self.bannerAry addObject:bannerModel];
             }
             [self.collectionView reloadData];
         }

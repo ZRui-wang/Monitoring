@@ -34,16 +34,16 @@
     {
         _width = frame.size.width;
         height = frame.size.height;
-        self.curArray = [NSMutableArray arrayWithCapacity:3];
+        self.curArray = [NSMutableArray array];
         
         [self initScrollView];
         
         // 轮播图文本
         [self initTextView];
         [self initPageControl];
-        [self.curArray addObject:@"轮播图1"];
-        [self.curArray addObject:@"轮播图2"];
-        [self.curArray addObject:@"轮播图3"];
+//        [self.curArray addObject:@"轮播图1"];
+//        [self.curArray addObject:@"轮播图2"];
+//        [self.curArray addObject:@"轮播图3"];
 //        self.array = self.curArray;
 //        self.array = @[@"轮播图1", @"轮播图2", @"轮播图3"];
     }
@@ -59,7 +59,6 @@
     self.scrollView.pagingEnabled = YES;
     self.scrollView.showsHorizontalScrollIndicator = NO;
     self.scrollView.showsVerticalScrollIndicator = NO;
-    [self creatCarouseFigureView];
     __weak typeof(*&self) weakSelf = self;
     self.scrollView.zanTingBlock = ^{
         [weakSelf.timer setFireDate:[NSDate distantFuture]];//暂停
@@ -88,7 +87,7 @@
 
 // 创建三个视图到轮播上
 - (void)creatCarouseFigureView{
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < self.array.count; i++) {
         UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(_width *i, 0, _width, height)];
         imageView.contentMode = UIViewContentModeScaleToFill;
         [self.scrollView addSubview:imageView];
@@ -167,6 +166,7 @@
     if (!_array.count) {
         return;
     }
+    [self creatCarouseFigureView];
     self.pageControl.numberOfPages = array.count;
     [self updateCurrentViewWithCurPage:0];
     if (self.timer)
