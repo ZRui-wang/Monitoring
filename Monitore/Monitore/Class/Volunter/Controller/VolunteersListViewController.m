@@ -81,6 +81,7 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     VolunteerListHeaderView *headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"VolunteerListHeaderView"];
+    headerView.headerSecction = section;
     headerView.delegate = self;
     VolunteerModel *model = self.listArray[section];
     
