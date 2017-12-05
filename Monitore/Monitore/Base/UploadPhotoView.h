@@ -18,6 +18,7 @@
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
+@property (assign, nonatomic) BOOL isTakeVideo;
 @property (strong, nonatomic)NSMutableArray *photoArray;
 @property (assign, nonatomic) id<TakePhotosDelegate> delegate;
 

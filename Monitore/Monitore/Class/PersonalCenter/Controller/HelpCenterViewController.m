@@ -32,7 +32,7 @@
 //    self.titleAry = @[@"下载APP", @"账号注册", @"登录激活", @"群防任务", @"线索举报", @"通知公告"];
 //    self.imageAry = @[@"下载APP", @"账号注册", @"登录激活", @"任务", @"举报", @"公告"];
     
-    self.titleAry = @[@"群防任务", @"线索举报", @"通知公告"];
+    self.titleAry = @[@"下载APP", @"账号注册", @"登录激活"];
     self.imageAry = @[@"任务", @"举报", @"公告"];
 }
 
@@ -61,7 +61,7 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{    
     HelpDetailViewController *helpDetailVc = [[UIStoryboard storyboardWithName:@"PersonalCenter" bundle:nil]instantiateViewControllerWithIdentifier:@"HelpDetailViewController"];
-    helpDetailVc.helpId = indexPath.row+4;
+    helpDetailVc.helpId = indexPath.row+1;
     [self.navigationController pushViewController:helpDetailVc animated:YES];
 }
 

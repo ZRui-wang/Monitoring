@@ -33,6 +33,7 @@
 @property (copy, nonatomic)NSString *videoUrl;
 
 @property (assign, nonatomic)BOOL isTakeVideo;
+@property (assign, nonatomic)BOOL videoOrImage;
 
 @end
 
@@ -71,7 +72,8 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"ReportAddressTableViewCell" bundle:nil] forCellReuseIdentifier:@"ReportAddressTableViewCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"UploadPhotoView" bundle:nil] forHeaderFooterViewReuseIdentifier:@"UploadPhotoView"];
 
-    self.isTakeVideo = YES;
+    self.isTakeVideo = NO;
+    self.videoOrImage = YES;
     
     titleHeigh = 50;
     detailHeigh = 80;
@@ -87,11 +89,11 @@
     [self.photoArray insertObject:[UIImage imageNamed:@"加号"] atIndex:self.photoArray.count-1];
     NSInteger rowcell = [[notification.userInfo objectForKey:@"row"] integerValue];
     [self.photoArray removeObjectAtIndex:rowcell];
-    
+
     if (self.photoArray.count == 1) {
-        self.isTakeVideo = YES;
+        self.videoOrImage = YES;
     }else{
-        self.isTakeVideo = NO;
+        self.videoOrImage = NO;
     }
     
 }
@@ -125,7 +127,7 @@
 
 - (void)takePhotos{
     
-    if (self.isTakeVideo) {
+    if (self.videoOrImage) {
         //创建AlertController对象 preferredStyle可以设置是AlertView样式或者ActionSheet样式
         UIAlertController *alertC = [UIAlertController alertControllerWithTitle:nil message:@"证据类型" preferredStyle:UIAlertControllerStyleActionSheet];
         //创建取消按钮
@@ -148,7 +150,7 @@
             self.picker.sourceType = UIImagePickerControllerSourceTypeCamera;
             self.picker.mediaTypes = @[(NSString *)kUTTypeMovie];
             self.picker.videoMaximumDuration = 10;
-            self.picker.videoQuality = UIImagePickerControllerQualityTypeLow;
+            self.picker.videoQuality = UIImagePickerControllerQualityTypeMedium;
             [self presentViewController:self.picker animated:YES completion:nil];
         }];
         [alertC addAction:video];
@@ -235,6 +237,7 @@
     UploadPhotoView *view = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"UploadPhotoView"];
     view.delegate = self;
     view.photoArray = self.photoArray;
+    view.isTakeVideo = self.isTakeVideo;
     [view.collectionView reloadData];
     return view;
 }
@@ -291,25 +294,6 @@
 
 - (IBAction)submitButtonAction:(id)sender {
     [self uploadInfo];
-//    NSDictionary *dic = @{@"USER_ID":self.model.userId,
-//                          @"FIRST_ID":self.model.firstId,
-//                          @"SECOND_ID":self.model.secodeId,
-//                          @"CONTENT":self.model.content,
-//                          @"TITLE":self.model.title,
-//                          @"ADDRESS":self.model.address,
-//                          @"LONGITUDE":self.model.longitude,
-//                          @"LATITUDE":self.model.latitude
-//                          }; //                          @"REMARK":@""
-//    [[DLAPIClient sharedClient]POST:@"report" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
-//        if ([responseObject[Kstatus] isEqualToString:Ksuccess]) {
-//            [self showErrorMessage:@"提交成功"];
-//        }
-//        else{
-//            [self showErrorMessage:@"操作失败"];
-//        }
-//    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-//        [self showErrorMessage:@"数据错误"];
-//    }];
 }
 
 - (void)uploadInfo{
@@ -334,42 +318,46 @@
         // formData: 专门用于拼接需要上传的数据,在此位置生成一个要上传的数据体
         // 这里的_photoArr是你存放图片的数组
         
-        NSString *name = nil;
-        for (int i = 0; i < self.photoArray.count-1; i++) {
-            NSData *imageData = UIImageJPEGRepresentation(self.photoArray[i], 0.5);
+        if (self.isTakeVideo) {
             
-            // 在网络开发中，上传文件时，是文件不允许被覆盖，文件重名
-            // 要解决此问题，
-            // 可以在上传时使用当前的系统事件作为文件名
-            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-            
-            
-            switch (i) {
-                case 0:
-                    name = @"aaaaa";
-                    break;
-                case 1:
-                    name = @"bbbbb";
-                    break;
-                case 2:
-                    name = @"ccccc";
-                    break;
-                    
-                default:
-                    break;
+        }else{
+            NSString *name = nil;
+            for (int i = 0; i < self.photoArray.count-1; i++) {
+                NSData *imageData = UIImageJPEGRepresentation(self.photoArray[i], 0.5);
+                
+                // 在网络开发中，上传文件时，是文件不允许被覆盖，文件重名
+                // 要解决此问题，
+                // 可以在上传时使用当前的系统事件作为文件名
+                NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+                
+                
+                switch (i) {
+                    case 0:
+                        name = @"aaaaa";
+                        break;
+                    case 1:
+                        name = @"bbbbb";
+                        break;
+                    case 2:
+                        name = @"ccccc";
+                        break;
+                        
+                    default:
+                        break;
+                }
+                // 设置时间格式
+                [formatter setDateFormat:@"yyyyMMddHHmmss"];
+                NSString *dateString = [formatter stringFromDate:[NSDate date]];
+                NSString *fileName = [NSString  stringWithFormat:@"%@%@.png", dateString, name];
+                /*
+                 *该方法的参数
+                 1. appendPartWithFileData：要上传的照片[二进制流]
+                 2. name：对应网站上[upload.php中]处理文件的字段（比如upload）
+                 3. fileName：要保存在服务器上的文件名
+                 4. mimeType：上传的文件的类型
+                 */
+                [formData appendPartWithFileData:imageData name:fileName fileName:fileName mimeType:@"image/png"]; //
             }
-            // 设置时间格式
-            [formatter setDateFormat:@"yyyyMMddHHmmss"];
-            NSString *dateString = [formatter stringFromDate:[NSDate date]];
-            NSString *fileName = [NSString  stringWithFormat:@"%@%@.png", dateString, name];
-            /*
-             *该方法的参数
-             1. appendPartWithFileData：要上传的照片[二进制流]
-             2. name：对应网站上[upload.php中]处理文件的字段（比如upload）
-             3. fileName：要保存在服务器上的文件名
-             4. mimeType：上传的文件的类型
-             */
-            [formData appendPartWithFileData:imageData name:fileName fileName:fileName mimeType:@"image/png"]; //
         }
         
     } progress:^(NSProgress * _Nonnull uploadProgress) {
@@ -418,6 +406,7 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
 {
+    self.videoOrImage = NO;
     NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
     if ([mediaType isEqualToString:(NSString *)kUTTypeImage]){
         self.isTakeVideo = NO;
@@ -476,12 +465,8 @@
 
 //进入拍摄页面点击取消按钮
 
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
-
-{
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
-    
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
+    [self dismissViewControllerAnimated:YES completion:nil];    
 }
 
 - (NSMutableArray *)photoArray{

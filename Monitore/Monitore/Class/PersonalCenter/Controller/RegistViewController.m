@@ -7,6 +7,7 @@
 //
 
 #import "RegistViewController.h"
+#import "ProtocolViewController.h"
 
 @interface RegistViewController ()<DLAlertViewDelegate>
 
@@ -23,6 +24,8 @@
 @property (weak, nonatomic) IBOutlet UIView *codeBgView;
 @property (weak, nonatomic) IBOutlet UIView *phoneBgView;
 @property (weak, nonatomic) IBOutlet UIButton *getCodeButton;
+@property (weak, nonatomic) IBOutlet UIButton *protocolButton;
+
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *buttonPositionX;
 
@@ -92,6 +95,10 @@
     
 }
 
+- (IBAction)protocolBtnAction:(UIButton *)sender {
+    ProtocolViewController *protocolVc = [[ProtocolViewController alloc]init];
+    [self presentViewController:protocolVc animated:YES completion:nil];    
+}
 
 // 开启倒计时效果
 -(void)openCountdown{

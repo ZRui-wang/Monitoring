@@ -35,7 +35,12 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return self.photoArray.count<4 ? self.photoArray.count : 3;
+    
+    if (self.isTakeVideo) {
+        return 1;
+    }else{
+        return self.photoArray.count<4 ? self.photoArray.count : 3;
+    }
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -78,15 +83,6 @@
     }
 
 }
-
-
-
-//- (NSMutableArray *)photoArray{
-//    if (_photoArray == nil) {
-//        _photoArray = [NSMutableArray array];
-//    }
-//    return _photoArray;
-//}
 
 
 @end

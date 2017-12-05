@@ -442,6 +442,27 @@
                                     <action selector="loginNowButtonAction:" destination="Gqx-2Y-BUt" eventType="touchUpInside" id="eV2-jh-xco"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="注册代表你同意" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zah-S8-L1m">
+                                <rect key="frame" x="36" y="526" width="79" height="12"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="79" id="cUk-x8-L1J"/>
+                                    <constraint firstAttribute="height" constant="12" id="jZR-00-pYg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rQe-JD-ZcB">
+                                <rect key="frame" x="117" y="519" width="177" height="26"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="26" id="Bhl-8f-1qg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <state key="normal" title="平安志愿者服务和相关规定"/>
+                                <connections>
+                                    <action selector="protocolBtnAction:" destination="Gqx-2Y-BUt" eventType="touchUpInside" id="YFi-qx-Cyq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.94121348859999998" green="0.9450295568" blue="0.94902777670000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
@@ -453,11 +474,15 @@
                             <constraint firstItem="iKw-ia-lyR" firstAttribute="leading" secondItem="bZw-uf-mHp" secondAttribute="leading" constant="20" id="CoK-tC-glB"/>
                             <constraint firstItem="aB1-el-cJc" firstAttribute="top" secondItem="05h-dv-htf" secondAttribute="bottom" constant="35" id="DRm-DG-KXB"/>
                             <constraint firstAttribute="trailing" secondItem="M2d-qC-Iel" secondAttribute="trailing" constant="20" id="FVS-Mn-dbq"/>
+                            <constraint firstItem="xp7-Um-Ib9" firstAttribute="top" secondItem="zah-S8-L1m" secondAttribute="bottom" constant="30" id="Iby-i1-QZY"/>
                             <constraint firstItem="aB1-el-cJc" firstAttribute="leading" secondItem="bZw-uf-mHp" secondAttribute="leadingMargin" constant="20" id="Q6e-3W-ffP"/>
                             <constraint firstAttribute="trailing" secondItem="W6P-uV-PUn" secondAttribute="trailing" constant="20" id="Qcj-Ad-p4o"/>
                             <constraint firstItem="9q6-9Q-qYM" firstAttribute="leading" secondItem="bZw-uf-mHp" secondAttribute="leading" constant="20" id="TeU-uc-tnt"/>
+                            <constraint firstItem="rQe-JD-ZcB" firstAttribute="leading" secondItem="zah-S8-L1m" secondAttribute="trailing" constant="2" id="USr-x2-x4U"/>
                             <constraint firstItem="q5X-qJ-H3X" firstAttribute="top" secondItem="aB1-el-cJc" secondAttribute="bottom" constant="20" id="ViB-SE-gkC"/>
                             <constraint firstItem="LpM-dY-2WP" firstAttribute="leading" secondItem="iKw-ia-lyR" secondAttribute="trailing" constant="15" id="W0s-Rc-3r8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rQe-JD-ZcB" secondAttribute="trailing" constant="10" id="X94-3D-Phq"/>
+                            <constraint firstItem="zah-S8-L1m" firstAttribute="leading" secondItem="bZw-uf-mHp" secondAttribute="leading" constant="36" id="c4U-tO-mjf"/>
                             <constraint firstItem="M2d-qC-Iel" firstAttribute="leading" secondItem="bZw-uf-mHp" secondAttribute="leading" constant="20" id="deD-UH-a7s"/>
                             <constraint firstItem="fwf-Du-HkZ" firstAttribute="leading" secondItem="bZw-uf-mHp" secondAttribute="leading" constant="20" id="dic-mY-h7Q"/>
                             <constraint firstItem="dYe-hX-9ST" firstAttribute="centerY" secondItem="05h-dv-htf" secondAttribute="centerY" id="fLn-oT-B2E"/>
@@ -470,6 +495,7 @@
                             <constraint firstItem="fwf-Du-HkZ" firstAttribute="top" secondItem="W6P-uV-PUn" secondAttribute="bottom" constant="15" id="sa3-66-tH4"/>
                             <constraint firstItem="iKw-ia-lyR" firstAttribute="top" secondItem="9q6-9Q-qYM" secondAttribute="bottom" constant="15" id="uJ7-xa-R37"/>
                             <constraint firstItem="W6P-uV-PUn" firstAttribute="top" secondItem="M2d-qC-Iel" secondAttribute="bottom" constant="15" id="vdG-Oy-aEf"/>
+                            <constraint firstItem="rQe-JD-ZcB" firstAttribute="centerY" secondItem="zah-S8-L1m" secondAttribute="centerY" id="w0U-dn-9it"/>
                             <constraint firstItem="dYe-hX-9ST" firstAttribute="width" secondItem="05h-dv-htf" secondAttribute="width" id="wQu-W0-6Qb"/>
                             <constraint firstItem="M2d-qC-Iel" firstAttribute="top" secondItem="LpM-dY-2WP" secondAttribute="bottom" constant="15" id="xfF-rV-fny"/>
                         </constraints>
@@ -481,6 +507,7 @@
                         <outlet property="getCodeButton" destination="LpM-dY-2WP" id="ROG-A6-Ccm"/>
                         <outlet property="phoneBgView" destination="9q6-9Q-qYM" id="hgN-Vy-t0Z"/>
                         <outlet property="phoneTextField" destination="7pe-Xw-rxU" id="quI-Ud-m2D"/>
+                        <outlet property="protocolButton" destination="rQe-JD-ZcB" id="BEu-qg-if9"/>
                         <outlet property="recommendBgView" destination="fwf-Du-HkZ" id="hTg-sV-WWb"/>
                         <outlet property="recommendCodeTextField" destination="2YR-EE-o97" id="U8d-Lz-xqU"/>
                         <outlet property="secriteBgView" destination="M2d-qC-Iel" id="lAM-2V-AZA"/>
@@ -493,7 +520,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JSO-ZI-9ze" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4001" y="1126"/>
+            <point key="canvasLocation" x="3999.375" y="1125"/>
         </scene>
         <!--Help Center View Controller-->
         <scene sceneID="URo-Mf-ijy">

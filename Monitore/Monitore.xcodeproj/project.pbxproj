@@ -309,6 +309,7 @@
 		84C784381F724CF900D50E3A /* VolunteerListHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C784371F724CF900D50E3A /* VolunteerListHeaderView.m */; };
 		84C7843A1F724D0D00D50E3A /* VolunteerListHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84C784391F724D0D00D50E3A /* VolunteerListHeaderView.xib */; };
 		84C7843D1F725EFE00D50E3A /* ArardHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C7843C1F725EFE00D50E3A /* ArardHistoryViewController.m */; };
+		84CC792D1FD67DB900CDCE49 /* ProtocolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CC792C1FD67DB900CDCE49 /* ProtocolViewController.m */; };
 		84D70AD01F78902D008575F7 /* GiftListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D70ACF1F78902D008575F7 /* GiftListModel.m */; };
 		84D70AD31F78993E008575F7 /* TrainModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D70AD21F78993E008575F7 /* TrainModel.m */; };
 		84D70AD61F789C56008575F7 /* BlackModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D70AD51F789C56008575F7 /* BlackModel.m */; };
@@ -994,6 +995,8 @@
 		84C784391F724D0D00D50E3A /* VolunteerListHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VolunteerListHeaderView.xib; sourceTree = "<group>"; };
 		84C7843B1F725EFE00D50E3A /* ArardHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArardHistoryViewController.h; sourceTree = "<group>"; };
 		84C7843C1F725EFE00D50E3A /* ArardHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArardHistoryViewController.m; sourceTree = "<group>"; };
+		84CC792B1FD67DB900CDCE49 /* ProtocolViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProtocolViewController.h; sourceTree = "<group>"; };
+		84CC792C1FD67DB900CDCE49 /* ProtocolViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProtocolViewController.m; sourceTree = "<group>"; };
 		84D70ACE1F78902D008575F7 /* GiftListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GiftListModel.h; sourceTree = "<group>"; };
 		84D70ACF1F78902D008575F7 /* GiftListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GiftListModel.m; sourceTree = "<group>"; };
 		84D70AD11F78993E008575F7 /* TrainModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrainModel.h; sourceTree = "<group>"; };
@@ -2490,6 +2493,8 @@
 				78EB07DF1F3C9EB200C64587 /* UserFeedbackViewController.m */,
 				84A5E5591F8CB99C00D06556 /* InfoViewController.h */,
 				84A5E55A1F8CB99C00D06556 /* InfoViewController.m */,
+				84CC792B1FD67DB900CDCE49 /* ProtocolViewController.h */,
+				84CC792C1FD67DB900CDCE49 /* ProtocolViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -3068,6 +3073,7 @@
 				849F4F361FAC5F1400AAFD53 /* PublishedViewController.m in Sources */,
 				847ED1CF1F3421F500BC710E /* UIView+YYAdd.m in Sources */,
 				84B7B5D81F46B52900C3C708 /* DLAlertView.m in Sources */,
+				84CC792D1FD67DB900CDCE49 /* ProtocolViewController.m in Sources */,
 				84F9275F1F25D37400B76D79 /* main.m in Sources */,
 				84F929151F29652B00B76D79 /* PatrolTableHeaderView.m in Sources */,
 				847ED1D61F3421F500BC710E /* MKAnnotationView+YYWebImage.m in Sources */,
