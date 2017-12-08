@@ -462,6 +462,7 @@
 		8410478D1F749DF400DF5D0D /* ReportModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReportModel.m; sourceTree = "<group>"; };
 		84454A6A1FCD43EE0073A01E /* HistoryPatrolModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HistoryPatrolModel.m; sourceTree = "<group>"; };
 		84454A6B1FCD43EE0073A01E /* HistoryPatrolModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HistoryPatrolModel.h; sourceTree = "<group>"; };
+		8447359F1FDA9E72005DA485 /* Default-568.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568.png"; sourceTree = "<group>"; };
 		845C66FE1F9869950065C75F /* AwardHistoryTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AwardHistoryTableViewCell.h; sourceTree = "<group>"; };
 		845C66FF1F9869950065C75F /* AwardHistoryTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AwardHistoryTableViewCell.m; sourceTree = "<group>"; };
 		845C67001F9869950065C75F /* AwardHistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AwardHistoryTableViewCell.xib; sourceTree = "<group>"; };
@@ -2709,6 +2710,7 @@
 		84F9292C1F2968AE00B76D79 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8447359F1FDA9E72005DA485 /* Default-568.png */,
 				84F9292D1F2968AE00B76D79 /* Assets.xcassets */,
 				84F9292E1F2968AE00B76D79 /* Info.plist */,
 				84F9292F1F2968AE00B76D79 /* LaunchScreen.storyboard */,
