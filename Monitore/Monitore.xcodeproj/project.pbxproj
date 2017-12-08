@@ -2784,7 +2784,7 @@
 				TargetAttributes = {
 					84F927591F25D37400B76D79 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = XWP58Q4A3P;
+						DevelopmentTeam = KXP4AX242W;
 						ProvisioningStyle = Automatic;
 					};
 					84F927721F25D37400B76D79 = {
@@ -3330,8 +3330,10 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: HaiBo Jiang (H43VH4TRGC)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = XWP58Q4A3P;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KXP4AX242W;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3343,6 +3345,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Monitore/Config/PrefixHeader.pch";
 				INFOPLIST_FILE = Monitore/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/Monitore/Vender/Frameworks",
@@ -3352,10 +3355,11 @@
 					"-ObjC",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.monitor.optional;
+				PRODUCT_BUNDLE_IDENTIFIER = com.monitor.qunfang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -3366,7 +3370,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = XWP58Q4A3P;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KXP4AX242W;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3378,6 +3383,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Monitore/Config/PrefixHeader.pch";
 				INFOPLIST_FILE = Monitore/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/Monitore/Vender/Frameworks",
@@ -3388,10 +3394,11 @@
 					"-ObjC",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.monitor.optional;
+				PRODUCT_BUNDLE_IDENTIFIER = com.monitor.qunfang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
