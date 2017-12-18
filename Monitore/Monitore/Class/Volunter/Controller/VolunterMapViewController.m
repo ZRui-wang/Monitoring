@@ -8,6 +8,7 @@
 
 #import "VolunterMapViewController.h"
 #import "VolunteerModel.h"
+#import "Point.h"
 
 @interface VolunterMapViewController ()<BMKMapViewDelegate, BMKLocationServiceDelegate>
 
@@ -26,6 +27,7 @@
     self.listArray = [NSMutableArray array];
     BMKMapView *mapView = [[BMKMapView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
     self.mapView = mapView;
+    self.mapView.delegate = self;
     [self.view addSubview:self.mapView];
     self.mapView.mapType = MKMapTypeSatellite;
     self.mapView.showsUserLocation = YES;
@@ -101,9 +103,31 @@
         coor.latitude = [model.latitude floatValue];
         coor.longitude = [model.longitude floatValue];
         annotation.coordinate = coor;
+        annotation.title = [NSString stringWithFormat:@"%@ %@ %@", model.name, model.mobile, model.address];
         [self.mapView addAnnotation:annotation];
     }
     
+}
+//
+//- (BMKAnnotationView *)mapView:(BMKMapView *)mapView viewForAnnotation:(id<BMKAnnotation>)annotation{
+//    BMKPinAnnotationView *newAnnotationView = [[BMKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"myAnnotation"];
+//    newAnnotationView.pinColor = BMKPinAnnotationColorPurple;
+//    newAnnotationView.animatesDrop = YES;// 设置该标注点动画显示
+//    newAnnotationView.annotation=annotation;
+//    newAnnotationView.image = [UIImage imageNamed:@"地址"];   //把大头针换成别的图片
+//
+//    newAnnotationView.size = CGSizeMake(23, 23);
+//    return newAnnotationView;
+//}
+
+- (void)mapView:(BMKMapView *)mapView didSelectAnnotationView:(BMKAnnotationView *)view{
+    
+    NSLog(@"点击");
+//    if ([view.annotation isKindOfClass:[JJAnnotationView class]]) {
+//        JJAnnotationView *v = (JJAnnotationView *)view.annotation;
+//        JJJobberInfoModel *model = v.model;
+//        ......
+//    }
 }
 
 - (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation{

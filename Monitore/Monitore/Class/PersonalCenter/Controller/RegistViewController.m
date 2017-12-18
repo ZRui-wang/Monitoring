@@ -47,7 +47,7 @@
     // Do any additional setup after loading the view.
     [self leftCustomBarButton];
     
-    self.userType = @"1";
+    self.userType = @"0";
     
     self.phoneBgView.layer.cornerRadius = 4;
     self.phoneBgView.layer.masksToBounds = YES;
@@ -59,17 +59,18 @@
     self.sureBgView.layer.cornerRadius = 4;
     self.recommendBgView.layer.cornerRadius = 4;
     self.recommendBgView.layer.masksToBounds = YES;
-    self.commenUserButton.selected = YES;
+    self.commenUserButton.selected = NO;
     self.specialButton.selected = NO;
     
     [self.getCodeButton setTitle:@"获取验证码" forState:UIControlStateNormal];
+    
+    UIButton *btn = [[UIButton alloc]init];
+    btn.selected = YES;
+    [self commenUserBtnAction:btn];
 }
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     
-//    dispatch_source_cancel(_timer);
-//    [_timer invalidate];
-//    _timer = nil;
 }
 
 - (IBAction)getCodeButtonAction:(UIButton *)sender {

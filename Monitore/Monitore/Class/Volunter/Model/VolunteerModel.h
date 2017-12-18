@@ -11,9 +11,11 @@
 @interface VolModel : NSObject
 
 @property (copy, nonatomic) NSString *name;
+@property (copy, nonatomic) NSString *mobile;
 @property (copy, nonatomic) NSString *icon;
 @property (copy, nonatomic) NSString *latitude;
 @property (copy, nonatomic) NSString *longitude;
+@property (copy, nonatomic) NSString *address;
 
 
 

@@ -49,14 +49,14 @@ static NSString *HomeCollectionViewCellId = @"HomeCollectionViewCell";
     
     NSArray *temptAry = @[@"邻里守望", @"群防任务", @"在线监督", @"义务巡逻", @"防骗培训", @"维稳黑名单", @"志愿者管理", @"个人中心"];
     self.titleAry = temptAry;
-    
-    [self bannerUrl];
+
     [self creatCollectionView];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    
+        
+    [self bannerUrl];
     
     UserTitle *userTitle = [Tools getPersonData];
     if (userTitle == nil) {

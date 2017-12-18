@@ -27,7 +27,7 @@
 - (void)setBannerAry:(NSMutableArray *)bannerAry{
     _bannerAry = bannerAry;
     
-    CarouselFigure *figure = [[CarouselFigure alloc]initWithFrame:CGRectMake(0, 0, SCREEN_HEIGHT, self.homeHeaderView.frame.size.height)];
+    CarouselFigure *figure = [[CarouselFigure alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH*0.75)];
     figure.array = _bannerAry;
     [self.homeHeaderView addSubview:figure];
 }

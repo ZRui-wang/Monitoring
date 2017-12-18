@@ -318,6 +318,7 @@
 		84D70ADE1F79ECCE008575F7 /* TaskListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D70ADD1F79ECCE008575F7 /* TaskListModel.m */; };
 		84D70AE11F79FF8D008575F7 /* TaskDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D70AE01F79FF8D008575F7 /* TaskDetailViewController.m */; };
 		84D70AE41F7A013E008575F7 /* TaskDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D70AE31F7A013E008575F7 /* TaskDetailModel.m */; };
+		84F7D43C1FDE67B80033201C /* Point.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F7D43B1FDE67B80033201C /* Point.m */; };
 		84F9275F1F25D37400B76D79 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F9275E1F25D37400B76D79 /* main.m */; };
 		84F927781F25D37400B76D79 /* MonitoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F927771F25D37400B76D79 /* MonitoreTests.m */; };
 		84F927831F25D37400B76D79 /* MonitoreUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F927821F25D37400B76D79 /* MonitoreUITests.m */; };
@@ -462,7 +463,6 @@
 		8410478D1F749DF400DF5D0D /* ReportModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReportModel.m; sourceTree = "<group>"; };
 		84454A6A1FCD43EE0073A01E /* HistoryPatrolModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HistoryPatrolModel.m; sourceTree = "<group>"; };
 		84454A6B1FCD43EE0073A01E /* HistoryPatrolModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HistoryPatrolModel.h; sourceTree = "<group>"; };
-		8447359F1FDA9E72005DA485 /* Default-568.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568.png"; sourceTree = "<group>"; };
 		845C66FE1F9869950065C75F /* AwardHistoryTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AwardHistoryTableViewCell.h; sourceTree = "<group>"; };
 		845C66FF1F9869950065C75F /* AwardHistoryTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AwardHistoryTableViewCell.m; sourceTree = "<group>"; };
 		845C67001F9869950065C75F /* AwardHistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AwardHistoryTableViewCell.xib; sourceTree = "<group>"; };
@@ -1013,6 +1013,9 @@
 		84D70AE01F79FF8D008575F7 /* TaskDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TaskDetailViewController.m; sourceTree = "<group>"; };
 		84D70AE21F7A013D008575F7 /* TaskDetailModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TaskDetailModel.h; sourceTree = "<group>"; };
 		84D70AE31F7A013E008575F7 /* TaskDetailModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TaskDetailModel.m; sourceTree = "<group>"; };
+		84F7D4391FDE269B0033201C /* Defaule-568h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Defaule-568h.png"; sourceTree = "<group>"; };
+		84F7D43A1FDE67B80033201C /* Point.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Point.h; sourceTree = "<group>"; };
+		84F7D43B1FDE67B80033201C /* Point.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Point.m; sourceTree = "<group>"; };
 		84F9275A1F25D37400B76D79 /* Monitore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Monitore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84F9275E1F25D37400B76D79 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		84F927731F25D37400B76D79 /* MonitoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MonitoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1529,6 +1532,8 @@
 			children = (
 				84C784331F7237A900D50E3A /* VolunteerModel.h */,
 				84C784341F7237A900D50E3A /* VolunteerModel.m */,
+				84F7D43A1FDE67B80033201C /* Point.h */,
+				84F7D43B1FDE67B80033201C /* Point.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2710,7 +2715,7 @@
 		84F9292C1F2968AE00B76D79 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				8447359F1FDA9E72005DA485 /* Default-568.png */,
+				84F7D4391FDE269B0033201C /* Defaule-568h.png */,
 				84F9292D1F2968AE00B76D79 /* Assets.xcassets */,
 				84F9292E1F2968AE00B76D79 /* Info.plist */,
 				84F9292F1F2968AE00B76D79 /* LaunchScreen.storyboard */,
@@ -2928,6 +2933,7 @@
 				84F929241F29652B00B76D79 /* PersonalPhotoTableViewCell.m in Sources */,
 				84A1D52D1F5EA7DF00BFAFC0 /* QNResolvUtil.m in Sources */,
 				84B7B57F1F45644100C3C708 /* UIColor+get_FFFFFFcolor.m in Sources */,
+				84F7D43C1FDE67B80033201C /* Point.m in Sources */,
 				78657BC41F41DA6F00DC2AFE /* TaskTableViewCell.m in Sources */,
 				847ED1D01F3421F500BC710E /* YYCache.m in Sources */,
 				84B7B6101F46F39600C3C708 /* IQTextView.m in Sources */,

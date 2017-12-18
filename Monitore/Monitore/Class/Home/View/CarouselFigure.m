@@ -21,7 +21,6 @@
 
 @implementation CarouselFigure
 {
-//    CGFloat width;
     CGFloat height;
     NSInteger curPage;
     NSInteger timeCount;
@@ -41,11 +40,6 @@
         // 轮播图文本
         [self initTextView];
         [self initPageControl];
-//        [self.curArray addObject:@"轮播图1"];
-//        [self.curArray addObject:@"轮播图2"];
-//        [self.curArray addObject:@"轮播图3"];
-//        self.array = self.curArray;
-//        self.array = @[@"轮播图1", @"轮播图2", @"轮播图3"];
     }
     return self;
 }
