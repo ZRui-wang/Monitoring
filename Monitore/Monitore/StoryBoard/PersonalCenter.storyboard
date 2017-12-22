@@ -336,7 +336,7 @@
                                     <constraint firstItem="C0c-OQ-1BH" firstAttribute="leading" secondItem="bdu-QG-9zR" secondAttribute="trailing" constant="15" id="vmg-IA-dJu"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="05h-dv-htf">
+                            <button hidden="YES" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="05h-dv-htf">
                                 <rect key="frame" x="58.5" y="350" width="74" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="nXp-2J-YFc"/>
@@ -352,7 +352,7 @@
                                     <action selector="commenUserBtnAction:" destination="Gqx-2Y-BUt" eventType="touchUpInside" id="K9d-aA-2um"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dYe-hX-9ST">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dYe-hX-9ST">
                                 <rect key="frame" x="187.5" y="350" width="74" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="IRB-HC-fBk"/>

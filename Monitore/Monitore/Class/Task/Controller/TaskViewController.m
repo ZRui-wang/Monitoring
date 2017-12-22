@@ -24,7 +24,13 @@
 
 @end
 
-@implementation TaskViewController
+@implementation TaskViewController{
+    
+    int dataPage;
+    BOOL isNoMoreData;
+    BOOL moreData;
+    BOOL isDownLoading;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -32,6 +38,8 @@
     self.title = @"群防任务";
     [self leftCustomBarButton];
     [self rightCustomBarButton];
+    
+    dataPage = 1;
     
     UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 100)];
     
@@ -51,6 +59,9 @@
     self.tableView.tableHeaderView = headerView;
     [self.tableView registerNib:[UINib nibWithNibName:@"TaskTableViewCell" bundle:nil] forCellReuseIdentifier:@"TaskTableViewCell"];
     self.tableView.tableFooterView = [UIView new];
+    
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refresh)];
+    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMore)];
     
     _listAry = [NSMutableArray array];
     _categoryList = [NSMutableArray array];
@@ -98,8 +109,22 @@
     
     NSDictionary *dic = @{@"TYPE_ID":@"GUANYUWOMEN", @"LAT":self.lon, @"LNG":self.lat};
     
-    [[DLAPIClient sharedClient]POST:@"taskList" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+    [[DLAPIClient sharedClient]POST:[NSString stringWithFormat:@"taskList?currentPage=%d", dataPage] parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject[Kstatus]isEqualToString:Ksuccess]) {
+            
+            
+            if (dataPage == 1) {
+                [self.listAry removeAllObjects];
+            }
+            
+            dataPage ++;
+            
+            if ([[responseObject[@"page"] objectForKey:@"totalPage"] intValue] < dataPage) {
+                isNoMoreData = YES;
+            }else{
+                isNoMoreData = NO;
+            }
+            
             for (NSDictionary *dic in responseObject[@"dataList"]) {
                 TaskListModel *model = [TaskListModel modelWithDictionary:dic];
                 [self.listAry addObject:model];
@@ -114,6 +139,7 @@
         }else{
             [self showErrorMessage:responseObject[Kinfo]];
         }
+        [self endRefresh];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         [self showErrorMessage:@"数据错误"];
     }];
@@ -182,6 +208,36 @@
     taskDetailVc.lon = self.lat;
     taskDetailVc.ID = model.taskId;
     [self.navigationController pushViewController:taskDetailVc animated:YES];
+}
+
+- (void)refresh{
+    if (isDownLoading) {
+        return;
+    }
+    dataPage = 1;
+    isDownLoading = YES;
+    [self getTaskList];
+}
+
+- (void)endRefresh {
+    isDownLoading = NO;
+    [self.tableView.mj_header endRefreshing];
+    [self.tableView.mj_footer endRefreshing];
+    self.tableView.mj_footer.hidden = YES;
+}
+
+- (void)loadMore{
+    if (isDownLoading) {
+        [self endRefresh];
+        return;
+    }
+    
+    if (!isNoMoreData) {
+        [self getTaskList];
+    }
+    else{
+        [self endRefresh];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

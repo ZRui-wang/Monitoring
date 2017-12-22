@@ -70,6 +70,7 @@
     isLoading = NO;
     [self.tableView.mj_footer endRefreshing];
     [self.tableView.mj_header endRefreshing];
+    self.tableView.mj_footer.hidden = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated{

@@ -28,6 +28,7 @@
 @property (strong, nonatomic) NSArray *childList;
 @property (copy, nonatomic) NSString *name;
 @property (assign, nonatomic) BOOL isExpand;
+@property (copy, nonatomic) NSString *totalUser;
 
 
 @end

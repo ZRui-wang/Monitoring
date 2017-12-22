@@ -10,4 +10,7 @@
 
 @interface VolunteersListViewController : BaseViewController
 
+
+@property (strong, nonatomic) NSMutableArray *listArray;
+
 @end

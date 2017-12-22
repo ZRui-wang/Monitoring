@@ -51,6 +51,8 @@ static NSString *HomeCollectionViewCellId = @"HomeCollectionViewCell";
     self.titleAry = temptAry;
 
     [self creatCollectionView];
+    
+    [self checkVersion];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -71,15 +73,18 @@ static NSString *HomeCollectionViewCellId = @"HomeCollectionViewCell";
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    [self checkVersion];
 }
 
 -(void)checkVersion
 {
     NSString *newVersion;
-    NSURL *url = [NSURL URLWithString:@"https://itunesconnect.apple.com/WebObjects/iTunesConnect.woa/ra/ng/app/1321712040"];//这个URL地址是该app在iTunes connect里面的相关配置信息。其中id是该app在app store唯一的ID编号。
+    NSURL *url = [NSURL URLWithString:@"http://itunes.apple.com/CN/lookup?id=1321712040"];//这个URL地址是该app在iTunes connect里面的相关配置信息。其中id是该app在app store唯一的ID编号。
     NSString *jsonResponseString = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:nil];
     NSLog(@"通过appStore获取的数据信息：%@",jsonResponseString);
+    
+    if (jsonResponseString.length==0) {
+        return;
+    }
     
     NSData *data = [jsonResponseString dataUsingEncoding:NSUTF8StringEncoding];
     
@@ -99,23 +104,22 @@ static NSString *HomeCollectionViewCellId = @"HomeCollectionViewCell";
     if (!newVersion) {
         return;
     }
-    
-    NSLog(@"通过appStore获取的版本号是：%@",newVersion);
-    
+        
     //获取本地软件的版本号
-    NSString *localVersion = [[[NSBundle mainBundle]infoDictionary] objectForKey:@"CFBundleVersion"];
+    NSString *localVersion;
+    localVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+    
+    NSLog(@"通过appStore获取的版本号是：%f %f",[newVersion doubleValue], [localVersion doubleValue]);
     
     NSString *msg = [NSString stringWithFormat:@"你当前的版本是V%@，发现新版本V%@，是否下载新版本？",localVersion,newVersion];
+    NSLog(@"通过appStore获取的版本号是：%@",msg);
     
     //对比发现的新版本和本地的版本
-    if ([newVersion floatValue] > [localVersion floatValue])
+    if (![newVersion isEqualToString:localVersion] )
     {
-        
-        
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"升级提示"message:msg preferredStyle:UIAlertControllerStyleAlert];
         
         [self presentViewController:alert animated:YES completion:nil];
-        
         
         [alert addAction:[UIAlertAction actionWithTitle:@"现在升级" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://itunes.apple.com/us/app/%E7%BE%A4%E9%98%B2%E5%BF%97%E6%84%BF%E8%80%85/id1321712040?l=zh&ls=1&mt=8"]];//这里写的URL地址是该app在app store里面的下载链接地址，其中ID是该app在app store对应的唯一的ID编号。
@@ -125,8 +129,8 @@ static NSString *HomeCollectionViewCellId = @"HomeCollectionViewCell";
         [alert addAction:[UIAlertAction actionWithTitle:@"下次再说" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             NSLog(@"点击下次再说按钮");
         }]];
-        
-        
+    }else{
+        NSLog(@"版本好医院啊啊啊啊啊啊啊啊啊啊");
     }
 }
 

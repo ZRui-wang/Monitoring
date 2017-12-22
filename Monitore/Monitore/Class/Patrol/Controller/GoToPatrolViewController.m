@@ -45,11 +45,13 @@
 @implementation GoToPatrolViewController{
     NSInteger timerCount;
     NSString *nickName;
+    NSDate *resignBackgroundDate;
 }
 
 - (void)dealloc{
     [_timer invalidate];
     _timer = nil;
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)viewDidLoad {
@@ -78,6 +80,32 @@
     [[BTKAction sharedInstance] stopService:self];
 }
 
+- (void)registerBackgoundNotification
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(resignActiveToRecordState)
+                                                 name:@"appResignActive"
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(becomeActiveToRecordState)
+                                                 name:@"appBecomeActive"
+                                               object:nil];
+}
+
+
+
+- (void)resignActiveToRecordState
+{
+    resignBackgroundDate = [NSDate date];
+}
+
+- (void)becomeActiveToRecordState
+{
+    NSTimeInterval timeHasGone = [[NSDate date] timeIntervalSinceDate:resignBackgroundDate];
+    timerCount = timeHasGone + timerCount;
+}
+
+
 - (void)setConfigView{
     timerCount = 0;
     
@@ -104,12 +132,13 @@
     self.mapView.mapType = MKMapTypeSatellite;
     self.mapView.showsUserLocation = YES;
     [self.mapView setZoomLevel:18];
+    self.mapView.maxZoomLevel = 18;
     [self.mapBagView addSubview:self.mapView];
     
     self.locService = [[BMKLocationService alloc]init];
     self.locService.delegate = self;
     // 设置过滤距离， 更新的最小间隔距离
-    self.locService.distanceFilter = 6.0f;
+    self.locService.distanceFilter = 20.0f;
     self.locService.desiredAccuracy=kCLLocationAccuracyBest;
     [self.locService startUserLocationService];
     
@@ -126,7 +155,7 @@
     processOption.denoise = TRUE;
     processOption.vacuate = TRUE;
     processOption.mapMatch = TRUE;
-    processOption.radiusThreshold = 10;
+    processOption.radiusThreshold = 30;
     processOption.transportMode = BTK_TRACK_PROCESS_OPTION_SUPPLEMENT_MODE_STRAIGHT;
     
     // 构造请求对象
@@ -160,7 +189,7 @@
     // 1、检查移动的距离，移除不合理的点
     if (self.locationPoint.count > 0) {
         CLLocationDistance distance = [userLocation.location distanceFromLocation:self.currentLocation];
-        if (distance < 5)
+        if (distance < 10)
             return;
     }
     
@@ -176,7 +205,7 @@
     self.currentLocation = userLocation.location;
     
     // 5、开始画线
-    [self configureRoutes];
+//    [self configureRoutes];
     
     // 6、实时更新用户位子
     [self.mapView updateLocationData:userLocation];
@@ -253,8 +282,10 @@
     
     if (sender.selected) {
         // 开始
+        [self configureRoutes];       // 开始画线
         [self startPatrol];
     }else{
+        [self refreshAddress];
         // 结束
         DLAlertView *alertView = [[DLAlertView alloc]initWithTitle:@"提示" message:@"确定要结束巡逻？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
         alertView.tag = 101;
@@ -303,12 +334,12 @@
 }
 
 - (void)endPatrol{
-    __weak GoToPatrolViewController *weakSelf = self;
-    [[Tools sharedTools]getCurrentAddress:^(NSString *address) {
-        weakSelf.patrolTitle.text = address;
-        weakSelf.address = address;
-        [weakSelf getGeoCoedAddress:address];
-    }];
+//    __weak GoToPatrolViewController *weakSelf = self;
+//    [[Tools sharedTools]getCurrentAddress:^(NSString *address) {
+//        weakSelf.patrolTitle.text = address;
+//        weakSelf.address = address;
+//        [weakSelf getGeoCoedAddress:address];
+//    }];
     
     NSDictionary *dic = @{@"USER_ID":self.model.userId,
                       @"ID":self.patrolId,

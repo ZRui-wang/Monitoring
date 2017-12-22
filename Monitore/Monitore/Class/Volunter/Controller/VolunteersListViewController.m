@@ -18,11 +18,12 @@
 
 @property (strong, nonatomic) VolunteerModel *volunteerModel;
 
-@property (strong, nonatomic) NSMutableArray *listArray;
 
 @end
 
-@implementation VolunteersListViewController
+@implementation VolunteersListViewController{
+    NSString *totalUser;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -33,10 +34,11 @@
     self.tableView.dataSource = self;
     [self.tableView registerNib:[UINib nibWithNibName:@"InfoTableViewCell" bundle:nil] forCellReuseIdentifier:@"InfoTableViewCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"VolunteerListHeaderView" bundle:nil] forHeaderFooterViewReuseIdentifier:@"VolunteerListHeaderView"];
-    
-    self.listArray = [NSMutableArray array];
-    
-    [self getdata];
+
+}
+
+- (void)setListArray:(NSMutableArray *)listArray{
+    _listArray = listArray;
 }
 
 - (void)getdata{
@@ -47,6 +49,9 @@
             model.isExpand = YES;
             [self.listArray addObject:model];
         }
+        
+        totalUser = responseObject[@"totalUser"];
+        NSLog(@"%@", totalUser);
         [self.tableView reloadData];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         
@@ -61,7 +66,6 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     VolunteerModel *model = self.listArray[section];
-    NSLog(@"数量 = %ld", model.childList.count);
     if (model.isExpand) {
         return model.childList.count;
     }else{

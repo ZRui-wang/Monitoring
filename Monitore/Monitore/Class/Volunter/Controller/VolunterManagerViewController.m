@@ -11,6 +11,7 @@
 #import "VolunterMapViewController.h"
 #import "InfoTableViewCell.h"
 #import "DIYPickView.h"
+#import "VolunteerModel.h"
 
 
 @interface VolunterManagerViewController ()<UIScrollViewDelegate>
@@ -23,12 +24,15 @@
 @property (weak, nonatomic) IBOutlet UIView *rightLine;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
+@property (strong, nonatomic) NSMutableArray *listArray;
+
 @property (strong, nonatomic)UIView *pickBgView;
 
 @end
 
 @implementation VolunterManagerViewController{
     NSArray *colorAry;
+    NSString *totalUser;
 }
 
 - (void)viewDidLoad {
@@ -37,8 +41,27 @@
     [self leftCustomBarButton];
     self.title = @"志愿者管理";
     
-    [self configureScrollView];
+    self.listArray = [NSMutableArray array];
+
     [self.scrollView.panGestureRecognizer requireGestureRecognizerToFail:self.navigationController.interactivePopGestureRecognizer];
+    [self getdata];
+}
+
+- (void)getdata{
+    [[DLAPIClient sharedClient]POST:@"qfList" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"%@", responseObject);
+        for (NSDictionary *dic in responseObject[@"dataList"]) {
+            VolunteerModel *model = [VolunteerModel modelWithDictionary:dic];
+            model.isExpand = YES;
+            [self.listArray addObject:model];
+        }
+        
+        totalUser = responseObject[@"totalUser"];
+        [self.listButton setTitle:[NSString stringWithFormat:@"志愿者分布(%@)",totalUser] forState:UIControlStateNormal];
+        [self configureScrollView];
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+    }];
 }
 
 - (void)configureScrollView
@@ -46,6 +69,8 @@
     [self.view layoutIfNeeded];
     self.volunteerVc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"VolunteersListViewController"];
     self.volunteerMapVc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"VolunterMapViewController"];
+    
+
     [self addChildViewController:self.volunteerVc];
     [self addChildViewController:self.volunteerMapVc];
     self.scrollView.contentSize = CGSizeMake(SCREEN_WIDTH*2, 0);
@@ -57,6 +82,8 @@
     self.rightLine.backgroundColor = [UIColor clearColor];
     
     self.listButton.selected = YES;
+    
+    self.volunteerVc.listArray = self.listArray;
 }
 
 

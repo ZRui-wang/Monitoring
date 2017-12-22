@@ -100,7 +100,8 @@
     self.mapView = [[BMKMapView alloc]initWithFrame:self.mapBgView.frame];
     self.mapView.userTrackingMode = BMKUserTrackingModeFollowWithHeading;
     self.mapView.userTrackingMode = BMKUserTrackingModeFollowWithHeading;
-    self.mapView.zoomLevel = 15;
+    self.mapView.zoomLevel = 18;
+    self.mapView.maxZoomLevel = 18;
     
     [self.view addSubview:self.mapView];
     
@@ -245,8 +246,7 @@
     //初始化轨迹点
     [self initSportNodes];
     
-    [self start];
-    
+    [self start];    
 }
 
 //开始
@@ -279,17 +279,19 @@
     }
     BMKSportNode *node = [sportNodes objectAtIndex:currentIndex % sportNodeNum];
     sportAnnotationView.imageView.transform = CGAffineTransformMakeRotation(node.angle);
-    [UIView animateWithDuration:1 animations:^{
-        currentIndex++;
-        BMKSportNode *node = [sportNodes objectAtIndex:currentIndex % sportNodeNum];
-        sportAnnotation.coordinate = node.coordinate;
-    } completion:^(BOOL finished) {
-        [self running];
-        
-        if (currentIndex>=sportNodeNum) {
-            [self.view.layer removeAllAnimations];
-        }
-    }];
+    
+    __weak typeof(self) weakSelf = self;
+//    [UIView animateWithDuration:1 animations:^{
+//        currentIndex++;
+//        BMKSportNode *node = [sportNodes objectAtIndex:currentIndex % sportNodeNum];
+//        sportAnnotation.coordinate = node.coordinate;
+//    } completion:^(BOOL finished) {
+//        [weakSelf running];
+//
+//        if (currentIndex>=sportNodeNum) {
+//            [weakSelf.view.layer removeAllAnimations];
+//        }
+//    }];
 
 }
 
