@@ -33,13 +33,12 @@
     self.title = @"巡逻记录";
     
     self.patrolListAry = [NSMutableArray array];
-    pageIndex = 1;
     
     [self.tableView registerNib:[UINib nibWithNibName:@"PatrolTableViewCell" bundle:nil] forCellReuseIdentifier:@"PatrolTableViewCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"PatrolTableHeaderView" bundle:nil] forHeaderFooterViewReuseIdentifier:@"PatrolTableHeaderView"];
     self.tableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
     self.tableView.mj_header = [MJRefreshGifHeader headerWithRefreshingTarget:self refreshingAction:@selector(refresh)];
-    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMore)];
+    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMore)];
         
     self.userTitle = [Tools getPersonData];
 }
@@ -56,6 +55,7 @@
 }
 
 - (void)loadMore{
+    [self endRefresh];
     if (!isMoreData) {
         return;
     }
@@ -70,13 +70,14 @@
     isLoading = NO;
     [self.tableView.mj_footer endRefreshing];
     [self.tableView.mj_header endRefreshing];
-    self.tableView.mj_footer.hidden = YES;
+//    self.tableView.mj_footer.hidden = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
     [self.patrolListAry removeAllObjects];
+    pageIndex = 1;
     [self getPatrolHistory];
 }
 

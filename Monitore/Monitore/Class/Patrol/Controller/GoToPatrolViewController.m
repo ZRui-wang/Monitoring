@@ -46,6 +46,7 @@
     NSInteger timerCount;
     NSString *nickName;
     NSDate *resignBackgroundDate;
+    BOOL startline;
 }
 
 - (void)dealloc{
@@ -63,6 +64,9 @@
     [self setConfigView];
     [self refreshAddress];
     [self initMapSdk];
+    
+    startline = NO;
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -205,7 +209,10 @@
     self.currentLocation = userLocation.location;
     
     // 5、开始画线
-//    [self configureRoutes];
+    if (startline) {
+        [self configureRoutes];
+    }
+    
     
     // 6、实时更新用户位子
     [self.mapView updateLocationData:userLocation];
@@ -284,6 +291,7 @@
         // 开始
         [self configureRoutes];       // 开始画线
         [self startPatrol];
+        startline = YES;
     }else{
         [self refreshAddress];
         // 结束
