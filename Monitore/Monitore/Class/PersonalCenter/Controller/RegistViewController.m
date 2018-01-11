@@ -190,7 +190,7 @@
         }
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"%@", task.currentRequest.URL);
-        
+        [self showErrorMessage:@"网络错误"];
     }];
     
 }

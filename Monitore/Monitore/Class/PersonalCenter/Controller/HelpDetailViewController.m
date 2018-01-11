@@ -26,7 +26,7 @@
         [self.webView loadHTMLString:htmlStr baseURL:nil];
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        
+        [self showErrorMessage:@"网络错误"];
     }];
 }
 

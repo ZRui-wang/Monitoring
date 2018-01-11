@@ -60,7 +60,7 @@
         [self.listButton setTitle:[NSString stringWithFormat:@"志愿者分布(%@)",totalUser] forState:UIControlStateNormal];
         [self configureScrollView];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        
+        [self showErrorMessage:@"网络错误"];
     }];
 }
 

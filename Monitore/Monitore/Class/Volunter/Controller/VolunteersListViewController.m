@@ -54,7 +54,7 @@
         NSLog(@"%@", totalUser);
         [self.tableView reloadData];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        
+        [self showErrorMessage:@"网络错误"];
     }];
 }
 

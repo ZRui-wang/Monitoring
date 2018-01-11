@@ -102,6 +102,7 @@
         [self.tableView reloadData];
         [self endRefresh];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [self showErrorMessage:@"网络错误"];
         [self endRefresh];
     }];
 }
@@ -129,7 +130,7 @@
                 [self showErrorMessage:responseObject[Kinfo]];
             }
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
-            
+            [self showErrorMessage:@"网络错误"];
         }];
     }
 }

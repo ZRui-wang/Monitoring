@@ -86,7 +86,11 @@
 }
 
 - (void)requestNetWork{
+    if (self.userTitle.usersId.length == 0) {
+        return;
+    }
     NSDictionary *dic = @{@"ID":self.userTitle.usersId};
+    
     [[DLAPIClient sharedClient]POST:@"getUserInfo" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
         NSLog(@"%@", responseObject);
         if ([responseObject[Kstatus]isEqualToString:Ksuccess]) {
@@ -107,7 +111,7 @@
             
         }
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        
+        [self showErrorMessage:@"网络错误"];
     }];
 }
 

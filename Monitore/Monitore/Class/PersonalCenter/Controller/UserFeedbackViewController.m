@@ -38,7 +38,7 @@
         [self showSuccessMessage:@"提交成功"];
         [self.navigationController popViewControllerAnimated:YES];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        
+        [self showErrorMessage:@"网络错误"];
     }];
 }
 

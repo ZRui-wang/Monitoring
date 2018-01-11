@@ -111,6 +111,7 @@
         [self endRefresh];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         [self endRefresh];
+        [self showErrorMessage:@"网络错误"];
     }];
 }
 

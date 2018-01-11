@@ -49,7 +49,7 @@
             [self showSuccessMessage:@"添加失败"];
         }
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        
+        [self showErrorMessage:@"网络错误"];
     }];
 }
 

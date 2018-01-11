@@ -47,7 +47,7 @@ static NSString *HomeCollectionViewCellId = @"HomeCollectionViewCell";
     self.title = @"群防群治平安志愿者协会";
     self.bannerAry = [NSMutableArray array];
     
-    NSArray *temptAry = @[@"邻里守望", @"群防任务", @"在线监督", @"义务巡逻", @"防骗培训", @"维稳黑名单", @"志愿者管理", @"个人中心"];
+    NSArray *temptAry = @[@"邻里守望", @"群防任务", @"在线监督", @"义务巡防", @"防骗培训", @"维稳黑名单", @"志愿者管理", @"个人中心"];
     self.titleAry = temptAry;
 
     [self creatCollectionView];
@@ -155,7 +155,7 @@ static NSString *HomeCollectionViewCellId = @"HomeCollectionViewCell";
             [self.collectionView reloadData];
         }
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        
+        [self showErrorMessage:@"网络错误"];
     }];
 }
 
@@ -305,7 +305,7 @@ static NSString *HomeCollectionViewCellId = @"HomeCollectionViewCell";
             [[NSUserDefaults standardUserDefaults]setObject:dic[@"token"] forKey:@"qntoken"];
         }
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        
+        [self showErrorMessage:@"网络错误"];
     }];
 }
 

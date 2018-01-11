@@ -95,7 +95,7 @@
         }
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        
+        [self showErrorMessage:@"网络错误"];
     }];
     
 }

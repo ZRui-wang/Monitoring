@@ -120,7 +120,7 @@
         [self tableView:self.tableView didSelectRowAtIndexPath:indexPath];
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        
+        [self showErrorMessage:@"网络错误"];
     }];
 }
 

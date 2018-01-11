@@ -27,7 +27,7 @@
     
     //AFNetWorking默认超时为60s，暂不修改
     //    [_sharedClient.requestSerializer setTimeoutInterval: 5.0];
-    _sharedClient.baseURL = [NSURL URLWithString:kLINK_HOST];
+//    _sharedClient.baseURL = [NSURL URLWithString:kLINK_HOST];
     return _sharedClient;
 }
 
