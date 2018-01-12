@@ -54,10 +54,10 @@
     self.service.delegate = self;
     self.service.desiredAccuracy = kCLLocationAccuracyBest;
     [self.service startUserLocationService];
-    
+
     self.geocodesearch = [[BMKGeoCodeSearch alloc]init];
     self.geocodesearch.delegate = self;
-    
+
     __block typeof(self) weak = self;
     weak.addressBlock = ^(NSString *address){
         addressBlock(address);

@@ -29,6 +29,8 @@
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *layouT;
 @property (strong, nonatomic) NSArray *titleAry;
 @property (nonatomic, strong) NSMutableArray *bannerAry;
+@property (copy, nonatomic)NSString *lat;
+@property (copy, nonatomic)NSString *lon;
 @end
 
 static NSString *HomeHeaderViewId = @"HomeHeaderView";
@@ -53,7 +55,40 @@ static NSString *HomeCollectionViewCellId = @"HomeCollectionViewCell";
     [self creatCollectionView];
     
     [self checkVersion];
+    
+    __block typeof(self) weak = self;
+    [[Tools sharedTools]getCurrentAddress:^(NSString *address) {
+        [weak getGeoCoedAddress:address];
+    }];
 }
+
+
+
+- (void)getGeoCoedAddress:(NSString *)address{
+    CLGeocoder *myGeocoder = [[CLGeocoder alloc] init];
+    __block typeof(self) weak = self;
+    [myGeocoder geocodeAddressString:address completionHandler:^(NSArray *placemarks, NSError *error) {
+        if ([placemarks count] > 0 && error == nil) {
+            NSLog(@"Found %lu placemark(s).", (unsigned long)[placemarks count]);
+            CLPlacemark *firstPlacemark = [placemarks objectAtIndex:0];
+            NSLog(@"Longitude = %f", firstPlacemark.location.coordinate.longitude);
+            NSLog(@"Latitude = %f", firstPlacemark.location.coordinate.latitude);
+            
+            weak.lon = [NSString stringWithFormat:@"%f", firstPlacemark.location.coordinate.longitude];
+            weak.lat = [NSString stringWithFormat:@"%f", firstPlacemark.location.coordinate.latitude];
+            
+            [[NSUserDefaults standardUserDefaults]setObject:weak.lon forKey:@"lon"];
+            [[NSUserDefaults standardUserDefaults]setObject:weak.lat forKey:@"lat"];
+            
+        }
+        else if ([placemarks count] == 0 && error == nil) {
+            NSLog(@"Found no placemarks.");
+        } else if (error != nil) {
+            NSLog(@"An error occurred = %@", error);
+        }
+    }];
+}
+
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];

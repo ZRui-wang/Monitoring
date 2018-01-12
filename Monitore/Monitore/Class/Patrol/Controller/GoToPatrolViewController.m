@@ -439,6 +439,7 @@
 
 - (void)getGeoCoedAddress:(NSString *)address{
     CLGeocoder *myGeocoder = [[CLGeocoder alloc] init];
+    __block typeof(self) weak = self;
     [myGeocoder geocodeAddressString:address completionHandler:^(NSArray *placemarks, NSError *error) {
         if ([placemarks count] > 0 && error == nil) {
             NSLog(@"Found %lu placemark(s).", (unsigned long)[placemarks count]);
@@ -446,8 +447,8 @@
             NSLog(@"Longitude = %f", firstPlacemark.location.coordinate.longitude);
             NSLog(@"Latitude = %f", firstPlacemark.location.coordinate.latitude);
             
-            self.lon = [NSString stringWithFormat:@"%f", firstPlacemark.location.coordinate.longitude];
-            self.lat = [NSString stringWithFormat:@"%f", firstPlacemark.location.coordinate.latitude];
+            weak.lon = [NSString stringWithFormat:@"%f", firstPlacemark.location.coordinate.longitude];
+            weak.lat = [NSString stringWithFormat:@"%f", firstPlacemark.location.coordinate.latitude];
         }
         else if ([placemarks count] == 0 && error == nil) {
             NSLog(@"Found no placemarks.");

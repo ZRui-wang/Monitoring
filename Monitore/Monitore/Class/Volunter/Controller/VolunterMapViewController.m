@@ -40,33 +40,10 @@
     self.locService.desiredAccuracy=kCLLocationAccuracyBest;
     [self.locService startUserLocationService];
     
-    __block typeof(self) weak = self;
-    [[Tools sharedTools]getCurrentAddress:^(NSString *address) {
-        [weak getGeoCoedAddress:address];
-    }];
+    self.lon = [[NSUserDefaults standardUserDefaults]objectForKey:@"lon"];
+    self.lat = [[NSUserDefaults standardUserDefaults]objectForKey:@"lat"];
+    [self requestNetData];
 }
-
-- (void)getGeoCoedAddress:(NSString *)address{
-    CLGeocoder *myGeocoder = [[CLGeocoder alloc] init];
-    [myGeocoder geocodeAddressString:address completionHandler:^(NSArray *placemarks, NSError *error) {
-        if ([placemarks count] > 0 && error == nil) {
-            NSLog(@"Found %lu placemark(s).", (unsigned long)[placemarks count]);
-            CLPlacemark *firstPlacemark = [placemarks objectAtIndex:0];
-            NSLog(@"Longitude = %f", firstPlacemark.location.coordinate.longitude);
-            NSLog(@"Latitude = %f", firstPlacemark.location.coordinate.latitude);
-            
-            self.lon = [NSString stringWithFormat:@"%f", firstPlacemark.location.coordinate.longitude];
-            self.lat = [NSString stringWithFormat:@"%f", firstPlacemark.location.coordinate.latitude];
-            [self requestNetData];
-        }
-        else if ([placemarks count] == 0 && error == nil) {
-            NSLog(@"Found no placemarks.");
-        } else if (error != nil) {
-            NSLog(@"An error occurred = %@", error);
-        }
-    }];
-}
-
 
 - (void)requestNetData{
     NSDictionary *dic = @{@"LONGITUDE":self.lon, @"LATITUDE":self.lat};
