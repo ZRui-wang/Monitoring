@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -505,12 +505,15 @@
                         <outlet property="codeBgView" destination="iKw-ia-lyR" id="BdX-Xh-dWA"/>
                         <outlet property="commenUserButton" destination="05h-dv-htf" id="xmZ-BJ-hFo"/>
                         <outlet property="getCodeButton" destination="LpM-dY-2WP" id="ROG-A6-Ccm"/>
+                        <outlet property="loginBtn" destination="q5X-qJ-H3X" id="y2g-z3-0g6"/>
                         <outlet property="phoneBgView" destination="9q6-9Q-qYM" id="hgN-Vy-t0Z"/>
                         <outlet property="phoneTextField" destination="7pe-Xw-rxU" id="quI-Ud-m2D"/>
                         <outlet property="protocolButton" destination="rQe-JD-ZcB" id="BEu-qg-if9"/>
                         <outlet property="recommendBgView" destination="fwf-Du-HkZ" id="hTg-sV-WWb"/>
                         <outlet property="recommendCodeTextField" destination="2YR-EE-o97" id="U8d-Lz-xqU"/>
+                        <outlet property="registBtn" destination="aB1-el-cJc" id="Nrg-Up-IaN"/>
                         <outlet property="secriteBgView" destination="M2d-qC-Iel" id="lAM-2V-AZA"/>
+                        <outlet property="secriteLabel" destination="Wbb-4a-4U8" id="Tyt-kc-0sG"/>
                         <outlet property="secrityTextField" destination="aK9-4B-d7P" id="rtH-hV-byS"/>
                         <outlet property="specialButton" destination="dYe-hX-9ST" id="Wgj-qO-nWm"/>
                         <outlet property="sureBgView" destination="W6P-uV-PUn" id="mrp-33-tDq"/>

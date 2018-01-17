@@ -25,6 +25,9 @@
 @property (weak, nonatomic) IBOutlet UIView *phoneBgView;
 @property (weak, nonatomic) IBOutlet UIButton *getCodeButton;
 @property (weak, nonatomic) IBOutlet UIButton *protocolButton;
+@property (weak, nonatomic) IBOutlet UILabel *secriteLabel;
+@property (weak, nonatomic) IBOutlet UIButton *registBtn;
+@property (weak, nonatomic) IBOutlet UIButton *loginBtn;
 
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *buttonPositionX;
@@ -46,6 +49,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self leftCustomBarButton];
+    
+    if (!self.isRegist) {
+        self.secriteLabel.text = @"新密码";
+        [self.registBtn setTitle:@"提交" forState:UIControlStateNormal];
+    }
     
     self.userType = @"0";
     
@@ -175,11 +183,21 @@
         return;
     }
     
+    NSString *url;
+    
+    if (self.isRegist) {
+        url = @"regist";
+    }else{
+        url = @"upPassword";
+        self.userType = @"1";
+    }
+    
     NSDictionary *paraDic = @{@"USERNAME":self.phoneTextField.text,
                               @"PASSWORD":self.sureSecrityTextFeild.text,
                               @"TYPES":self.userType};
     
-    [[DLAPIClient sharedClient]POST:@"regist" parameters:paraDic success:^(NSURLSessionDataTask *task, id responseObject) {
+    
+    [[DLAPIClient sharedClient]POST:url parameters:paraDic success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject[Kstatus] isEqualToString:Ksuccess]) {            
             DLAlertView *alertView = [[DLAlertView alloc]initWithTitle:@"提示" message:responseObject[Kinfo] delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
             [alertView show];

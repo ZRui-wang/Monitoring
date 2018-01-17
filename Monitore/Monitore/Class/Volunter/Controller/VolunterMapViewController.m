@@ -19,7 +19,9 @@
 @property (strong, nonatomic)NSMutableArray *listArray;
 @end
 
-@implementation VolunterMapViewController
+@implementation VolunterMapViewController{
+    BOOL isFirst;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -45,6 +47,7 @@
     [self requestNetData];
 }
 
+
 - (void)requestNetData{
     NSDictionary *dic = @{@"LONGITUDE":self.lon, @"LATITUDE":self.lat};
     [[DLAPIClient sharedClient]POST:@"fjList" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
@@ -68,23 +71,28 @@
 - (void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
     self.mapView.delegate = nil;
+    isFirst = NO;
 }
 
 - (void)didUpdateUserHeading:(BMKUserLocation *)userLocation{
     [self.mapView updateLocationData:userLocation];
     
-    for (VolModel *model in self.listArray) {
-        BMKPointAnnotation *annotation = [[BMKPointAnnotation alloc]init];
-        //    annotationV.image = [UIImage imageNamed:@"5ud.png"];//大头针的显示图片
-        CLLocationCoordinate2D coor;
-        coor.latitude = [model.latitude floatValue];
-        coor.longitude = [model.longitude floatValue];
-        annotation.coordinate = coor;
-        annotation.title = [NSString stringWithFormat:@"%@ %@ %@", model.name, model.mobile, model.address];
-        [self.mapView addAnnotation:annotation];
-    }
+    if (!isFirst) {
+        isFirst = YES;
     
+        for (VolModel *model in self.listArray) {
+            BMKPointAnnotation *annotation = [[BMKPointAnnotation alloc]init];
+            //    annotationV.image = [UIImage imageNamed:@"5ud.png"];//大头针的显示图片
+            CLLocationCoordinate2D coor;
+            coor.latitude = [model.latitude floatValue];
+            coor.longitude = [model.longitude floatValue];
+            annotation.coordinate = coor;
+            annotation.title = [NSString stringWithFormat:@"%@ %@ %@", model.name, model.mobile, model.address];
+            [self.mapView addAnnotation:annotation];
+        }
+    }
 }
+
 //
 //- (BMKAnnotationView *)mapView:(BMKMapView *)mapView viewForAnnotation:(id<BMKAnnotation>)annotation{
 //    BMKPinAnnotationView *newAnnotationView = [[BMKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"myAnnotation"];

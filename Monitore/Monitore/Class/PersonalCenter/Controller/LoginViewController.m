@@ -87,14 +87,18 @@
 }
 
 - (IBAction)forgetButtonAction:(id)sender {
-    ForgetPassWordViewController *forgetPassWordVc = [[UIStoryboard storyboardWithName:@"PersonalCenter" bundle:nil] instantiateViewControllerWithIdentifier:@"ForgetPassWordViewController"];
-    [self.navigationController pushViewController:forgetPassWordVc animated:YES];
-//    [self presentViewController:forgetPassWordVc animated:YES completion:nil];
+//    ForgetPassWordViewController *forgetPassWordVc = [[UIStoryboard storyboardWithName:@"PersonalCenter" bundle:nil] instantiateViewControllerWithIdentifier:@"ForgetPassWordViewController"];
+//    [self.navigationController pushViewController:forgetPassWordVc animated:YES];
+////    [self presentViewController:forgetPassWordVc animated:YES completion:nil];
+    RegistViewController *registVc = [[UIStoryboard storyboardWithName:@"PersonalCenter" bundle:nil]instantiateViewControllerWithIdentifier:@"RegistViewController"];
+    registVc.isRegist = NO;
+    [self presentViewController:registVc animated:YES completion:nil];
     
 }
 
 - (IBAction)registButtonAction:(id)sender {
     RegistViewController *registVc = [[UIStoryboard storyboardWithName:@"PersonalCenter" bundle:nil]instantiateViewControllerWithIdentifier:@"RegistViewController"];
+    registVc.isRegist = YES;
     [self presentViewController:registVc animated:YES completion:nil];
 //    [self.navigationController pushViewController:registVc animated:YES];
 }

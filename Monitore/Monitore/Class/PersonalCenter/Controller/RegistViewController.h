@@ -10,4 +10,6 @@
 
 @interface RegistViewController : BaseViewController
 
+@property (assign,nonatomic) BOOL isRegist;
+
 @end
