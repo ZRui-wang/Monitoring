@@ -245,6 +245,12 @@
 		84AB54BF1F3C2D8D006F7904 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AB54BE1F3C2D8D006F7904 /* DetailViewController.m */; };
 		84AB54C31F3D3F8F006F7904 /* HelpCenterCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AB54C11F3D3F8F006F7904 /* HelpCenterCollectionViewCell.m */; };
 		84AB54C41F3D3F8F006F7904 /* HelpCenterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84AB54C21F3D3F8F006F7904 /* HelpCenterCollectionViewCell.xib */; };
+		84B5CBEC2024584F00A2E02F /* area.txt in Resources */ = {isa = PBXBuildFile; fileRef = 84B5CBE12024584F00A2E02F /* area.txt */; };
+		84B5CBED2024584F00A2E02F /* AreaPickview.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B5CBE32024584F00A2E02F /* AreaPickview.m */; };
+		84B5CBEE2024584F00A2E02F /* CityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B5CBE52024584F00A2E02F /* CityModel.m */; };
+		84B5CBEF2024584F00A2E02F /* DistrictModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B5CBE72024584F00A2E02F /* DistrictModel.m */; };
+		84B5CBF02024584F00A2E02F /* ProvinceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B5CBE92024584F00A2E02F /* ProvinceModel.m */; };
+		84B5CBF12024584F00A2E02F /* Township.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B5CBEB2024584F00A2E02F /* Township.m */; };
 		84B7B57F1F45644100C3C708 /* UIColor+get_FFFFFFcolor.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B7B56B1F45644100C3C708 /* UIColor+get_FFFFFFcolor.m */; };
 		84B7B5801F45644100C3C708 /* MYColorBackView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B7B56E1F45644100C3C708 /* MYColorBackView.m */; };
 		84B7B5811F45644100C3C708 /* MYPresentAnimationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B7B5701F45644100C3C708 /* MYPresentAnimationManager.m */; };
@@ -869,6 +875,17 @@
 		84AB54C01F3D3F8F006F7904 /* HelpCenterCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpCenterCollectionViewCell.h; sourceTree = "<group>"; };
 		84AB54C11F3D3F8F006F7904 /* HelpCenterCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpCenterCollectionViewCell.m; sourceTree = "<group>"; };
 		84AB54C21F3D3F8F006F7904 /* HelpCenterCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HelpCenterCollectionViewCell.xib; sourceTree = "<group>"; };
+		84B5CBE12024584F00A2E02F /* area.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = area.txt; sourceTree = "<group>"; };
+		84B5CBE22024584F00A2E02F /* AreaPickview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaPickview.h; sourceTree = "<group>"; };
+		84B5CBE32024584F00A2E02F /* AreaPickview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaPickview.m; sourceTree = "<group>"; };
+		84B5CBE42024584F00A2E02F /* CityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityModel.h; sourceTree = "<group>"; };
+		84B5CBE52024584F00A2E02F /* CityModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityModel.m; sourceTree = "<group>"; };
+		84B5CBE62024584F00A2E02F /* DistrictModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistrictModel.h; sourceTree = "<group>"; };
+		84B5CBE72024584F00A2E02F /* DistrictModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistrictModel.m; sourceTree = "<group>"; };
+		84B5CBE82024584F00A2E02F /* ProvinceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProvinceModel.h; sourceTree = "<group>"; };
+		84B5CBE92024584F00A2E02F /* ProvinceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProvinceModel.m; sourceTree = "<group>"; };
+		84B5CBEA2024584F00A2E02F /* Township.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Township.h; sourceTree = "<group>"; };
+		84B5CBEB2024584F00A2E02F /* Township.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Township.m; sourceTree = "<group>"; };
 		84B7B56A1F45644100C3C708 /* UIColor+get_FFFFFFcolor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+get_FFFFFFcolor.h"; sourceTree = "<group>"; };
 		84B7B56B1F45644100C3C708 /* UIColor+get_FFFFFFcolor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+get_FFFFFFcolor.m"; sourceTree = "<group>"; };
 		84B7B56D1F45644100C3C708 /* MYColorBackView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYColorBackView.h; sourceTree = "<group>"; };
@@ -1890,6 +1907,24 @@
 			path = Storage;
 			sourceTree = "<group>";
 		};
+		84B5CBE02024584F00A2E02F /* address */ = {
+			isa = PBXGroup;
+			children = (
+				84B5CBE12024584F00A2E02F /* area.txt */,
+				84B5CBE22024584F00A2E02F /* AreaPickview.h */,
+				84B5CBE32024584F00A2E02F /* AreaPickview.m */,
+				84B5CBE42024584F00A2E02F /* CityModel.h */,
+				84B5CBE52024584F00A2E02F /* CityModel.m */,
+				84B5CBE62024584F00A2E02F /* DistrictModel.h */,
+				84B5CBE72024584F00A2E02F /* DistrictModel.m */,
+				84B5CBE82024584F00A2E02F /* ProvinceModel.h */,
+				84B5CBE92024584F00A2E02F /* ProvinceModel.m */,
+				84B5CBEA2024584F00A2E02F /* Township.h */,
+				84B5CBEB2024584F00A2E02F /* Township.m */,
+			);
+			path = address;
+			sourceTree = "<group>";
+		};
 		84B7B5681F45644100C3C708 /* TXTimeSelector */ = {
 			isa = PBXGroup;
 			children = (
@@ -2467,6 +2502,7 @@
 		84F928E71F29652B00B76D79 /* PersonalCenter */ = {
 			isa = PBXGroup;
 			children = (
+				84B5CBE02024584F00A2E02F /* address */,
 				84F928E81F29652B00B76D79 /* Controller */,
 				84F928EF1F29652B00B76D79 /* Model */,
 				84F928F01F29652B00B76D79 /* View */,
@@ -2868,6 +2904,7 @@
 				84F929441F297DFD00B76D79 /* SettingTableViewCell.xib in Resources */,
 				84F929101F29652B00B76D79 /* HomeHeaderView.xib in Resources */,
 				84B7B5D01F46B2ED00C3C708 /* SVProgressHUD.bundle in Resources */,
+				84B5CBEC2024584F00A2E02F /* area.txt in Resources */,
 				84F929571F29E10800B76D79 /* AnnouncementVcHeaderView.xib in Resources */,
 				84AB54C41F3D3F8F006F7904 /* HelpCenterCollectionViewCell.xib in Resources */,
 				84F929181F29652B00B76D79 /* PatrolTableViewCell.xib in Resources */,
@@ -2953,6 +2990,7 @@
 				84A5E6951F8DE15E00D06556 /* QNSystem.m in Sources */,
 				847ED1F51F3421F500BC710E /* YYLabel.m in Sources */,
 				84A1D5311F5EA7DF00BFAFC0 /* QNGetAddrInfo.m in Sources */,
+				84B5CBF12024584F00A2E02F /* Township.m in Sources */,
 				84F928481F2898FF00B76D79 /* CustomeLabel.m in Sources */,
 				847F0F2D1F6B6036005340F8 /* InfoTableViewCell.m in Sources */,
 				84A1D52A1F5EA7DF00BFAFC0 /* QNHijackingDetectWrapper.m in Sources */,
@@ -2976,10 +3014,12 @@
 				848ED8341F4A8651002A5EC6 /* ForgetPassWordViewController.m in Sources */,
 				84B7B60F1F46F39600C3C708 /* IQKeyboardReturnKeyHandler.m in Sources */,
 				84A5E68C1F8DE15E00D06556 /* QNPipeline.m in Sources */,
+				84B5CBED2024584F00A2E02F /* AreaPickview.m in Sources */,
 				847ED1D41F3421F500BC710E /* _YYWebImageSetter.m in Sources */,
 				84B7B5C11F46B2ED00C3C708 /* SDWebImageDecoder.m in Sources */,
 				847ED2011F3421F500BC710E /* YYTransaction.m in Sources */,
 				847ED1DC1F3421F500BC710E /* YYImageCache.m in Sources */,
+				84B5CBF02024584F00A2E02F /* ProvinceModel.m in Sources */,
 				845C67011F9869950065C75F /* AwardHistoryTableViewCell.m in Sources */,
 				84B7B5831F45644100C3C708 /* MYPresentedController.m in Sources */,
 				7898F4791F773BB400FD2029 /* LinkerModel.m in Sources */,
@@ -2987,6 +3027,7 @@
 				84C784381F724CF900D50E3A /* VolunteerListHeaderView.m in Sources */,
 				84B7B5C51F46B2ED00C3C708 /* SDWebImagePrefetcher.m in Sources */,
 				7812D87A1F47E7D80041CC9C /* CarouselFigure.m in Sources */,
+				84B5CBEE2024584F00A2E02F /* CityModel.m in Sources */,
 				8429366820049C2200060D49 /* AFHTTPSessionManager.m in Sources */,
 				84A1D5261F5EA7DF00BFAFC0 /* QNNetworkInfo.m in Sources */,
 				847ED1EB1F3421F500BC710E /* YYTextSelectionView.m in Sources */,
@@ -3139,6 +3180,7 @@
 				84B7B5BF1F46B2ED00C3C708 /* SDImageCacheConfig.m in Sources */,
 				847ED1EC1F3421F500BC710E /* NSAttributedString+YYText.m in Sources */,
 				84F929681F2AFDC100B76D79 /* PatrolHistoryTableViewCell.m in Sources */,
+				84B5CBEF2024584F00A2E02F /* DistrictModel.m in Sources */,
 				847ED1DB1F3421F500BC710E /* YYImage.m in Sources */,
 				84FFCEEF1F7B30F7009BA0D3 /* MyTaskViewController.m in Sources */,
 				84B7B5C91F46B2ED00C3C708 /* UIImage+WebP.m in Sources */,
