@@ -15,6 +15,7 @@
 #import "UIImageView+WebCache.h"
 #import "SexTableViewCell.h"
 #import "DIYPickView.h"
+#import "AreaPickview.h"
 
 @interface PersonalDataViewController ()<UITableViewDelegate, UITableViewDataSource, SaveButtonDelegate, SaveInfoDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, SelectSexDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -66,18 +67,27 @@
 }
 
 - (void)creatPickerView{
-    self.pickBgView = [[UIView alloc]initWithFrame:CGRectMake(0, SCREEN_HEIGHT-200-64, SCREEN_WIDTH, 200)];
-    [self.view addSubview:_pickBgView];
+//    self.pickBgView = [[UIView alloc]initWithFrame:CGRectMake(0, SCREEN_HEIGHT-200-64, SCREEN_WIDTH, 200)];
+//    [self.view addSubview:_pickBgView];
+//
+//    self.selectColorView = [DIYPickView xibView];
+//    self.selectColorView.size = _pickBgView.size;
+//    [_pickBgView addSubview: self.selectColorView];
+//    self.selectColorView.pickerView.delegate = self;
+//    self.selectColorView.pickerView.dataSource = self;
+//    [self.selectColorView.pickerView selectRow:0 inComponent:0 animated:YES];
+//
+//    [self.selectColorView.cancelButton addTarget:self action:@selector(buttonAction) forControlEvents:UIControlEventTouchUpInside];
+//    [self.selectColorView.confirmButton addTarget:self action:@selector(confirmAction) forControlEvents:UIControlEventTouchUpInside];
     
-    self.selectColorView = [DIYPickView xibView];
-    self.selectColorView.size = _pickBgView.size;
-    [_pickBgView addSubview: self.selectColorView];
-    self.selectColorView.pickerView.delegate = self;
-    self.selectColorView.pickerView.dataSource = self;
-    [self.selectColorView.pickerView selectRow:0 inComponent:0 animated:YES];
-    
-    [self.selectColorView.cancelButton addTarget:self action:@selector(buttonAction) forControlEvents:UIControlEventTouchUpInside];
-    [self.selectColorView.confirmButton addTarget:self action:@selector(confirmAction) forControlEvents:UIControlEventTouchUpInside];
+    AreaPickview *pickview = [[AreaPickview alloc]init];
+    [self.view addSubview:pickview];
+    pickview.block = ^(NSString *province, NSString *city, NSString *distric, NSString *town){
+        NSString *temp = [NSString stringWithFormat:@"%@%@%@%@",province, city, distric, town];
+ //       [self.click setTitle:temp forState:UIControlStateNormal];
+        //        [self.click setTitle:[NSString stringWithFormat:@"%@ %@ %@ %@",province, city, distric, town] forState:UIControlStateNormal];
+        
+    };
 }
 
 - (void)buttonAction{

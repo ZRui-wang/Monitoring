@@ -10,10 +10,10 @@
 
 @implementation CityModel
 -(void)setValue:(id)value forUndefinedKey:(NSString *)key{
-    if ([key isEqualToString:@"-code"]) {
+    if ([key isEqualToString:@"ID"]) {
         _code = value;
     }
-    if ([key isEqualToString:@"-name"]) {
+    if ([key isEqualToString:@"NAME"]) {
         _name = value;
     }
     if ([key isEqualToString:@"district"]) {

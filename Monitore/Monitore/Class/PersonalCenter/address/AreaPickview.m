@@ -64,7 +64,7 @@
 -(void)creatPickview{
     [currentWindow makeKeyAndVisible];
     bottomView = [UIView new];
-    bottomView.frame = CGRectMake(0, Height - 200, Width, 200);
+    bottomView.frame = CGRectMake(0, Height - 300, Width, 300);
     [currentWindow addSubview:bottomView];
     
     naviView = [UIView new];
@@ -79,7 +79,7 @@
     
     //cancel
     UIButton *cancelButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [cancelButton setTitle:@"cancel" forState:UIControlStateNormal];
+    [cancelButton setTitle:@"取消" forState:UIControlStateNormal];
     [cancelButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     cancelButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     cancelButton.frame = CGRectMake(10, 0, 100, 44);
@@ -89,7 +89,7 @@
     
     //confirm
     UIButton *confirmButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [confirmButton setTitle:@"confirm" forState:UIControlStateNormal];
+    [confirmButton setTitle:@"确定" forState:UIControlStateNormal];
     [confirmButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     confirmButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
     confirmButton.frame = CGRectMake(Width - 10 - 100, 0, 100, 44);
@@ -99,7 +99,7 @@
     //create pickview
     pickview = [UIPickerView new];
     pickview.backgroundColor = [UIColor whiteColor];
-    pickview.frame = CGRectMake(0, 44, Width, 200 - 44);
+    pickview.frame = CGRectMake(0, 44, Width, 300 - 44);
     pickview.dataSource = self;
     pickview.delegate =self;
     [bottomView addSubview:pickview];
@@ -134,8 +134,7 @@
     id result = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
     NSDictionary *dic = result;
     //    NSLog(@"%@", dic);
-    NSDictionary *temp = [dic objectForKey:@"root"];
-    NSArray *provinceArr = [temp objectForKey:@"province"];
+    NSArray *provinceArr = [dic objectForKey:@"province"];
     self.provinceArr = [NSMutableArray array];
     for (NSDictionary *dic in provinceArr) {
         ProvinceModel *model = [ProvinceModel setModelWithDic:dic];
@@ -191,7 +190,7 @@
 -(UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view{
     UILabel *lable=[[UILabel alloc]init];
     lable.textAlignment=NSTextAlignmentCenter;
-    lable.font=[UIFont systemFontOfSize:11];
+    lable.font=[UIFont systemFontOfSize:15];
     if (component == 0) {
         lable.text=[[self.provinceArr objectAtIndex:row] name];
     }

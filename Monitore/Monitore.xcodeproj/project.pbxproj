@@ -814,6 +814,7 @@
 		84A1D51F1F5EA7DF00BFAFC0 /* QNIP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNIP.h; sourceTree = "<group>"; };
 		84A1D5201F5EA7DF00BFAFC0 /* QNIP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNIP.m; sourceTree = "<group>"; };
 		84A1D5481F5EA95900BFAFC0 /* libresolv.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.9.tbd; path = usr/lib/libresolv.9.tbd; sourceTree = SDKROOT; };
+		84A31BC9202857E100142F8B /* Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		84A5E5561F8CAF8800D06556 /* categoryModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = categoryModel.h; sourceTree = "<group>"; };
 		84A5E5571F8CAF8800D06556 /* categoryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = categoryModel.m; sourceTree = "<group>"; };
 		84A5E5591F8CB99C00D06556 /* InfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
@@ -1921,6 +1922,7 @@
 				84B5CBE92024584F00A2E02F /* ProvinceModel.m */,
 				84B5CBEA2024584F00A2E02F /* Township.h */,
 				84B5CBEB2024584F00A2E02F /* Township.m */,
+				84A31BC9202857E100142F8B /* Header.h */,
 			);
 			path = address;
 			sourceTree = "<group>";
