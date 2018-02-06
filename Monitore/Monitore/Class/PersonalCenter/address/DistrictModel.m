@@ -11,10 +11,10 @@
 @implementation DistrictModel
 -(void)setValue:(id)value forUndefinedKey:(NSString *)key{
     if ([key isEqualToString:@"ID"]) {
-        _code = value;
+        _dcode = value;
     }
     if ([key isEqualToString:@"NAME"]) {
-        _name = value;
+        _dname = value;
     }
     if ([key isEqualToString:@"street"]) {
         _street_arr = value;

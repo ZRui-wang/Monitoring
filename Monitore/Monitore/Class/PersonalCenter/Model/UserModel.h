@@ -31,6 +31,8 @@
 @property (copy, nonatomic) NSString *type;
 @property (copy, nonatomic) NSString *company;
 @property (copy, nonatomic) NSString *countyId;
+@property (copy, nonatomic) NSString *proCityName;
+@property (copy, nonatomic) NSString *proCityId;
 
 
 @end

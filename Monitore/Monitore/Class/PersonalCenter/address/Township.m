@@ -11,10 +11,10 @@
 @implementation Township
 -(void)setValue:(id)value forUndefinedKey:(NSString *)key{
     if ([key isEqualToString:@"ID"]) {
-        _code = value;
+        _tcode = value;
     }
     if ([key isEqualToString:@"NAME"]) {
-        _name = value;
+        _tname = value;
     }
     
 }

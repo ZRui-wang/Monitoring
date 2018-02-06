@@ -109,12 +109,16 @@
     [currentWindow resignFirstResponder];
     [resignWindow makeKeyAndVisible];
     [self removeFromSuperview];
-    NSString *province = [[self.provinceArr objectAtIndex:[pickview selectedRowInComponent:0]] name];
-    NSString *city = [[self.CityArr objectAtIndex:[pickview selectedRowInComponent:1]] name];
-    NSString *district = [[self.DistrictsArr objectAtIndex:[pickview selectedRowInComponent:2]] name];
-    NSString *town = [[self.TownshipArr objectAtIndex:[pickview selectedRowInComponent:3]] name];
+    NSString *province = [[self.provinceArr objectAtIndex:[pickview selectedRowInComponent:0]] pname];
+    NSString *pid = [[self.provinceArr objectAtIndex:[pickview selectedRowInComponent:0]] pid];
+    NSString *city = [[self.CityArr objectAtIndex:[pickview selectedRowInComponent:1]] cname];
+    NSString *cid = [[self.CityArr objectAtIndex:[pickview selectedRowInComponent:1]] ccode];
+    NSString *district = [[self.DistrictsArr objectAtIndex:[pickview selectedRowInComponent:2]] dname];
+    NSString *did = [[self.DistrictsArr objectAtIndex:[pickview selectedRowInComponent:2]] dcode];
+    NSString *town = [[self.TownshipArr objectAtIndex:[pickview selectedRowInComponent:3]] tname];
+    NSString *tid = [[self.TownshipArr objectAtIndex:[pickview selectedRowInComponent:3]] tcode];
     
-    _block(province, city, district, town);
+    _block(province,pid, city,cid,  district,did, town,tid);
 }
 -(void)dismissPickview{
     [currentWindow resignKeyWindow];
@@ -190,22 +194,32 @@
 -(UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view{
     UILabel *lable=[[UILabel alloc]init];
     lable.textAlignment=NSTextAlignmentCenter;
-    lable.font=[UIFont systemFontOfSize:15];
+    lable.font=[UIFont systemFontOfSize:14];
     if (component == 0) {
-        lable.text=[[self.provinceArr objectAtIndex:row] name];
+        lable.text=[[self.provinceArr objectAtIndex:row] pname];
     }
    else if (component == 1) {
-        lable.text=[[self.CityArr objectAtIndex:row] name];
+        lable.text=[[self.CityArr objectAtIndex:row] cname];
     } else if (component == 2) {
-        lable.text=[[self.DistrictsArr objectAtIndex:row] name];
+        lable.text=[[self.DistrictsArr objectAtIndex:row] dname];
     } else {
-        lable.text=[[self.TownshipArr objectAtIndex:row] name];
+        lable.text=[[self.TownshipArr objectAtIndex:row] tname];
     }
     return lable;
 
 }
 -(CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component{
-    return Width / 4;
+    
+    if (component==0) {
+        return Width/4.0;
+    }else if (component == 1){
+        return Width/4.0*0.8;
+    }else if (component == 2){
+        return Width/4.0*0.8;
+    }else{
+        return Width / 4.0*1.4;
+    }
+    
 }
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
     if (component == 0) {
@@ -219,6 +233,28 @@
                 [self.CityArr addObject:city];
             }
 
+        }
+        
+        if (self.CityArr.count > 0) {
+            NSArray *tempArr = [_CityArr[0] district_arr]
+            ;
+            self.DistrictsArr = [NSMutableArray array];
+            for (NSDictionary *dic in tempArr) {
+                DistrictModel *disct = [DistrictModel setModelWithDic:dic];
+                [self.DistrictsArr addObject:disct];
+            }
+            
+        }
+        
+        if (self.DistrictsArr.count > 0) {
+            NSArray *tempArr = [_DistrictsArr[0] street_arr]
+            ;
+            self.TownshipArr = [NSMutableArray array];
+            for (NSDictionary *dic in tempArr) {
+                Township *town = [Township setModelWithDic:dic];
+                [self.TownshipArr addObject:town];
+            }
+            
         }
 
     }
@@ -260,24 +296,6 @@
 
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

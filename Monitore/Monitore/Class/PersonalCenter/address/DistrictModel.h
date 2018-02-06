@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface DistrictModel : NSObject
-@property(nonatomic, strong)NSString *code;
-@property(nonatomic, strong)NSString *name;
+@property(nonatomic, strong)NSString *dcode;
+@property(nonatomic, strong)NSString *dname;
 @property(nonatomic, strong)NSArray *street_arr;
 
 +(instancetype)setModelWithDic:(NSDictionary *)dic;

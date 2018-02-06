@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Header.h"
-typedef void(^BLOCK)(NSString *province, NSString *city, NSString *district, NSString *town);
+typedef void(^BLOCK)(NSString *province,NSString *pid,  NSString *city,NSString *cid,  NSString *district,NSString *did,  NSString *town, NSString *tid);
 
 
 @interface AreaPickview : UIView<UIPickerViewDataSource, UIPickerViewDelegate>{

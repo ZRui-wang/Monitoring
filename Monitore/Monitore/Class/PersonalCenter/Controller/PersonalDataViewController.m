@@ -27,7 +27,10 @@
 
 @end
 
-@implementation PersonalDataViewController
+@implementation PersonalDataViewController{
+    NSString *temp;
+    NSString *tempid;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -82,8 +85,16 @@
     
     AreaPickview *pickview = [[AreaPickview alloc]init];
     [self.view addSubview:pickview];
-    pickview.block = ^(NSString *province, NSString *city, NSString *distric, NSString *town){
-        NSString *temp = [NSString stringWithFormat:@"%@%@%@%@",province, city, distric, town];
+    pickview.block = ^(NSString *province,NSString *pid, NSString *city, NSString *cid, NSString *distric,NSString *did, NSString *town, NSString *tid){
+        temp = [NSString stringWithFormat:@"%@,%@,%@,%@",province, city, distric, town];
+        tempid = [NSString stringWithFormat:@"%@,%@,%@,%@",pid, cid, did, tid];
+        
+        NSIndexPath *index = [NSIndexPath indexPathForRow:0 inSection:1];
+        PersonalDataTableViewCell *cell = [self.tableView cellForRowAtIndexPath:index];
+        cell.textField.text = temp;
+        
+        self.model.proCityName = temp;
+        self.model.proCityId = tempid;
  //       [self.click setTitle:temp forState:UIControlStateNormal];
         //        [self.click setTitle:[NSString stringWithFormat:@"%@ %@ %@ %@",province, city, distric, town] forState:UIControlStateNormal];
         
@@ -196,7 +207,7 @@
 
 - (void)uploadInfo{
     // 查询条件
-    NSString *url = [NSString stringWithFormat:@"http://39.108.78.69:3002/mobile/updUserInfo?USER_ID=%@&NICKNAME=%@&IDCARD=%@&JOB=%@&ADDRESS=%@&SEX=%@&REC_MOBILE=%@&CITY_NAME=%@&COMPANY=%@&COUNTY_ID=%@&COUNTY_NAME=%@", self.model.usersId, self.model.nickname, self.model.idcard, self.model.job, self.model.address, self.model.sex, self.model.recMobile, self.model.cityName, self.model.company, self.model.countyId, self.model.countyName];
+    NSString *url = [NSString stringWithFormat:@"http://39.108.78.69:3002/mobile/updUserInfo?USER_ID=%@&NICKNAME=%@&IDCARD=%@&JOB=%@&ADDRESS=%@&SEX=%@&REC_MOBILE=%@&CITY_NAME=%@&COMPANY=%@&PRO_CITY_ID=%@&PRO_CITY_NAME=%@", self.model.usersId, self.model.nickname, self.model.idcard, self.model.job, self.model.address, self.model.sex, self.model.recMobile, self.model.cityName, self.model.company, self.model.proCityId, self.model.proCityName];
     url = [url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     // 基于AFN3.0+ 封装的HTPPSession句柄
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
@@ -332,7 +343,7 @@
         
         if (indexPath.section == 1) {
             if (indexPath.row == 0){
-                cell.titleValue = self.model.countyName;
+                cell.titleValue = self.model.proCityName;
                 cell.textField.userInteractionEnabled = NO;
             }
             else if (indexPath.row == 1){

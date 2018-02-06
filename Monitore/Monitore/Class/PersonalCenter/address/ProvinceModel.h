@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface ProvinceModel : NSObject
-@property(nonatomic, strong)NSString *code;
-@property(nonatomic, strong)NSString *name;
+@property(nonatomic, strong)NSString *pid;
+@property(nonatomic, strong)NSString *pname;
 @property(nonatomic, strong)NSArray *city_arr;
 
 +(instancetype)setModelWithDic:(NSDictionary *)dic;

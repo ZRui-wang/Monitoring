@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface Township : NSObject
-@property(nonatomic, strong)NSString *code;
-@property(nonatomic, strong)NSString *name;
+@property(nonatomic, strong)NSString *tcode;
+@property(nonatomic, strong)NSString *tname;
 
 
 +(instancetype)setModelWithDic:(NSDictionary *)dic;

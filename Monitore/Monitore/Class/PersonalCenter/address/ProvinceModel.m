@@ -11,10 +11,10 @@
 @implementation ProvinceModel
 -(void)setValue:(id)value forUndefinedKey:(NSString *)key{
     if ([key isEqualToString:@"ID"]) {
-        _code = value;
+        _pid = value;
     }
     if ([key isEqualToString:@"NAME"]) {
-        _name = value;
+        _pname = value;
     }
     if ([key isEqualToString:@"city"]) {
         _city_arr = value;
