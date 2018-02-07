@@ -48,7 +48,11 @@
 }
 
 - (void)getdata{
-    [[DLAPIClient sharedClient]POST:@"qfList" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+    
+    UserTitle *user = [Tools getPersonData];
+    NSString *url = [NSString stringWithFormat:@"qfList?USER_ID=%@", user.usersId];
+    
+    [[DLAPIClient sharedClient]POST:url parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         NSLog(@"%@", responseObject);
         for (NSDictionary *dic in responseObject[@"dataList"]) {
             VolunteerModel *model = [VolunteerModel modelWithDictionary:dic];
