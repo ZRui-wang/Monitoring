@@ -20,6 +20,10 @@
 @property (strong, nonatomic)BMKGeoCodeSearch *geocodesearch;
 
 @property (copy, nonatomic)AddressBlock addressBlock;
+
+@property (copy, nonatomic)NSString *lat;
+@property (copy, nonatomic)NSString *lon;
+
 @end
 
 @implementation Tools
@@ -57,6 +61,20 @@
 
     self.geocodesearch = [[BMKGeoCodeSearch alloc]init];
     self.geocodesearch.delegate = self;
+    
+//    //发起反向地理编码检索
+//    CLLocationCoordinate2D pt = (CLLocationCoordinate2D){39.915, 116.404};
+//    BMKReverseGeoCodeOption *reverseGeoCodeSearchOption = [[BMKReverseGeoCodeOption alloc]init];
+//    reverseGeoCodeSearchOption.reverseGeoPoint = pt;
+//    BOOL flag = [self.geocodesearch reverseGeoCode:reverseGeoCodeSearchOption];
+//    if(flag)
+//    {
+//        NSLog(@"反geo检索发送成功");
+//    }
+//    else
+//    {
+//        NSLog(@"反geo检索发送失败");
+//    }
 
     __block typeof(self) weak = self;
     weak.addressBlock = ^(NSString *address){
@@ -76,12 +94,14 @@
 //    //NSLog(@"didUpdateUserLocation lat %f,long %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
 //
     NSLog(@"didUpdateUserLocation lat %f,long %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
-    NSString *lat = [NSString stringWithFormat:@"%f",userLocation.location.coordinate.latitude];
-    NSString *lon = [NSString stringWithFormat:@"%f",userLocation.location.coordinate.longitude];
+    self.lat = [NSString stringWithFormat:@"%f",userLocation.location.coordinate.latitude];
+    self.lon = [NSString stringWithFormat:@"%f",userLocation.location.coordinate.longitude];
+}
 
+- (void)didStopLocatingUser{
     CLLocationCoordinate2D pt = (CLLocationCoordinate2D){0, 0};
-    if (lat!=nil && lon!=nil) {
-        pt = (CLLocationCoordinate2D){[lat floatValue], [lon floatValue]};
+    if (self.lat!=nil && self.lon!=nil) {
+        pt = (CLLocationCoordinate2D){[self.lat floatValue], [self.lon floatValue]};
     }
     BMKReverseGeoCodeOption *reverseGeocodeSearchOption = [[BMKReverseGeoCodeOption alloc]init];
     reverseGeocodeSearchOption.reverseGeoPoint = pt;
@@ -93,7 +113,8 @@
 
 // 实现反编码的delegate
 -(void) onGetReverseGeoCodeResult:(BMKGeoCodeSearch *)searcher result:(BMKReverseGeoCodeResult *)result errorCode:(BMKSearchErrorCode)error {
-    self.currentAddress = [NSString stringWithFormat:@"%@, %@, %@, %@", result.addressDetail.city, result.addressDetail.district, result.addressDetail.streetName, result.addressDetail.streetNumber];
+//    self.currentAddress = [NSString stringWithFormat:@"%@, %@, %@%@", result.addressDetail.city, result.addressDetail.district, result.addressDetail.streetName, result.addressDetail.streetNumber];
+    self.currentAddress = result.address;
     
     __block typeof(self) weak = self;
     weak.addressBlock(weak.currentAddress);
