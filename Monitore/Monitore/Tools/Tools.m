@@ -96,9 +96,7 @@
     NSLog(@"didUpdateUserLocation lat %f,long %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
     self.lat = [NSString stringWithFormat:@"%f",userLocation.location.coordinate.latitude];
     self.lon = [NSString stringWithFormat:@"%f",userLocation.location.coordinate.longitude];
-}
-
-- (void)didStopLocatingUser{
+    
     CLLocationCoordinate2D pt = (CLLocationCoordinate2D){0, 0};
     if (self.lat!=nil && self.lon!=nil) {
         pt = (CLLocationCoordinate2D){[self.lat floatValue], [self.lon floatValue]};
@@ -109,6 +107,20 @@
     
     BOOL flag = [_geocodesearch reverseGeoCode:reverseGeocodeSearchOption];
     if(flag) NSLog(@"反geo检索发送成功");
+    
+}
+
+- (void)didStopLocatingUser{
+//    CLLocationCoordinate2D pt = (CLLocationCoordinate2D){0, 0};
+//    if (self.lat!=nil && self.lon!=nil) {
+//        pt = (CLLocationCoordinate2D){[self.lat floatValue], [self.lon floatValue]};
+//    }
+//    BMKReverseGeoCodeOption *reverseGeocodeSearchOption = [[BMKReverseGeoCodeOption alloc]init];
+//    reverseGeocodeSearchOption.reverseGeoPoint = pt;
+//
+//
+//    BOOL flag = [_geocodesearch reverseGeoCode:reverseGeocodeSearchOption];
+//    if(flag) NSLog(@"反geo检索发送成功");
 }
 
 // 实现反编码的delegate
