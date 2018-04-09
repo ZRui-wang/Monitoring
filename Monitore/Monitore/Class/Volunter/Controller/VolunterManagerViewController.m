@@ -39,7 +39,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self leftCustomBarButton];
-    self.title = @"志愿者管理";
+    self.title = @"身边志愿者";
     
     self.listArray = [NSMutableArray array];
 

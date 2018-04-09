@@ -46,10 +46,10 @@ static NSString *HomeCollectionViewCellId = @"HomeCollectionViewCell";
 //    self.collectionView.contentInset=UIEdgeInsetsMake(-64, 0, 0, 0);//上移64
     [self.navigationItem setHidesBackButton:YES];
     
-    self.title = @"群防群治平安志愿者协会";
+    self.title = @"共建 共治 共享";
     self.bannerAry = [NSMutableArray array];
     
-    NSArray *temptAry = @[@"邻里守望", @"群防任务", @"在线监督", @"义务巡防", @"防骗培训", @"维稳黑名单", @"志愿者管理", @"个人中心"];
+    NSArray *temptAry = @[@"邻里守望", @"志愿者活动", @"自媒体监督", @"义务巡防", @"志愿者学习", @"维稳黑名单", @"身边志愿者", @"个人中心"];
     self.titleAry = temptAry;
 
     [self creatCollectionView];

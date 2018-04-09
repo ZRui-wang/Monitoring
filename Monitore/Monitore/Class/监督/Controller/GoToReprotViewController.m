@@ -51,7 +51,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self leftCustomBarButton];
-    self.title = @"在线监督";
+    self.title = @"自媒体监督";
     self.classAry = [NSMutableArray array];
     self.model = [[ReportModel alloc]init];
     

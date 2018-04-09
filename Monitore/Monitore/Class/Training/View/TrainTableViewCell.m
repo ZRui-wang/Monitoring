@@ -25,7 +25,7 @@
 
 - (void)showDetailWithData:(TrainModel *)model{
     
-    [self.img sd_setImageWithURL:[NSURL URLWithString:model.icon] placeholderImage:[UIImage imageNamed:@"防骗培训"]];
+    [self.img sd_setImageWithURL:[NSURL URLWithString:model.icon] placeholderImage:[UIImage imageNamed:@"志愿者学习"]];
     self.title.text = model.title;
     self.time.text = model.createtime;
     

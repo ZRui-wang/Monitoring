@@ -35,7 +35,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"群防任务";
+    self.title = @"志愿者活动";
     [self leftCustomBarButton];
     [self rightCustomBarButton];
     
