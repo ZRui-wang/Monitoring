@@ -41,6 +41,10 @@
     self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMore)];
         
     self.userTitle = [Tools getPersonData];
+    
+    pageIndex = 1;
+    [self getPatrolHistory];
+    
 }
 
 - (void)refresh{
@@ -75,10 +79,6 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    
-    [self.patrolListAry removeAllObjects];
-    pageIndex = 1;
-    [self getPatrolHistory];
 }
 
 - (void)getPatrolHistory{

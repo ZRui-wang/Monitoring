@@ -38,6 +38,17 @@
 		8429366B20049C2200060D49 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 8429366320049C2200060D49 /* AFURLRequestSerialization.m */; };
 		8429366C20049C2200060D49 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 8429366520049C2200060D49 /* AFURLResponseSerialization.m */; };
 		8429366D20049C2200060D49 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8429366720049C2200060D49 /* AFURLSessionManager.m */; };
+		84381005207C53DF001BAE50 /* MLeakedObjectProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 84380FEF207C53DF001BAE50 /* MLeakedObjectProxy.m */; };
+		84381006207C53DF001BAE50 /* MLeaksMessenger.m in Sources */ = {isa = PBXBuildFile; fileRef = 84380FF2207C53DF001BAE50 /* MLeaksMessenger.m */; };
+		84381007207C53DF001BAE50 /* NSObject+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = 84380FF4207C53DF001BAE50 /* NSObject+MemoryLeak.m */; };
+		84381008207C53DF001BAE50 /* UIApplication+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = 84380FF6207C53DF001BAE50 /* UIApplication+MemoryLeak.m */; };
+		84381009207C53DF001BAE50 /* UINavigationController+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = 84380FF8207C53DF001BAE50 /* UINavigationController+MemoryLeak.m */; };
+		8438100A207C53DF001BAE50 /* UIPageViewController+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = 84380FFA207C53DF001BAE50 /* UIPageViewController+MemoryLeak.m */; };
+		8438100B207C53DF001BAE50 /* UISplitViewController+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = 84380FFC207C53DF001BAE50 /* UISplitViewController+MemoryLeak.m */; };
+		8438100C207C53DF001BAE50 /* UITabBarController+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = 84380FFE207C53DF001BAE50 /* UITabBarController+MemoryLeak.m */; };
+		8438100D207C53DF001BAE50 /* UITouch+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = 84381000207C53DF001BAE50 /* UITouch+MemoryLeak.m */; };
+		8438100E207C53DF001BAE50 /* UIView+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = 84381002207C53DF001BAE50 /* UIView+MemoryLeak.m */; };
+		8438100F207C53DF001BAE50 /* UIViewController+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = 84381004207C53DF001BAE50 /* UIViewController+MemoryLeak.m */; };
 		84454A6C1FCD43EE0073A01E /* HistoryPatrolModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84454A6A1FCD43EE0073A01E /* HistoryPatrolModel.m */; };
 		845C67011F9869950065C75F /* AwardHistoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 845C66FF1F9869950065C75F /* AwardHistoryTableViewCell.m */; };
 		845C67021F9869950065C75F /* AwardHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845C67001F9869950065C75F /* AwardHistoryTableViewCell.xib */; };
@@ -480,6 +491,29 @@
 		8429366520049C2200060D49 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		8429366620049C2200060D49 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		8429366720049C2200060D49 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		84380FEE207C53DF001BAE50 /* MLeakedObjectProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLeakedObjectProxy.h; sourceTree = "<group>"; };
+		84380FEF207C53DF001BAE50 /* MLeakedObjectProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLeakedObjectProxy.m; sourceTree = "<group>"; };
+		84380FF0207C53DF001BAE50 /* MLeaksFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLeaksFinder.h; sourceTree = "<group>"; };
+		84380FF1207C53DF001BAE50 /* MLeaksMessenger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLeaksMessenger.h; sourceTree = "<group>"; };
+		84380FF2207C53DF001BAE50 /* MLeaksMessenger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLeaksMessenger.m; sourceTree = "<group>"; };
+		84380FF3207C53DF001BAE50 /* NSObject+MemoryLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MemoryLeak.h"; sourceTree = "<group>"; };
+		84380FF4207C53DF001BAE50 /* NSObject+MemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MemoryLeak.m"; sourceTree = "<group>"; };
+		84380FF5207C53DF001BAE50 /* UIApplication+MemoryLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+MemoryLeak.h"; sourceTree = "<group>"; };
+		84380FF6207C53DF001BAE50 /* UIApplication+MemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+MemoryLeak.m"; sourceTree = "<group>"; };
+		84380FF7207C53DF001BAE50 /* UINavigationController+MemoryLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+MemoryLeak.h"; sourceTree = "<group>"; };
+		84380FF8207C53DF001BAE50 /* UINavigationController+MemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+MemoryLeak.m"; sourceTree = "<group>"; };
+		84380FF9207C53DF001BAE50 /* UIPageViewController+MemoryLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIPageViewController+MemoryLeak.h"; sourceTree = "<group>"; };
+		84380FFA207C53DF001BAE50 /* UIPageViewController+MemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIPageViewController+MemoryLeak.m"; sourceTree = "<group>"; };
+		84380FFB207C53DF001BAE50 /* UISplitViewController+MemoryLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISplitViewController+MemoryLeak.h"; sourceTree = "<group>"; };
+		84380FFC207C53DF001BAE50 /* UISplitViewController+MemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISplitViewController+MemoryLeak.m"; sourceTree = "<group>"; };
+		84380FFD207C53DF001BAE50 /* UITabBarController+MemoryLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarController+MemoryLeak.h"; sourceTree = "<group>"; };
+		84380FFE207C53DF001BAE50 /* UITabBarController+MemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarController+MemoryLeak.m"; sourceTree = "<group>"; };
+		84380FFF207C53DF001BAE50 /* UITouch+MemoryLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITouch+MemoryLeak.h"; sourceTree = "<group>"; };
+		84381000207C53DF001BAE50 /* UITouch+MemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITouch+MemoryLeak.m"; sourceTree = "<group>"; };
+		84381001207C53DF001BAE50 /* UIView+MemoryLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MemoryLeak.h"; sourceTree = "<group>"; };
+		84381002207C53DF001BAE50 /* UIView+MemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MemoryLeak.m"; sourceTree = "<group>"; };
+		84381003207C53DF001BAE50 /* UIViewController+MemoryLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MemoryLeak.h"; sourceTree = "<group>"; };
+		84381004207C53DF001BAE50 /* UIViewController+MemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MemoryLeak.m"; sourceTree = "<group>"; };
 		84454A6A1FCD43EE0073A01E /* HistoryPatrolModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HistoryPatrolModel.m; sourceTree = "<group>"; };
 		84454A6B1FCD43EE0073A01E /* HistoryPatrolModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HistoryPatrolModel.h; sourceTree = "<group>"; };
 		845C66FE1F9869950065C75F /* AwardHistoryTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AwardHistoryTableViewCell.h; sourceTree = "<group>"; };
@@ -1212,6 +1246,36 @@
 				8429366720049C2200060D49 /* AFURLSessionManager.m */,
 			);
 			path = AFNetworking;
+			sourceTree = "<group>";
+		};
+		84380FED207C53DF001BAE50 /* MLeaksFinder */ = {
+			isa = PBXGroup;
+			children = (
+				84380FEE207C53DF001BAE50 /* MLeakedObjectProxy.h */,
+				84380FEF207C53DF001BAE50 /* MLeakedObjectProxy.m */,
+				84380FF0207C53DF001BAE50 /* MLeaksFinder.h */,
+				84380FF1207C53DF001BAE50 /* MLeaksMessenger.h */,
+				84380FF2207C53DF001BAE50 /* MLeaksMessenger.m */,
+				84380FF3207C53DF001BAE50 /* NSObject+MemoryLeak.h */,
+				84380FF4207C53DF001BAE50 /* NSObject+MemoryLeak.m */,
+				84380FF5207C53DF001BAE50 /* UIApplication+MemoryLeak.h */,
+				84380FF6207C53DF001BAE50 /* UIApplication+MemoryLeak.m */,
+				84380FF7207C53DF001BAE50 /* UINavigationController+MemoryLeak.h */,
+				84380FF8207C53DF001BAE50 /* UINavigationController+MemoryLeak.m */,
+				84380FF9207C53DF001BAE50 /* UIPageViewController+MemoryLeak.h */,
+				84380FFA207C53DF001BAE50 /* UIPageViewController+MemoryLeak.m */,
+				84380FFB207C53DF001BAE50 /* UISplitViewController+MemoryLeak.h */,
+				84380FFC207C53DF001BAE50 /* UISplitViewController+MemoryLeak.m */,
+				84380FFD207C53DF001BAE50 /* UITabBarController+MemoryLeak.h */,
+				84380FFE207C53DF001BAE50 /* UITabBarController+MemoryLeak.m */,
+				84380FFF207C53DF001BAE50 /* UITouch+MemoryLeak.h */,
+				84381000207C53DF001BAE50 /* UITouch+MemoryLeak.m */,
+				84381001207C53DF001BAE50 /* UIView+MemoryLeak.h */,
+				84381002207C53DF001BAE50 /* UIView+MemoryLeak.m */,
+				84381003207C53DF001BAE50 /* UIViewController+MemoryLeak.h */,
+				84381004207C53DF001BAE50 /* UIViewController+MemoryLeak.m */,
+			);
+			path = MLeaksFinder;
 			sourceTree = "<group>";
 		};
 		8473C5C81F32B9BC009F4B42 /* Frameworks */ = {
@@ -2230,6 +2294,7 @@
 		84F927A11F25D51E00B76D79 /* Vender */ = {
 			isa = PBXGroup;
 			children = (
+				84380FED207C53DF001BAE50 /* MLeaksFinder */,
 				8429365A20049C2200060D49 /* AFNetworking */,
 				849F4EF21FA6EEE600AAFD53 /* MJRefresh */,
 				84A5E6561F8DE15E00D06556 /* QiniuSDK */,
@@ -2971,6 +3036,7 @@
 				847ED1F11F3421F500BC710E /* YYTextParser.m in Sources */,
 				84F929241F29652B00B76D79 /* PersonalPhotoTableViewCell.m in Sources */,
 				84A1D52D1F5EA7DF00BFAFC0 /* QNResolvUtil.m in Sources */,
+				84381008207C53DF001BAE50 /* UIApplication+MemoryLeak.m in Sources */,
 				84B7B57F1F45644100C3C708 /* UIColor+get_FFFFFFcolor.m in Sources */,
 				84F7D43C1FDE67B80033201C /* Point.m in Sources */,
 				78657BC41F41DA6F00DC2AFE /* TaskTableViewCell.m in Sources */,
@@ -3021,6 +3087,7 @@
 				84B7B5C11F46B2ED00C3C708 /* SDWebImageDecoder.m in Sources */,
 				847ED2011F3421F500BC710E /* YYTransaction.m in Sources */,
 				847ED1DC1F3421F500BC710E /* YYImageCache.m in Sources */,
+				8438100F207C53DF001BAE50 /* UIViewController+MemoryLeak.m in Sources */,
 				84B5CBF02024584F00A2E02F /* ProvinceModel.m in Sources */,
 				845C67011F9869950065C75F /* AwardHistoryTableViewCell.m in Sources */,
 				84B7B5831F45644100C3C708 /* MYPresentedController.m in Sources */,
@@ -3089,6 +3156,7 @@
 				8429366C20049C2200060D49 /* AFURLResponseSerialization.m in Sources */,
 				840B2EBB1FBECF3D0071FCF3 /* AddressModel.m in Sources */,
 				84B7B60B1F46F39600C3C708 /* IQUIView+Hierarchy.m in Sources */,
+				84381007207C53DF001BAE50 /* NSObject+MemoryLeak.m in Sources */,
 				847ED1CB1F3421F500BC710E /* UIScreen+YYAdd.m in Sources */,
 				84B7B5BB1F46B2ED00C3C708 /* MKAnnotationView+WebCache.m in Sources */,
 				84A5E6991F8DE15E00D06556 /* QNUserAgent.m in Sources */,
@@ -3103,6 +3171,7 @@
 				847ED1B91F3421F500BC710E /* NSNumber+YYAdd.m in Sources */,
 				84A1D5251F5EA7DF00BFAFC0 /* QNLruCache.m in Sources */,
 				8497E83C1F6624E5001ABBEA /* DLAPIClient.m in Sources */,
+				8438100B207C53DF001BAE50 /* UISplitViewController+MemoryLeak.m in Sources */,
 				84F929191F29652B00B76D79 /* PatrolHistoryViewController.m in Sources */,
 				84F929601F29E41100B76D79 /* PullTableViewCell.m in Sources */,
 				788297621F3FDA8A0062EA65 /* UploadPhotoView.m in Sources */,
@@ -3117,6 +3186,7 @@
 				847ED1FA1F3421F500BC710E /* YYGestureRecognizer.m in Sources */,
 				8497E8571F662735001ABBEA /* UIImageView+AFNetworking.m in Sources */,
 				84A5E6981F8DE15E00D06556 /* QNSessionManager.m in Sources */,
+				8438100C207C53DF001BAE50 /* UITabBarController+MemoryLeak.m in Sources */,
 				847ED1F31F3421F500BC710E /* YYTextRunDelegate.m in Sources */,
 				84A1D5221F5EA7DF00BFAFC0 /* QNIpModel.m in Sources */,
 				84A5E69F1F8DE15E00D06556 /* QNUploadOption.m in Sources */,
@@ -3135,6 +3205,7 @@
 				84A5E5581F8CAF8800D06556 /* categoryModel.m in Sources */,
 				84F9295B1F29E24900B76D79 /* AnnouncementTableViewCell.m in Sources */,
 				84A1D52F1F5EA7DF00BFAFC0 /* QNRefresher.m in Sources */,
+				8438100E207C53DF001BAE50 /* UIView+MemoryLeak.m in Sources */,
 				84B7B5811F45644100C3C708 /* MYPresentAnimationManager.m in Sources */,
 				84B7B5D51F46B39300C3C708 /* UIViewController+Dialog.m in Sources */,
 				847ED1E51F3421F500BC710E /* YYTextEffectWindow.m in Sources */,
@@ -3155,6 +3226,7 @@
 				785145111F98EF3E006B2922 /* HistoryModel.m in Sources */,
 				84A5E6971F8DE15E00D06556 /* QNResponseInfo.m in Sources */,
 				8497E8591F662735001ABBEA /* UIRefreshControl+AFNetworking.m in Sources */,
+				84381009207C53DF001BAE50 /* UINavigationController+MemoryLeak.m in Sources */,
 				847ED1F41F3421F500BC710E /* YYTextUtilities.m in Sources */,
 				847ED1DD1F3421F500BC710E /* YYImageCoder.m in Sources */,
 				84B7B5D21F46B2ED00C3C708 /* SVRadialGradientLayer.m in Sources */,
@@ -3189,6 +3261,7 @@
 				847ED1E71F3421F500BC710E /* YYTextKeyboardManager.m in Sources */,
 				84B7B5C41F46B2ED00C3C708 /* SDWebImageManager.m in Sources */,
 				84D70AD31F78993E008575F7 /* TrainModel.m in Sources */,
+				84381006207C53DF001BAE50 /* MLeaksMessenger.m in Sources */,
 				84B7B5CA1F46B2ED00C3C708 /* UIImageView+HighlightedWebCache.m in Sources */,
 				84B7B5801F45644100C3C708 /* MYColorBackView.m in Sources */,
 				84D70AD61F789C56008575F7 /* BlackModel.m in Sources */,
@@ -3196,6 +3269,7 @@
 				84A1D5301F5EA7DF00BFAFC0 /* QNDes.m in Sources */,
 				84D70AE11F79FF8D008575F7 /* TaskDetailViewController.m in Sources */,
 				847ED1B41F3421F500BC710E /* NSData+YYAdd.m in Sources */,
+				8438100A207C53DF001BAE50 /* UIPageViewController+MemoryLeak.m in Sources */,
 				846CEAA71F3F05AE00D6BF9D /* ReportAddressTableViewCell.m in Sources */,
 				847ED1E81F3421F500BC710E /* YYTextLayout.m in Sources */,
 				84D70ADA1F78C661008575F7 /* SexTableViewCell.m in Sources */,
@@ -3208,6 +3282,7 @@
 				84B7B5CE1F46B2ED00C3C708 /* SVIndefiniteAnimatedView.m in Sources */,
 				847ED1C81F3421F500BC710E /* UIFont+YYAdd.m in Sources */,
 				847ED1FC1F3421F500BC710E /* YYReachability.m in Sources */,
+				84381005207C53DF001BAE50 /* MLeakedObjectProxy.m in Sources */,
 				84B7B5BE1F46B2ED00C3C708 /* SDImageCache.m in Sources */,
 				848EF7941F58FC27007D65CF /* Tools.m in Sources */,
 				84A1D5231F5EA7DF00BFAFC0 /* QNDnsManager.m in Sources */,
@@ -3226,6 +3301,7 @@
 				84F9290D1F29652B00B76D79 /* HomeCollectionViewCell.m in Sources */,
 				847ED1D21F3421F500BC710E /* YYKVStorage.m in Sources */,
 				84A5E69C1F8DE15E00D06556 /* QNFormUpload.m in Sources */,
+				8438100D207C53DF001BAE50 /* UITouch+MemoryLeak.m in Sources */,
 				84B7B60D1F46F39600C3C708 /* IQUIWindow+Hierarchy.m in Sources */,
 				847ED1C31F3421F500BC710E /* UIBarButtonItem+YYAdd.m in Sources */,
 				8497E8541F662735001ABBEA /* AFNetworkActivityIndicatorManager.m in Sources */,

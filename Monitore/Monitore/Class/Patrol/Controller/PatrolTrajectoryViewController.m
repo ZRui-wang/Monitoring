@@ -67,6 +67,7 @@
 - (id)initWithAnnotation:(id<BMKAnnotation>)annotation reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithAnnotation:annotation reuseIdentifier:reuseIdentifier];
     if (self) {
+        
         [self setBounds:CGRectMake(0.f, 0.f, 22.f, 22.f)];
         _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.f, 0.f, 22.f, 22.f)];
         _imageView.image = [UIImage imageNamed:@"sportarrow.png"];
@@ -85,10 +86,11 @@
     NSMutableArray *sportNodes;//轨迹点
     NSInteger sportNodeNum;//轨迹点数
     NSInteger currentIndex;//当前结点
+    BOOL isRuning;
 }
 
 - (void)dealloc{
-    
+    NSLog(@"销毁啦");
 }
 
 - (void)viewDidLoad {
@@ -136,6 +138,9 @@
     [self.mapView viewWillDisappear];
     self.mapView.delegate = nil;
     
+    [sportAnnotationView.layer removeAllAnimations];
+    [[sportAnnotationView.subviews firstObject].layer removeAllAnimations];
+    
     [[BTKAction sharedInstance] stopGather:self];
     [[BTKAction sharedInstance] stopService:self];
 }
@@ -161,6 +166,8 @@
     BTKQueryHistoryTrackRequest *request = [[BTKQueryHistoryTrackRequest alloc] initWithEntityName:userTitle.mobile startTime:startTime endTime:endTime isProcessed:TRUE processOption:nil supplementMode:BTK_TRACK_PROCESS_OPTION_SUPPLEMENT_MODE_WALKING outputCoordType:BTK_COORDTYPE_BD09LL sortType:BTK_TRACK_SORT_TYPE_DESC pageIndex:1 pageSize:5000 serviceID:155052 tag:13];
     // 发起查询请求
     [[BTKTrackAction sharedInstance] queryHistoryTrackWith:request delegate:self];
+    
+    currentIndex = 0;
 }
 
 - (NSString *)timeFormatted:(NSInteger)totalSeconds
@@ -246,7 +253,7 @@
     //初始化轨迹点
     [self initSportNodes];
     
-    [self start];    
+    [self start];
 }
 
 //开始
@@ -258,17 +265,21 @@
         BMKSportNode *node = sportNodes[i];
         paths[i] = node.coordinate;
     }
+
+    // 定位圆圈
+    sportAnnotation = [[BMKPointAnnotation alloc]init];
+    sportAnnotation.coordinate = paths[0];
+    
+    dispatch_async_on_main_queue(^{
+        
+        [self.mapView addAnnotation:sportAnnotation];
+    });
+
+    currentIndex = 0;
     
     // 轨迹线
     pathPloygon = [BMKPolygon polygonWithCoordinates:paths count:sportNodes.count];
     [self.mapView addOverlay:pathPloygon];
-    
-    // 定位圆圈
-    sportAnnotation = [[BMKPointAnnotation alloc]init];
-    sportAnnotation.coordinate = paths[0];
-    sportAnnotation.title = @"test";
-    [_mapView addAnnotation:sportAnnotation];
-    currentIndex = 0;
 }
 
 //runing
@@ -277,28 +288,34 @@
         [self showErrorMessage:@"没有查到轨迹"];
         return;
     }
-    BMKSportNode *node = [sportNodes objectAtIndex:currentIndex % sportNodeNum];
-    sportAnnotationView.imageView.transform = CGAffineTransformMakeRotation(node.angle);
-    
+
     __weak typeof(self) weakSelf = self;
-//    [UIView animateWithDuration:1 animations:^{
-//        currentIndex++;
-//        BMKSportNode *node = [sportNodes objectAtIndex:currentIndex % sportNodeNum];
-//        sportAnnotation.coordinate = node.coordinate;
-//    } completion:^(BOOL finished) {
-//        [weakSelf running];
-//
+
+    [UIView animateWithDuration:1 animations:^{
+        currentIndex++;
+
+        dispatch_async_on_main_queue(^{
+            BMKSportNode *node = [sportNodes objectAtIndex:currentIndex % sportNodeNum];
+            sportAnnotation.coordinate = node.coordinate;
+            
+            
+            //        BMKSportNode *node = [sportNodes objectAtIndex:currentIndex % sportNodeNum];
+            sportAnnotationView.imageView.transform = CGAffineTransformMakeRotation(node.angle);
+        });
+    } completion:^(BOOL finished) {
+        [weakSelf running];
+
 //        if (currentIndex>=sportNodeNum) {
 //            [weakSelf.view.layer removeAllAnimations];
 //        }
-//    }];
+    }];
 
 }
 
 #pragma mark - BMKMapViewDelegate
 
 - (void)mapViewDidFinishLoading:(BMKMapView *)mapView {
-//po    [self start];
+    
 }
 
 //根据overlay生成对应的View
@@ -319,16 +336,23 @@
 - (BMKAnnotationView *)mapView:(BMKMapView *)mapView viewForAnnotation:(id <BMKAnnotation>)annotation
 {
     if (sportAnnotationView == nil) {
-        sportAnnotationView = [[SportAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"sportsAnnotation"];
-        sportAnnotationView.draggable = NO;
-        BMKSportNode *node = [sportNodes firstObject];
-        sportAnnotationView.imageView.transform = CGAffineTransformMakeRotation(node.angle);
+        
+        dispatch_async_on_main_queue(^{
+            sportAnnotationView = [[SportAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"sportsAnnotation"];
+            sportAnnotationView.draggable = NO;
+            BMKSportNode *node = [sportNodes firstObject];
+            sportAnnotationView.imageView.transform = CGAffineTransformMakeRotation(node.angle);
+        });
     }
     return sportAnnotationView;
 }
 
 - (void)mapView:(BMKMapView *)mapView didAddAnnotationViews:(NSArray *)views {
-    [self running];
+    if (!isRuning) {
+        isRuning = YES;
+        [self running];
+ //       [self start];
+    }    
 }
 
 
