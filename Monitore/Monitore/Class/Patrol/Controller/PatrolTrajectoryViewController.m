@@ -216,7 +216,7 @@
     dispatch_async_on_main_queue(^{
         self.patrolLength.text = [NSString stringWithFormat:@"巡逻距离：%.2f米", [self.model.distance floatValue]];
     });
-
+    
     sportNodes = [[NSMutableArray alloc] init];
     if (!self.model.points.count) {
         [self showErrorMessage:@"没有查到轨迹"];
@@ -243,21 +243,24 @@
     
     self.patrolData = response;
     
-    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingAllowFragments error:nil];
+    dispatch_async(dispatch_get_main_queue(), ^{
+
+    });
     
+    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingAllowFragments error:nil];
+    self.model = [PatrolHistoryModel modelWithDictionary:dict];
     if ([[dict objectForKey:@"status"] intValue]==2) {
         return;
     }
     
-    self.model = [PatrolHistoryModel modelWithDictionary:dict];
-    
     self.patrolLength.text = [NSString stringWithFormat:@"巡逻距离：%.2f米", [self.model.distance floatValue]];
+    [self.view layoutSubviews];
     
     self.mapView.centerCoordinate = CLLocationCoordinate2DMake([self.model.start_point.latitude doubleValue], [self.model.start_point.longitude doubleValue]);
     
     //初始化轨迹点
     [self initSportNodes];
-    
+
     [self start];
 }
 
