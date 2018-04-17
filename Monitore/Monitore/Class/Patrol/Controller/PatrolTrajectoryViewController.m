@@ -212,6 +212,11 @@
 
 //初始化轨迹点
 - (void)initSportNodes {
+    
+    dispatch_async_on_main_queue(^{
+        self.patrolLength.text = [NSString stringWithFormat:@"巡逻距离：%.2f米", [self.model.distance floatValue]];
+    });
+
     sportNodes = [[NSMutableArray alloc] init];
     if (!self.model.points.count) {
         [self showErrorMessage:@"没有查到轨迹"];
@@ -288,6 +293,8 @@
         [self showErrorMessage:@"没有查到轨迹"];
         return;
     }
+    
+    self.patrolLength.text = [NSString stringWithFormat:@"巡逻距离：%.2f米", [self.model.distance floatValue]];
 
     __weak typeof(self) weakSelf = self;
 
@@ -297,7 +304,6 @@
         dispatch_async_on_main_queue(^{
             BMKSportNode *node = [sportNodes objectAtIndex:currentIndex % sportNodeNum];
             sportAnnotation.coordinate = node.coordinate;
-            
             
             //        BMKSportNode *node = [sportNodes objectAtIndex:currentIndex % sportNodeNum];
             sportAnnotationView.imageView.transform = CGAffineTransformMakeRotation(node.angle);

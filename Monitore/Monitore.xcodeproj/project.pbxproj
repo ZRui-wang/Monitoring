@@ -49,6 +49,7 @@
 		8438100D207C53DF001BAE50 /* UITouch+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = 84381000207C53DF001BAE50 /* UITouch+MemoryLeak.m */; };
 		8438100E207C53DF001BAE50 /* UIView+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = 84381002207C53DF001BAE50 /* UIView+MemoryLeak.m */; };
 		8438100F207C53DF001BAE50 /* UIViewController+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = 84381004207C53DF001BAE50 /* UIViewController+MemoryLeak.m */; };
+		84381012207DA7E3001BAE50 /* testVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 84381011207DA7E3001BAE50 /* testVc.m */; };
 		84454A6C1FCD43EE0073A01E /* HistoryPatrolModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84454A6A1FCD43EE0073A01E /* HistoryPatrolModel.m */; };
 		845C67011F9869950065C75F /* AwardHistoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 845C66FF1F9869950065C75F /* AwardHistoryTableViewCell.m */; };
 		845C67021F9869950065C75F /* AwardHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845C67001F9869950065C75F /* AwardHistoryTableViewCell.xib */; };
@@ -514,6 +515,8 @@
 		84381002207C53DF001BAE50 /* UIView+MemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MemoryLeak.m"; sourceTree = "<group>"; };
 		84381003207C53DF001BAE50 /* UIViewController+MemoryLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MemoryLeak.h"; sourceTree = "<group>"; };
 		84381004207C53DF001BAE50 /* UIViewController+MemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MemoryLeak.m"; sourceTree = "<group>"; };
+		84381010207DA7E3001BAE50 /* testVc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testVc.h; sourceTree = "<group>"; };
+		84381011207DA7E3001BAE50 /* testVc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = testVc.m; sourceTree = "<group>"; };
 		84454A6A1FCD43EE0073A01E /* HistoryPatrolModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HistoryPatrolModel.m; sourceTree = "<group>"; };
 		84454A6B1FCD43EE0073A01E /* HistoryPatrolModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HistoryPatrolModel.h; sourceTree = "<group>"; };
 		845C66FE1F9869950065C75F /* AwardHistoryTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AwardHistoryTableViewCell.h; sourceTree = "<group>"; };
@@ -2484,6 +2487,8 @@
 			children = (
 				84F928C81F29652B00B76D79 /* HomeViewController.h */,
 				84F928C91F29652B00B76D79 /* HomeViewController.m */,
+				84381010207DA7E3001BAE50 /* testVc.h */,
+				84381011207DA7E3001BAE50 /* testVc.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -3020,6 +3025,7 @@
 				849F4F2E1FA70F8200AAFD53 /* MJRefreshStateHeader.m in Sources */,
 				849F4F2F1FA70F8200AAFD53 /* MJRefreshConst.m in Sources */,
 				849F4F301FA70F8200AAFD53 /* NSBundle+MJRefresh.m in Sources */,
+				84381012207DA7E3001BAE50 /* testVc.m in Sources */,
 				849F4F311FA70F8200AAFD53 /* UIScrollView+MJExtension.m in Sources */,
 				849F4F321FA70F8200AAFD53 /* UIScrollView+MJRefresh.m in Sources */,
 				849F4F331FA70F8200AAFD53 /* UIView+MJExtension.m in Sources */,
